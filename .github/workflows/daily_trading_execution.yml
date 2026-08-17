@@ -1,0 +1,35 @@
+name: Daily Trading Execution
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Execute via python_sim interface
+        run: |
+          python -c "
+from force_engine.engine import ForceEngine
+from trading_engine.engine import TradingEngine
+from trading_engine.policies import PolicyConfig, PolicyMode
+from trading_interface.python_sim.interface import PythonSimInterface
+fe = ForceEngine()
+suggestions = fe.suggest()
+te = TradingEngine(policy=PolicyConfig(mode=PolicyMode.REQUIRE_APPROVAL))
+proposals = te.propose_from_forces(suggestions)
+iface = PythonSimInterface()
+print('Interface:', iface.name, 'Cash:', iface.get_cash(), 'Proposals:', len(proposals))
+for p in proposals:
+    te.apply_policy(p)
+    print(p.to_dict())
+"
