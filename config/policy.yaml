@@ -1,0 +1,5 @@
+# Default policy for the pure Python simulator
+mode: require_approval   # full_autonomy | require_approval | timed_window
+window_minutes: 60
+timeout_go_ahead: false  # after timeout: true = execute, false = cancel
+human_channel: null      # later: email / Grok notification / etc.
