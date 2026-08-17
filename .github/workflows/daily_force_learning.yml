@@ -8,11 +8,10 @@ on:
 jobs:
   learn:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -29,7 +28,4 @@ jobs:
       - name: Feed into force-engine
         env:
           PYTHONPATH: ${{ github.workspace }}
-
-      - uses: actions/setup-python@v5
-        run: |
-          python -c "from force_learning.learner import ForceLearner; learner = ForceLearner(); engine = learner.get_force_engine(); print('Forces:', [f.name for f in engine.list_forces()])"
+        run: python -c "from force_learning.learner import ForceLearner; learner = ForceLearner(); engine = learner.get_force_engine(); print('Forces:', [f.name for f in engine.list_forces()])"
