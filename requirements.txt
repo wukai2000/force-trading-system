@@ -1,6 +1,10 @@
-# Bare minimum for pure Python simulator
+# Bare minimum for pure Python simulator + Force 1 data layer
 numpy>=1.26
 pandas>=2.1
 yfinance>=0.2.40
 pyyaml>=6.0
 python-dateutil>=2.8
+requests>=2.31
+pyarrow>=14.0
+# optional dashboard PNG
+matplotlib>=3.8

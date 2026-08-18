@@ -2,8 +2,12 @@ name: Daily Trading Plan
 
 on:
   schedule:
+    # 12:00 UTC ≈ 08:00 EDT
     - cron: "0 12 * * *"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Daily Force Learning"]
+    types: [completed]
 
 jobs:
   plan:
@@ -11,7 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -20,12 +25,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Force engine suggestions
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: python -m force_engine.engine --demo
+      - name: Force engine → suggestions
+        run: |
+          python -m force_engine.engine --demo
 
-      - name: Trading engine proposals
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: python -m trading_engine.engine --policy require_approval --demo
+      - name: Trading engine → proposals (require_approval by default)
+        run: |
+          python -m trading_engine.engine --policy require_approval --demo
+          echo "Trading plan generated. Proposals stay pending until human approval (or policy change)."
+
+      - name: Upload plan artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: trading-plan
+          path: logs/
+          if-no-files-found: ignore

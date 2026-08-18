@@ -2,8 +2,12 @@ name: Daily Trading Execution
 
 on:
   schedule:
+    # 14:00 UTC ≈ 10:00 EDT (after plan)
     - cron: "0 14 * * *"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Daily Trading Plan"]
+    types: [completed]
 
 jobs:
   execute:
@@ -11,7 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -20,22 +25,35 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Execute via python_sim interface
-        env:
-          PYTHONPATH: ${{ github.workspace }}
+      - name: Trading engine under current policy → trading-interface (python_sim)
         run: |
           python -c "
-          from force_engine.engine import ForceEngine
-          from trading_engine.engine import TradingEngine
-          from trading_engine.policies import PolicyConfig, PolicyMode
-          from trading_interface.python_sim.interface import PythonSimInterface
-          fe = ForceEngine()
-          suggestions = fe.suggest()
-          te = TradingEngine(policy=PolicyConfig(mode=PolicyMode.REQUIRE_APPROVAL))
-          proposals = te.propose_from_forces(suggestions)
-          iface = PythonSimInterface()
-          print('Interface:', iface.name, 'Cash:', iface.get_cash(), 'Proposals:', len(proposals))
-          for p in proposals:
-              te.apply_policy(p)
-              print(p.to_dict())
-          "
+from force_engine.engine import ForceEngine
+from trading_engine.engine import TradingEngine
+from trading_engine.policies import PolicyConfig, PolicyMode
+from trading_interface.python_sim.interface import PythonSimInterface
+
+force_engine = ForceEngine()
+suggestions = force_engine.suggest()
+
+policy = PolicyConfig(mode=PolicyMode.REQUIRE_APPROVAL)
+te = TradingEngine(policy=policy)
+proposals = te.propose_from_forces(suggestions)
+
+interface = PythonSimInterface(starting_cash=100_000.0)
+print('Interface:', interface.name)
+print('Cash:', interface.get_cash())
+print('Proposals:', len(proposals))
+for p in proposals:
+    te.apply_policy(p)
+    print(p.to_dict())
+print('Execution step completed against python_sim (no real orders).')
+print('Future: switch interface to ibkr_paper or robinhood_agentic when ready.')
+"
+
+      - name: Upload execution log
+        uses: actions/upload-artifact@v4
+        with:
+          name: trading-execution-log
+          path: logs/
+          if-no-files-found: ignore

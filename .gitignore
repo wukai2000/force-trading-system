@@ -5,7 +5,17 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 data/cache/
+data/prices/*
+data/macro/*
+data/cot/*
+data/flows/*
+data/naming/*
+data/state/*
+!data/**/.gitkeep
+!data/meta/
+!data/meta/last_fetch.json
 logs/*.log
+artifacts/*.png
 .env
 *.egg-info/
 dist/

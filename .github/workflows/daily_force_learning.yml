@@ -2,6 +2,7 @@ name: Daily Force Learning
 
 on:
   schedule:
+    # 07:00 UTC ≈ 03:00 EDT / 02:00 EST
     - cron: "0 7 * * *"
   workflow_dispatch:
 
@@ -11,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -20,12 +22,25 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run force-learning
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: python -m force_learning.learner
+      - name: Run force-learning (ingest + experiment placeholder)
+        run: |
+          python -m force_learning.learner
+          echo "Force learning step completed. Future: pull Grok/Notion observations, run signature experiments, update force definitions."
 
-      - name: Feed into force-engine
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: python -c "from force_learning.learner import ForceLearner; learner = ForceLearner(); engine = learner.get_force_engine(); print('Forces:', [f.name for f in engine.list_forces()])"
+      - name: Feed updated forces into force-engine (placeholder)
+        run: |
+          python -c "
+from force_learning.learner import ForceLearner
+from force_engine.engine import ForceEngine
+learner = ForceLearner()
+engine = learner.get_force_engine()
+print('Forces loaded into engine:', [f.name for f in engine.list_forces()])
+print('Learning → force-engine handoff OK (skeleton)')
+"
+
+      - name: Upload learning artifacts (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: force-learning-log
+          path: logs/
+          if-no-files-found: ignore

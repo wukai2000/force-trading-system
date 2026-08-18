@@ -1,0 +1,66 @@
+# Force 1 — US Structural Advantages (v0)
+# Ticket group, indicators, naming dictionary, major-move proxies.
+# All parameters are tunable; start here and iterate via experiments.
+
+force_id: us_structural_advantages
+lead_lag_weeks: 4
+
+ticket_group:
+  legs:
+    - QQQ   # tech
+    - ITA   # aerospace & defense
+    - UUP   # dollar
+  controls:
+    - SPY
+    - EFA
+  # equal-weight residual of legs vs SPY (primary) and vs EFA (secondary)
+
+prices:
+  tickers:
+    - QQQ
+    - ITA
+    - XAR   # alternate defense
+    - UUP
+    - SPY
+    - EFA
+    - DX-Y.NYB  # ICE US Dollar Index (yfinance)
+
+macro_fred:
+  # free graph CSV: https://fred.stlouisfed.org/graph/fredgraph.csv?id=SERIES
+  series:
+    DTWEXBGS: broad_usd   # Trade Weighted USD Broad
+    DGS10: us_10y
+    DGS2: us_2y
+    # defense outlays / related — expand after first pass
+    FYONET: federal_outlays_nominal
+
+cot:
+  # CFTC Public Reporting (Socrata) — Traders in Financial Futures
+  # Filter to contracts relevant to USD / equity index when building major-move flag
+  resource: gpe5-46if   # TFF futures only
+  lookback_rows: 5000
+
+naming:
+  # Start with hand export or sparse GDELT; keep dictionary tiny
+  terms:
+    - "US exceptionalism"
+    - "dollar reserve"
+    - "defense spending"
+    - "rearmament"
+    - "US tech leadership"
+    - "AI supremacy"
+  control_terms:
+    - "Magnificent 7"
+    - "soft landing"
+
+flows:
+  # proxy only — delta shares outstanding + volume z when available
+  etfs:
+    - QQQ
+    - ITA
+    - UUP
+    - SPY
+
+panel:
+  residual_windows_weeks: [4, 12, 26]
+  coherence_lookback_days: 60
