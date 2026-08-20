@@ -13,8 +13,8 @@ import pandas as pd
 
 from .cache import load_parquet, save_parquet
 
-DEFAULT_LEGS = ["QQQ", "ITA", "UUP"]
-DEFAULT_CONTROLS = ["SPY", "EFA"]
+DEFAULT_LEGS = ["MAGS", "SMH", "SPMO"]
+DEFAULT_CONTROLS = ["VOO"]
 
 
 def _load_close(ticker: str) -> Optional[pd.Series]:

@@ -1,66 +1,52 @@
-# Force 1 — US Structural Advantages (v0)
-# Ticket group, indicators, naming dictionary, major-move proxies.
-# All parameters are tunable; start here and iterate via experiments.
+# Force 1 — AI Infrastructure / Memory Bottleneck (v1 Phase A)
+# Adjusted ticket group per 2026-08-19 decision.
+# Core residual members have multi-year history; DRAM is secondary (short history).
 
-force_id: us_structural_advantages
+force_id: ai_infra_memory_bottleneck
 lead_lag_weeks: 4
+version: "2026-08-19-phase-a"
 
 ticket_group:
+  # Core residual legs (equal-weight residual vs VOO)
   legs:
-    - QQQ   # tech
-    - ITA   # aerospace & defense
-    - UUP   # dollar
+    - MAGS   # Roundhill Magnificent Seven (equal-weight Mag7)
+    - SMH    # VanEck Semiconductor (concentrated global-ish)
+    - SPMO   # Invesco S&P 500 Momentum (currently semi/tech heavy)
   controls:
-    - SPY
-    - EFA
-  # equal-weight residual of legs vs SPY (primary) and vs EFA (secondary)
+    - VOO    # Vanguard S&P 500 — primary control / residual baseline
+  # Secondary / leading-indicator only (too new for long history residual)
+  secondary:
+    - DRAM   # Roundhill Memory ETF (launched 2026-04-02)
 
 prices:
   tickers:
-    - QQQ
-    - ITA
-    - XAR   # alternate defense
-    - UUP
+    - MAGS
+    - SMH
+    - SPMO
+    - VOO
+    - DRAM
+    # keep a few legacy for robustness / future orthogonal tests
     - SPY
-    - EFA
-    - DX-Y.NYB  # ICE US Dollar Index (yfinance)
-
-macro_fred:
-  # free graph CSV: https://fred.stlouisfed.org/graph/fredgraph.csv?id=SERIES
-  series:
-    DTWEXBGS: broad_usd   # Trade Weighted USD Broad
-    DGS10: us_10y
-    DGS2: us_2y
-    # defense outlays / related — expand after first pass
-    FYONET: federal_outlays_nominal
-
-cot:
-  # CFTC Public Reporting (Socrata) — Traders in Financial Futures
-  # Filter to contracts relevant to USD / equity index when building major-move flag
-  resource: gpe5-46if   # TFF futures only
-  lookback_rows: 5000
-
-naming:
-  # Start with hand export or sparse GDELT; keep dictionary tiny
-  terms:
-    - "US exceptionalism"
-    - "dollar reserve"
-    - "defense spending"
-    - "rearmament"
-    - "US tech leadership"
-    - "AI supremacy"
-  control_terms:
-    - "Magnificent 7"
-    - "soft landing"
-
-flows:
-  # proxy only — delta shares outstanding + volume z when available
-  etfs:
     - QQQ
-    - ITA
-    - UUP
-    - SPY
 
 panel:
   residual_windows_weeks: [4, 12, 26]
   coherence_lookback_days: 60
+  # simple residual = equal-weight leg returns - control returns
+  # Phase later: beta-adjusted / multi-factor residualization
+
+naming:
+  terms:
+    - "memory bottleneck"
+    - "HBM shortage"
+    - "AI infrastructure"
+    - "high bandwidth memory"
+    - "DRAM cycle"
+    - "semiconductor memory"
+  control_terms:
+    - "Magnificent 7"
+    - "soft landing"
+    - "rate cut"
+
+# Phase A focuses only on prices + residual + coherence.
+# COT / FRED / flows remain available but secondary for this iteration.

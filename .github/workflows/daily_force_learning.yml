@@ -9,6 +9,8 @@ on:
 jobs:
   learn:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,13 +32,13 @@ jobs:
       - name: Feed updated forces into force-engine (placeholder)
         run: |
           python -c "
-from force_learning.learner import ForceLearner
-from force_engine.engine import ForceEngine
-learner = ForceLearner()
-engine = learner.get_force_engine()
-print('Forces loaded into engine:', [f.name for f in engine.list_forces()])
-print('Learning → force-engine handoff OK (skeleton)')
-"
+          from force_learning.learner import ForceLearner
+          from force_engine.engine import ForceEngine
+          learner = ForceLearner()
+          engine = learner.get_force_engine()
+          print('Forces loaded into engine:', [f.name for f in engine.list_forces()])
+          print('Learning → force-engine handoff OK (skeleton)')
+          "
 
       - name: Upload learning artifacts (optional)
         uses: actions/upload-artifact@v4

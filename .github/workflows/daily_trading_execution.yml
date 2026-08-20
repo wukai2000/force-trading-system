@@ -12,6 +12,8 @@ on:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,28 +30,28 @@ jobs:
       - name: Trading engine under current policy → trading-interface (python_sim)
         run: |
           python -c "
-from force_engine.engine import ForceEngine
-from trading_engine.engine import TradingEngine
-from trading_engine.policies import PolicyConfig, PolicyMode
-from trading_interface.python_sim.interface import PythonSimInterface
+          from force_engine.engine import ForceEngine
+          from trading_engine.engine import TradingEngine
+          from trading_engine.policies import PolicyConfig, PolicyMode
+          from trading_interface.python_sim.interface import PythonSimInterface
 
-force_engine = ForceEngine()
-suggestions = force_engine.suggest()
+          force_engine = ForceEngine()
+          suggestions = force_engine.suggest()
 
-policy = PolicyConfig(mode=PolicyMode.REQUIRE_APPROVAL)
-te = TradingEngine(policy=policy)
-proposals = te.propose_from_forces(suggestions)
+          policy = PolicyConfig(mode=PolicyMode.REQUIRE_APPROVAL)
+          te = TradingEngine(policy=policy)
+          proposals = te.propose_from_forces(suggestions)
 
-interface = PythonSimInterface(starting_cash=100_000.0)
-print('Interface:', interface.name)
-print('Cash:', interface.get_cash())
-print('Proposals:', len(proposals))
-for p in proposals:
-    te.apply_policy(p)
-    print(p.to_dict())
-print('Execution step completed against python_sim (no real orders).')
-print('Future: switch interface to ibkr_paper or robinhood_agentic when ready.')
-"
+          interface = PythonSimInterface(starting_cash=100_000.0)
+          print('Interface:', interface.name)
+          print('Cash:', interface.get_cash())
+          print('Proposals:', len(proposals))
+          for p in proposals:
+              te.apply_policy(p)
+              print(p.to_dict())
+          print('Execution step completed against python_sim (no real orders).')
+          print('Future: switch interface to ibkr_paper or robinhood_agentic when ready.')
+          "
 
       - name: Upload execution log
         uses: actions/upload-artifact@v4

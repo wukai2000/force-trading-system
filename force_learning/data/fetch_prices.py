@@ -14,7 +14,7 @@ import pandas as pd
 
 from .cache import LastFetch, load_parquet, save_parquet, upsert_by_index
 
-DEFAULT_TICKERS = ["QQQ", "ITA", "XAR", "UUP", "SPY", "EFA", "DX-Y.NYB"]
+DEFAULT_TICKERS = ["MAGS", "SMH", "SPMO", "VOO", "DRAM", "SPY", "QQQ"]
 
 
 def _normalize(df: pd.DataFrame) -> pd.DataFrame:
