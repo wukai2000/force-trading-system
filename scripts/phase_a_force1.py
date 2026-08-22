@@ -103,8 +103,49 @@ def build_daily_series():
     df["cum_resid"] = df["resid_vs_VOO"].cumsum()
     return df.dropna(how="all")
 
+def simple_phase_scan(df):
+    """
+    Multi-state detector resolving monoculture:
+    1. Quiet Dominance: Positive 20d slope AND low rolling volatility (vol z-score < 0).
+    2. Catch-up Disturbance: High residual z-score (> 1.5) OR sudden volatility spike.
+    3. Residual Stabilization: Mean-reverting residual after high disturbance.
+    """
+    episodes = []
+    
+    # Calculate 20d residual return slope
+    df['resid_slope_20d'] = df['resid_vs_VOO'].rolling(20).apply(
+        lambda x: np.polyfit(np.arange(len(x)), x, 1)[0] if len(x) == 20 else np.nan, raw=True
+    )
+    
+    # 20d rolling volatility of residual
+    df['resid_vol_20d'] = df['resid_vs_VOO'].rolling(20).std()
+    df['vol_z'] = (df['resid_vol_20d'] - df['resid_vol_20d'].rolling(60).mean()) / (df['resid_vol_20d'].rolling(60).std() + 1e-8)
+    
+    for idx, row in df.iterrows():
+        if pd.isna(row['resid_z']) or pd.isna(row['resid_slope_20d']):
+            continue
+            
+        phase = None
+        
+        # State 1: Quiet Dominance (Low volatility accumulation + positive drift)
+        if row['resid_slope_20d'] > 0 and row['vol_z'] < 0.2 and row['coherence'] > 0.35:
+            phase = "quiet_dominance"
+            
+        # State 2: Catch-up Disturbance (Volatile expansion / z-score spike)
+        elif row['resid_z'] > 1.5 or row['vol_z'] > 1.2:
+            phase = "catch_up_disturbance"
+            
+        # State 3: Residual Stabilization (Post-spike consolidation)
+        elif abs(row['resid_z']) < 0.5 and row['vol_z'] < 0.0:
+            phase = "residual_stabilization"
+            
+        if phase:
+            episodes.append({'Date': idx, 'phase': phase, 'resid_vs_VOO': row['resid_vs_VOO'], 'resid_z': row['resid_z']})
+            
+    ep_df = pd.DataFrame(episodes)
+    return ep_df
 
-def simple_phase_scan(df: pd.DataFrame) -> pd.DataFrame:
+def simple_phase_scan_old(df: pd.DataFrame) -> pd.DataFrame:
     """
     Very lightweight 3-phase candidate detector (v0).
     Quiet dominance: positive rolling residual mean + rising/high coherence.
