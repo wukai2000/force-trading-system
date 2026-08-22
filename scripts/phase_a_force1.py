@@ -26,7 +26,7 @@ sys.path.insert(0, str(ROOT))
 
 import numpy as np
 import pandas as pd
-
+import os
 from force_learning.data.fetch_prices import update_prices, DEFAULT_TICKERS
 from force_learning.data.panel import (
     residual_vs,
@@ -50,8 +50,44 @@ def ensure_prices(period: str = "max") -> None:
     print(f"[phase-a] fetching prices for {tickers} (period={period}) ...")
     update_prices(tickers=tickers, period=period, sleep_s=1.0)
 
+def compute_force1_residual(df):
+    """
+    Computes Force 1 daily residual vs VOO with exact schema expected by scanner.
+    """
+    # 1. Calculate daily percentage returns
+    rets = df[['MAGS', 'SMH', 'SPMO', 'VOO']].pct_change().dropna()
+    
+    # 2. Equal-weight basket return of Force 1 legs
+    basket_ret = rets[['MAGS', 'SMH', 'SPMO']].mean(axis=1)
+    
+    # 3. Daily residual return vs VOO control (explicitly named 'resid_vs_VOO')
+    rets['resid_vs_VOO'] = basket_ret - rets['VOO']
+    rets['daily_resid'] = rets['resid_vs_VOO'] # Alias for safety
+    
+    # 4. Cumulative residual path
+    rets['cum_resid'] = rets['resid_vs_VOO'].cumsum()
+    
+    # 5. 60-day rolling z-score of residual
+    roll_mean = rets['resid_vs_VOO'].rolling(60, min_periods=20).mean()
+    roll_std = rets['resid_vs_VOO'].rolling(60, min_periods=20).std()
+    rets['resid_z'] = (rets['resid_vs_VOO'] - roll_mean) / (roll_std + 1e-8)
+    
+    # 6. 30-day rolling average pairwise correlation across legs (Coherence)
+    leg_rets = rets[['MAGS', 'SMH', 'SPMO']]
+    corr_mags_smh = leg_rets['MAGS'].rolling(30).corr(leg_rets['SMH'])
+    corr_mags_spmo = leg_rets['MAGS'].rolling(30).corr(leg_rets['SPMO'])
+    corr_smh_spmo = leg_rets['SMH'].rolling(30).corr(leg_rets['SPMO'])
+    rets['coherence'] = (corr_mags_smh + corr_mags_spmo + corr_smh_spmo) / 3.0
+    
+    return rets
 
-def build_daily_series() -> pd.DataFrame:
+def build_daily_series():
+    local_path = "data/force1/prices_patched.csv"
+    if os.path.exists(local_path):
+        print(f"[phase-a] Loading local patched data from {local_path}...")
+        df = pd.read_csv(local_path, index_col=0, parse_dates=True)
+        df = compute_force1_residual(df)
+        return df
     resid = residual_vs(CONTROL, legs=LEGS)
     if resid is None:
         raise RuntimeError("Could not build residual — run price fetch first")
