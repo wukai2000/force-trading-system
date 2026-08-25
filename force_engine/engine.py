@@ -1,11 +1,10 @@
 """
-Learned Force Engine (bare minimum).
+Force Engine.
 
-Takes market/context input + registered forces + their signatures
-and produces ForceSuggestion objects.
-
-Later this will incorporate historical signature discovery,
-residualization, and more sophisticated scoring.
+After F1/F2: suggestions for a force with legs+controls are only emitted
+from a neutralized residual. Paused/falsified forces emit intensity=0.
+Long-only (empty controls) is rejected, not scored.
+Raw prices never produce a score — a NeutralizedPanel is required.
 """
 
 from __future__ import annotations
@@ -14,67 +13,16 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from .base import Force, ForceStatus, ForceSuggestion
-
-
-# Hard-coded candidate forces (later loaded from Notion / config)
-DEFAULT_FORCES: List[Force] = [
-    Force(
-        id="us_structural_advantages",
-        name="US Structural Advantages (USD + Tech + Military)",
-        one_sentence=(
-            "The United States retains a durable structural edge over other large "
-            "economies through the combination of dollar reserve status, technological "
-            "leadership, and military primacy; this edge supports relative outperformance "
-            "of US assets across both boom and recession regimes."
-        ),
-        status=ForceStatus.CANDIDATE,
-        signature_notes=(
-            "Relative US equity performance vs developed peers across regimes; "
-            "interaction of DXY, tech relative strength, and defense/geopolitical stability."
-        ),
-        meta={
-            "order": 1,
-            "related": ["SPY", "QQQ", "DXY", "ITA", "EFA"],
-        },
-    ),
-    Force(
-        id="energy_ai_synergy",
-        name="Energy × AI Computation/Communication Synergy",
-        one_sentence=(
-            "The intensifying coupling between energy supply and AI-driven computation/"
-            "communication creates a durable demand and pricing-power dynamic stronger "
-            "than either energy or AI considered in isolation."
-        ),
-        status=ForceStatus.CANDIDATE,
-        signature_notes=(
-            "Divergence of AI-related power demand vs traditional industrial demand; "
-            "relative performance of AI-power names during AI investment accelerations."
-        ),
-        meta={"order": 2},
-    ),
-    Force(
-        id="longevity_health_desire",
-        name="Longevity / Health Desire",
-        one_sentence=(
-            "Persistent human desire for extended healthy lifespan creates a structural "
-            "demand force for longevity and health industries that is only partially "
-            "dependent on technological breakthroughs."
-        ),
-        status=ForceStatus.CANDIDATE,
-        signature_notes=(
-            "Demographic + cultural attention metrics vs pure R&D success; "
-            "relative performance of demand-side health names during biotech disappointment periods."
-        ),
-        meta={"order": 3},
-    ),
-]
+from .clocks import default_clock_bus
+from .evaluate import annualized_ir
+from .loader import load_registered_forces
+from .neutralize import NeutralizationError, NeutralizedPanel
 
 
 class ForceEngine:
-    """Minimal force engine."""
-
     def __init__(self, forces: Optional[List[Force]] = None):
-        self.forces = forces or list(DEFAULT_FORCES)
+        self.forces = forces if forces is not None else load_registered_forces()
+        self.clocks = default_clock_bus()
 
     def list_forces(self) -> List[Force]:
         return list(self.forces)
@@ -83,38 +31,108 @@ class ForceEngine:
         self,
         market_context: Optional[Dict[str, Any]] = None,
         as_of: Optional[datetime] = None,
+        neutralized_panels: Optional[Dict[str, NeutralizedPanel]] = None,
     ) -> List[ForceSuggestion]:
-        """
-        Produce suggestions for all registered forces.
-
-        Currently returns placeholder neutral suggestions.
-        Real implementation will apply each force's signature to data
-        and score intensity / confidence.
-        """
         as_of = as_of or datetime.now(timezone.utc)
         ts = as_of.isoformat()
         context = market_context or {}
-
+        panels = neutralized_panels or {}
         suggestions: List[ForceSuggestion] = []
+
         for force in self.forces:
-            # Placeholder logic — replace with signature-driven scoring
-            intensity = 0.0
-            confidence = 0.1
-            rationale = (
-                f"Placeholder: no historical signature applied yet for '{force.name}'. "
-                f"Context keys present: {list(context.keys()) or 'none'}."
-            )
-            suggestions.append(
-                ForceSuggestion(
-                    force_id=force.id,
-                    force_name=force.name,
-                    intensity=intensity,
-                    confidence=confidence,
-                    rationale=rationale,
-                    timestamp=ts,
-                    raw={"status": force.status.value},
+            if force.status in (ForceStatus.PAUSED, ForceStatus.FALSIFIED):
+                suggestions.append(
+                    ForceSuggestion(
+                        force_id=force.id,
+                        force_name=force.name,
+                        intensity=0.0,
+                        confidence=1.0,
+                        rationale=f"Force '{force.name}' is {force.status.value}; no trade.",
+                        timestamp=ts,
+                        raw={"status": force.status.value, "tradable": force.tradable},
+                    )
                 )
-            )
+                continue
+
+            if not force.controls:
+                suggestions.append(
+                    ForceSuggestion(
+                        force_id=force.id,
+                        force_name=force.name,
+                        intensity=0.0,
+                        confidence=0.0,
+                        rationale=(
+                            f"Rejected: '{force.name}' has no controls. "
+                            "Raw long-only baskets are not candidates (F1/F2)."
+                        ),
+                        timestamp=ts,
+                        raw={"status": force.status.value, "error": "no_controls"},
+                    )
+                )
+                continue
+
+            panel = panels.get(force.id)
+            if panel is None:
+                suggestions.append(
+                    ForceSuggestion(
+                        force_id=force.id,
+                        force_name=force.name,
+                        intensity=0.0,
+                        confidence=0.1,
+                        rationale=(
+                            f"No neutralized panel supplied for '{force.name}'. "
+                            "Engine will not infer a raw-price score."
+                        ),
+                        timestamp=ts,
+                        raw={"status": force.status.value, "awaiting": "neutralized_panel"},
+                    )
+                )
+                continue
+
+            try:
+                ir = annualized_ir(panel.residual)
+                last = float(panel.residual.dropna().iloc[-1]) if not panel.residual.dropna().empty else 0.0
+                clock = self.clocks.read(residual_last=last)
+                clock = self.clocks.veto_if_leading_contradicts(clock, ir if ir == ir else 0.0)
+                intensity = float(panel.residual.dropna().iloc[-20:].mean() * 252) if len(panel.residual.dropna()) >= 20 else 0.0
+                if clock.veto:
+                    intensity = 0.0
+                suggestions.append(
+                    ForceSuggestion(
+                        force_id=force.id,
+                        force_name=force.name,
+                        intensity=intensity,
+                        confidence=0.4,
+                        rationale=(
+                            f"Residual spread vs {force.controls}. last IR(full)={ir:.3f}. "
+                            + (f"VETO: {clock.veto_reason}" if clock.veto else "No leading-clock veto.")
+                        ),
+                        timestamp=ts,
+                        hedge_weights=panel.latest_hedge_weights,
+                        raw={
+                            "status": force.status.value,
+                            "tradable": "residual_spread",
+                            "legs": force.legs,
+                            "controls": force.controls,
+                            "clean_ir": ir,
+                            "clock_leading": clock.leading,
+                            "veto": clock.veto,
+                            "context_keys": list(context.keys()),
+                        },
+                    )
+                )
+            except NeutralizationError as e:
+                suggestions.append(
+                    ForceSuggestion(
+                        force_id=force.id,
+                        force_name=force.name,
+                        intensity=0.0,
+                        confidence=0.0,
+                        rationale=str(e),
+                        timestamp=ts,
+                        raw={"error": "neutralization"},
+                    )
+                )
         return suggestions
 
 
@@ -122,18 +140,18 @@ def main():
     import argparse
     import json
 
-    parser = argparse.ArgumentParser(description="Force Engine demo")
-    parser.add_argument("--demo", action="store_true", help="Run demo suggestions")
+    parser = argparse.ArgumentParser(description="Force Engine")
+    parser.add_argument("--demo", action="store_true")
     args = parser.parse_args()
-
     engine = ForceEngine()
     if args.demo:
         print("Registered forces:")
         for f in engine.list_forces():
-            print(f"  [{f.meta.get('order', '?')}] {f.name} ({f.status.value})")
-        print("\nSuggestions:")
+            print(f"  {f.id:28s} {f.status.value:18s} legs={f.legs} ctrls={f.controls}")
+        print("\nSuggestions (no panels → no raw scores):")
         for s in engine.suggest():
-            print(json.dumps(s.to_dict(), indent=2))
+            print(json.dumps(s.to_dict(), indent=2)[:800])
+            print("---")
 
 
 if __name__ == "__main__":

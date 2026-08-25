@@ -5,8 +5,10 @@
 
 force_id: energy_x_ai_power_coupling
 lead_lag_weeks: 4
-version: "2026-08-24-phase-a"
-status: formalized_phase_a
+version: "2026-08-24-paused"
+status: phase_a_failed_paused
+# Scan 2026-08-24: clean IR 0.013 < 0.40. Mean β_QQQ=0.61 β_XLU=0.42.
+# Residual is noise. Do not iterate legs. Force 3 is next, not this cycle.
 
 ticket_group:
   # Core residual legs — AI-exposed generation / grid / electrical equipment.

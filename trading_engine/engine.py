@@ -83,24 +83,38 @@ class TradingEngine:
         now = datetime.now(timezone.utc).isoformat()
         proposals: List[TradeProposal] = []
 
-        # Placeholder: if any force has non-zero intensity, note it
-        active = [s for s in suggestions if abs(s.intensity) > 1e-6]
+        active = [
+            s
+            for s in suggestions
+            if abs(s.intensity) > 1e-6
+            and (s.raw or {}).get("status") not in ("paused", "falsified")
+            and (s.raw or {}).get("tradable") == "residual_spread"
+            and s.hedge_weights
+        ]
         if not active:
-            # Still emit a diagnostic "no action" style note via empty list
             return proposals
 
-        # Future: map high-intensity forces to concrete symbols from force.meta["related"]
         for s in active:
+            # Residual spread: long legs / short β-weighted controls. Size stays 0 until paper.
             prop = TradeProposal(
                 id=self._next_id(),
-                symbol="SPY",  # placeholder
+                symbol="RESIDUAL_SPREAD",
                 side="buy" if s.intensity > 0 else "sell",
-                quantity=0.0,  # size later
-                rationale=f"Placeholder proposal driven by {s.force_name}: {s.rationale}",
+                quantity=0.0,
+                rationale=(
+                    f"{s.force_name} residual spread (not long-only). "
+                    f"hedge={s.hedge_weights}. {s.rationale}"
+                ),
                 force_ids=[s.force_id],
                 status=ProposalStatus.PENDING,
                 created_at=now,
                 policy_mode=self.policy.mode.value,
+                meta={
+                    "tradable": "residual_spread",
+                    "legs": (s.raw or {}).get("legs"),
+                    "controls": (s.raw or {}).get("controls"),
+                    "hedge_weights": s.hedge_weights,
+                },
             )
             proposals.append(prop)
             self.proposals.append(prop)

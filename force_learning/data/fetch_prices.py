@@ -30,6 +30,14 @@ DEFAULT_TICKERS = [
     "SMH",
     "SPMO",
     "DRAM",
+    # Force 3 locked universe (do not scan until lock is acknowledged)
+    "IHF",
+    "IHI",
+    "XHS",
+    "XLV",
+    "XBI",
+    "IBB",
+    "TLT",
 ]
 
 _UA = (

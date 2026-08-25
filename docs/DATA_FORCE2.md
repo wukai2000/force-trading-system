@@ -49,5 +49,10 @@ retuning.
 PYTHONPATH=. python scripts/phase_a_force2.py
 ```
 
-Outputs: `data/force2/force2_daily_residual.csv`, `force2_episodes.csv`,
-`artifacts/charts/force2_residual.png`.
+## Scan result (2026-08-24, AFTER the gate was locked)
+
+- Sample: 2016-12-29 → 2026-08-24 (2,463 OLS days, 9.65y)
+- Clean IR: **0.013** → **FAIL_GATE** (required ≥ 0.40)
+- Sign-randomization placebo IR: −0.025
+- Mean β_QQQ = 0.61, mean β_XLU = 0.42
+- **Paused. Do not iterate legs.** Force 3 is next, not this cycle.

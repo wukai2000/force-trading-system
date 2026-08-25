@@ -1,8 +1,9 @@
 """
-Daily/weekly panel helpers: equal-weight residual, rolling OLS residual, coherence.
+Daily/weekly panel helpers.
 
-Force 1 defaults (MAGS/SMH/SPMO vs VOO) are archived — Force 1 is falsified/paused.
-Force 2 Phase A uses residual_ols() with legs/controls passed explicitly.
+Promotion residuals live in force_engine.neutralize (OOS hedged, intercept
+not subtracted). residual_ols() is a compatibility wrapper that delegates
+there — the old in-sample intercept residual is how F1/F2 zeroed alpha.
 """
 
 from __future__ import annotations
@@ -21,6 +22,9 @@ DEFAULT_CONTROLS = ["VOO"]
 # Force 2 Phase A (2026-08-24)
 FORCE2_LEGS = ["VST", "ETN", "PWR"]
 FORCE2_CONTROLS = ["XLU", "QQQ"]
+
+FORCE3_LEGS = ["IHF", "IHI", "XHS"]
+FORCE3_CONTROLS = ["XLV", "XBI"]
 
 
 def _load_close(ticker: str) -> Optional[pd.Series]:
@@ -41,17 +45,18 @@ def _equal_weight_returns(tickers: Sequence[str]) -> Optional[pd.Series]:
         if s is None or s.empty:
             print(f"[panel] missing price: {t}")
             return None
-        frames.append(s.pct_change())
+        frames.append(s.pct_change(fill_method=None))
     rets = pd.concat(frames, axis=1).dropna(how="any")
     return rets.mean(axis=1)
 
 
 def residual_vs(control: str, legs: Sequence[str] = DEFAULT_LEGS) -> Optional[pd.Series]:
+    """Diagnostic only — not a promotion series."""
     basket = _equal_weight_returns(legs)
     ctrl = _load_close(control)
     if basket is None or ctrl is None:
         return None
-    ctrl_ret = ctrl.pct_change()
+    ctrl_ret = ctrl.pct_change(fill_method=None)
     aligned = pd.concat([basket, ctrl_ret], axis=1, keys=["basket", "ctrl"]).dropna()
     resid = aligned["basket"] - aligned["ctrl"]
     resid.name = f"resid_vs_{control}"
@@ -64,56 +69,34 @@ def residual_ols(
     lookback: int = 60,
 ) -> Optional[pd.DataFrame]:
     """
-    Rolling OLS: basket_ret ~ 1 + controls. Residual is the promotion series.
-
-    Returns DataFrame with columns:
-      basket, resid, plus beta_<ctrl> for each control.
+    Compatibility wrapper. Delegates to force_engine.neutralize so a re-run
+    of old Phase A scripts cannot silently use the in-sample intercept residual.
     """
-    basket = _equal_weight_returns(legs)
-    if basket is None:
+    from force_engine.neutralize import NeutralizationError, neutralize_prices
+
+    if not controls:
+        print("[panel] residual_ols refuses empty controls")
         return None
-    ctrl_cols = {}
-    for c in controls:
-        s = _load_close(c)
+    cols = {}
+    for t in list(dict.fromkeys(list(legs) + list(controls))):
+        s = _load_close(t)
         if s is None or s.empty:
-            print(f"[panel] missing control: {c}")
+            print(f"[panel] missing price: {t}")
             return None
-        ctrl_cols[c] = s.pct_change()
-    X = pd.DataFrame(ctrl_cols)
-    df = pd.concat([basket.rename("basket"), X], axis=1).dropna()
-    if len(df) < lookback + 5:
-        print(f"[panel] OLS too short: {len(df)} rows")
+        cols[t] = s
+    prices = pd.DataFrame(cols)
+    try:
+        panel = neutralize_prices(prices, legs, controls, lookback=lookback)
+    except NeutralizationError as e:
+        print(f"[panel] neutralize failed: {e}")
         return None
-
-    n_ctrl = len(controls)
-    betas = {c: [] for c in controls}
-    resid = []
-    idx = []
-    y_all = df["basket"].values
-    X_all = np.column_stack([np.ones(len(df))] + [df[c].values for c in controls])
-
-    for i in range(lookback - 1, len(df)):
-        sl = slice(i - lookback + 1, i + 1)
-        y = y_all[sl]
-        x = X_all[sl]
-        try:
-            coef, *_ = np.linalg.lstsq(x, y, rcond=None)
-        except np.linalg.LinAlgError:
-            resid.append(np.nan)
-            for c in controls:
-                betas[c].append(np.nan)
-            idx.append(df.index[i])
-            continue
-        yhat = float(x[-1] @ coef)
-        resid.append(float(y_all[i] - yhat))
-        for j, c in enumerate(controls):
-            betas[c].append(float(coef[j + 1]))
-        idx.append(df.index[i])
-
-    out = pd.DataFrame({"resid": resid, "basket": df["basket"].loc[idx].values}, index=idx)
-    for c in controls:
-        out[f"beta_{c}"] = betas[c]
+    out = pd.DataFrame({"resid": panel.residual, "basket": panel.basket})
+    for c in panel.controls:
+        col = f"beta_{c}"
+        if col in panel.betas.columns:
+            out[col] = panel.betas[col]
     out.index.name = "date"
+    print("[panel] residual_ols delegated to force_engine.neutralize (OOS hedged)")
     return out
 
 
@@ -124,7 +107,7 @@ def coherence(legs: Sequence[str] = DEFAULT_LEGS, lookback: int = 60) -> Optiona
         s = _load_close(t)
         if s is None:
             return None
-        rets.append(s.pct_change())
+        rets.append(s.pct_change(fill_method=None))
     df = pd.concat(rets, axis=1).dropna()
     if len(df) < lookback:
         return None

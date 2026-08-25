@@ -2,7 +2,8 @@
 # STATUS 2026-08-24: FALSIFIED — PAUSED. Do not iterate this basket.
 # Clean residual IR vs VOO+QQQ = 0.003 (gate was IR ≥ 0.40).
 # Basket ≈ 1.24× QQQ beta. Option B (MU/HBM vs SMH) was considered and REJECTED
-# to avoid post-hoc specification search. Working force is now Force 2.
+# to avoid post-hoc specification search. Force 2 was then scanned and also
+# failed its pre-registered gate (IR 0.013). Both paused.
 
 force_id: ai_infra_memory_bottleneck
 status: falsified_paused

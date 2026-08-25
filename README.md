@@ -2,75 +2,36 @@
 
 Unique force-based trading system built around persistent, under-noticed structural forces.
 
-**Current phase**: Pure Python simulator + signature discovery.  
-**Capital**: Experimental capital risk-tolerant; Trump Account stays passive in SPYM.
+**Current phase**: Force 1 falsified, Force 2 paused (engine-correction IR 0.52 flagged, not funded). Force 3 locked, **not yet scanned**.
+**Capital**: Experimental $3k unused; Trump Account stays passive in SPYM.
 
 ## Architecture (four core components)
 
 ```
-force_learning/          # Learns & improves forces from Grok discussions + experiments
-  └── (formulates forces + signatures, feeds force_engine)
-
-force_engine/            # Runtime force scoring
-  ├── base.py
-  ├── signatures.py
-  └── engine.py          # input + signatures → ForceSuggestions
-
-trading_engine/          # Decision layer
-  ├── policies.py        # full_autonomy | require_approval | timed_window
-  ├── portfolio.py
-  └── engine.py          # force suggestions + portfolio → TradeProposals under policy
-
-trading_interface/       # Swappable execution backends
-  ├── base.py            # common interface
-  ├── python_sim/        # pure Python simulator (current default)
-  ├── ibkr_paper/        # Interactive Brokers paper (future)
-  └── robinhood_agentic/ # Robinhood Agentic account (future)
+force_learning/          # observation → claims → laws; experiments
+force_engine/            # neutralization BEFORE scoring
+  ├── pipeline.py        # only evaluation entry
+  ├── neutralize.py      # OOS hedged residual spread (required)
+  ├── evaluate.py        # gate; refuses raw baskets
+  ├── clocks.py          # 4 clocks; leading (patents/legislation/credit) veto only
+  ├── loader.py          # config/force*.yaml
+  └── engine.py          # suggestions only from neutralized panels
+trading_engine/          # policies
+trading_interface/       # python_sim default
 ```
 
-### 1. force-learning
-- Ingests Grok discussions / observations
-- Runs experiments (historical tests, residualization)
-- Formulates or updates forces and their signatures
-- Continuously improves and feeds the force-engine
-- Observation → claims → laws cycle lives here
+**Meta-rule (2026-08-24):** the tradable object is the residual spread (long legs, short β-weighted controls). Long-only theme ETFs are how F1/F2 failed. See `docs/META_LEARNING.md`.
 
-### 2. force-engine
-- Takes market/context input + registered forces + signatures
-- Produces scored ForceSuggestions (intensity, confidence, rationale)
+## Force registry
+1. AI Infra / Memory — **falsified / paused** (IR 0.003)
+2. Energy × AI power — **paused** (old IR 0.013; OOS hedged diagnostic 0.52, not un-paused)
+3. Longevity / healthspan demand — **locked pre-scan** (IHF+IHI+XHS vs XLV+XBI)
 
-### 3. trading-engine
-- Takes force suggestions + current portfolio
-- Emits TradeProposals under one of three policies:
-  | Policy              | Behavior |
-  |---------------------|----------|
-  | `full_autonomy`     | Execute without human |
-  | `require_approval`  | Every proposal needs explicit human approval |
-  | `timed_window`      | Human has a time window; after timeout → go-ahead or no-go |
+## Quick start
 
-### 4. trading-interface (swappable)
-- Abstract interface so the same trading-engine can target:
-  - Pure Python simulation (current)
-  - IBKR paper account
-  - Robinhood Agentic trading account
-- Only the interface implementation changes; engines stay the same
-
-## Force Candidates (order locked)
-1. **US Structural Advantages** (USD + Technology + Military)
-2. **Energy × AI Computation/Communication Synergy**
-3. **Longevity / Health Desire**
-
-## Quick start (local)
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python -m force_engine.engine --demo
-python -m trading_engine.engine --policy require_approval --demo
+```
+PYTHONPATH=. python scripts/test_neutralizer.py
+PYTHONPATH=. python -m force_engine.engine --demo
 ```
 
-## Status
-- Bare-minimum skeleton only. No live capital.
-- Default interface = pure Python simulation.
-- Expand as signatures, learning loop, and real interfaces mature.
+Do not run `scripts/phase_a_force3.py` until the Force 3 lock in `config/force3.yaml` is acknowledged (`FORCE3_LOCK_ACK=1`).

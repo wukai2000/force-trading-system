@@ -17,7 +17,8 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from force_engine.base import Force, ForceStatus
-from force_engine.engine import ForceEngine, DEFAULT_FORCES
+from force_engine.engine import ForceEngine
+from force_engine.loader import load_registered_forces
 
 
 @dataclass
@@ -50,7 +51,7 @@ class ForceLearner:
     """
 
     def __init__(self, initial_forces: Optional[List[Force]] = None):
-        self.forces: List[Force] = list(initial_forces or DEFAULT_FORCES)
+        self.forces: List[Force] = list(initial_forces or load_registered_forces())
         self.observations: List[Dict[str, Any]] = []
         self.experiments: List[ExperimentResult] = []
         self._exp_counter = 0

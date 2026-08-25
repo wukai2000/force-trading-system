@@ -1,0 +1,105 @@
+# Force 3 — Longevity / Demographic-Healthcare Shifts (Phase A)
+# LOCKED 2026-08-24 BEFORE any price scan. Do not move tickets after seeing results.
+# Meta-learning: F1 and F2 failed as long-only theme vs absorbing sector ETFs.
+# This specification is a residual SPREAD vs healthcare + biotech, not long-only XLV.
+
+force_id: longevity_healthspan_demand
+name: Longevity / healthspan demand
+lead_lag_weeks: 4
+version: "2026-08-24-locked-pre-scan"
+status: formalized_phase_a_locked
+tradable: residual_spread   # never long-only legs
+scan_allowed: false         # phase_a_force3.py requires FORCE3_LOCK_ACK=1
+
+# One-sentence definition (locked)
+one_sentence: >
+  Longevity / demographic-healthcare is a demand-side force: an aging
+  population's willingness-to-pay for longer healthspan (providers, devices,
+  care delivery) is only loosely coupled to biotech R&D success, so
+  IHF+IHI+XHS should retain residual return after neutralizing the absorbing
+  healthcare factor (XLV) and the biotech lottery (XBI).
+
+ticket_group:
+  # Demand-side / volume / WTP — NOT drug discovery. All ≥8y history.
+  # XHS from 2011; IHF/IHI from 2006. Overlap starts ~2011.
+  legs:
+    - IHF    # iShares US Healthcare Providers (managed care, hospitals)
+    - IHI    # iShares US Medical Devices (procedure volume, aging)
+    - XHS    # SPDR S&P Health Care Services (services, not drugs)
+  # Dual OLS controls: strip generic healthcare AND biotech R&D beta.
+  controls:
+    - XLV    # Health Care Select Sector — absorbing healthcare factor
+    - XBI    # SPDR S&P Biotech — R&D lottery / science-success factor
+  secondary:
+    - IBB    # iShares Biotech (alt biotech control, diagnostic)
+  diagnostic:
+    - SPY
+    - VOO
+    - XLV
+    - TLT    # duration check (longevity cash flows are long-dated)
+
+prices:
+  tickers:
+    - IHF
+    - IHI
+    - XHS
+    - XLV
+    - XBI
+    - IBB
+    - SPY
+    - VOO
+    - TLT
+
+panel:
+  residual_windows_weeks: [4, 12, 26]
+  coherence_lookback_days: 60
+  ols_lookback_days: 60
+
+naming:
+  terms:
+    - "healthspan"
+    - "longevity"
+    - "healthy aging"
+    - "Medicare Advantage"
+    - "GLP-1"
+    - "care delivery"
+  control_terms:
+    - "biotech IPO"
+    - "FDA approval"
+    - "Magnificent 7"
+
+clocks:
+  price_residual: required
+  leading:
+    - real_10y_yield       # FRED T10YIE + DGS10; duration of cash flows
+    - health_expenditure   # FRED / CMS spend
+    - patent_filings       # USPTO longevity / senolytic / metabolic
+    - legislation          # CMS MA rates, IRA drug pricing
+    - credit_spreads       # hospital / provider HY vs IG
+  naming: dictionary
+  joint_shift_weeks: 4
+  leading_role: veto_only
+  # A leading clock may VETO a passing residual; it may not promote a failing one.
+
+# Pre-registered promotion gate (locked BEFORE first scan — do not move)
+gate:
+  min_clean_ir: 0.40
+  max_placebo_ir: 0.15
+  max_abs_mean_beta_XLV: 0.80
+  max_abs_mean_beta_XBI: 0.80
+  min_overlap_years: 8
+  tradable_must_be: residual_spread
+  phase_conditional_ir: diagnostic_only
+  kill_on_fail: pause_no_option_b
+
+phase_detector:
+  slope_window_days: 20
+  vol_window_days: 20
+  z_window_days: 60
+  min_episode_days: 10
+
+capital:
+  trump_account: SPYM_passive_only
+  experimental_usd: 3000
+  allocated_usd: 0
+  sandbox: python_sim

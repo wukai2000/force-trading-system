@@ -4,6 +4,8 @@ Force definition and suggestion primitives.
 A Force is a persistent structural driver.
 Its "signature" is the filter/transformation that makes the force visible
 in historical data for pattern recognition.
+
+After F1/F2: a force is only evaluable as a *neutralized residual spread*.
 """
 
 from __future__ import annotations
@@ -19,6 +21,8 @@ class ForceStatus(str, Enum):
     HISTORICAL_SERIES = "historical_series"
     RESIDUALIZED = "residualized"
     PAPER = "paper"
+    PAUSED = "paused"
+    FALSIFIED = "falsified"
 
 
 @dataclass
@@ -29,10 +33,12 @@ class Force:
     name: str
     one_sentence: str
     status: ForceStatus = ForceStatus.CANDIDATE
-    # Signature = the filter / transformation that surfaces the pattern
     signature_notes: str = ""
-    # Free-form metadata (transmission channels, related assets, etc.)
     meta: Dict[str, Any] = field(default_factory=dict)
+    # After F1/F2 this defaults to residual spread; long-only is invalid for promotion.
+    tradable: str = "residual_spread"
+    legs: List[str] = field(default_factory=list)
+    controls: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -41,6 +47,9 @@ class Force:
             "one_sentence": self.one_sentence,
             "status": self.status.value,
             "signature_notes": self.signature_notes,
+            "tradable": self.tradable,
+            "legs": list(self.legs),
+            "controls": list(self.controls),
             "meta": self.meta,
         }
 
@@ -51,13 +60,13 @@ class ForceSuggestion:
 
     force_id: str
     force_name: str
-    # Directional intensity: positive = force supportive of risk assets / theme,
-    # negative = headwind. Scale is arbitrary for now (later calibrated).
     intensity: float
-    confidence: float  # 0–1
+    confidence: float
     rationale: str
     timestamp: Optional[str] = None
     raw: Dict[str, Any] = field(default_factory=dict)
+    # Hedge weights for the residual spread (control ticker -> weight to short)
+    hedge_weights: Dict[str, float] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -67,5 +76,6 @@ class ForceSuggestion:
             "confidence": self.confidence,
             "rationale": self.rationale,
             "timestamp": self.timestamp,
+            "hedge_weights": self.hedge_weights,
             "raw": self.raw,
         }
