@@ -1,0 +1,9 @@
+years,14.65845311430527
+n_days,3686
+clean_ir,0.13096161191921976
+placebo_ir,-0.048375403657582146
+mean_betas,"{'XLV': 0.8413774546723026, 'XBI': 0.07302632672758629}"
+hedge_weights_last,"{'XLV': 0.694025377909956, 'XBI': -0.044757515179731144}"
+raw_basket_ir_diagnostic_only,0.7668132615135719
+verdict,FAIL_GATE
+failures,"['IR 0.131 < 0.4', '|β_XLV| 0.841 ≥ 0.8 (stealth factor)']"

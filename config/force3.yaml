@@ -6,11 +6,11 @@
 force_id: longevity_healthspan_demand
 name: Longevity / healthspan demand
 lead_lag_weeks: 4
-version: "2026-08-24-locked-pre-scan"
-status: formalized_phase_a_locked
+version: "2026-08-25 phase a force3 scan"
 tradable: residual_spread   # never long-only legs
-scan_allowed: false         # phase_a_force3.py requires FORCE3_LOCK_ACK=1
-
+status: "phase_a_executing"
+scan_allowed: true
+FORCE3_LOCK_ACK: 1
 # One-sentence definition (locked)
 one_sentence: >
   Longevity / demographic-healthcare is a demand-side force: an aging
