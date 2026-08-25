@@ -1,20 +1,26 @@
 """
-Weekly panel: residual vs SPY/EFA, coherence, placeholder clock flags.
+Daily/weekly panel helpers: equal-weight residual, rolling OLS residual, coherence.
 
-Consumable state for force_engine / dashboard.
+Force 1 defaults (MAGS/SMH/SPMO vs VOO) are archived — Force 1 is falsified/paused.
+Force 2 Phase A uses residual_ols() with legs/controls passed explicitly.
 """
 
 from __future__ import annotations
 
-from typing import List, Optional, Sequence
+from typing import Optional, Sequence
 
 import numpy as np
 import pandas as pd
 
 from .cache import load_parquet, save_parquet
 
+# Archived Force 1 defaults — do not use for new experiments.
 DEFAULT_LEGS = ["MAGS", "SMH", "SPMO"]
 DEFAULT_CONTROLS = ["VOO"]
+
+# Force 2 Phase A (2026-08-24)
+FORCE2_LEGS = ["VST", "ETN", "PWR"]
+FORCE2_CONTROLS = ["XLU", "QQQ"]
 
 
 def _load_close(ticker: str) -> Optional[pd.Series]:
@@ -47,10 +53,68 @@ def residual_vs(control: str, legs: Sequence[str] = DEFAULT_LEGS) -> Optional[pd
         return None
     ctrl_ret = ctrl.pct_change()
     aligned = pd.concat([basket, ctrl_ret], axis=1, keys=["basket", "ctrl"]).dropna()
-    # simple residual: basket - control (not beta-adjusted yet — Phase F will residualize)
     resid = aligned["basket"] - aligned["ctrl"]
     resid.name = f"resid_vs_{control}"
     return resid
+
+
+def residual_ols(
+    legs: Sequence[str],
+    controls: Sequence[str],
+    lookback: int = 60,
+) -> Optional[pd.DataFrame]:
+    """
+    Rolling OLS: basket_ret ~ 1 + controls. Residual is the promotion series.
+
+    Returns DataFrame with columns:
+      basket, resid, plus beta_<ctrl> for each control.
+    """
+    basket = _equal_weight_returns(legs)
+    if basket is None:
+        return None
+    ctrl_cols = {}
+    for c in controls:
+        s = _load_close(c)
+        if s is None or s.empty:
+            print(f"[panel] missing control: {c}")
+            return None
+        ctrl_cols[c] = s.pct_change()
+    X = pd.DataFrame(ctrl_cols)
+    df = pd.concat([basket.rename("basket"), X], axis=1).dropna()
+    if len(df) < lookback + 5:
+        print(f"[panel] OLS too short: {len(df)} rows")
+        return None
+
+    n_ctrl = len(controls)
+    betas = {c: [] for c in controls}
+    resid = []
+    idx = []
+    y_all = df["basket"].values
+    X_all = np.column_stack([np.ones(len(df))] + [df[c].values for c in controls])
+
+    for i in range(lookback - 1, len(df)):
+        sl = slice(i - lookback + 1, i + 1)
+        y = y_all[sl]
+        x = X_all[sl]
+        try:
+            coef, *_ = np.linalg.lstsq(x, y, rcond=None)
+        except np.linalg.LinAlgError:
+            resid.append(np.nan)
+            for c in controls:
+                betas[c].append(np.nan)
+            idx.append(df.index[i])
+            continue
+        yhat = float(x[-1] @ coef)
+        resid.append(float(y_all[i] - yhat))
+        for j, c in enumerate(controls):
+            betas[c].append(float(coef[j + 1]))
+        idx.append(df.index[i])
+
+    out = pd.DataFrame({"resid": resid, "basket": df["basket"].loc[idx].values}, index=idx)
+    for c in controls:
+        out[f"beta_{c}"] = betas[c]
+    out.index.name = "date"
+    return out
 
 
 def coherence(legs: Sequence[str] = DEFAULT_LEGS, lookback: int = 60) -> Optional[pd.Series]:
@@ -70,12 +134,9 @@ def coherence(legs: Sequence[str] = DEFAULT_LEGS, lookback: int = 60) -> Optiona
         n = c.shape[0]
         if n < 2:
             return np.nan
-        # upper triangle
         iu = np.triu_indices(n, k=1)
         return float(np.nanmean(c[iu]))
 
-    out = df.rolling(lookback).apply(lambda x: np.nan, raw=False)  # placeholder structure
-    # proper rolling pairwise mean
     vals = []
     idx = []
     for i in range(lookback - 1, len(df)):
@@ -85,42 +146,36 @@ def coherence(legs: Sequence[str] = DEFAULT_LEGS, lookback: int = 60) -> Optiona
     return pd.Series(vals, index=idx, name="coherence")
 
 
+def annualized_ir(resid: pd.Series, periods_per_year: int = 252) -> float:
+    s = resid.dropna()
+    if len(s) < 60 or s.std() == 0:
+        return float("nan")
+    return float(s.mean() / s.std() * np.sqrt(periods_per_year))
+
+
 def build_weekly_panel(
-    legs: Sequence[str] = DEFAULT_LEGS,
-    controls: Sequence[str] = DEFAULT_CONTROLS,
+    legs: Sequence[str] = FORCE2_LEGS,
+    controls: Sequence[str] = FORCE2_CONTROLS,
     coherence_lookback: int = 60,
 ) -> Optional[pd.DataFrame]:
-    """
-    Build weekly panel and save to data/state/force1_weekly.parquet.
-
-    Columns:
-      resid_vs_SPY, resid_vs_EFA (weekly sum of daily residual)
-      coherence (last daily value in week)
-      naming_score, cot_joint_flag, flow_proxy_flag  (placeholders until streams wired)
-    """
-    pieces = {}
-    for c in controls:
-        r = residual_vs(c, legs=legs)
-        if r is not None:
-            weekly = r.resample("W-FRI").sum()
-            pieces[f"resid_vs_{c}"] = weekly
-
+    ols = residual_ols(legs, controls, lookback=coherence_lookback)
     coh = coherence(legs=legs, lookback=coherence_lookback)
+    if ols is None:
+        print("[panel] no OLS residual — run price fetch first")
+        return None
+    pieces = {"resid_ols": ols["resid"].resample("W-FRI").sum()}
+    for c in controls:
+        col = f"beta_{c}"
+        if col in ols.columns:
+            pieces[col] = ols[col].resample("W-FRI").last()
     if coh is not None:
         pieces["coherence"] = coh.resample("W-FRI").last()
-
-    if not pieces:
-        print("[panel] no data — run price fetch first")
-        return None
-
     panel = pd.DataFrame(pieces).sort_index()
-    # placeholders for other clocks
     panel["naming_score"] = np.nan
     panel["cot_joint_flag"] = 0
     panel["flow_proxy_flag"] = 0
     panel["phase_label"] = "unknown"
-
-    save_parquet(panel, "state/force1_weekly.parquet")
+    save_parquet(panel, "state/force2_weekly.parquet")
     print(f"[panel] weekly rows={len(panel)} last={panel.index.max().date()}")
     return panel
 

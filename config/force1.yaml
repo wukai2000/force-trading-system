@@ -1,22 +1,24 @@
-# Force 1 — AI Infrastructure / Memory Bottleneck (v1 Phase A)
-# Adjusted ticket group per 2026-08-19 decision.
-# Core residual members have multi-year history; DRAM is secondary (short history).
+# Force 1 — AI Infrastructure / Memory Bottleneck
+# STATUS 2026-08-24: FALSIFIED — PAUSED. Do not iterate this basket.
+# Clean residual IR vs VOO+QQQ = 0.003 (gate was IR ≥ 0.40).
+# Basket ≈ 1.24× QQQ beta. Option B (MU/HBM vs SMH) was considered and REJECTED
+# to avoid post-hoc specification search. Working force is now Force 2.
 
 force_id: ai_infra_memory_bottleneck
+status: falsified_paused
 lead_lag_weeks: 4
-version: "2026-08-19-phase-a"
+version: "2026-08-24-paused"
+paused_reason: "clean IR 0.003 after 60d OLS vs VOO+QQQ; pre-registered gate IR>=0.40 failed"
 
 ticket_group:
-  # Core residual legs (equal-weight residual vs VOO)
   legs:
-    - MAGS   # Roundhill Magnificent Seven (equal-weight Mag7)
-    - SMH    # VanEck Semiconductor (concentrated global-ish)
-    - SPMO   # Invesco S&P 500 Momentum (currently semi/tech heavy)
+    - MAGS
+    - SMH
+    - SPMO
   controls:
-    - VOO    # Vanguard S&P 500 — primary control / residual baseline
-  # Secondary / leading-indicator only (too new for long history residual)
+    - VOO
   secondary:
-    - DRAM   # Roundhill Memory ETF (launched 2026-04-02)
+    - DRAM
 
 prices:
   tickers:
@@ -25,15 +27,12 @@ prices:
     - SPMO
     - VOO
     - DRAM
-    # keep a few legacy for robustness / future orthogonal tests
     - SPY
     - QQQ
 
 panel:
   residual_windows_weeks: [4, 12, 26]
   coherence_lookback_days: 60
-  # simple residual = equal-weight leg returns - control returns
-  # Phase later: beta-adjusted / multi-factor residualization
 
 naming:
   terms:
@@ -47,6 +46,3 @@ naming:
     - "Magnificent 7"
     - "soft landing"
     - "rate cut"
-
-# Phase A focuses only on prices + residual + coherence.
-# COT / FRED / flows remain available but secondary for this iteration.

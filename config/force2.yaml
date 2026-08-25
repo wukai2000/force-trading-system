@@ -1,0 +1,79 @@
+# Force 2 — Energy × AI Computation / Communication Synergy (Phase A)
+# Locked 2026-08-24 after Force 1 (MAGS+SMH+SPMO vs VOO/QQQ) was falsified
+# (clean IR 0.003 < pre-registered gate IR ≥ 0.40). Option B (MU/HBM vs SMH)
+# was REJECTED to avoid post-hoc specification search on a dead force.
+
+force_id: energy_x_ai_power_coupling
+lead_lag_weeks: 4
+version: "2026-08-24-phase-a"
+status: formalized_phase_a
+
+ticket_group:
+  # Core residual legs — AI-exposed generation / grid / electrical equipment.
+  # All three have ≥8y yfinance history. Equal-weight.
+  legs:
+    - VST    # Vistra — thermal + retail + data-center load
+    - ETN    # Eaton — electrical equipment / power management
+    - PWR    # Quanta Services — transmission / interconnect / grid build
+  # Dual factor controls for rolling OLS residualization (NOT simple subtract).
+  # Strip generic-utility premium AND strip broad-tech/AI beta.
+  controls:
+    - XLU    # Utilities Select Sector — generic utility
+    - QQQ    # Nasdaq-100 — tech / AI beta
+  # Secondary / leading-indicator only (Constellation nuclear PPA; history from 2022)
+  secondary:
+    - CEG
+  # Robustness diagnostic only (not in promotion gate)
+  diagnostic:
+    - XLE    # Energy Select Sector — flag energy-cycle contamination
+    - SPY
+    - VOO
+
+prices:
+  tickers:
+    - VST
+    - ETN
+    - PWR
+    - CEG
+    - XLU
+    - QQQ
+    - XLE
+    - SPY
+    - VOO
+
+panel:
+  residual_windows_weeks: [4, 12, 26]
+  coherence_lookback_days: 60
+  ols_lookback_days: 60
+  # Phase A residual = rolling 60d OLS of EW-leg returns on [XLU, QQQ]
+  # Promotion uses the OLS residual, not raw excess vs XLU.
+
+naming:
+  terms:
+    - "data center power"
+    - "AI electricity demand"
+    - "nuclear PPA"
+    - "grid interconnection"
+    - "power bottleneck"
+    - "hyperscaler power"
+  control_terms:
+    - "Magnificent 7"
+    - "rate cut"
+    - "oil price"
+
+# Pre-registered promotion gate (locked BEFORE first scan — 2026-08-24)
+gate:
+  min_clean_ir: 0.40
+  max_placebo_ir: 0.15
+  max_abs_mean_beta_qqq: 0.80
+  min_overlap_years: 8
+  kill_if_explained_by_tech_beta: true
+
+# Phase detector: reuse Force-1 Aug-22 detector, scale-invariant.
+# Quiet dominance / catch-up / stabilization from z(resid_slope_20d) and vol_z.
+# Do NOT reuse Force-1 v0 absolute z>0.4 detector (that produced 100% catch-up).
+phase_detector:
+  slope_window_days: 20
+  vol_window_days: 20
+  z_window_days: 60
+  min_episode_days: 10
