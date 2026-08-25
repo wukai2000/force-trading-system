@@ -44,9 +44,21 @@ full-sample OOS IR **0.52**, placebo −0.011, β_QQQ 0.66, β_XLU 0.44.
 | 2024–2026 | 673 | 0.34 |
 
 That number **would pass** IR ≥ 0.40. Strength is concentrated in 2022–23.
-**Do not silently un-pause Force 2 or allocate capital.** Flag for a later
-cycle: walk-forward + costs on the *same* tickets. This is an engine
-correction, not Option-B fishing.
+
+### Walk-forward + costs (2026-08-25, same tickets)
+
+| Metric | Value |
+|---|---|
+| Gross OOS IR | 0.520 |
+| Net IR @ 5 bp one-way | **0.487** |
+| Net IR @ 10 bp | 0.454 |
+| Placebo IR | −0.011 |
+| Mean β_XLU / β_QQQ | 0.44 / 0.66 |
+| IR excluding 2022–23 | 0.317 |
+| 2017–19 / 20–21 / 22–23 / 24–26 | 0.19 / 0.41 / **1.38** / 0.34 |
+
+Hard gates all pass after costs. Soft fail: **2022–23 concentration**.
+Advisory verdict: **KEEP_PAUSED_SOFT_FAIL**. Capital $0. Not Option-B.
 
 ### Law
 

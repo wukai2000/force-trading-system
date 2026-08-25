@@ -1,8 +1,6 @@
-# Force 2 Phase A — Energy × AI power coupling
+# Force 2 — Energy × AI power coupling
 
-**Locked 2026-08-24 before first scan.** Force 1 (MAGS+SMH+SPMO vs VOO/QQQ) is
-falsified (clean IR 0.003). Option B (MU/HBM vs SMH) was **rejected** to avoid
-post-hoc specification search.
+**Status: PAUSED** (2026-08-25 walk-forward review). Same tickets. No capital.
 
 ## One-sentence definition
 
@@ -10,49 +8,83 @@ Reliable, scalable electric power coupled to AI computation demand produces
 residual outperformance of AI-exposed generation and grid names versus generic
 utilities **and** versus broad tech.
 
-## Ticket group
+## Ticket group (locked — not iterated)
 
 | Role | Tickers | Why |
 |---|---|---|
-| Residual legs (EW) | VST, ETN, PWR | AI-load generation, electrical equipment, grid build; ≥8y history |
-| OLS controls | XLU, QQQ | Strip generic-utility premium and tech/AI beta |
-| Secondary / leading | CEG | Nuclear + hyperscaler PPAs; history from 2022 only |
-| Diagnostic | XLE | Flag energy-cycle contamination (not in promotion gate) |
+| Residual legs (EW) | VST, ETN, PWR | AI-load generation, electrical equipment, grid build |
+| OLS controls | XLU, QQQ | Strip generic-utility and tech/AI beta |
+| Secondary / leading | CEG | Nuclear + hyperscaler PPAs (short history) |
+| Diagnostic | XLE | Energy-cycle contamination flag |
 
-## Pre-registered gate (do not move after seeing results)
+**Tradable object:** residual spread
+`r_legs,t − β_{t−1}' r_controls,t` (60d lagged β, intercept not subtracted).
 
-- Rolling 60-day OLS residual of EW(VST, ETN, PWR) on [XLU, QQQ]
-- Full-sample annualized IR ≥ **0.40**
-- Time-shuffle placebo IR < **0.15**
-- \|mean β_QQQ\| < **0.80** (kill stealth tech-beta, Force 1 failure mode)
-- Overlapping history ≥ **8 years**
-- Capital: **none**. Trump Account stays SPYM. Experimental $3k untouched.
-- Sandbox: pure Python simulator only.
+## Phase A (2026-08-24) — old metric
 
-## Phase detector
+In-sample OLS residual **including intercept** → clean IR **0.013** → FAIL_GATE.
+That object mechanically zeros a persistent premium. Paused.
 
-Reuse Force-1 **Aug-22** detector (slope_z of 20d residual mean + vol_z),
-**not** the original v0 absolute z>0.4 detector that produced 100% catch-up.
-Thresholds are sample-relative z-scores so they transfer without Force-2-specific
-retuning.
+## Engine-correction + walk-forward (2026-08-25)
 
-## 4 clocks (unchanged structure)
+Same tickets, corrected OOS hedged residual. Advisory only — does not un-pause.
 
-1. Ticket-group OLS residual
-2. Leading indicator (CEG vs the 3-leg basket)
-3. Naming cues (data-center power / nuclear PPA / grid interconnect)
-4. Major-move joint shift (default 4-week lead-lag)
+### Full sample (2016-12-30 → 2026-08-24, n=2462, 9.65y)
+
+| Metric | Value |
+|---|---|
+| Gross OOS IR | **0.520** |
+| Net IR (1 bp one-way) | 0.513 |
+| Net IR (5 bp one-way) | **0.487** |
+| Net IR (10 bp one-way) | 0.454 |
+| Sign-placebo IR | −0.011 |
+| Mean β_XLU | 0.443 |
+| Mean β_QQQ | 0.659 |
+| Mean daily turnover | 0.073 (~18×/yr; mostly hedge β drift) |
+
+Hard gates (IR ≥ 0.40 after 5 bp, |β| < 0.80, placebo < 0.15, ≥8y): **all pass**.
+
+### Calendar regimes (gross)
+
+| Window | n | IR |
+|---|---|---|
+| 2017–2019 | 766 | 0.190 |
+| 2020–2021 | 513 | 0.413 |
+| 2022–2023 | 509 | **1.382** |
+| 2024–2026 | 673 | 0.342 |
+| Excluding 2022–2023 | — | 0.317 |
+
+### Annual folds (gross)
+
+| Year | IR | Year | IR |
+|---|---|---|---|
+| 2017 | 0.069 | 2022 | 1.527 |
+| 2018 | −0.051 | 2023 | 1.292 |
+| 2019 | 0.459 | 2024 | 0.526 |
+| 2020 | 0.048 | 2025 | −0.011 |
+| 2021 | 0.974 | 2026 YTD | 0.588 |
+
+### Advisory verdict
+
+**KEEP_PAUSED_SOFT_FAIL**
+
+- Hard fails: none
+- Soft fail: 2022–23 concentration (IR > 1.0 while 2017–19 < 0.25)
+- Action: leave `phase_a_failed_paused`. Capital $0. Trump Account = SPYM.
+
+Edge survives realistic ETF costs. Regime path is real but dominated by the
+AI-power boom years. Human may later un-pause with eyes open; the system will not.
+
+## Artifacts
+
+- `data/force2/force2_walkforward_summary.json`
+- `data/force2/force2_walkforward_daily.csv`
+- `data/force2/force2_walkforward_regimes.csv`
+- `data/force2/force2_walkforward_annual.csv`
+- `charts/force2/force2_walkforward.png`
 
 ## Run
 
 ```
-PYTHONPATH=. python scripts/phase_a_force2.py
+PYTHONPATH=. python scripts/walkforward_force2.py
 ```
-
-## Scan result (2026-08-24, AFTER the gate was locked)
-
-- Sample: 2016-12-29 → 2026-08-24 (2,463 OLS days, 9.65y)
-- Clean IR: **0.013** → **FAIL_GATE** (required ≥ 0.40)
-- Sign-randomization placebo IR: −0.025
-- Mean β_QQQ = 0.61, mean β_XLU = 0.42
-- **Paused. Do not iterate legs.** Force 3 is next, not this cycle.

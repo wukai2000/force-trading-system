@@ -1,0 +1,84 @@
+{
+  "force_id": "energy_x_ai_power_coupling",
+  "tradable": "residual_spread",
+  "legs": [
+    "VST",
+    "ETN",
+    "PWR"
+  ],
+  "controls": [
+    "XLU",
+    "QQQ"
+  ],
+  "n_days": 2462,
+  "years": 9.645448323066393,
+  "start": "2016-12-30",
+  "end": "2026-08-24",
+  "full_ir_gross": 0.5196423969541254,
+  "full_ir_by_cost_bps": {
+    "0": 0.5196423969541254,
+    "1": 0.5130849542712629,
+    "5": 0.4868569981873168,
+    "10": 0.4540768362020495
+  },
+  "placebo_ir": -0.010963022909656036,
+  "mean_betas": {
+    "XLU": 0.4425493042548253,
+    "QQQ": 0.658819669764968
+  },
+  "turnover": {
+    "mean_daily_turnover": 0.0726959028821245,
+    "mean_leg_turnover": 0.01654574211344396,
+    "mean_hedge_turnover": 0.05615016076868055,
+    "ann_turnover_approx": 18.319367526295377
+  },
+  "regimes_gross": [
+    {
+      "start": "2017-01-01",
+      "end": "2019-12-31",
+      "n": 766,
+      "ir": 0.18995032482266488,
+      "mean_daily": 0.00014266651206971032,
+      "ann_vol": 0.18927033199406887,
+      "label": "2017\u20132019"
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2021-12-31",
+      "n": 513,
+      "ir": 0.4132798418338435,
+      "mean_daily": 0.0005049566993975851,
+      "ann_vol": 0.3079005442983864,
+      "label": "2020\u20132021"
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2023-12-31",
+      "n": 509,
+      "ir": 1.3819370113230833,
+      "mean_daily": 0.0014181578229641237,
+      "ann_vol": 0.25860496423408136,
+      "label": "2022\u20132023"
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2026-12-31",
+      "n": 673,
+      "ir": 0.3421832647354693,
+      "mean_daily": 0.00047706683039207563,
+      "ann_vol": 0.35133466083369647,
+      "label": "2024\u20132026"
+    }
+  ],
+  "ir_excluding_2022_23": 0.3165207711316464,
+  "verdict": {
+    "status": "KEEP_PAUSED_SOFT_FAIL",
+    "fail_hard": [],
+    "fail_soft": [
+      "2022\u201323 concentration (IR>1.0 while 2017\u201319 <0.25)"
+    ],
+    "capital": 0,
+    "force_status_action": "leave_paused"
+  },
+  "note": "Advisory engine-correction review. Leave force paused. Capital $0."
+}
