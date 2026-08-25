@@ -1,0 +1,54 @@
+{
+  "taxonomy": "tug_of_war_v1",
+  "date": "2026-08-25T23:56:29.565603+00:00",
+  "ir_floor": 0.4,
+  "capital": 0,
+  "note": "Diagnostic only. Does not un-pause or re-spec any force.",
+  "force2": {
+    "force": "force2",
+    "n_days": 2463,
+    "full_sample_ir": 0.012936106807221568,
+    "regime_irs": {
+      "2017-2019": -0.36159187638637746,
+      "2020-2021": 0.030520515920651817,
+      "2022-2023": 0.17731766318800304,
+      "2024-2026": 0.1291955472666342
+    },
+    "ir_high_vol": -0.03264198338249265,
+    "ir_low_vol": 0.06693761531564335,
+    "ir_high_coherence": 0.020198623015187454,
+    "ir_low_coherence": 0.002590030358880995,
+    "max_regime_ir": 0.17731766318800304,
+    "concentration_ratio": 13.707189174490708,
+    "clears_ir_floor_any_regime": false,
+    "clears_ir_floor_low_vol": false,
+    "soft_fail_concentration": true
+  },
+  "force3": {
+    "force": "force3",
+    "verdict": "FAIL_GATE",
+    "clean_ir": 0.13096161191921976,
+    "placebo_ir": -0.048375403657582146,
+    "mean_betas": "\"{'XLV': 0.8413774546723026, 'XBI': 0.07302632672758629}\"",
+    "failures": "\"['IR 0.131 < 0.4', '|\u00ce\u00b2_XLV| 0.841 \u00e2\u2030\u00a5 0.8 (stealth factor)']\"",
+    "clears_ir_floor": false,
+    "stealth_factor": false
+  },
+  "force1": {
+    "status": "falsified_paused",
+    "known_clean_ir": 0.003,
+    "failure_mode": "stealth_QQQ_beta_~1.24"
+  },
+  "synthesis": [
+    "F2 residual strength is regime-concentrated (2022-23). Consistent with hyper/market (energy shock) rather than pure stable force.",
+    "F2 low-vol IR=0.067 < 0.40 \u2192 stable-force signature weak.",
+    "No existing residual clears IR floor in a sustained non-hyper regime. Next exploration must instrument multi-layer residualization before new tickets."
+  ],
+  "next_failfast_directions": [
+    "Instrument VIX term-structure + cross-sectional dispersion as continuous state vars (layer 2).",
+    "Re-residualize existing F2/F3 residual series against breadth / high-beta-low-vol ratio (layer 3).",
+    "Build simple narrative residual (dictionary counts residualized vs price mom) and test lead-lag (layer 4).",
+    "Neighbor test: any new candidate must be orthogonalized against paused F1/F2/F3 residuals before gate.",
+    "Do not re-spec IHF/IHI/XHS or VST/ETN/PWR. New force definitions start from taxonomy, not ticket swaps."
+  ]
+}

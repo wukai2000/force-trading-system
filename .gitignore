@@ -1,9 +1,22 @@
+# Python
 .venv/
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.ipynb_checkpoints/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Data caches & large downloads (keep structure via .gitkeep)
 data/cache/
 data/prices/*
 data/macro/*
@@ -14,10 +27,28 @@ data/state/*
 !data/**/.gitkeep
 !data/meta/
 !data/meta/last_fetch.json
+
+# Logs & runtime artifacts
 logs/*.log
+logs/*
+!logs/.gitkeep
 artifacts/*.png
-.env
-*.egg-info/
-dist/
-build/
+artifacts/charts/*
+!artifacts/.gitkeep
+!artifacts/charts/.gitkeep
+
+# Packages / releases (store on Drive, not in repo)
+*.tar.gz
+*.tgz
+force-trading-system-*.tar.gz
+
+# OS / IDE
 .DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Force residual series are large; prefer GitHub LFS or Drive for full history.
+# Keep gates and summaries tracked.
+# data/force*/force*_daily_residual.csv  # uncomment if size becomes issue

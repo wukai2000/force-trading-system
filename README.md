@@ -35,3 +35,10 @@ PYTHONPATH=. python -m force_engine.engine --demo
 ```
 
 Do not run `scripts/phase_a_force3.py` until the Force 3 lock in `config/force3.yaml` is acknowledged (`FORCE3_LOCK_ACK=1`).
+
+## Post-F3 status (2026-08-25)
+
+All Phase-A forces paused (F1 falsified, F2 soft-fail concentration, F3 FAIL_GATE stealth XLV).
+See `docs/FORCE_TAXONOMY.md` and `docs/META_LEARNING.md`.
+Fail-fast diagnostics: `PYTHONPATH=. python scripts/failfast_force_taxonomy.py`
+Capital $0 / SPYM only. No Option-B.

@@ -126,3 +126,17 @@ legs and controls (no silent pad of missing names).
 and refuses unmarked / long-only baskets.
 
 Force 3 remains locked independently and is **not scanned** in this cycle.
+
+---
+
+## 2026-08-25 post-Force-3 reckoning — Tug-of-war taxonomy
+
+Force 3 Phase A executed and failed (clean IR 0.131, |β_XLV| 0.841). All three forces are now paused.
+
+The shared failure mode is absorption into regular-market / sector factors once the correct residual object is used. A new measurement layer is required before any new force is formalized.
+
+See **docs/FORCE_TAXONOMY.md** for the four-class model (stable / hyper / regular market / noisy), the multi-layer residual definition, and the fail-fast test suite (`scripts/failfast_force_taxonomy.py`).
+
+Fail-fast report (this cycle): no existing residual clears IR ≥ 0.40 in a sustained low-vol / non-hyper regime. Next work is instrumentation of layers 2–4 (vol regime, breadth, narrative), not ticket re-specification.
+
+Capital: $0. Trump Account = SPYM. One-force-one-gate discipline continues.
