@@ -1,0 +1,19 @@
+force_id: defense_sovereign_capacity
+gate:
+  kill_on_fail: pause_no_option_b
+  max_placebo_ir: 0.15
+  max_sector_beta: 0.8
+  min_clean_ir: 0.4
+  min_overlap_years: 8
+name: Defense Sovereign Capacity
+status: pre_scan_frozen
+taxonomy_class: stable_force
+ticket_group:
+  controls:
+  - XLI
+  - SPY
+  legs:
+  - ITA
+  - XAR
+  - PPA
+tradable: residual_spread
