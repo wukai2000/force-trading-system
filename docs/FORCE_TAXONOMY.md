@@ -80,3 +80,15 @@ Capital stays $0 experimental / SPYM passive until a candidate survives the full
 
 Neighboring-force test: after orthogonalizing a new candidate against the residual series of all paused forces, residual IR must still clear the gate. Otherwise it is a linear combination / neighbor, not independent.
 
+
+
+## Locked multi-layer gate (2026-08-27, L2-REGIME)
+
+See `config/multilayer_gate.yaml` and `docs/L2_REGIME.md`.
+
+- multi-layer residual IR ≥ **0.40**
+- IR ≥ **0.35** in ≥ **2** non-shock calendar regimes
+- placebo IR < **0.15**
+- |β| sector controls < **0.80**
+- neighbor IR vs paused residuals ≥ **0.40**
+- clocks veto-only

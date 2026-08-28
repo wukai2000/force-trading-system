@@ -1,6 +1,6 @@
 {
   "taxonomy": "tug_of_war_v1",
-  "date": "2026-08-25T23:56:29.565603+00:00",
+  "date": "2026-08-25T23:50:56.036090+00:00",
   "ir_floor": 0.4,
   "capital": 0,
   "note": "Diagnostic only. Does not un-pause or re-spec any force.",
@@ -30,9 +30,9 @@
     "clean_ir": 0.13096161191921976,
     "placebo_ir": -0.048375403657582146,
     "mean_betas": "\"{'XLV': 0.8413774546723026, 'XBI': 0.07302632672758629}\"",
-    "failures": "\"['IR 0.131 < 0.4', '|\u00ce\u00b2_XLV| 0.841 \u00e2\u2030\u00a5 0.8 (stealth factor)']\"",
+    "failures": "\"['IR 0.131 < 0.4', '|\u03b2_XLV| 0.841 \u2265 0.8 (stealth factor)']\"",
     "clears_ir_floor": false,
-    "stealth_factor": false
+    "stealth_factor": true
   },
   "force1": {
     "status": "falsified_paused",
@@ -42,6 +42,7 @@
   "synthesis": [
     "F2 residual strength is regime-concentrated (2022-23). Consistent with hyper/market (energy shock) rather than pure stable force.",
     "F2 low-vol IR=0.067 < 0.40 \u2192 stable-force signature weak.",
+    "F3 failed on stealth XLV beta (0.841). Demand-side residual collapsed into regular healthcare factor.",
     "No existing residual clears IR floor in a sustained non-hyper regime. Next exploration must instrument multi-layer residualization before new tickets."
   ],
   "next_failfast_directions": [

@@ -1,0 +1,49 @@
+# Multi-layer promotion gate — LOCKED 2026-08-27 BEFORE L2-REGIME run.
+# Applies to any future force and to diagnostic re-tests of paused F1/F2/F3.
+# Does not un-pause existing forces. Clocks remain veto-only.
+
+gate_id: multilayer_v1
+locked: "2026-08-27"
+experiment: L2-REGIME
+kill_on_fail: pause_no_option_b
+capital: 0
+trump_account: SPYM_passive_only
+
+# Promotion numbers (locked)
+min_multilayer_ir: 0.40          # final residual after L1 sector + L2 vol/credit (+ optional L3)
+min_nonshock_regime_ir: 0.35     # must hold in >= min_nonshock_regimes
+min_nonshock_regimes: 2
+max_placebo_ir: 0.15
+max_abs_sector_beta: 0.80        # original sector controls (XLV/XBI, XLU/QQQ, ...)
+min_neighbor_ir: 0.40            # residual after orthogonalizing vs paused F1/F2/F3 residuals
+clocks: veto_only                # cannot promote a failing residual
+
+# L2 regime labels (used for conditioning, not promotion by themselves)
+l2:
+  series:
+    vix: VIXCLS                  # FRED
+    vix3m: VXVCLS                # FRED 3-month VIX (VIX3M proxy)
+    curve: T10Y2Y                # FRED 10y-2y
+    real10y: DFII10              # FRED 10y TIPS
+    credit_long: BAA10Y          # FRED Moody's Baa minus 10y (full history)
+    credit_hy: BAMLH0A0HYM2      # ICE BofA HY OAS (short free window; live tape)
+    nfci: NFCI                   # Chicago Fed NFCI
+  complacency:
+    vix_lt: 16.0
+    vix_term_contango: true      # VIX / VIX3M < 1
+    hy_oas_pctile_lt: 20
+  stress:
+    vix_gt: 20.0
+    vix_term_backwardation: true # VIX / VIX3M > 1
+    credit_pctile_gt: 80
+
+l3:
+  pairs:
+    - [RSP, SPY]                 # equal-weight vs cap-weight = breadth
+    - [IWM, SPY]                 # small vs large
+  role: diagnostic_then_optional_layer
+
+l4:
+  stub: AI-GPR
+  status: unwired
+  role: veto_only_when_wired
