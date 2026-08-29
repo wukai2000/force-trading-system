@@ -1,76 +1,175 @@
 """
 scripts/historical_point_in_time_sim.py
 ======================================
-Executes a Point-in-Time Historical Simulation as of a specific target date.
-Ensures zero look-ahead bias by truncating all data at target_date.
+Point-in-time *research* loop.
+
+Discovery may only use information dated ≤ target_date.
+Evaluation must go through neutralization. Raw spread IR is diagnostic.
+
+Default cutoffs are research scouts for the Defense *sketch* and do not
+lock Force 4 or authorize a scan.
 """
+from __future__ import annotations
 
+import json
 import sys
-import os
-import pandas as pd
-import numpy as np
-import yfinance as yf
+from pathlib import Path
 
-# Append project root directory
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+import numpy as np
+import pandas as pd
 
 from force_engine.discovery import ForceDiscoveryEngine
+from force_engine.evaluate import annualized_ir
+from force_engine.literature import run_all_simulators
+from force_engine.neutralize import NeutralizationError, neutralize_prices
+from force_engine.pipeline import CandidateSpec, evaluate_candidate
 
-def run_historical_point_in_time_play(target_date="2022-06-01", oos_months=6):
-    print(f"=== Running Point-in-Time Simulation as of [{target_date}] ===")
-    
-    # 1. Load historical prices up to target_date ONLY (In-Sample Discovery)
-    tickers = ['ITA', 'XAR', 'PPA', 'XLI', 'SPY']
-    print(f"[PIT] Fetching prices truncated at cutoff date: {target_date}...")
-    
-    raw = yf.download(tickers, start='2015-01-01', end=target_date, auto_adjust=False)
+
+DEFAULT_CUTOFFS = ("2021-11-01", "2022-06-01", "2023-10-01")
+SKETCH_LEGS = ["ITA", "XAR", "PPA"]
+SKETCH_CONTROLS = ["XLI", "SPY"]
+
+
+def _fetch(tickers, start, end):
+    import yfinance as yf
+
+    raw = yf.download(list(tickers), start=start, end=end, auto_adjust=False, progress=False)
+    if raw is None or raw.empty:
+        raise RuntimeError("empty yfinance")
     if isinstance(raw.columns, pd.MultiIndex):
-        prices_is = raw['Adj Close'] if 'Adj Close' in raw.columns.levels[0] else raw['Close']
+        px = raw["Adj Close"] if "Adj Close" in raw.columns.levels[0] else raw["Close"]
     else:
-        prices_is = raw[['Close']]
-        
-    prices_is = prices_is.dropna()
-    print(f"[PIT] In-Sample Data Available: {len(prices_is)} trading days ({prices_is.index[0].strftime('%Y-%m-%d')} to {prices_is.index[-1].strftime('%Y-%m-%d')})")
+        px = raw
+    px.columns = [str(c) for c in px.columns]
+    return px.dropna(how="any")
 
-    # 2. Trigger Discovery Engine using ONLY pre-cutoff data
+
+def _cache_or_yahoo(tickers, start, end, allow_yahoo: bool):
+    cols = {}
+    price_dir = ROOT / "data" / "prices"
+    ok = True
+    for t in tickers:
+        p = price_dir / f"{t}.csv"
+        if not p.exists():
+            ok = False
+            break
+        df = pd.read_csv(p)
+        date_col = df.columns[0]
+        close = df["close"] if "close" in df.columns else df.iloc[:, -1]
+        idx = pd.DatetimeIndex(pd.to_datetime(df[date_col], errors="coerce")).tz_localize(None).normalize()
+        cols[t] = pd.Series(pd.to_numeric(close, errors="coerce").values, index=idx, name=t)
+    if ok:
+        px = pd.DataFrame(cols).sort_index().dropna(how="any")
+        return px.loc[start:end], "cache"
+    if not allow_yahoo:
+        raise FileNotFoundError("no cached prices; pass allow_yahoo=True")
+    return _fetch(tickers, start, end), "yfinance"
+
+
+def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) -> dict:
+    print(f"\n=== PIT research as of [{target_date}] (not a Force 4 lock) ===")
+    tickers = SKETCH_LEGS + SKETCH_CONTROLS
+    prices_is, src = _cache_or_yahoo(tickers, "2015-01-01", target_date, allow_yahoo)
+    print(f"[PIT] IS prices {src}: {len(prices_is)} days")
+
     engine = ForceDiscoveryEngine()
-    
-    # Simulate Discovery scan as if today were target_date
-    print(f"[PIT] Executing Discovery Engine on pre-{target_date} data window...")
-    candidate_spec_path = engine.generate_candidate_yaml_spec(
-        candidate_name=f"Defense_PIT_{target_date.replace('-', '')}",
-        legs=['ITA', 'XAR', 'PPA'],
-        controls=['XLI', 'SPY'],
-        taxonomy_class="stable_force",
-        output_dir="config/candidates"
+    # Literature scan on synthetic stand-ins *labeled* as of T.
+    # Real EPU/GPR/patent series should replace this once cached.
+    rng = np.random.default_rng(abs(hash(target_date)) % (2**32))
+    n = min(120, max(60, len(prices_is) // 15))
+    idx = pd.date_range(end=pd.Timestamp(target_date), periods=n, freq="ME")
+    terms = pd.DataFrame(
+        {
+            "sovereign_capacity": np.linspace(10, 20, n) + rng.normal(0, 0.5, n),
+            "ai_energy_grid": np.linspace(50, 160, n) + rng.normal(0, 6, n),
+        },
+        index=idx,
     )
-    
-    # 3. Load Out-of-Sample (OOS) Price Window for Performance Evaluation
-    oos_end = (pd.to_datetime(target_date) + pd.DateOffset(months=oos_months)).strftime('%Y-%m-%d')
-    print(f"[PIT] Fetching Out-of-Sample Evaluation Window ({target_date} -> {oos_end})...")
-    
-    raw_oos = yf.download(tickers, start=target_date, end=oos_end, auto_adjust=False)
-    if isinstance(raw_oos.columns, pd.MultiIndex):
-        prices_oos = raw_oos['Adj Close'] if 'Adj Close' in raw_oos.columns.levels[0] else raw_oos['Close']
-    else:
-        prices_oos = raw_oos[['Close']]
-        
-    prices_oos = prices_oos.dropna()
-    
-    # Calculate simple OOS returns for the discovered basket vs controls
-    rets_oos = prices_oos.pct_change().dropna()
-    long_leg = rets_oos[['ITA', 'XAR', 'PPA']].mean(axis=1)
-    control_leg = rets_oos[['XLI', 'SPY']].mean(axis=1)
-    spread = long_leg - control_leg
-    
-    oos_ir = (spread.mean() / spread.std()) * np.sqrt(252) if spread.std() > 0 else 0
-    
-    print("\n=== POINT-IN-TIME SIMULATION RESULTS ===")
-    print(f"Historical Cutoff Date : {target_date}")
-    print(f"OOS Testing Window     : {target_date} to {oos_end} ({len(prices_oos)} days)")
-    print(f"OOS Raw Spread Net IR  : {oos_ir:.3f}")
-    print(f"Discovered Spec Saved  : {candidate_spec_path}")
+    epu = pd.Series(100 + rng.normal(0, 8, n), index=idx)
+    epu.iloc[-8:] += 30
+    hyps = run_all_simulators(term_counts=terms, epu=epu)
+    print(f"[PIT] literature hypotheses as-of {target_date}: {len(hyps)}")
+    for h in hyps:
+        print(f"      {h.model_id} → {h.theme} ({h.role})")
+
+    yaml_path = engine.generate_candidate_yaml_spec(
+        candidate_name=f"Defense_PIT_{target_date.replace('-', '')}",
+        legs=SKETCH_LEGS,
+        controls=SKETCH_CONTROLS,
+        taxonomy_class="stable_force",
+        as_of=target_date,
+        literature_models=[h.model_id for h in hyps],
+        scannable=False,
+    )
+
+    oos_end = (pd.Timestamp(target_date) + pd.DateOffset(months=oos_months)).strftime("%Y-%m-%d")
+    prices_all, src2 = _cache_or_yahoo(tickers, "2015-01-01", oos_end, allow_yahoo)
+    spec = CandidateSpec(
+        force_id=f"defense_pit_{target_date.replace('-', '')}",
+        legs=SKETCH_LEGS,
+        controls=SKETCH_CONTROLS,
+        gate={
+            "min_clean_ir": 0.40,
+            "max_placebo_ir": 0.15,
+            "min_overlap_years": 0,  # scout window — do not pretend 8y is met
+        },
+    )
+    result = {
+        "as_of": target_date,
+        "oos_end": oos_end,
+        "yaml": yaml_path,
+        "hypotheses": [h.as_dict() for h in hyps],
+        "scout_cannot_promote": True,
+        "capital": 0,
+        "lock_status": "wait",
+        "price_source": src2,
+    }
+    try:
+        ev = evaluate_candidate(spec, prices_all)
+        resid = ev.panel.residual.dropna()
+        t = pd.Timestamp(target_date)
+        oos = resid.loc[t : pd.Timestamp(oos_end)]
+        result["oos_neutralized_ir"] = annualized_ir(oos) if len(oos) else float("nan")
+        result["oos_n"] = int(len(oos))
+        result["full_gate_verdict_on_truncated_sample"] = ev.gate.verdict
+        result["full_failures"] = list(ev.gate.failures)
+        result["mean_betas"] = ev.gate.metrics.get("mean_betas")
+        result["raw_basket_ir_diagnostic_only"] = ev.diagnostic.get("raw_basket_ir")
+        # raw OOS diagnostic
+        oos_px = prices_all.loc[t : pd.Timestamp(oos_end)]
+        rets = oos_px.pct_change(fill_method=None).dropna()
+        spread = rets[SKETCH_LEGS].mean(axis=1) - rets[SKETCH_CONTROLS].mean(axis=1)
+        result["oos_raw_spread_ir_diagnostic_only"] = annualized_ir(spread) if len(spread) else float("nan")
+    except NeutralizationError as e:
+        result["error"] = str(e)
+
+    print("=== PIT scout (not a promotion) ===")
+    print(f"  cutoff {target_date} → {oos_end}")
+    print(f"  neutralized OOS IR: {result.get('oos_neutralized_ir')}")
+    print(f"  raw spread OOS IR (diagnostic): {result.get('oos_raw_spread_ir_diagnostic_only')}")
+    print(f"  betas: {result.get('mean_betas')}")
+    print("  action: wait / no capital / Force 4 not locked")
+    return result
+
+
+def main():
+    allow = "--allow-yahoo" in sys.argv
+    rows = []
+    for t in DEFAULT_CUTOFFS:
+        try:
+            rows.append(run_one(t, allow_yahoo=allow))
+        except FileNotFoundError as e:
+            print(f"[PIT] skip {t}: {e}")
+            print("Re-run with: PYTHONPATH=. python scripts/historical_point_in_time_sim.py --allow-yahoo")
+            break
+    out = ROOT / "data" / "meta" / "pit_research_matrix.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps({"capital": 0, "lock_status": "wait", "rows": rows}, indent=2, default=str))
+    print(f"\nWrote {out}")
+
 
 if __name__ == "__main__":
-    # Example: Run historical play as of June 1, 2022
-    run_historical_point_in_time_play(target_date="2022-06-01", oos_months=6)
+    main()

@@ -1,0 +1,134 @@
+# Literature model registry.
+# role: hypothesis | kill | condition | veto | diagnostic
+# None of these may allocate capital or un-pause a force.
+
+version: "2026-08-29"
+capital: 0
+force4_lock_status: wait
+
+models:
+  - id: narrative_economics
+    number: 1
+    origin: "Shiller 2019; State Street MediaStats"
+    role: hypothesis
+    hook: force_engine.literature.simulate_narrative_economics
+    constraint: veto_or_filter_only
+
+  - id: slow_diffusion
+    number: 2
+    origin: "Hong Stein 1999; PEAD"
+    role: hypothesis
+    hook: force_engine.literature.simulate_slow_diffusion
+    constraint: sketch_tickets_only
+
+  - id: factor_neutralization
+    number: 3
+    origin: "Fama-French; MSCI Barra"
+    role: kill
+    hook: force_engine.neutralize.neutralize_prices
+    constraint: required_before_any_ir
+
+  - id: p_factor_epu
+    number: 4
+    origin: "Baker Bloom Davis EPU"
+    role: hypothesis
+    hook: force_engine.literature.simulate_p_factor
+    constraint: must_survive_sector_ols
+
+  - id: false_discovery
+    number: 5
+    origin: "Harvey Liu Zhu; Lopez de Prado DSR/CPCV"
+    role: kill
+    hook: force_engine.evaluate.sign_placebo_ir
+    constraint: placebo_ir_lt_0.15_hard
+
+  - id: geopolitical_gpr
+    number: 6
+    origin: "Caldara Iacoviello GPR / AI-GPR"
+    role: veto
+    hook: force_engine.literature.simulate_gpr
+    constraint: residual_dying_after_gpr_is_hyper
+
+  - id: limited_attention
+    number: 7
+    origin: "Barberis Shleifer Vishny; DellaVigna Pollet; Da Engelberg Gao"
+    role: hypothesis
+    hook: force_engine.literature.simulate_limited_attention
+    constraint: high_attention_is_hyper
+
+  - id: slow_capital
+    number: 8
+    origin: "Duffie 2010; Gabaix Koijen"
+    role: diagnostic
+    hook: force_engine.literature.simulate_slow_capital
+    constraint: persistence_is_not_a_force
+
+  - id: variance_risk_regime
+    number: 9
+    origin: "Bollerslev Tauchen Zhou; VIX term structure"
+    role: condition
+    hook: force_engine.layers.classify_regime
+    constraint: need_two_nonshock_regimes
+
+  - id: breadth_participation
+    number: 10
+    origin: "Chen Hong Stein; RSP-SPY IWM-SPY"
+    role: condition
+    hook: force_engine.layers.load_l3_breadth
+    constraint: residual_vanishing_after_breadth_is_rotation
+
+  - id: innovation_kpss
+    number: 11
+    origin: "Kogan Papanikolaou Seru Stoffman"
+    role: hypothesis
+    hook: force_engine.literature.simulate_innovation
+    constraint: counts_without_value_are_noisy
+
+  - id: intermediary_credit
+    number: 12
+    origin: "He Kelly Manela; Gilchrist Zakrajsek EBP"
+    role: condition
+    hook: force_engine.layers.load_l2_panel
+    constraint: credit_only_residual_is_regular_market
+
+  - id: spanning_neighbor
+    number: 13
+    origin: "Huberman Kandel; Barillas Shanken"
+    role: kill
+    hook: force_engine.neighbor.orthogonalize_against_paused
+    constraint: neighbor_ir_gte_0.40
+
+  - id: publication_decay
+    number: 14
+    origin: "McLean Pontiff"
+    role: diagnostic
+    hook: force_engine.literature.simulate_publication_decay
+    constraint: naming_veto_only
+
+  - id: multiple_testing_dsr
+    number: 15
+    origin: "Bailey Borwein Lopez de Prado DSR"
+    role: diagnostic
+    hook: force_engine.false_discovery.deflated_sharpe_ratio
+    constraint: does_not_replace_locked_placebo_gate
+
+  - id: demographic_demand
+    number: 16
+    origin: "DellaVigna Pollet 2007"
+    role: hypothesis
+    hook: force_engine.literature.simulate_demographic
+    constraint: no_f3_ticket_recycle
+
+  - id: pastor_veronesi_uncertainty
+    number: 17
+    origin: "Pastor Veronesi"
+    role: hypothesis
+    hook: force_engine.literature.simulate_p_factor
+    constraint: companion_to_epu
+
+  - id: style_q_controls
+    number: 18
+    origin: "Fama-French 5; Hou Xue Zhang q"
+    role: diagnostic
+    hook: null
+    constraint: unwired_until_french_library_cached

@@ -1,0 +1,67 @@
+# Frozen RESEARCH theme → ticket sketches.
+# This is not a Force 4 lock and not scan authorization.
+# Tickets listed here may be used by literature / PIT simulators only.
+# Hard exclusions apply even in research mode.
+
+version: "2026-08-29"
+lock_status: wait
+scannable: false
+capital: 0
+note: >
+  Maps exist so as-of-date discovery cannot invent 2026 hindsight tickets.
+  A human must change lock_status to locked AND scannable to true before
+  any live price scan of a new force.
+
+hard_exclusions:
+  legs:
+    - MAGS
+    - SMH
+    - SPMO
+    - VST
+    - ETN
+    - PWR
+    - IHF
+    - IHI
+    - XHS
+  qqq_as_leg: true
+
+themes:
+  defense_sovereign_capacity:
+    status: sketch_wait
+    taxonomy_class: stable_force
+    literature: [p_factor_epu, geopolitical_gpr, slow_diffusion]
+    legs: [ITA, XAR, PPA]
+    controls: [XLI, SPY]
+    diagnostic: [GPR]
+    kill_if:
+      - abs_beta_XLI >= 0.80
+      - neighbor_ir < 0.40
+      - placebo_ir >= 0.15
+      - residual_dies_after_gpr
+
+  paused_f1_ai_infra:
+    status: falsified_paused
+    research_only: true
+    legs: [MAGS, SMH, SPMO]
+    controls: [VOO]
+    note: audit look-ahead / engine-correction only; do not recycle
+
+  paused_f2_energy_ai:
+    status: permanently_paused
+    research_only: true
+    legs: [VST, ETN, PWR]
+    controls: [XLU, QQQ]
+    note: audit only
+
+  paused_f3_longevity:
+    status: fail_gate_paused
+    research_only: true
+    legs: [IHF, IHI, XHS]
+    controls: [XLV, XBI]
+    note: audit only; demographic_demand must not reuse these tickets
+
+  placebo_random_sketch:
+    status: research_placebo
+    legs: []
+    controls: [SPY]
+    note: filled at runtime with a frozen RNG draw from a pre-registered ETF universe
