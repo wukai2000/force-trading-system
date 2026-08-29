@@ -1,0 +1,55 @@
+{
+  "n_hypotheses": 3,
+  "capital": 0,
+  "force4_lock_status": "wait",
+  "note": "Hypotheses only. Run pit_evaluate.py + pipeline to kill beta.",
+  "hypotheses": [
+    {
+      "model_id": "slow_diffusion",
+      "theme": "defense_avionics",
+      "features": {
+        "source": "patent",
+        "inflection_ratio": 1.2767680315443597
+      },
+      "map_key": "defense_avionics",
+      "role": "hypothesis",
+      "cannot_promote": true,
+      "notes": [
+        "structural_lead_time"
+      ],
+      "mapped_lock_status": null,
+      "mapped_scannable": false
+    },
+    {
+      "model_id": "p_factor_epu",
+      "theme": "policy_sheltered_demand",
+      "features": {
+        "epu_z": 3.791801862660685
+      },
+      "map_key": "defense_sovereign_capacity",
+      "role": "hypothesis",
+      "cannot_promote": true,
+      "notes": [
+        "elevated_epu",
+        "not_a_ticket_lock"
+      ],
+      "mapped_lock_status": "sketch_wait",
+      "mapped_scannable": false
+    },
+    {
+      "model_id": "geopolitical_gpr",
+      "theme": "geopolitical_risk",
+      "features": {
+        "gpr_z": 1.091841678487394
+      },
+      "map_key": "defense_sovereign_capacity",
+      "role": "veto",
+      "cannot_promote": true,
+      "notes": [
+        "if_price_residual_dies_after_gpr_it_is_hyper"
+      ],
+      "mapped_lock_status": "sketch_wait",
+      "mapped_scannable": false
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "force_id": "energy_x_ai_power_coupling",
+  "legs": [
+    "VST",
+    "ETN",
+    "PWR"
+  ],
+  "controls": [
+    "XLU",
+    "QQQ"
+  ],
+  "capital": 0,
+  "research_only": true,
+  "price_source": "cache",
+  "full_sample": {
+    "gate_verdict": "FAIL_GATE",
+    "failures": [
+      "IR 0.118 < 0.4"
+    ],
+    "metrics": {
+      "years": 9.653661875427789,
+      "n_days": 2465,
+      "clean_ir": 0.11805090991000154,
+      "placebo_ir": -0.08117663447411065,
+      "mean_betas": {
+        "XLU": 0.3844073920697908,
+        "QQQ": 0.6919287426773177
+      },
+      "hedge_weights_last": {
+        "XLU": 0.5418041707935459,
+        "QQQ": 1.1828118874320697
+      },
+      "raw_basket_ir_diagnostic_only": 1.0385240106463833
+    },
+    "raw_basket_ir_diagnostic_only": 1.0385240106463833
+  },
+  "pit": {
+    "as_of": "2022-06-01",
+    "oos_end": "2022-12-01",
+    "in_sample_neutralized": {
+      "n": 1384,
+      "start": "2016-12-30",
+      "end": "2022-05-31",
+      "ir": 0.47644565289508356,
+      "placebo": 0.15273696290068006
+    },
+    "oos_neutralized_scout": {
+      "n": 129,
+      "start": "2022-06-01",
+      "end": "2022-11-30",
+      "ir": 1.9633062363613603,
+      "placebo": -0.23181660346403365
+    },
+    "oos_raw_spread_ir_diagnostic_only": 2.045650353714755,
+    "scout_cannot_promote": true,
+    "scout_reason": "window shorter than min_overlap_years and not a multi-regime gate"
+  },
+  "false_discovery_diagnostic": {
+    "observed_ir": 0.11805090991000154,
+    "time_shuffle_ir": 0.11805090991000157,
+    "deflated_sharpe": 0.6314456248032472,
+    "note": "diagnostic only; locked gate is still sign-randomization placebo IR < 0.15"
+  },
+  "neighbor": {
+    "verdict": "INSUFFICIENT",
+    "neighbor_ir": NaN,
+    "n_days": 0,
+    "betas": {},
+    "aligned_paused": 2
+  }
+}

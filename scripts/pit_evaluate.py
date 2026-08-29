@@ -18,6 +18,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Optional
+import os
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -32,21 +33,35 @@ from force_engine.neutralize import NeutralizationError, neutralize_prices
 from force_engine.pipeline import evaluate_candidate, spec_from_yaml
 
 
-def _load_prices_from_cache(tickers) -> Optional[pd.DataFrame]:
+def _load_prices_from_cache(tickers):
+    """
+    Loads price CSVs from data/prices/, deduplicates date indices to prevent 
+    reindexing crashes, and returns a unified DataFrame.
+    """
     cols = {}
-    price_dir = ROOT / "data" / "prices"
-    for t in tickers:
-        p = price_dir / f"{t}.csv"
-        if not p.exists():
-            return None
-        df = pd.read_csv(p)
-        date_col = df.columns[0]
-        close = df["close"] if "close" in df.columns else df.iloc[:, -1]
-        s = pd.Series(pd.to_numeric(close, errors="coerce").values)
-        idx = pd.DatetimeIndex(pd.to_datetime(df[date_col], errors="coerce")).tz_localize(None).normalize()
-        cols[t] = pd.Series(s.values, index=idx, name=t)
+    for ticker in tickers:
+        p = os.path.join("data", "prices", f"{ticker}.csv")
+        if not os.path.exists(p):
+            raise FileNotFoundError(f"Missing cached price CSV for ticker: {ticker} at {p}")
+            
+        df = pd.read_csv(p, index_col=0, parse_dates=True)
+        
+        # Deduplicate date index (keep first occurrence)
+        df = df[~df.index.duplicated(keep='first')]
+        
+        # Extract Close or Adj Close column safely
+        if 'Adj Close' in df.columns:
+            series = df['Adj Close']
+        elif 'Close' in df.columns:
+            series = df['Close']
+        else:
+            series = df.iloc[:, 0]
+            
+        cols[ticker] = series.rename(ticker)
+        
+    # Build combined DataFrame and sort cleanly by date
     out = pd.DataFrame(cols).sort_index()
-    return out[~out.index.duplicated(keep="last")]
+    return out.dropna(how='all')
 
 
 def _load_prices_yf(tickers, start: str, end: Optional[str]):
