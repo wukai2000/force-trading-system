@@ -1,0 +1,71 @@
+{
+  "force_id": "longevity_healthspan_demand",
+  "legs": [
+    "IHF",
+    "IHI",
+    "XHS"
+  ],
+  "controls": [
+    "XLV",
+    "XBI"
+  ],
+  "capital": 0,
+  "research_only": true,
+  "price_source": "cache",
+  "full_sample": {
+    "gate_verdict": "FAIL_GATE",
+    "failures": [
+      "IR 0.274 < 0.4"
+    ],
+    "metrics": {
+      "years": 14.663928815879535,
+      "n_days": 3688,
+      "clean_ir": 0.2736833921179387,
+      "placebo_ir": -0.029283601167556,
+      "mean_betas": {
+        "XLV": 0.7831477670143973,
+        "XBI": 0.08139200618874039
+      },
+      "hedge_weights_last": {
+        "XLV": 0.687977687364776,
+        "XBI": -0.034696997815842345
+      },
+      "raw_basket_ir_diagnostic_only": 0.7551979478879449
+    },
+    "raw_basket_ir_diagnostic_only": 0.7551979478879449
+  },
+  "pit": {
+    "as_of": "2022-06-01",
+    "oos_end": "2022-12-01",
+    "in_sample_neutralized": {
+      "n": 2624,
+      "start": "2011-12-27",
+      "end": "2022-05-31",
+      "ir": 0.4306106201506943,
+      "placebo": -0.025789467065567225
+    },
+    "oos_neutralized_scout": {
+      "n": 127,
+      "start": "2022-06-01",
+      "end": "2022-11-30",
+      "ir": -1.2097262499320671,
+      "placebo": -0.21204885042657332
+    },
+    "oos_raw_spread_ir_diagnostic_only": -1.2707541342177968,
+    "scout_cannot_promote": true,
+    "scout_reason": "window shorter than min_overlap_years and not a multi-regime gate"
+  },
+  "false_discovery_diagnostic": {
+    "observed_ir": 0.2736833921179387,
+    "time_shuffle_ir": 0.2736833921179387,
+    "deflated_sharpe": 0.851651405504303,
+    "note": "diagnostic only; locked gate is still sign-randomization placebo IR < 0.15"
+  },
+  "neighbor": {
+    "verdict": "INSUFFICIENT",
+    "neighbor_ir": NaN,
+    "n_days": 0,
+    "betas": {},
+    "aligned_paused": 2
+  }
+}
