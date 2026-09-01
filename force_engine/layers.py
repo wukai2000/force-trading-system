@@ -4,7 +4,7 @@ Multi-layer instruments for the tug-of-war taxonomy.
 L1 = sector residual (already produced by neutralize / Phase A).
 L2 = vol / credit / curve regime + optional extra residualization vs those series.
 L3 = breadth pairs (RSP-SPY, IWM-SPY).
-L4 = narrative / AI-GPR stub (unwired; returns None).
+L4 = GPR veto clock (force_engine.clocks; real Iacoviello file; cannot promote).
 
 These never promote a failing L1 residual. They condition and further-neutralize.
 """
@@ -16,6 +16,8 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
+
+from .dates import as_naive_day_series, naive_day_index, pick_close_column
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -36,8 +38,9 @@ def _read_price_close(ticker: str) -> pd.Series:
     p = ROOT / "data" / "prices" / f"{ticker}.csv"
     df = pd.read_csv(p)
     date_col = df.columns[0]
-    close = pd.to_numeric(df["close"] if "close" in df.columns else df.iloc[:, -1], errors="coerce")
-    idx = pd.DatetimeIndex(pd.to_datetime(df[date_col], errors="coerce")).tz_localize(None).normalize()
+    close_col = pick_close_column(df.columns)
+    close = pd.to_numeric(df[close_col], errors="coerce")
+    idx = naive_day_index(df[date_col])
     s = pd.Series(close.values, index=idx, name=ticker)
     return s[~s.index.duplicated(keep="last")].sort_index()
 
@@ -125,6 +128,10 @@ def lagged_ols_residual(
     Intercept is NOT subtracted from traded residual.
     """
     y = y.dropna()
+    y = as_naive_day_series(y, name=y.name or "y")
+    X = X.copy()
+    X.index = naive_day_index(X.index)
+    X = X[~X.index.duplicated(keep="last")].sort_index()
     X = X.reindex(y.index).astype(float)
     cols = list(X.columns)
     idx = y.index

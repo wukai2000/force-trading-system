@@ -1,0 +1,425 @@
+{
+  "capital": 0,
+  "force4_lock_status": "wait",
+  "source": "cache",
+  "n_keep": 0,
+  "hits": [
+    {
+      "name": "CEG",
+      "leftover_ir": 0.7875106003371035,
+      "placebo_abs_ir": 0.4035232878075894,
+      "placebo_frac_of_observed": 0.5124036268652845,
+      "neighbor_ir": 1.0588344926567719,
+      "neighbor_verdict": "NEIGHBOR_INDEPENDENT",
+      "span_r2": 0.028324735519694832,
+      "n_days": 1059,
+      "mean_betas": {
+        "SPY": 1.154822987650037
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "placebo |IR| 0.404 is 51% of observed (concentration)",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "DRAM",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "INSUFFICIENT",
+      "span_r2": NaN,
+      "n_days": 38,
+      "mean_betas": {
+        "SPY": 4.808184399675689
+      },
+      "verdict": "INSUFFICIENT",
+      "notes": [
+        "residual shorter than 60 days"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "ETN",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "IBB",
+      "leftover_ir": 0.023588391407637337,
+      "placebo_abs_ir": 0.17118480531335487,
+      "placebo_frac_of_observed": 7.257163167893232,
+      "neighbor_ir": -0.25930405356150477,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.011986629955076156,
+      "n_days": 6228,
+      "mean_betas": {
+        "SPY": 1.0979381775040373
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR 0.024 < 0.4",
+        "placebo |IR| 0.171 is 726% of observed (concentration)",
+        "neighbor spanned IR=-0.259 span_r2=0.01",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "IHF",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "IHI",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "IWM",
+      "leftover_ir": -0.47127221954608706,
+      "placebo_abs_ir": 0.19830687134150501,
+      "placebo_frac_of_observed": 0.4207904966953224,
+      "neighbor_ir": -0.6350142786480109,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.12241066013991664,
+      "n_days": 4034,
+      "mean_betas": {
+        "SPY": 1.1925746258336962
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR -0.471 < 0.4",
+        "placebo |IR| 0.198 is 42% of observed (concentration)",
+        "neighbor spanned IR=-0.635 span_r2=0.12",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "MAGS",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "PWR",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "QQQ",
+      "leftover_ir": 0.32685828668523936,
+      "placebo_abs_ir": 0.1567756012167516,
+      "placebo_frac_of_observed": 0.47964395459162595,
+      "neighbor_ir": 0.3419333064537462,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.043355427117641065,
+      "n_days": 6942,
+      "mean_betas": {
+        "SPY": 1.2790581261249416
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR 0.327 < 0.4",
+        "placebo |IR| 0.157 is 48% of observed (concentration)",
+        "neighbor spanned IR=0.342 span_r2=0.04",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "RSP",
+      "leftover_ir": -0.23354806659977886,
+      "placebo_abs_ir": 0.161017047306561,
+      "placebo_frac_of_observed": 0.6894385796072073,
+      "neighbor_ir": -0.2727670433010361,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.16041124755363767,
+      "n_days": 4034,
+      "mean_betas": {
+        "SPY": 0.9753856854495142
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR -0.234 < 0.4",
+        "placebo |IR| 0.161 is 69% of observed (concentration)",
+        "neighbor spanned IR=-0.273 span_r2=0.16",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "SMH",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "SPMO",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "TLT",
+      "leftover_ir": 0.5875918185718936,
+      "placebo_abs_ir": 0.14558914562868103,
+      "placebo_frac_of_observed": 0.24777258809104363,
+      "neighbor_ir": -0.21876266508931577,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.0,
+      "n_days": 5870,
+      "mean_betas": {
+        "SPY": -0.22004911275240316
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "neighbor spanned IR=-0.219 span_r2=0.00",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "VOO",
+      "leftover_ir": 0.1047512513820467,
+      "placebo_abs_ir": 0.17084995658557467,
+      "placebo_frac_of_observed": 1.6310063539236783,
+      "neighbor_ir": 0.029858753026476413,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.0,
+      "n_days": 3998,
+      "mean_betas": {
+        "SPY": 0.9990242132063984
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR 0.105 < 0.4",
+        "placebo |IR| 0.171 is 163% of observed (concentration)",
+        "neighbor spanned IR=0.030 span_r2=0.00",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "VST",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "XBI",
+      "leftover_ir": 0.004323867104944038,
+      "placebo_abs_ir": 0.13931282398837494,
+      "placebo_frac_of_observed": 32.21949717859749,
+      "neighbor_ir": -0.26932213108744324,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.0,
+      "n_days": 4999,
+      "mean_betas": {
+        "SPY": 1.2104669818021376
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR 0.004 < 0.4",
+        "neighbor spanned IR=-0.269 span_r2=0.00",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "XHS",
+      "leftover_ir": NaN,
+      "placebo_abs_ir": NaN,
+      "placebo_frac_of_observed": NaN,
+      "neighbor_ir": NaN,
+      "neighbor_verdict": "SKIP",
+      "span_r2": NaN,
+      "n_days": 0,
+      "mean_betas": {},
+      "verdict": "SKIP_EXCLUDED",
+      "notes": [
+        "paused-force recycle refused"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "XLE",
+      "leftover_ir": 0.1623036176644919,
+      "placebo_abs_ir": 0.12300729485729134,
+      "placebo_frac_of_observed": 0.7578838760795062,
+      "neighbor_ir": -0.02871699580462978,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.0,
+      "n_days": 6995,
+      "mean_betas": {
+        "SPY": 0.8900472473372102
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "stealth beta ['SPY']",
+        "IR 0.162 < 0.4",
+        "neighbor spanned IR=-0.029 span_r2=0.00",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "XLU",
+      "leftover_ir": 0.22689669254306682,
+      "placebo_abs_ir": 0.1730892987293213,
+      "placebo_frac_of_observed": 0.7628550984561732,
+      "neighbor_ir": 0.14994246116189297,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.0,
+      "n_days": 6995,
+      "mean_betas": {
+        "SPY": 0.4906869254103694
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "IR 0.227 < 0.4",
+        "placebo |IR| 0.173 is 76% of observed (concentration)",
+        "neighbor spanned IR=0.150 span_r2=0.00",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    },
+    {
+      "name": "XLV",
+      "leftover_ir": 0.12330145846067397,
+      "placebo_abs_ir": 0.1573274808486371,
+      "placebo_frac_of_observed": 1.2759579879488243,
+      "neighbor_ir": 0.01116280331849418,
+      "neighbor_verdict": "NEIGHBOR_SPANNED",
+      "span_r2": 0.016121117384391703,
+      "n_days": 6759,
+      "mean_betas": {
+        "SPY": 0.7497432403542066
+      },
+      "verdict": "SIEVE_DROP",
+      "notes": [
+        "IR 0.123 < 0.4",
+        "placebo |IR| 0.157 is 128% of observed (concentration)",
+        "neighbor spanned IR=0.011 span_r2=0.02",
+        "cannot_promote; pipeline.evaluate_candidate is the only gate"
+      ],
+      "cannot_promote": true,
+      "capital": 0
+    }
+  ],
+  "note": "SIEVE_KEEP is not a promotion. pipeline.evaluate_candidate is the only gate."
+}

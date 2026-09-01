@@ -19,20 +19,15 @@ from typing import Any, Dict, List, Optional
 
 import yaml
 
+from .guards import (
+    HARD_EXCLUDED_LEGS,
+    RecycleError,
+    WaitLockError,
+    refuse_qqq_as_leg,
+    refuse_recycled_legs,
+    refuse_wait_scan,
+)
 from .literature import Hypothesis, run_all_simulators
-
-
-HARD_EXCLUDED_LEGS = {
-    "MAGS",
-    "SMH",
-    "SPMO",
-    "VST",
-    "ETN",
-    "PWR",
-    "IHF",
-    "IHI",
-    "XHS",
-}
 
 
 class ForceDiscoveryEngine:
@@ -68,9 +63,10 @@ class ForceDiscoveryEngine:
 
         return [
             {
-                "type": "defense_sovereign_industrial",
+                "type": "policy_sheltered_demand",
                 "epu_z_score": h.features.get("epu_z"),
-                "recommended_theme": h.map_key,
+                "recommended_theme": None,
+                "cannot_promote": True,
             }
             for h in simulate_p_factor(epu_index_series, defense_outlays_series)
         ]
@@ -79,8 +75,19 @@ class ForceDiscoveryEngine:
         return run_all_simulators(**kwargs)
 
     def resolve_theme(self, map_key: str) -> Optional[Dict[str, Any]]:
+        """Lookup only. A map hit is not a ticket lock and never sets scannable."""
+        if not map_key:
+            return None
         themes = (self._theme_map or {}).get("themes") or {}
-        return themes.get(map_key)
+        row = themes.get(map_key)
+        if not row:
+            return None
+        # Strip any chance of a literature hit flipping wait → scan.
+        out = dict(row)
+        out["scannable"] = False
+        if out.get("status") in ("sketch_wait", None):
+            out["lock_status"] = "wait"
+        return out
 
     def generate_candidate_yaml_spec(
         self,
@@ -98,13 +105,18 @@ class ForceDiscoveryEngine:
         Formats a discovered candidate into a frozen pre-scan YAML sketch.
         scannable defaults to False — generating a file is not a Force lock.
         """
-        bad = [t for t in legs if t.upper() in HARD_EXCLUDED_LEGS]
-        if bad and not scannable:
-            # Research sketches of paused forces are allowed only if explicitly named paused_*
-            if not candidate_name.lower().startswith("paused"):
-                raise ValueError(f"refusing excluded legs in a new sketch: {bad}")
-        if any(t.upper() == "QQQ" for t in legs):
-            raise ValueError("QQQ cannot be a leg")
+        refuse_qqq_as_leg(legs)
+        if scannable:
+            refuse_wait_scan(legs, allow_wait_sketch=False)
+            refuse_recycled_legs(legs, research_paused=candidate_name.lower().startswith("paused"))
+        else:
+            try:
+                refuse_wait_scan(legs, allow_wait_sketch=True)
+            except WaitLockError:
+                pass
+            bad = [t for t in legs if t.upper() in HARD_EXCLUDED_LEGS]
+            if bad and not candidate_name.lower().startswith("paused"):
+                raise RecycleError(f"refusing excluded legs in a new sketch: {bad}")
 
         os.makedirs(output_dir, exist_ok=True)
         spec = {

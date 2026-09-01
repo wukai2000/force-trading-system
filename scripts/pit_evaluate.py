@@ -26,42 +26,35 @@ sys.path.insert(0, str(ROOT))
 import numpy as np
 import pandas as pd
 
+from force_engine.dates import naive_day_index, pick_close_column
 from force_engine.evaluate import annualized_ir, sign_placebo_ir
 from force_engine.false_discovery import diagnose
-from force_engine.neighbor import load_paused_residual_csv, orthogonalize_against_paused
+from force_engine.neighbor import load_default_paused, orthogonalize_against_paused, paused_excluding_legs
 from force_engine.neutralize import NeutralizationError, neutralize_prices
 from force_engine.pipeline import evaluate_candidate, spec_from_yaml
 
 
 def _load_prices_from_cache(tickers):
     """
-    Loads price CSVs from data/prices/, deduplicates date indices to prevent 
-    reindexing crashes, and returns a unified DataFrame.
+    Loads price CSVs from data/prices/, deduplicates date indices,
+    and returns a unified DataFrame of close prices (never open/volume).
     """
     cols = {}
     for ticker in tickers:
         p = os.path.join("data", "prices", f"{ticker}.csv")
         if not os.path.exists(p):
             raise FileNotFoundError(f"Missing cached price CSV for ticker: {ticker} at {p}")
-            
-        df = pd.read_csv(p, index_col=0, parse_dates=True)
-        
-        # Deduplicate date index (keep first occurrence)
-        df = df[~df.index.duplicated(keep='first')]
-        
-        # Extract Close or Adj Close column safely
-        if 'Adj Close' in df.columns:
-            series = df['Adj Close']
-        elif 'Close' in df.columns:
-            series = df['Close']
-        else:
-            series = df.iloc[:, 0]
-            
-        cols[ticker] = series.rename(ticker)
-        
-    # Build combined DataFrame and sort cleanly by date
+
+        df = pd.read_csv(p)
+        date_col = df.columns[0]
+        close_col = pick_close_column(df.columns)
+        idx = naive_day_index(df[date_col])
+        series = pd.Series(pd.to_numeric(df[close_col], errors="coerce").values, index=idx, name=ticker)
+        series = series[~series.index.duplicated(keep="last")].sort_index()
+        cols[ticker] = series
+
     out = pd.DataFrame(cols).sort_index()
-    return out.dropna(how='all')
+    return out.dropna(how="all")
 
 
 def _load_prices_yf(tickers, start: str, end: Optional[str]):
@@ -190,37 +183,34 @@ def main() -> int:
     report["false_discovery_diagnostic"] = {
         "observed_ir": fd.observed_ir,
         "time_shuffle_ir": fd.time_shuffle_ir,
+        "block_bootstrap_mean_abs_ir": fd.block_bootstrap_mean_abs_ir,
+        "concentration_top5_share": fd.concentration_top5_share,
+        "placebo_abs_ir": fd.placebo_abs_ir,
         "deflated_sharpe": fd.deflated_sharpe,
         "note": fd.note,
     }
 
-    paused = {}
-    data_root = ROOT / "data"
-    for fid, folder, col in (
-        ("f1", "force1", None),
-        ("f2", "force2", "resid_oos_hedged"),
-        ("f3", "force3", None),
-    ):
-        for cand in (
-            data_root / folder / f"{folder}_daily_residual.csv",
-            data_root / folder / "force2_daily_residual.csv",
-            data_root / folder / f"{fid}_resid.csv",
-        ):
-            s = load_paused_residual_csv(cand, col)
-            if s is not None and not s.empty:
-                paused[fid] = s
-                break
+    paused = paused_excluding_legs(spec.legs, load_default_paused(ROOT / "data"))
     if paused:
         nb = orthogonalize_against_paused(resid, paused)
         report["neighbor"] = {
             "verdict": nb.verdict,
             "neighbor_ir": nb.neighbor_ir,
             "n_days": nb.n_days,
+            "overlap_days": nb.overlap_days,
             "betas": nb.betas,
             "aligned_paused": nb.aligned_paused,
+            "span_r2": nb.span_r2,
+            "placebo_abs_ir": nb.placebo_abs_ir,
+            "placebo_frac_of_observed": nb.placebo_frac_of_observed,
+            "note": nb.note,
+            "paused_ids": list(paused),
         }
         print(f"\n--- Neighbor vs paused {list(paused)} ---")
-        print(f"  {nb.verdict}  neighbor_IR={nb.neighbor_ir:.3f}  n={nb.n_days}")
+        print(
+            f"  {nb.verdict}  neighbor_IR={nb.neighbor_ir:.3f}  "
+            f"n={nb.n_days}  overlap={nb.overlap_days}  span_r2={nb.span_r2:.2f}"
+        )
     else:
         report["neighbor"] = {"verdict": "NO_PAUSED_SERIES", "note": "cached paused residuals not found"}
 

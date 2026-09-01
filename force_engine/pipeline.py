@@ -15,7 +15,7 @@ from typing import Any, Dict, List, Mapping, Optional
 import pandas as pd
 import yaml
 
-from .clocks import ClockBus, ClockState
+from .clocks import ClockBus, ClockState, default_clock_bus
 from .evaluate import GateResult, annualized_ir, evaluate_neutralized
 from .neutralize import NeutralizationError, NeutralizedPanel, neutralize_prices
 
@@ -79,7 +79,7 @@ def evaluate_candidate(
     panel = neutralize_prices(prices, spec.legs, spec.controls, lookback=spec.lookback)
     gate = evaluate_neutralized(panel, spec.gate, neutralized=True)
 
-    bus = clock_bus or ClockBus()
+    bus = clock_bus or default_clock_bus()
     last = float(panel.residual.dropna().iloc[-1]) if not panel.residual.dropna().empty else 0.0
     ir = float(gate.metrics.get("clean_ir") or annualized_ir(panel.residual))
     clock = bus.read(residual_last=last)

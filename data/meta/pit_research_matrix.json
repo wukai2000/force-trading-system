@@ -1,0 +1,7 @@
+{
+  "capital": 0,
+  "lock_status": "wait",
+  "scannable": false,
+  "rows": [],
+  "note": "default PIT refuses WAIT tickers; no Force 4 scan"
+}

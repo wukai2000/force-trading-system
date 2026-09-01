@@ -13,10 +13,14 @@ trump_account: SPYM_passive_only
 min_multilayer_ir: 0.40          # final residual after L1 sector + L2 vol/credit (+ optional L3)
 min_nonshock_regime_ir: 0.35     # must hold in >= min_nonshock_regimes
 min_nonshock_regimes: 2
-max_placebo_ir: 0.15
+max_placebo_ir: 0.15             # mean |IR| of sign-randomized copies (NOT signed mean)
+max_placebo_frac_of_observed: 0.40  # kill when copies keep ≥40% of observed IR (F2-class path)
+# Sampling floor of mean |IR| is ~0.25 at 8y, so raw p_ir < 0.15 would reject every 8y residual.
+# Locked intent: concentration kill = p_ir ≥ 0.15 AND p_ir/|IR| ≥ 0.40.
 max_abs_sector_beta: 0.80        # original sector controls (XLV/XBI, XLU/QQQ, ...)
 min_neighbor_ir: 0.40            # residual after orthogonalizing vs paused F1/F2/F3 residuals
 clocks: veto_only                # cannot promote a failing residual
+placebo_metric: mean_abs_sign_randomized_ir
 
 # L2 regime labels (used for conditioning, not promotion by themselves)
 l2:
@@ -44,6 +48,9 @@ l3:
   role: diagnostic_then_optional_layer
 
 l4:
-  stub: AI-GPR
-  status: unwired
-  role: veto_only_when_wired
+  series: Caldara-Iacoviello GPR daily (matteoiacoviello.com)
+  cache: data/macro/gpr_daily.csv
+  status: wired_veto_only
+  role: veto_only_when_cached
+  cannot_promote: true
+  synthetic_fallback: refused_except_FORCE_GPR_SYNTHETIC

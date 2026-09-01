@@ -33,21 +33,21 @@ models:
     origin: "Baker Bloom Davis EPU"
     role: hypothesis
     hook: force_engine.literature.simulate_p_factor
-    constraint: must_survive_sector_ols
+    constraint: must_survive_sector_ols_no_ticket_map
 
   - id: false_discovery
     number: 5
     origin: "Harvey Liu Zhu; Lopez de Prado DSR/CPCV"
     role: kill
     hook: force_engine.evaluate.sign_placebo_ir
-    constraint: placebo_ir_lt_0.15_hard
+    constraint: concentration_placebo_hard
 
   - id: geopolitical_gpr
     number: 6
     origin: "Caldara Iacoviello GPR / AI-GPR"
     role: veto
     hook: force_engine.literature.simulate_gpr
-    constraint: residual_dying_after_gpr_is_hyper
+    constraint: residual_dying_after_gpr_is_hyper_no_ticket_map
 
   - id: limited_attention
     number: 7
@@ -96,7 +96,7 @@ models:
     origin: "Huberman Kandel; Barillas Shanken"
     role: kill
     hook: force_engine.neighbor.orthogonalize_against_paused
-    constraint: neighbor_ir_gte_0.40
+    constraint: neighbor_ir_gte_0.40_and_leftover_survives_placebo
 
   - id: publication_decay
     number: 14

@@ -21,6 +21,8 @@ from typing import Dict, List, Sequence
 import numpy as np
 import pandas as pd
 
+from .dates import naive_day_index
+
 
 class NeutralizationError(ValueError):
     """Raised when a candidate is offered without valid controls / residual."""
@@ -104,7 +106,10 @@ def neutralize_prices(
     missing_c = [t for t in controls if t not in prices.columns]
     if missing_c:
         raise NeutralizationError(f"missing controls: {missing_c}")
-    px = prices[list(dict.fromkeys(list(legs) + list(controls)))].dropna(how="any")
+    px = prices[list(dict.fromkeys(list(legs) + list(controls)))].copy()
+    px.index = naive_day_index(px.index)
+    px = px[~px.index.duplicated(keep="last")].sort_index()
+    px = px.dropna(how="any")
     if px.empty:
         raise NeutralizationError("no overlapping dates across legs and controls")
     basket = equal_weight_returns(px, legs)

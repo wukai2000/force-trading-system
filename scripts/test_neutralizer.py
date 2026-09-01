@@ -62,11 +62,11 @@ def test_planted_alpha_can_pass():
     basket = 0.3 * xlv + 0.2 * xbi + 0.0008 + rng.normal(0, 0.004, len(idx))
     controls = pd.DataFrame({"XLV": xlv, "XBI": xbi}, index=idx)
     panel = rolling_ols_residual(pd.Series(basket, index=idx), controls, lookback=60)
-    gate = dict(GATE)
-    gate["max_placebo_ir"] = 1.0  # planted series is always-positive
-    result = evaluate_neutralized(panel, gate, neutralized=True)
+    result = evaluate_neutralized(panel, GATE, neutralized=True)
     assert result.metrics["clean_ir"] >= 0.40, result
+    assert result.verdict == "PROMOTE_CANDIDATE", result
     assert abs(result.metrics["mean_betas"]["XLV"]) < 0.80
+    assert result.metrics["placebo_frac_of_observed"] < 0.40, result.metrics
     print("PASS planted-alpha IR", result.metrics["clean_ir"], "verdict", result.verdict)
 
 

@@ -15,57 +15,75 @@
   "full_sample": {
     "gate_verdict": "FAIL_GATE",
     "failures": [
-      "IR 0.118 < 0.4"
+      "placebo |IR| 0.258 is 44% of observed IR (\u2265 40%; concentration / F2-class path)"
     ],
     "metrics": {
-      "years": 9.653661875427789,
-      "n_days": 2465,
-      "clean_ir": 0.11805090991000154,
-      "placebo_ir": -0.08117663447411065,
+      "years": 9.637234770704996,
+      "n_days": 2436,
+      "clean_ir": 0.5928140435389821,
+      "placebo_ir": 0.2580169060924278,
+      "placebo_metric": "mean_abs_sign_randomized_ir",
+      "placebo_frac_of_observed": 0.4352408801790829,
+      "placebo_null_abs_ir_floor": 0.2566266116970902,
       "mean_betas": {
-        "XLU": 0.3844073920697908,
-        "QQQ": 0.6919287426773177
+        "XLU": 0.4766483615072321,
+        "QQQ": 0.6086724031871723
       },
       "hedge_weights_last": {
-        "XLU": 0.5418041707935459,
-        "QQQ": 1.1828118874320697
+        "XLU": 0.6876032669473064,
+        "QQQ": 1.2335159575064771
       },
-      "raw_basket_ir_diagnostic_only": 1.0385240106463833
+      "raw_basket_ir_diagnostic_only": 0.9713101375315261
     },
-    "raw_basket_ir_diagnostic_only": 1.0385240106463833
+    "raw_basket_ir_diagnostic_only": 0.9713101375315261
   },
   "pit": {
     "as_of": "2022-06-01",
     "oos_end": "2022-12-01",
     "in_sample_neutralized": {
-      "n": 1384,
-      "start": "2016-12-30",
-      "end": "2022-05-31",
-      "ir": 0.47644565289508356,
-      "placebo": 0.15273696290068006
+      "n": 1369,
+      "start": "2017-01-03",
+      "end": "2022-06-01",
+      "ir": 0.4516392454772298,
+      "placebo": 0.31499460601271645
     },
     "oos_neutralized_scout": {
-      "n": 129,
+      "n": 128,
       "start": "2022-06-01",
-      "end": "2022-11-30",
-      "ir": 1.9633062363613603,
-      "placebo": -0.23181660346403365
+      "end": "2022-12-01",
+      "ir": 1.9997072752397942,
+      "placebo": 1.1694740218797886
     },
-    "oos_raw_spread_ir_diagnostic_only": 2.045650353714755,
+    "oos_raw_spread_ir_diagnostic_only": 1.9908282306915017,
     "scout_cannot_promote": true,
     "scout_reason": "window shorter than min_overlap_years and not a multi-regime gate"
   },
   "false_discovery_diagnostic": {
-    "observed_ir": 0.11805090991000154,
-    "time_shuffle_ir": 0.11805090991000157,
-    "deflated_sharpe": 0.6314456248032472,
-    "note": "diagnostic only; locked gate is still sign-randomization placebo IR < 0.15"
+    "observed_ir": 0.5928140435389821,
+    "time_shuffle_ir": 0.5928140435389823,
+    "block_bootstrap_mean_abs_ir": 0.6147898537200553,
+    "concentration_top5_share": 0.22330697158274015,
+    "placebo_abs_ir": 0.2580169060924278,
+    "deflated_sharpe": 0.965050049100894,
+    "note": "diagnostic only; locked gate is concentration placebo (mean |IR| of sign-randomized copies staying \u226540% of observed). time_shuffle_ir equals observed_ir by construction (IR is order-invariant); use block_bootstrap_mean_abs_ir and concentration_top5_share."
   },
   "neighbor": {
-    "verdict": "INSUFFICIENT",
-    "neighbor_ir": NaN,
-    "n_days": 0,
-    "betas": {},
-    "aligned_paused": 2
+    "verdict": "NEIGHBOR_SPANNED",
+    "neighbor_ir": 0.8988781884753075,
+    "n_days": 1586,
+    "overlap_days": 1606,
+    "betas": {
+      "f1": 1.1478271935605309,
+      "f3": 0.29127040827174566
+    },
+    "aligned_paused": 2,
+    "span_r2": 0.0,
+    "placebo_abs_ir": 0.3919219712193646,
+    "placebo_frac_of_observed": 0.4360123276371288,
+    "note": "placebo |IR| 0.392 is 44% of leftover IR (sampling-floor / concentrated clone); span_r2=0.00 (diagnostic); null |IR| floor=0.318",
+    "paused_ids": [
+      "f1",
+      "f3"
+    ]
   }
 }

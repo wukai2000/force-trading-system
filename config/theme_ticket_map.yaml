@@ -11,6 +11,8 @@ note: >
   Maps exist so as-of-date discovery cannot invent 2026 hindsight tickets.
   A human must change lock_status to locked AND scannable to true before
   any live price scan of a new force.
+  Literature simulators must NOT write map_key to these rows.
+  Discovery is the panel sieve (force_engine.sieve), not this lookup table.
 
 hard_exclusions:
   legs:

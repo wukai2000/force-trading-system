@@ -2,16 +2,16 @@
   "n_hypotheses": 3,
   "capital": 0,
   "force4_lock_status": "wait",
-  "note": "Hypotheses only. Run pit_evaluate.py + pipeline to kill beta.",
+  "note": "Hypotheses only. No theme\u2192ticket auto-map. Run sieve + pit_evaluate.py + pipeline to kill beta.",
   "hypotheses": [
     {
       "model_id": "slow_diffusion",
-      "theme": "defense_avionics",
+      "theme": "industrial_robotics",
       "features": {
         "source": "patent",
         "inflection_ratio": 1.2767680315443597
       },
-      "map_key": "defense_avionics",
+      "map_key": "industrial_robotics",
       "role": "hypothesis",
       "cannot_promote": true,
       "notes": [
@@ -26,14 +26,15 @@
       "features": {
         "epu_z": 3.791801862660685
       },
-      "map_key": "defense_sovereign_capacity",
+      "map_key": null,
       "role": "hypothesis",
       "cannot_promote": true,
       "notes": [
         "elevated_epu",
-        "not_a_ticket_lock"
+        "not_a_ticket_lock",
+        "no_auto_map_to_defense"
       ],
-      "mapped_lock_status": "sketch_wait",
+      "mapped_lock_status": null,
       "mapped_scannable": false
     },
     {
@@ -42,13 +43,15 @@
       "features": {
         "gpr_z": 1.091841678487394
       },
-      "map_key": "defense_sovereign_capacity",
+      "map_key": null,
       "role": "veto",
       "cannot_promote": true,
       "notes": [
-        "if_price_residual_dies_after_gpr_it_is_hyper"
+        "veto_only",
+        "if_price_residual_dies_after_gpr_it_is_hyper",
+        "no_auto_map_to_defense"
       ],
-      "mapped_lock_status": "sketch_wait",
+      "mapped_lock_status": null,
       "mapped_scannable": false
     }
   ]

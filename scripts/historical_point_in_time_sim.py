@@ -3,11 +3,12 @@ scripts/historical_point_in_time_sim.py
 ======================================
 Point-in-time *research* loop.
 
-Discovery may only use information dated ≤ target_date.
-Evaluation must go through neutralization. Raw spread IR is diagnostic.
+Default: do NOT scan the Defense sketch (WAIT). Literature hypotheses only.
+A 6-month OOS window is a scout and cannot promote.
 
-Default cutoffs are research scouts for the Defense *sketch* and do not
-lock Force 4 or authorize a scan.
+`--research-wait-sketch` is the only way to touch ITA/XAR/PPA, and it still
+writes scannable=false. `--allow-yahoo` is required if those prices are not
+cached (they should not be cached while WAIT holds).
 """
 from __future__ import annotations
 
@@ -22,9 +23,11 @@ import numpy as np
 import pandas as pd
 
 from force_engine.discovery import ForceDiscoveryEngine
+from force_engine.dates import naive_day_index, pick_close_column
 from force_engine.evaluate import annualized_ir
+from force_engine.guards import WAIT_TICKERS, WaitLockError, refuse_wait_scan
 from force_engine.literature import run_all_simulators
-from force_engine.neutralize import NeutralizationError, neutralize_prices
+from force_engine.neutralize import NeutralizationError
 from force_engine.pipeline import CandidateSpec, evaluate_candidate
 
 
@@ -58,9 +61,9 @@ def _cache_or_yahoo(tickers, start, end, allow_yahoo: bool):
             break
         df = pd.read_csv(p)
         date_col = df.columns[0]
-        close = df["close"] if "close" in df.columns else df.iloc[:, -1]
-        idx = pd.DatetimeIndex(pd.to_datetime(df[date_col], errors="coerce")).tz_localize(None).normalize()
-        cols[t] = pd.Series(pd.to_numeric(close, errors="coerce").values, index=idx, name=t)
+        close_col = pick_close_column(df.columns)
+        idx = naive_day_index(df[date_col])
+        cols[t] = pd.Series(pd.to_numeric(df[close_col], errors="coerce").values, index=idx, name=t)
     if ok:
         px = pd.DataFrame(cols).sort_index().dropna(how="any")
         return px.loc[start:end], "cache"
@@ -70,21 +73,20 @@ def _cache_or_yahoo(tickers, start, end, allow_yahoo: bool):
 
 
 def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) -> dict:
-    print(f"\n=== PIT research as of [{target_date}] (not a Force 4 lock) ===")
+    refuse_wait_scan(SKETCH_LEGS + SKETCH_CONTROLS, allow_wait_sketch=True)
+    print(f"\n=== PIT research as of [{target_date}] (WAIT sketch; not a Force 4 lock) ===")
     tickers = SKETCH_LEGS + SKETCH_CONTROLS
     prices_is, src = _cache_or_yahoo(tickers, "2015-01-01", target_date, allow_yahoo)
     print(f"[PIT] IS prices {src}: {len(prices_is)} days")
 
     engine = ForceDiscoveryEngine()
-    # Literature scan on synthetic stand-ins *labeled* as of T.
-    # Real EPU/GPR/patent series should replace this once cached.
     rng = np.random.default_rng(abs(hash(target_date)) % (2**32))
     n = min(120, max(60, len(prices_is) // 15))
     idx = pd.date_range(end=pd.Timestamp(target_date), periods=n, freq="ME")
     terms = pd.DataFrame(
         {
-            "sovereign_capacity": np.linspace(10, 20, n) + rng.normal(0, 0.5, n),
-            "ai_energy_grid": np.linspace(50, 160, n) + rng.normal(0, 6, n),
+            "under_noticed_widget": np.linspace(10, 20, n) + rng.normal(0, 0.5, n),
+            "viral_headline": np.linspace(50, 160, n) + rng.normal(0, 6, n),
         },
         index=idx,
     )
@@ -93,7 +95,9 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
     hyps = run_all_simulators(term_counts=terms, epu=epu)
     print(f"[PIT] literature hypotheses as-of {target_date}: {len(hyps)}")
     for h in hyps:
-        print(f"      {h.model_id} → {h.theme} ({h.role})")
+        print(f"      {h.model_id} → {h.theme} ({h.role}) map={h.map_key}")
+        if h.map_key in ("defense_sovereign_capacity",):
+            raise WaitLockError("literature must not auto-map to defense tickets")
 
     yaml_path = engine.generate_candidate_yaml_spec(
         candidate_name=f"Defense_PIT_{target_date.replace('-', '')}",
@@ -114,7 +118,7 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
         gate={
             "min_clean_ir": 0.40,
             "max_placebo_ir": 0.15,
-            "min_overlap_years": 0,  # scout window — do not pretend 8y is met
+            "min_overlap_years": 0,
         },
     )
     result = {
@@ -125,7 +129,9 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
         "scout_cannot_promote": True,
         "capital": 0,
         "lock_status": "wait",
+        "scannable": False,
         "price_source": src2,
+        "note": "raw spread IR is diagnostic only; 6-month scout cannot promote",
     }
     try:
         ev = evaluate_candidate(spec, prices_all)
@@ -137,8 +143,8 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
         result["full_gate_verdict_on_truncated_sample"] = ev.gate.verdict
         result["full_failures"] = list(ev.gate.failures)
         result["mean_betas"] = ev.gate.metrics.get("mean_betas")
+        result["placebo_abs_ir"] = ev.gate.metrics.get("placebo_ir")
         result["raw_basket_ir_diagnostic_only"] = ev.diagnostic.get("raw_basket_ir")
-        # raw OOS diagnostic
         oos_px = prices_all.loc[t : pd.Timestamp(oos_end)]
         rets = oos_px.pct_change(fill_method=None).dropna()
         spread = rets[SKETCH_LEGS].mean(axis=1) - rets[SKETCH_CONTROLS].mean(axis=1)
@@ -157,13 +163,42 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
 
 def main():
     allow = "--allow-yahoo" in sys.argv
+    wait_sketch = "--research-wait-sketch" in sys.argv
+    if not wait_sketch:
+        print("=== PIT default: WAIT. Not scanning ITA/XAR/PPA/XLI. ===")
+        print("Literature hypotheses only. Pass --research-wait-sketch to score the")
+        print("defense *sketch* (still scannable=false). Capital $0.")
+        engine = ForceDiscoveryEngine()
+        hyps = run_all_simulators()
+        print(f"literature hypotheses with no series: {len(hyps)} (empty is correct)")
+        for key, theme in (engine._theme_map.get("themes") or {}).items():
+            print(f"  map {key}: status={theme.get('status')} scannable={theme.get('scannable', False)}")
+        out = ROOT / "data" / "meta" / "pit_research_matrix.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(
+            json.dumps(
+                {
+                    "capital": 0,
+                    "lock_status": "wait",
+                    "scannable": False,
+                    "rows": [],
+                    "note": "default PIT refuses WAIT tickers; no Force 4 scan",
+                },
+                indent=2,
+            )
+        )
+        print(f"Wrote {out}")
+        return
+    if allow:
+        print("WARNING: --allow-yahoo with wait sketch will fetch ITA/XAR/PPA/XLI.")
+        print("This is research-only and cannot promote.")
     rows = []
     for t in DEFAULT_CUTOFFS:
         try:
             rows.append(run_one(t, allow_yahoo=allow))
         except FileNotFoundError as e:
             print(f"[PIT] skip {t}: {e}")
-            print("Re-run with: PYTHONPATH=. python scripts/historical_point_in_time_sim.py --allow-yahoo")
+            print("Prices for WAIT tickers are not in cache (correct). Not fetching unless --allow-yahoo.")
             break
     out = ROOT / "data" / "meta" / "pit_research_matrix.json"
     out.parent.mkdir(parents=True, exist_ok=True)

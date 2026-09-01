@@ -190,8 +190,8 @@ def simulate_p_factor(
                 model_id="p_factor_epu",
                 theme="policy_sheltered_demand",
                 features=feat,
-                map_key="defense_sovereign_capacity",
-                notes=["elevated_epu", "not_a_ticket_lock"],
+                map_key=None,
+                notes=["elevated_epu", "not_a_ticket_lock", "no_auto_map_to_defense"],
             )
         )
     return out
@@ -210,9 +210,9 @@ def simulate_gpr(gpr: Optional[pd.Series] = None) -> List[Hypothesis]:
             model_id="geopolitical_gpr",
             theme="geopolitical_risk",
             features={"gpr_z": z},
-            map_key="defense_sovereign_capacity",
+            map_key=None,
             role=role,
-            notes=["if_price_residual_dies_after_gpr_it_is_hyper"],
+            notes=["veto_only", "if_price_residual_dies_after_gpr_it_is_hyper", "no_auto_map_to_defense"],
         )
     )
     return out
