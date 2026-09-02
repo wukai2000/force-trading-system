@@ -17,6 +17,7 @@ import yaml
 
 from .clocks import ClockBus, ClockState, default_clock_bus
 from .evaluate import GateResult, annualized_ir, evaluate_neutralized
+from .freeze import FrozenHypothesis, refuse_evaluate_unfrozen
 from .neutralize import NeutralizationError, NeutralizedPanel, neutralize_prices
 
 
@@ -60,12 +61,19 @@ def evaluate_candidate(
     spec: CandidateSpec,
     prices: pd.DataFrame,
     clock_bus: Optional[ClockBus] = None,
+    *,
+    freeze: Optional[FrozenHypothesis] = None,
+    allow_unfrozen: bool = False,
+    allow_wait_sketch: bool = False,
 ) -> PipelineResult:
     """
     Neutralize first, then gate, then leading-clock veto.
 
     A leading clock may downgrade PROMOTE_CANDIDATE → VETO_LEADING_CLOCK.
     It cannot upgrade FAIL_GATE.
+
+    New (non-grandfathered) force_ids require a complete T0–T4 freeze
+    with T5 instruments attached. Force 4 / WAIT tickers stay refused.
     """
     if spec.tradable != "residual_spread":
         raise NeutralizationError(
@@ -75,6 +83,13 @@ def evaluate_candidate(
         raise NeutralizationError("refusing to score a basket with empty controls")
     if not spec.legs:
         raise NeutralizationError("refusing a candidate with empty legs")
+    refuse_evaluate_unfrozen(
+        spec.force_id,
+        list(spec.legs) + list(spec.controls),
+        freeze=freeze,
+        allow_unfrozen=allow_unfrozen,
+        allow_wait_sketch=allow_wait_sketch,
+    )
 
     panel = neutralize_prices(prices, spec.legs, spec.controls, lookback=spec.lookback)
     gate = evaluate_neutralized(panel, spec.gate, neutralized=True)

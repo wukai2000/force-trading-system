@@ -38,7 +38,10 @@ Leading clocks (patents, legislation, credit, real 10y, health spend) are
 - Rolling 60d OOS hedged residual of EW(IHF, IHI, XHS) on [XLV, XBI]
   (`r_legs,t − β_{t−1}' r_controls,t`; intercept not subtracted)
 - Full-sample annualized IR ≥ **0.40**
-- Sign-randomization placebo IR < **0.15**
+- Sign-randomization: mean |IR| of copies (locked later as concentration
+  `p_IR ≥ 0.15` AND `p_IR/|IR| ≥ 0.40`). The 2026-08-24 pre-register
+  phrasing was `placebo IR < 0.15`; that raw floor is not the statistical
+  theory (sampling floor ≈ 0.25 at 8y). F3 failed on IR and β_XLV anyway.
 - \|mean β_XLV\| < **0.80** and \|mean β_XBI\| < **0.80**
 - Overlap ≥ **8 years**
 - Phase-conditional IR is **diagnostic only** (cannot promote)

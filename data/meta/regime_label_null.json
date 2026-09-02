@@ -1,0 +1,986 @@
+{
+  "as_of": "2026-09-02",
+  "protocol": "docs/RESEARCH_PROTOCOL.md",
+  "cannot_promote": true,
+  "capital": 0,
+  "trump_account": "SPYM_passive_only",
+  "force4_scanned": false,
+  "n": 2000,
+  "n_note": "computational sample, not proof of rigor",
+  "classifier": "locked 2026-08-27 classify_regime {complacency, normal, stress}",
+  "refused": [
+    "HMM/GMM hidden states as L2",
+    "REGIME_CONTROL_MAP position_scale/leverage/active_strategies",
+    "IR(s_t, r_t) with s_t = regime",
+    "Force 4 scan",
+    "unpause F1/F2/F3"
+  ],
+  "desired_result": "If occupancy/run-length p is not small, the complacency/stress IR split is an occupancy artifact \u2014 do not treat L2 labels as identification. If p is small, still cannot promote; calendar non-shock windows remain the locked REGIME_FAIL partitions.",
+  "objects": [
+    {
+      "force_id": "f2_l1",
+      "research_role": "negative_control",
+      "cannot_promote": true,
+      "n_days": 2425,
+      "ir_by_regime": {
+        "complacency": {
+          "n": 912,
+          "ir": 0.5372673166132795
+        },
+        "normal": {
+          "n": 721,
+          "ir": 0.046590705251206184
+        },
+        "stress": {
+          "n": 792,
+          "ir": -0.12734469397199677
+        },
+        "full": {
+          "n": 2425,
+          "ir": 0.13627981115849452
+        }
+      },
+      "dwell": {
+        "n": 2425,
+        "n_runs": 322,
+        "frac_1day_runs": 0.36024844720496896,
+        "by_label": {
+          "complacency": {
+            "n_runs": 78,
+            "mean_dwell": 11.692307692307692,
+            "median_dwell": 2.0,
+            "max_dwell": 120.0,
+            "frac_1day": 0.3076923076923077
+          },
+          "stress": {
+            "n_runs": 89,
+            "mean_dwell": 8.898876404494382,
+            "median_dwell": 2.0,
+            "max_dwell": 246.0,
+            "frac_1day": 0.42696629213483145
+          },
+          "normal": {
+            "n_runs": 155,
+            "mean_dwell": 4.651612903225806,
+            "median_dwell": 2.0,
+            "max_dwell": 34.0,
+            "frac_1day": 0.34838709677419355
+          }
+        },
+        "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+      },
+      "occupancy_null": {
+        "n": 2000,
+        "seed": 31,
+        "mode": "occupancy",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.5372673166132795,
+        "observed_ir_b": -0.12734469397199677,
+        "observed_delta": 0.6646120105852763,
+        "null_mean_delta": -0.016717747891663297,
+        "null_std_delta": 0.7745149370711409,
+        "observed_percentile": 81.4,
+        "empirical_p_value_one_sided": 0.18640679660169915,
+        "empirical_p_value_two_sided": 0.38130934532733635,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "run_length_null": {
+        "n": 2000,
+        "seed": 32,
+        "mode": "run_length",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.5372673166132795,
+        "observed_ir_b": -0.12734469397199677,
+        "observed_delta": 0.6646120105852763,
+        "null_mean_delta": -0.0191746937181651,
+        "null_std_delta": 0.597360459042413,
+        "observed_percentile": 85.9,
+        "empirical_p_value_one_sided": 0.14142928535732133,
+        "empirical_p_value_two_sided": 0.27586206896551724,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "hysteresis_dwell2": {
+        "min_dwell": 2,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 924,
+            "ir": -0.15829892820420924
+          },
+          "normal": {
+            "n": 722,
+            "ir": 0.20029331500837388
+          },
+          "stress": {
+            "n": 779,
+            "ir": 0.37933275584522497
+          },
+          "full": {
+            "n": 2425,
+            "ir": 0.13627981115849452
+          }
+        },
+        "dwell": {
+          "n": 2425,
+          "n_runs": 156,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 42,
+              "mean_dwell": 22.0,
+              "median_dwell": 7.0,
+              "max_dwell": 202.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 41,
+              "mean_dwell": 19.0,
+              "median_dwell": 6.0,
+              "max_dwell": 267.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 73,
+              "mean_dwell": 9.89041095890411,
+              "median_dwell": 6.0,
+              "max_dwell": 48.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      },
+      "hysteresis_dwell3": {
+        "min_dwell": 3,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 913,
+            "ir": -0.1720394509549061
+          },
+          "normal": {
+            "n": 723,
+            "ir": 0.06603618416082706
+          },
+          "stress": {
+            "n": 789,
+            "ir": 0.5044060916801455
+          },
+          "full": {
+            "n": 2425,
+            "ir": 0.13627981115849452
+          }
+        },
+        "dwell": {
+          "n": 2425,
+          "n_runs": 103,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 27,
+              "mean_dwell": 33.81481481481482,
+              "median_dwell": 13.0,
+              "max_dwell": 276.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 28,
+              "mean_dwell": 28.178571428571427,
+              "median_dwell": 11.0,
+              "max_dwell": 277.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 48,
+              "mean_dwell": 15.0625,
+              "median_dwell": 10.0,
+              "max_dwell": 81.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      }
+    },
+    {
+      "force_id": "f2_l2",
+      "research_role": "negative_control",
+      "cannot_promote": true,
+      "n_days": 2274,
+      "ir_by_regime": {
+        "complacency": {
+          "n": 821,
+          "ir": 0.4138250975215717
+        },
+        "normal": {
+          "n": 693,
+          "ir": -0.5167647847416605
+        },
+        "stress": {
+          "n": 760,
+          "ir": 0.9628943773086724
+        },
+        "full": {
+          "n": 2274,
+          "ir": 0.36369706233049653
+        }
+      },
+      "dwell": {
+        "n": 2274,
+        "n_runs": 311,
+        "frac_1day_runs": 0.3536977491961415,
+        "by_label": {
+          "complacency": {
+            "n_runs": 76,
+            "mean_dwell": 10.802631578947368,
+            "median_dwell": 3.0,
+            "max_dwell": 116.0,
+            "frac_1day": 0.2894736842105263
+          },
+          "stress": {
+            "n_runs": 85,
+            "mean_dwell": 8.941176470588236,
+            "median_dwell": 2.0,
+            "max_dwell": 238.0,
+            "frac_1day": 0.4235294117647059
+          },
+          "normal": {
+            "n_runs": 150,
+            "mean_dwell": 4.62,
+            "median_dwell": 2.0,
+            "max_dwell": 33.0,
+            "frac_1day": 0.3466666666666667
+          }
+        },
+        "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+      },
+      "occupancy_null": {
+        "n": 2000,
+        "seed": 31,
+        "mode": "occupancy",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.4138250975215717,
+        "observed_ir_b": 0.9628943773086724,
+        "observed_delta": -0.5490692797871007,
+        "null_mean_delta": -0.03434061691524728,
+        "null_std_delta": 0.8177660552518253,
+        "observed_percentile": 26.8,
+        "empirical_p_value_one_sided": 0.2683658170914543,
+        "empirical_p_value_two_sided": 0.5062468765617192,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "run_length_null": {
+        "n": 2000,
+        "seed": 32,
+        "mode": "run_length",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.4138250975215717,
+        "observed_ir_b": 0.9628943773086724,
+        "observed_delta": -0.5490692797871007,
+        "null_mean_delta": -0.007878779293938955,
+        "null_std_delta": 0.6359882992362931,
+        "observed_percentile": 19.45,
+        "empirical_p_value_one_sided": 0.19490254872563717,
+        "empirical_p_value_two_sided": 0.3808095952023988,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "hysteresis_dwell2": {
+        "min_dwell": 2,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 836,
+            "ir": -0.23703040829089045
+          },
+          "normal": {
+            "n": 693,
+            "ir": 0.1360406832069897
+          },
+          "stress": {
+            "n": 745,
+            "ir": 1.032411214527525
+          },
+          "full": {
+            "n": 2274,
+            "ir": 0.36369706233049653
+          }
+        },
+        "dwell": {
+          "n": 2274,
+          "n_runs": 151,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 41,
+              "mean_dwell": 20.390243902439025,
+              "median_dwell": 6.0,
+              "max_dwell": 197.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 39,
+              "mean_dwell": 19.102564102564102,
+              "median_dwell": 6.0,
+              "max_dwell": 259.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 71,
+              "mean_dwell": 9.76056338028169,
+              "median_dwell": 6.0,
+              "max_dwell": 46.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      },
+      "hysteresis_dwell3": {
+        "min_dwell": 3,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 831,
+            "ir": -0.010718629769622776
+          },
+          "normal": {
+            "n": 693,
+            "ir": 0.3414960694901375
+          },
+          "stress": {
+            "n": 750,
+            "ir": 0.7351017111513234
+          },
+          "full": {
+            "n": 2274,
+            "ir": 0.36369706233049653
+          }
+        },
+        "dwell": {
+          "n": 2274,
+          "n_runs": 99,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 27,
+              "mean_dwell": 30.77777777777778,
+              "median_dwell": 13.0,
+              "max_dwell": 211.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 26,
+              "mean_dwell": 28.846153846153847,
+              "median_dwell": 12.5,
+              "max_dwell": 269.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 46,
+              "mean_dwell": 15.065217391304348,
+              "median_dwell": 10.0,
+              "max_dwell": 52.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      }
+    },
+    {
+      "force_id": "f3_l1",
+      "research_role": "negative_control",
+      "cannot_promote": true,
+      "n_days": 3686,
+      "ir_by_regime": {
+        "complacency": {
+          "n": 1511,
+          "ir": 0.6379275149987216
+        },
+        "normal": {
+          "n": 1138,
+          "ir": 0.17831361972978527
+        },
+        "stress": {
+          "n": 1037,
+          "ir": -0.50120886195138
+        },
+        "full": {
+          "n": 3686,
+          "ir": 0.13096161191921643
+        }
+      },
+      "dwell": {
+        "n": 3686,
+        "n_runs": 471,
+        "frac_1day_runs": 0.37791932059447986,
+        "by_label": {
+          "stress": {
+            "n_runs": 131,
+            "mean_dwell": 7.916030534351145,
+            "median_dwell": 2.0,
+            "max_dwell": 246.0,
+            "frac_1day": 0.46564885496183206
+          },
+          "normal": {
+            "n_runs": 223,
+            "mean_dwell": 5.103139013452915,
+            "median_dwell": 2.0,
+            "max_dwell": 60.0,
+            "frac_1day": 0.3632286995515695
+          },
+          "complacency": {
+            "n_runs": 117,
+            "mean_dwell": 12.914529914529915,
+            "median_dwell": 3.0,
+            "max_dwell": 120.0,
+            "frac_1day": 0.3076923076923077
+          }
+        },
+        "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+      },
+      "occupancy_null": {
+        "n": 2000,
+        "seed": 31,
+        "mode": "occupancy",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.6379275149987216,
+        "observed_ir_b": -0.50120886195138,
+        "observed_delta": 1.1391363769501015,
+        "null_mean_delta": -0.001660856170041015,
+        "null_std_delta": 0.6337396223463394,
+        "observed_percentile": 96.35,
+        "empirical_p_value_one_sided": 0.03698150924537731,
+        "empirical_p_value_two_sided": 0.07096451774112944,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "run_length_null": {
+        "n": 2000,
+        "seed": 32,
+        "mode": "run_length",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.6379275149987216,
+        "observed_ir_b": -0.50120886195138,
+        "observed_delta": 1.1391363769501015,
+        "null_mean_delta": -0.006347543672399905,
+        "null_std_delta": 0.5781122513964985,
+        "observed_percentile": 97.85,
+        "empirical_p_value_one_sided": 0.021989005497251374,
+        "empirical_p_value_two_sided": 0.047976011994003,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "hysteresis_dwell2": {
+        "min_dwell": 2,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 1527,
+            "ir": 0.21617101449853368
+          },
+          "normal": {
+            "n": 1138,
+            "ir": 0.14909342592042907
+          },
+          "stress": {
+            "n": 1021,
+            "ir": 0.02097456308667668
+          },
+          "full": {
+            "n": 3686,
+            "ir": 0.13096161191921643
+          }
+        },
+        "dwell": {
+          "n": 3686,
+          "n_runs": 225,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "stress": {
+              "n_runs": 57,
+              "mean_dwell": 17.912280701754387,
+              "median_dwell": 6.0,
+              "max_dwell": 267.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 104,
+              "mean_dwell": 10.942307692307692,
+              "median_dwell": 6.0,
+              "max_dwell": 61.0,
+              "frac_1day": 0.0
+            },
+            "complacency": {
+              "n_runs": 64,
+              "mean_dwell": 23.859375,
+              "median_dwell": 10.0,
+              "max_dwell": 202.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      },
+      "hysteresis_dwell3": {
+        "min_dwell": 3,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 1529,
+            "ir": 0.11143335714552488
+          },
+          "normal": {
+            "n": 1137,
+            "ir": 0.02123464479552236
+          },
+          "stress": {
+            "n": 1020,
+            "ir": 0.26306312402834503
+          },
+          "full": {
+            "n": 3686,
+            "ir": 0.13096161191921643
+          }
+        },
+        "dwell": {
+          "n": 3686,
+          "n_runs": 148,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "stress": {
+              "n_runs": 39,
+              "mean_dwell": 26.153846153846153,
+              "median_dwell": 9.0,
+              "max_dwell": 277.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 68,
+              "mean_dwell": 16.720588235294116,
+              "median_dwell": 9.0,
+              "max_dwell": 81.0,
+              "frac_1day": 0.0
+            },
+            "complacency": {
+              "n_runs": 41,
+              "mean_dwell": 37.292682926829265,
+              "median_dwell": 19.0,
+              "max_dwell": 309.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      }
+    },
+    {
+      "force_id": "f3_l2",
+      "research_role": "negative_control",
+      "cannot_promote": true,
+      "n_days": 3505,
+      "ir_by_regime": {
+        "complacency": {
+          "n": 1467,
+          "ir": 0.367261898400992
+        },
+        "normal": {
+          "n": 1058,
+          "ir": -0.086009554425766
+        },
+        "stress": {
+          "n": 980,
+          "ir": 0.007507218919241283
+        },
+        "full": {
+          "n": 3505,
+          "ir": 0.11395635230342376
+        }
+      },
+      "dwell": {
+        "n": 3505,
+        "n_runs": 446,
+        "frac_1day_runs": 0.36771300448430494,
+        "by_label": {
+          "normal": {
+            "n_runs": 212,
+            "mean_dwell": 4.990566037735849,
+            "median_dwell": 2.0,
+            "max_dwell": 59.0,
+            "frac_1day": 0.3632075471698113
+          },
+          "stress": {
+            "n_runs": 120,
+            "mean_dwell": 8.166666666666666,
+            "median_dwell": 2.0,
+            "max_dwell": 238.0,
+            "frac_1day": 0.45
+          },
+          "complacency": {
+            "n_runs": 114,
+            "mean_dwell": 12.868421052631579,
+            "median_dwell": 3.0,
+            "max_dwell": 116.0,
+            "frac_1day": 0.2894736842105263
+          }
+        },
+        "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+      },
+      "occupancy_null": {
+        "n": 2000,
+        "seed": 31,
+        "mode": "occupancy",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.367261898400992,
+        "observed_ir_b": 0.007507218919241283,
+        "observed_delta": 0.3597546794817507,
+        "null_mean_delta": 0.007683104194552509,
+        "null_std_delta": 0.6662203684640532,
+        "observed_percentile": 69.6,
+        "empirical_p_value_one_sided": 0.30434782608695654,
+        "empirical_p_value_two_sided": 0.591704147926037,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "run_length_null": {
+        "n": 2000,
+        "seed": 32,
+        "mode": "run_length",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 0.367261898400992,
+        "observed_ir_b": 0.007507218919241283,
+        "observed_delta": 0.3597546794817507,
+        "null_mean_delta": -0.02620999383222108,
+        "null_std_delta": 0.5929584277889445,
+        "observed_percentile": 74.1,
+        "empirical_p_value_one_sided": 0.2593703148425787,
+        "empirical_p_value_two_sided": 0.5452273863068465,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "hysteresis_dwell2": {
+        "min_dwell": 2,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 1490,
+            "ir": 0.23726428613956232
+          },
+          "normal": {
+            "n": 1055,
+            "ir": 0.14235543768282252
+          },
+          "stress": {
+            "n": 960,
+            "ir": -0.05489047598557828
+          },
+          "full": {
+            "n": 3505,
+            "ir": 0.11395635230342376
+          }
+        },
+        "dwell": {
+          "n": 3505,
+          "n_runs": 217,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "normal": {
+              "n_runs": 101,
+              "mean_dwell": 10.445544554455445,
+              "median_dwell": 6.0,
+              "max_dwell": 61.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 54,
+              "mean_dwell": 17.77777777777778,
+              "median_dwell": 5.0,
+              "max_dwell": 259.0,
+              "frac_1day": 0.0
+            },
+            "complacency": {
+              "n_runs": 62,
+              "mean_dwell": 24.032258064516128,
+              "median_dwell": 9.5,
+              "max_dwell": 197.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      },
+      "hysteresis_dwell3": {
+        "min_dwell": 3,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 1487,
+            "ir": 0.22832584841866027
+          },
+          "normal": {
+            "n": 1065,
+            "ir": -0.05907143043649643
+          },
+          "stress": {
+            "n": 953,
+            "ir": 0.15409796656060848
+          },
+          "full": {
+            "n": 3505,
+            "ir": 0.11395635230342376
+          }
+        },
+        "dwell": {
+          "n": 3505,
+          "n_runs": 145,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "normal": {
+              "n_runs": 67,
+              "mean_dwell": 15.895522388059701,
+              "median_dwell": 10.0,
+              "max_dwell": 68.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 36,
+              "mean_dwell": 26.47222222222222,
+              "median_dwell": 8.0,
+              "max_dwell": 269.0,
+              "frac_1day": 0.0
+            },
+            "complacency": {
+              "n_runs": 42,
+              "mean_dwell": 35.404761904761905,
+              "median_dwell": 17.0,
+              "max_dwell": 302.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      }
+    },
+    {
+      "force_id": "f2_oos_hedged_on_l2_labels",
+      "research_role": "negative_control",
+      "cannot_promote": true,
+      "n_days": 2424,
+      "ir_by_regime": {
+        "complacency": {
+          "n": 911,
+          "ir": 1.4718258481441693
+        },
+        "normal": {
+          "n": 721,
+          "ir": 0.08344562007568083
+        },
+        "stress": {
+          "n": 792,
+          "ir": 0.37985157555257093
+        },
+        "full": {
+          "n": 2424,
+          "ir": 0.6087672487310114
+        }
+      },
+      "dwell": {
+        "n": 2424,
+        "n_runs": 322,
+        "frac_1day_runs": 0.36024844720496896,
+        "by_label": {
+          "complacency": {
+            "n_runs": 78,
+            "mean_dwell": 11.679487179487179,
+            "median_dwell": 2.0,
+            "max_dwell": 120.0,
+            "frac_1day": 0.3076923076923077
+          },
+          "stress": {
+            "n_runs": 89,
+            "mean_dwell": 8.898876404494382,
+            "median_dwell": 2.0,
+            "max_dwell": 246.0,
+            "frac_1day": 0.42696629213483145
+          },
+          "normal": {
+            "n_runs": 155,
+            "mean_dwell": 4.651612903225806,
+            "median_dwell": 2.0,
+            "max_dwell": 34.0,
+            "frac_1day": 0.34838709677419355
+          }
+        },
+        "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+      },
+      "occupancy_null": {
+        "n": 2000,
+        "seed": 31,
+        "mode": "occupancy",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 1.4718258481441693,
+        "observed_ir_b": 0.37985157555257093,
+        "observed_delta": 1.0919742725915984,
+        "null_mean_delta": 0.0008654686451260396,
+        "null_std_delta": 0.778519662365872,
+        "observed_percentile": 91.7,
+        "empirical_p_value_one_sided": 0.08345827086456771,
+        "empirical_p_value_two_sided": 0.1629185407296352,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "run_length_null": {
+        "n": 2000,
+        "seed": 32,
+        "mode": "run_length",
+        "label_a": "complacency",
+        "label_b": "stress",
+        "observed_ir_a": 1.4718258481441693,
+        "observed_ir_b": 0.37985157555257093,
+        "observed_delta": 1.0919742725915984,
+        "null_mean_delta": -0.023263288470734125,
+        "null_std_delta": 0.7195386944806045,
+        "observed_percentile": 93.7,
+        "empirical_p_value_one_sided": 0.06346826586706647,
+        "empirical_p_value_two_sided": 0.13793103448275862,
+        "n_finite": 2000,
+        "cannot_promote": true,
+        "note": "Null 1: permute L2 labels, residual fixed. Occupancy mode keeps label counts; run_length mode shuffles dwell blocks. Not a timing signal. Not an HMM. Cannot promote."
+      },
+      "hysteresis_dwell2": {
+        "min_dwell": 2,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 923,
+            "ir": 0.45935330442971994
+          },
+          "normal": {
+            "n": 722,
+            "ir": 0.606630140286596
+          },
+          "stress": {
+            "n": 779,
+            "ir": 0.757558583110455
+          },
+          "full": {
+            "n": 2424,
+            "ir": 0.6087672487310114
+          }
+        },
+        "dwell": {
+          "n": 2424,
+          "n_runs": 156,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 42,
+              "mean_dwell": 21.976190476190474,
+              "median_dwell": 7.0,
+              "max_dwell": 202.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 41,
+              "mean_dwell": 19.0,
+              "median_dwell": 6.0,
+              "max_dwell": 267.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 73,
+              "mean_dwell": 9.89041095890411,
+              "median_dwell": 6.0,
+              "max_dwell": 48.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      },
+      "hysteresis_dwell3": {
+        "min_dwell": 3,
+        "cannot_promote": true,
+        "ir_by_regime": {
+          "complacency": {
+            "n": 912,
+            "ir": 0.49377841526405536
+          },
+          "normal": {
+            "n": 723,
+            "ir": 0.3931785166306993
+          },
+          "stress": {
+            "n": 789,
+            "ir": 0.9047547102300857
+          },
+          "full": {
+            "n": 2424,
+            "ir": 0.6087672487310114
+          }
+        },
+        "dwell": {
+          "n": 2424,
+          "n_runs": 103,
+          "frac_1day_runs": 0.0,
+          "by_label": {
+            "complacency": {
+              "n_runs": 27,
+              "mean_dwell": 33.77777777777778,
+              "median_dwell": 13.0,
+              "max_dwell": 275.0,
+              "frac_1day": 0.0
+            },
+            "stress": {
+              "n_runs": 28,
+              "mean_dwell": 28.178571428571427,
+              "median_dwell": 11.0,
+              "max_dwell": 277.0,
+              "frac_1day": 0.0
+            },
+            "normal": {
+              "n_runs": 48,
+              "mean_dwell": 15.0625,
+              "median_dwell": 10.0,
+              "max_dwell": 81.0,
+              "frac_1day": 0.0
+            }
+          },
+          "note": "Dwell of the locked 2026-08-27 labels. Not a new classifier."
+        },
+        "note": "Hysteresis is a sensitivity of the locked labels, not a replacement classifier and not a position_scale input."
+      }
+    }
+  ]
+}

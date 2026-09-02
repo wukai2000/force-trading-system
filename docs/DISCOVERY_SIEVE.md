@@ -17,11 +17,17 @@ industry/candidate panel
       staying ≥40% of observed |IR| is a kill)
     → leftover IR ≥ 0.40 and |β| < 0.80
     → SIEVE_KEEP (hypothesis only)
+    → T0–T4 freeze (mechanism, leading observables, independence) BEFORE names
     → pipeline.evaluate_candidate is the only promotion path
 ```
 
 Non-price series (EPU, patents, GPR) may **rank or veto** a leftover.
 They may not pick legs.
+
+See `docs/RESEARCH_PROTOCOL.md`. The sieve is a finder. Null A/B and
+mechanism tests are later falsifiers. SIEVE_KEEP cannot promote. F1–F3
+are negative controls, not revival candidates. Force 4 stays WAIT.
+
 
 ## Placebo (concentration, not raw 0.15)
 
@@ -72,6 +78,8 @@ Naive calendar-day indexes fix Yahoo 14:30 vs midnight residual CSVs
 ```
 PYTHONPATH=. python scripts/test_neutralizer.py
 PYTHONPATH=. python scripts/test_discovery_sieve.py
+PYTHONPATH=. python scripts/test_null_engine.py
+PYTHONPATH=. python scripts/run_negative_control_audit.py
 PYTHONPATH=. python scripts/run_panel_sieve.py
 PYTHONPATH=. python scripts/run_literature_hypothesis_sim.py
 PYTHONPATH=. python scripts/historical_point_in_time_sim.py

@@ -25,6 +25,7 @@ import pandas as pd
 from force_engine.discovery import ForceDiscoveryEngine
 from force_engine.dates import naive_day_index, pick_close_column
 from force_engine.evaluate import annualized_ir
+from force_engine.freeze import FreezeError
 from force_engine.guards import WAIT_TICKERS, WaitLockError, refuse_wait_scan
 from force_engine.literature import run_all_simulators
 from force_engine.neutralize import NeutralizationError
@@ -134,7 +135,9 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
         "note": "raw spread IR is diagnostic only; 6-month scout cannot promote",
     }
     try:
-        ev = evaluate_candidate(spec, prices_all)
+        ev = evaluate_candidate(
+            spec, prices_all, allow_wait_sketch=True, allow_unfrozen=True
+        )
         resid = ev.panel.residual.dropna()
         t = pd.Timestamp(target_date)
         oos = resid.loc[t : pd.Timestamp(oos_end)]
@@ -149,7 +152,7 @@ def run_one(target_date: str, oos_months: int = 6, allow_yahoo: bool = False) ->
         rets = oos_px.pct_change(fill_method=None).dropna()
         spread = rets[SKETCH_LEGS].mean(axis=1) - rets[SKETCH_CONTROLS].mean(axis=1)
         result["oos_raw_spread_ir_diagnostic_only"] = annualized_ir(spread) if len(spread) else float("nan")
-    except NeutralizationError as e:
+    except (NeutralizationError, FreezeError, WaitLockError) as e:
         result["error"] = str(e)
 
     print("=== PIT scout (not a promotion) ===")

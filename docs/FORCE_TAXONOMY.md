@@ -88,7 +88,7 @@ See `config/multilayer_gate.yaml` and `docs/L2_REGIME.md`.
 
 - multi-layer residual IR ≥ **0.40**
 - IR ≥ **0.35** in ≥ **2** non-shock calendar regimes
-- placebo IR < **0.15**
+- Concentration A: mean |IR| of sign-randomized copies staying ≥ **40%** of observed |IR| is a kill (`p_IR ≥ 0.15` AND `p_IR/|IR| ≥ 0.40`). Raw `p_IR < 0.15` is **not** the theory (unpassable at 8y).
 - |β| sector controls < **0.80**
 - neighbor IR vs paused residuals ≥ **0.40**
 - clocks veto-only

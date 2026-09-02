@@ -1,0 +1,33 @@
+# T0–T4 freeze template. Not a candidate. Not scannable. Capital $0.
+# Copy to a new file, fill T0–T4, leave tickers empty until freeze_complete
+# is computed true. Do not name ITA/XAR/PPA/XLI. Do not recycle F1/F2/F3 legs.
+#
+# Completeness is COMPUTED by force_engine.freeze — setting freeze_complete
+# true here does not make it so.
+#
+# T5 (tickers) is attach_instruments() after T0–T4.
+# evaluate_candidate is refused until then (except grandfathered F1/F2/F3).
+
+hypothesis_id: _template_not_a_candidate
+hypothesis: ""          # T0 one sentence (≥12 chars)
+mechanism: ""           # T1 economic mechanism (≥12 chars)
+observables: []         # T2/T3: at least one lead=leading with predicted_sign +1|-1
+# - name: example_series
+#   predicted_sign: +1
+#   lead: leading          # leading | contemporaneous | lagging
+#   absent_kills: true     # named here; kill is Phase C when the series exists
+independence_dimensions: []   # T4: at least TWO kinds
+# - kind: geography          # geography | instrument | manifestation | market_expression
+#   note: ""
+# - kind: instrument
+#   note: ""
+tickers: []             # FORBIDDEN until freeze_complete
+controls: []
+instruments_attached: false
+freeze_complete: false  # ignored if T0–T4 missing
+scannable: false
+capital: 0
+cannot_promote: true
+research_role: candidate
+force4: wait
+note: "Instruments (T5) only after T0–T4. No Force 4. No capital."

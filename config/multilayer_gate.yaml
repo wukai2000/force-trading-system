@@ -23,7 +23,9 @@ clocks: veto_only                # cannot promote a failing residual
 placebo_metric: mean_abs_sign_randomized_ir
 
 # L2 regime labels (used for conditioning, not promotion by themselves)
+# Not a timing signal. Not a position_scale map. HMM/GMM refused 2026-09-02.
 l2:
+
   series:
     vix: VIXCLS                  # FRED
     vix3m: VXVCLS                # FRED 3-month VIX (VIX3M proxy)

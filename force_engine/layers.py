@@ -7,6 +7,10 @@ L3 = breadth pairs (RSP-SPY, IWM-SPY).
 L4 = GPR veto clock (force_engine.clocks; real Iacoviello file; cannot promote).
 
 These never promote a failing L1 residual. They condition and further-neutralize.
+HMM / GMM hidden states and position_scale maps are refused (timing s_t).
+L2 labels are the locked {complacency, normal, stress} classifier.
+Hysteresis and label-permutation live in false_discovery as Null 1 diagnostics.
+
 """
 from __future__ import annotations
 

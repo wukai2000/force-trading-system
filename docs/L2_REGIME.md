@@ -66,4 +66,22 @@ Stub. Unwired. Cannot promote.
 6. Neighbor-orthogonalize against every paused residual before naming a new force.  
 7. Live-tape class is a *timing* filter only after a force already passes the gate. Today is complacency; F2 last-60 L2 IR is negative, so even a passing force would be vetoed by current tape if we had a live policy.
 
+HMM / GMM hidden states and `position_scale` maps are **refused** (2026-09-02). L2 labels condition; they do not size. Null 1 (`scripts/run_regime_label_null.py`) permutes the locked labels. Dwell / hysteresis are sensitivity only. Cannot promote.
+
+## Null 1 appendix (2026-09-02)
+
+n=2000 permutations. Contrast = IR_complacency − IR_stress. Cannot promote.
+
+| object | IR_c / IR_s | occ p1 | run p1 | 1-day run share |
+|---|---|---|---|---|
+| F2 L1 walkforward | 0.54 / −0.13 | 0.19 | 0.14 | 36% |
+| F2 L2 extra-neutralized | 0.41 / 0.96 | 0.27 | 0.19 | 35% |
+| F2 OOS hedged (attractive) | 1.47 / 0.38 | 0.083 | 0.063 | 36% |
+| F3 L1 | 0.64 / −0.50 | **0.037** | **0.022** | 38% |
+| F3 L2 | 0.37 / 0.01 | 0.30 | 0.26 | 37% |
+
+Median dwell of locked labels is **2 days**. Hysteresis min_dwell=2 flips F2 OOS: complacency 1.47 → 0.46, stress 0.38 → 0.76. The calm-regime story was 1-day chatter, not a stable state. F3's split is real and already a kill (complacency-beta). Calendar windows remain the locked REGIME_FAIL partitions.
+
 Capital $0. Trump Account = SPYM. No un-pause.
+
+

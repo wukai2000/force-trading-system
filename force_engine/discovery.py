@@ -26,6 +26,7 @@ from .guards import (
     refuse_qqq_as_leg,
     refuse_recycled_legs,
     refuse_wait_scan,
+    wait_hits,
 )
 from .literature import Hypothesis, run_all_simulators
 
@@ -100,13 +101,43 @@ class ForceDiscoveryEngine:
         as_of: Optional[str] = None,
         literature_models: Optional[List[str]] = None,
         scannable: bool = False,
+        freeze=None,
     ) -> str:
         """
         Formats a discovered candidate into a frozen pre-scan YAML sketch.
         scannable defaults to False — generating a file is not a Force lock.
+
+        Non-WAIT legs require a complete T0–T4 freeze (force_engine.freeze).
+        WAIT sketches (ITA/XAR/PPA) remain scannable=false rewrites only.
         """
-        refuse_qqq_as_leg(legs)
+        from .freeze import FreezeError, FrozenHypothesis, assert_freeze_complete, attach_instruments
+
         if scannable:
+            raise FreezeError(
+                "discovery cannot write scannable=true. "
+                "pipeline.evaluate_candidate is the only evaluation entry."
+            )
+        refuse_qqq_as_leg(legs)
+        writing_new_legs = bool(legs) and not wait_hits(legs)
+        if writing_new_legs:
+            if freeze is None:
+                raise FreezeError(
+                    f"{candidate_name}: cannot name non-WAIT legs {legs} before T0–T4 freeze. "
+                    "Fill config/hypotheses/*.yaml (mechanism, leading observables, "
+                    "independence dimensions) first. Instruments are T5."
+                )
+            if not isinstance(freeze, FrozenHypothesis):
+                raise FreezeError("freeze must be a FrozenHypothesis")
+            assert_freeze_complete(freeze)
+            if not freeze.instruments_attached:
+                freeze = attach_instruments(freeze, legs, controls)
+            else:
+                want = {str(t).upper() for t in legs}
+                have = {str(t).upper() for t in freeze.tickers}
+                if want != have:
+                    raise FreezeError(
+                        f"{candidate_name}: legs {sorted(want)} != freeze tickers {sorted(have)}"
+                    )
             refuse_wait_scan(legs, allow_wait_sketch=False)
             refuse_recycled_legs(legs, research_paused=candidate_name.lower().startswith("paused"))
         else:
