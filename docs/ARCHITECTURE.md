@@ -26,6 +26,8 @@ force_engine.evaluate.evaluate_neutralized(..., neutralized=True)
         ▼
 force_engine.clocks.ClockBus.veto_if_leading_contradicts
         │  leading may veto a PASS; cannot rescue a FAIL
+        │  catalog: config/leading_observables.yaml (T2 / veto; not s_t)
+
         ▼
 GateResult  PROMOTE_CANDIDATE | FAIL_GATE | VETO_LEADING_CLOCK
 ```

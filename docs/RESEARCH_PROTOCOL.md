@@ -87,6 +87,12 @@ Those objects are a timing signal `s_t`. The tradable object stays always-on
 `r_t`. Dwell and hysteresis are reported as **sensitivity** of the locked
 labels, never as a replacement classifier.
 
+**Leading observables (2026-09-03).** `config/leading_observables.yaml` is a
+T2 library. FRED-backed physical / labor / credit series may **veto** a
+passing residual once cached. NLP, satellite, scrapes are **refused**.
+`IR(s, r)` against this catalog is refused. See `docs/LEADING_OBSERVABLES.md`.
+
+
 ### Phase B — validate the validator (this package)
 
 
@@ -192,6 +198,10 @@ Answers: yes / no / inconclusive. No capital. No un-pause.
 - Extra-neutralization described as vol/credit *scaling* — L2 residualizes, it does not size
 - Treating F2 full-sample IR 0.118 as the attractive object (that is walk-forward collapse; the attractive object is OOS hedged 0.593, still CONCENTRATION_FAIL)
 - Force 4 PIT IR 0.389–0.573 / neighbor 0.28 as measured facts
+- Fama-French / Barra as default L1 (different object; diagnostic extra-neutralize only on a frozen leftover)
+- `IR(s_t, r_t)` with `s` from `config/leading_observables.yaml` (catalog is T2/veto, not a timing overlay)
+- Satellite / LinkedIn / WARN-NLP / 10-K tone / ADS-B as wired clocks (no corpus; theater)
+- Treating a GDP/NFP nowcast as a Force
 
 
 ---
@@ -206,6 +216,8 @@ PYTHONPATH=. python scripts/test_freeze.py
 PYTHONPATH=. python scripts/run_negative_control_audit.py
 PYTHONPATH=. python scripts/run_regime_label_null.py
 PYTHONPATH=. python scripts/validate_hypothesis_freeze.py
+PYTHONPATH=. python scripts/test_leading_observables.py
+PYTHONPATH=. python scripts/run_leading_observables.py
 
 ```
 

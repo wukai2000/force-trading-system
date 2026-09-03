@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from force_learning.data.fetch_prices import update_prices
-from force_learning.data.fetch_fred import update_macro
+from force_learning.data.fetch_fred import update_clock_series, update_macro
 from force_learning.data.fetch_cot import update_cot
 from force_learning.data.panel import build_weekly_panel
 
@@ -20,8 +20,10 @@ def main() -> None:
     print("=== Force 1 data refresh ===")
     print("-- prices --")
     update_prices()
-    print("-- macro (FRED) --")
+    print("-- macro (FRED default) --")
     update_macro()
+    print("-- macro (L2 + leading-observable clocks, veto-only) --")
+    update_clock_series()
     print("-- cot (CFTC TFF) --")
     update_cot()
     print("-- weekly panel --")

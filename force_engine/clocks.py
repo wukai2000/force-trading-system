@@ -105,7 +105,13 @@ def _unwired() -> Optional[float]:
 
 
 def real_10y_stub() -> Optional[float]:
-    return None
+    """DFII10 opposition from catalog cache; None if missing (no veto)."""
+    try:
+        from .leading_observables import opposition_reader
+
+        return opposition_reader("dfii10")()
+    except Exception:
+        return None
 
 
 def health_expenditure_stub() -> Optional[float]:
@@ -121,7 +127,13 @@ def legislation_stub() -> Optional[float]:
 
 
 def credit_spreads_stub() -> Optional[float]:
-    return None
+    """HY OAS opposition (high OAS → negative). None if cache missing."""
+    try:
+        from .leading_observables import opposition_reader
+
+        return opposition_reader("hy_oas")()
+    except Exception:
+        return None
 
 
 def _parse_gpr_xls(path: Path) -> pd.DataFrame:
@@ -273,3 +285,11 @@ def default_clock_bus() -> ClockBus:
     for name, reader in DEFAULT_LEADING_READERS.items():
         bus.register_leading(name, reader)
     return bus
+
+
+def catalog_clock_bus(macro_dir=None) -> ClockBus:
+    """Default slots plus every wired *veto* observable from the catalog."""
+    from .leading_observables import load_catalog, register_catalog_on_bus
+
+    bus = default_clock_bus()
+    return register_catalog_on_bus(bus, catalog=load_catalog(), macro_dir=macro_dir)

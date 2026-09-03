@@ -108,6 +108,11 @@ Stubs return None today. Wiring them does **not** wait on the Force 3
 price scan, but the scan itself is still locked until this specification
 is acknowledged.
 
+The 2026-09-03 catalog (`config/leading_observables.yaml`) extends this
+list with FRED freight / hours / SLOOS / plumbing series. Same law: veto
+only. NLP and satellite stay refused. See `docs/LEADING_OBSERVABLES.md`.
+
+
 ---
 
 ## Engine correction (same day, not a new basket)

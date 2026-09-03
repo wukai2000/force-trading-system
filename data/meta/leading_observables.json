@@ -1,0 +1,315 @@
+{
+  "cannot_promote": true,
+  "capital": 0,
+  "force4": "wait",
+  "refuse_timing_overlay": true,
+  "n_observables": 30,
+  "n_wired_cache": 15,
+  "n_refused": 10,
+  "n_unwired": 5,
+  "veto_ids": [],
+  "readings": [
+    {
+      "id": "hy_oas",
+      "z": -1.2929,
+      "opposition": 1.2929,
+      "veto_flag": false,
+      "last_date": "2026-09-01",
+      "n": 791,
+      "status": "wired",
+      "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
+    },
+    {
+      "id": "nfci",
+      "z": -1.3797,
+      "opposition": 1.3797,
+      "veto_flag": false,
+      "last_date": "2026-08-28",
+      "n": 2904,
+      "status": "wired",
+      "note": "Chicago Fed NFCI. High = tighter financial conditions. Already L2."
+    },
+    {
+      "id": "baa10y",
+      "z": -1.1837,
+      "opposition": 1.1837,
+      "veto_flag": false,
+      "last_date": "2026-09-01",
+      "n": 10167,
+      "status": "wired",
+      "note": "Moody's Baa minus 10y. Already L2."
+    },
+    {
+      "id": "dfii10",
+      "z": 2.0598,
+      "opposition": 2.0598,
+      "veto_flag": false,
+      "last_date": "2026-09-01",
+      "n": 5921,
+      "status": "wired",
+      "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
+    },
+    {
+      "id": "t10y2y",
+      "z": -1.2287,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": "2026-09-02",
+      "n": 12561,
+      "status": "wired",
+      "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
+    },
+    {
+      "id": "cass_freight",
+      "z": -1.1075,
+      "opposition": -1.1075,
+      "veto_flag": false,
+      "last_date": "2026-07-01",
+      "n": 127,
+      "status": "wired",
+      "note": "Cass Freight Index shipments. Collapse vetoes; does not promote."
+    },
+    {
+      "id": "rail_carloads",
+      "z": 1.2818,
+      "opposition": 1.2818,
+      "veto_flag": false,
+      "last_date": "2026-06-01",
+      "n": 318,
+      "status": "wired",
+      "note": "Rail freight carloads."
+    },
+    {
+      "id": "ism_supplier_deliveries",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "unwired",
+      "note": "ISM supplier deliveries. FRED graph CSV 404 (series not public on this endpoint). Stay unwired. No substitute."
+    },
+    {
+      "id": "industrial_electric",
+      "z": 1.396,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": "2026-07-01",
+      "n": 1051,
+      "status": "wired",
+      "note": "IP electric and gas utilities. More coincident than leading."
+    },
+    {
+      "id": "port_congestion",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "no free vessel-dwell feed in this mandate"
+    },
+    {
+      "id": "satellite_thermal",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "satellite imagery theater"
+    },
+    {
+      "id": "ads_b_air_cargo",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "ADS-B scrape not in mandate"
+    },
+    {
+      "id": "manufacturing_hours",
+      "z": 1.9392,
+      "opposition": 1.9392,
+      "veto_flag": false,
+      "last_date": "2026-07-01",
+      "n": 1051,
+      "status": "wired",
+      "note": "Average weekly hours, manufacturing. Hours cut before headcount."
+    },
+    {
+      "id": "temp_help",
+      "z": -0.6316,
+      "opposition": -0.6316,
+      "veto_flag": false,
+      "last_date": "2026-07-01",
+      "n": 439,
+      "status": "wired",
+      "note": "Temporary help services employment."
+    },
+    {
+      "id": "initial_claims",
+      "z": -1.0173,
+      "opposition": 1.0173,
+      "veto_flag": false,
+      "last_date": "2026-08-22",
+      "n": 3112,
+      "status": "wired",
+      "note": "Initial claims. High = labor stress. More coincident than WARN."
+    },
+    {
+      "id": "linkedin_requisitions",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "scrape theater; no corpus"
+    },
+    {
+      "id": "warn_act_nlp",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "no WARN corpus wired"
+    },
+    {
+      "id": "h1b_filings",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "no visa-filing feed"
+    },
+    {
+      "id": "patent_filings",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "unwired",
+      "note": "USPTO topic clustering is a T2 name for a future freeze. Stub stays None."
+    },
+    {
+      "id": "legislation",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "unwired",
+      "note": "Federal Register / CMS rates. Stub stays None."
+    },
+    {
+      "id": "health_expenditure",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "unwired",
+      "note": "CMS / FRED spend. Annual. Stub stays None."
+    },
+    {
+      "id": "sec_mda_sentiment",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "10-K NLP without a frozen lexicon is a story"
+    },
+    {
+      "id": "earnings_call_prosody",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "pitch/cadence analysis is not a Force observable here"
+    },
+    {
+      "id": "lobbying_spend",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "no lobbying feed"
+    },
+    {
+      "id": "sloos_tighten",
+      "z": -1.0916,
+      "opposition": 1.0916,
+      "veto_flag": false,
+      "last_date": "2026-07-01",
+      "n": 146,
+      "status": "wired",
+      "note": "SLOOS C&I tightening, large firms. Quarterly. High = credit crunch."
+    },
+    {
+      "id": "sofr",
+      "z": -0.503,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": "2026-09-01",
+      "n": 2102,
+      "status": "wired",
+      "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
+    },
+    {
+      "id": "fedfunds",
+      "z": -0.5645,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": "2026-09-01",
+      "n": 26361,
+      "status": "wired",
+      "note": "EFFR. Pair with SOFR for plumbing spread."
+    },
+    {
+      "id": "rrp",
+      "z": -0.488,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": "2026-09-02",
+      "n": 3318,
+      "status": "wired",
+      "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
+    },
+    {
+      "id": "cot_tff",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "wired_elsewhere",
+      "note": "CFTC TFF already fetched. Crowding diagnostic. Not a promote."
+    },
+    {
+      "id": "private_credit_covenants",
+      "z": null,
+      "opposition": null,
+      "veto_flag": false,
+      "last_date": null,
+      "n": 0,
+      "status": "refused",
+      "note": "no private-credit covenant feed"
+    }
+  ],
+  "note": "Diagnostic. Veto flags do not promote. Do not use as s_t.",
+  "fetch": null
+}
