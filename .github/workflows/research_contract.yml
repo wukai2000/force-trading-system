@@ -1,0 +1,36 @@
+name: Research contract
+
+# Unit + fixture tests only. No yfinance. No Force 4. Cannot promote.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Neutralizer / freeze / null / clocks
+        run: |
+          python scripts/test_neutralizer.py
+          python scripts/test_freeze.py
+          python scripts/test_null_engine.py
+          python scripts/test_leading_observables.py
+      - name: Negative-control fixtures + EvidenceRecord
+        run: |
+          python scripts/test_negative_control_contract.py
+          python scripts/test_evidence_record.py
+          python scripts/test_discovery_sieve.py
+      - name: NO_RESULT is success
+        run: python scripts/run_evidence_record.py

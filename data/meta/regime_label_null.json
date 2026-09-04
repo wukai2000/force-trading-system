@@ -797,19 +797,19 @@
       "ir_by_regime": {
         "complacency": {
           "n": 911,
-          "ir": 1.4718258481441693
+          "ir": 1.471828822572964
         },
         "normal": {
           "n": 721,
-          "ir": 0.08344562007568083
+          "ir": 0.08344265632269081
         },
         "stress": {
           "n": 792,
-          "ir": 0.37985157555257093
+          "ir": 0.37985116136064256
         },
         "full": {
           "n": 2424,
-          "ir": 0.6087672487310114
+          "ir": 0.6087671972593275
         }
       },
       "dwell": {
@@ -847,11 +847,11 @@
         "mode": "occupancy",
         "label_a": "complacency",
         "label_b": "stress",
-        "observed_ir_a": 1.4718258481441693,
-        "observed_ir_b": 0.37985157555257093,
-        "observed_delta": 1.0919742725915984,
-        "null_mean_delta": 0.0008654686451260396,
-        "null_std_delta": 0.778519662365872,
+        "observed_ir_a": 1.471828822572964,
+        "observed_ir_b": 0.37985116136064256,
+        "observed_delta": 1.0919776612123215,
+        "null_mean_delta": 0.000865666961194961,
+        "null_std_delta": 0.7785196019537635,
         "observed_percentile": 91.7,
         "empirical_p_value_one_sided": 0.08345827086456771,
         "empirical_p_value_two_sided": 0.1629185407296352,
@@ -865,11 +865,11 @@
         "mode": "run_length",
         "label_a": "complacency",
         "label_b": "stress",
-        "observed_ir_a": 1.4718258481441693,
-        "observed_ir_b": 0.37985157555257093,
-        "observed_delta": 1.0919742725915984,
-        "null_mean_delta": -0.023263288470734125,
-        "null_std_delta": 0.7195386944806045,
+        "observed_ir_a": 1.471828822572964,
+        "observed_ir_b": 0.37985116136064256,
+        "observed_delta": 1.0919776612123215,
+        "null_mean_delta": -0.0232632913514554,
+        "null_std_delta": 0.7195388962951104,
         "observed_percentile": 93.7,
         "empirical_p_value_one_sided": 0.06346826586706647,
         "empirical_p_value_two_sided": 0.13793103448275862,
@@ -883,19 +883,19 @@
         "ir_by_regime": {
           "complacency": {
             "n": 923,
-            "ir": 0.45935330442971994
+            "ir": 0.459354288786064
           },
           "normal": {
             "n": 722,
-            "ir": 0.606630140286596
+            "ir": 0.6066298226963696
           },
           "stress": {
             "n": 779,
-            "ir": 0.757558583110455
+            "ir": 0.7575577873511542
           },
           "full": {
             "n": 2424,
-            "ir": 0.6087672487310114
+            "ir": 0.6087671972593275
           }
         },
         "dwell": {
@@ -935,19 +935,19 @@
         "ir_by_regime": {
           "complacency": {
             "n": 912,
-            "ir": 0.49377841526405536
+            "ir": 0.49377823606306465
           },
           "normal": {
             "n": 723,
-            "ir": 0.3931785166306993
+            "ir": 0.3931781511107275
           },
           "stress": {
             "n": 789,
-            "ir": 0.9047547102300857
+            "ir": 0.9047551591286811
           },
           "full": {
             "n": 2424,
-            "ir": 0.6087672487310114
+            "ir": 0.6087671972593275
           }
         },
         "dwell": {

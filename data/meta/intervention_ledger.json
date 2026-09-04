@@ -1,0 +1,27 @@
+{
+  "protocol_id": "FORCE_PROTOCOL_v1.0",
+  "cannot_promote": true,
+  "entries": [
+    {
+      "timestamp_utc": "2026-09-04T04:28:26Z",
+      "kind": "instrument_hardening",
+      "reason": "FORCE_PROTOCOL_v1.0: EvidenceRecord + negative-control fixtures. No candidate. No Force 4.",
+      "candidate_id": "",
+      "counts": {
+        "candidate_definition": 0,
+        "universe_change": 0,
+        "control_change": 0,
+        "parameter_change": 0,
+        "date_window_change": 0,
+        "cost_change": 0,
+        "post_result_modification": 0,
+        "protocol_bump": 0,
+        "instrument_hardening": 0
+      },
+      "intervention_count": 0,
+      "protocol_from": "FORCE_PROTOCOL_v1.0",
+      "protocol_to": "FORCE_PROTOCOL_v1.0",
+      "cannot_promote": true
+    }
+  ]
+}

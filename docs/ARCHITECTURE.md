@@ -26,6 +26,8 @@ force_engine.evaluate.evaluate_neutralized(..., neutralized=True)
         ▼
 force_engine.clocks.ClockBus.veto_if_leading_contradicts
         │  leading may veto a PASS; cannot rescue a FAIL
+        │  catalog: config/leading_observables.yaml (T2 / veto; not s_t)
+
         ▼
 GateResult  PROMOTE_CANDIDATE | FAIL_GATE | VETO_LEADING_CLOCK
 ```
@@ -47,13 +49,21 @@ loosen `config/multilayer_gate.yaml`. L2 `{complacency, normal, stress}`
 labels condition residual IR. They are not a timing signal `s_t`. HMM /
 `position_scale` maps are refused.
 
-F1 / F2 / F3 are `research_role: negative_control`. Run:
+Canonical **research** output is `force_engine.evidence.EvidenceRecord`
+(FORCE_PROTOCOL_v1.0). Evidence / Veto / Promotion are separate.
+Promotion is always `NOT_PERMITTED`. `evaluate_candidate` remains the
+gate path for freeze/synthetic tests and still cannot auto-promote.
 
+
+F1 / F2 / F3 are `research_role: negative_control`. Run:
 
 ```
 PYTHONPATH=. python scripts/run_negative_control_audit.py
 PYTHONPATH=. python scripts/run_regime_label_null.py
+PYTHONPATH=. python scripts/test_negative_control_contract.py
+PYTHONPATH=. python scripts/run_evidence_record.py
 ```
+
 
 If that report says **F2 → PASS**, distrust the framework — do not un-pause.
 Force 4 remains WAIT. Capital $0.
