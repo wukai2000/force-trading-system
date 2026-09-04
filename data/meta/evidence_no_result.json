@@ -33,6 +33,63 @@
   "provenance": {
     "protocol_id": "FORCE_PROTOCOL_v1.0",
     "locked": "2026-09-04",
+    "code_commit": "ee29c750f427f1a261b988c7c0cdbce810138018",
+    "timestamp_utc": "2026-09-04T04:28:16Z",
+    "file_sha256": {
+      "docs/RESEARCH_PROTOCOL.md": "08aeb8434fd25866647fafba70f0c44c5ad037e6cb22039ff6217733b4940d82",
+      "config/multilayer_gate.yaml": "79bb7b88a0c7ca8f31837c8cd872061259e9fa172b339432754005d8df67a481",
+      "config/negative_controls.yaml": "24a93b65a53e39f4d08ece43dc5e6684b2730d489708f65c3710ea2fc87fae58",
+      "config/leading_observables.yaml": "c5b949044bd4608ac86207562698f923f070be3446fd48c36a48be2f5f0114a6",
+      "config/hypotheses/_TEMPLATE.yaml": "b5b7b21477418ff342f83ea210ec73b9335588593ff4763d19275375c48b4696"
+    },
+    "cannot_promote": true,
+    "promotion": "NOT_PERMITTED",
+    "capital": 0,
+    "force4": "wait",
+    "no_result_is_success": true,
+    "milestone": "blind_falsification"
+  },
+  "labels": [
+    "NO_RESULT"
+  ],
+  "cannot_promote": true,
+  "capital": 0,
+  "note": "No hypothesis met the pre-freeze requirements. Capital $0. This is a success state."
+}{
+  "protocol_id": "FORCE_PROTOCOL_v1.0",
+  "candidate_id": "NO_RESULT",
+  "evidence_status": "no_result",
+  "vetoes": [],
+  "promotion": "NOT_PERMITTED",
+  "observed_ir": null,
+  "n_days": 0,
+  "null_a": {
+    "note": "no candidate"
+  },
+  "null_b": {
+    "note": "no candidate"
+  },
+  "conc_a": {
+    "kill": false,
+    "note": "no candidate"
+  },
+  "conc_b": {
+    "note": "no candidate"
+  },
+  "clocks": {
+    "role": "veto_only",
+    "attached": false
+  },
+  "mechanism": {
+    "status": "queued",
+    "cannot_promote": true
+  },
+  "neighbors": {
+    "attached": false
+  },
+  "provenance": {
+    "protocol_id": "FORCE_PROTOCOL_v1.0",
+    "locked": "2026-09-04",
     "code_commit": "dd05c5334c37481f980afd96d1dd66d8d418dea9",
     "timestamp_utc": "2026-09-04T04:43:48Z",
     "file_sha256": {
