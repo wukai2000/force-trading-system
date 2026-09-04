@@ -92,6 +92,14 @@ T2 library. FRED-backed physical / labor / credit series may **veto** a
 passing residual once cached. NLP, satellite, scrapes are **refused**.
 `IR(s, r)` against this catalog is refused. See `docs/LEADING_OBSERVABLES.md`.
 
+**FORCE_PROTOCOL_v1.0 (2026-09-04).** Canonical research output is an
+`EvidenceRecord` (`force_engine/evidence.py`): Evidence / Veto / Promotion
+are three objects. Promotion is always `NOT_PERMITTED` from code. Null B
+has no pass/fail. Conc A stays the kill. F1/F2/F3 are regression fixtures
+(`config/negative_controls.yaml`). A quarter with no leftover is
+`NO_RESULT` — a success. Blind-candidate (P3) stays queued until a
+genuine leftover exists. Do not invent one. See `docs/EVIDENCE_RECORD.md`.
+
 
 ### Phase B — validate the validator (this package)
 
@@ -202,6 +210,11 @@ Answers: yes / no / inconclusive. No capital. No un-pause.
 - `IR(s_t, r_t)` with `s` from `config/leading_observables.yaml` (catalog is T2/veto, not a timing overlay)
 - Satellite / LinkedIn / WARN-NLP / 10-K tone / ADS-B as wired clocks (no corpus; theater)
 - Treating a GDP/NFP nowcast as a Force
+- Auto-promotion from an EvidenceRecord
+- Inventing a leftover to “prove” the evaluator (P3 stays queued)
+- Fusing Null B into pass/fail
+- Mechanism evidence rescuing a statistical fail
+
 
 
 ---
@@ -218,6 +231,10 @@ PYTHONPATH=. python scripts/run_regime_label_null.py
 PYTHONPATH=. python scripts/validate_hypothesis_freeze.py
 PYTHONPATH=. python scripts/test_leading_observables.py
 PYTHONPATH=. python scripts/run_leading_observables.py
+PYTHONPATH=. python scripts/test_negative_control_contract.py
+PYTHONPATH=. python scripts/test_evidence_record.py
+PYTHONPATH=. python scripts/run_evidence_record.py
+
 
 ```
 

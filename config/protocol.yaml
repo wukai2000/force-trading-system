@@ -1,0 +1,50 @@
+# FORCE_PROTOCOL_v1.0 — locked 2026-09-04
+# Scientific instrument version. Not a strategy screener.
+# Changing this file is an intervention. Record it in the ledger.
+
+protocol_id: FORCE_PROTOCOL_v1.0
+locked: "2026-09-04"
+cannot_promote: true
+capital: 0
+trump_account: SPYM_passive_only
+force4: wait
+promotion: NOT_PERMITTED
+
+# Milestone: Blind Falsification — not "find a Force".
+milestone: blind_falsification
+no_result_is_success: true
+
+locked_files:
+  - docs/RESEARCH_PROTOCOL.md
+  - config/multilayer_gate.yaml
+  - config/negative_controls.yaml
+  - config/leading_observables.yaml
+  - config/hypotheses/_TEMPLATE.yaml
+
+# What the canonical research path must emit (not a gate fusion).
+evidence_record:
+  - L1_residual
+  - Null_A          # descriptive; no pass/fail
+  - Null_B          # {5,21,60} separately; no composite
+  - Conc_A          # locked kill
+  - Conc_B          # descriptive
+  - clocks          # veto only
+  - mechanism       # veto only; cannot promote
+  - neighbors       # spanning diagnostic
+  - provenance      # protocol_version, commit, hashes, seed
+
+refuse:
+  - auto_promotion
+  - fused_null_score
+  - null_b_pass_fail
+  - mechanism_rescues_statistics
+  - statistics_prove_mechanism
+  - option_b
+  - force4_scan
+  - s_t_timing_overlay
+  - fama_french_as_l1
+  - hmm_position_scale
+
+# P3 (queued): one genuine leftover through this protocol, intervention_count=0.
+# Do not invent a candidate to exercise the machinery.
+blind_candidate: queued_until_leftover

@@ -24,6 +24,8 @@ force_engine/            # neutralization BEFORE scoring
 
   ├── freeze.py          # T0–T4 provenance; evaluate refused until complete
   ├── leading_observables.py  # T2 FRED catalog; veto-only; IR(s,r) refused
+  ├── evidence.py        # EvidenceRecord (evidence / veto / promotion=NOT_PERMITTED)
+  ├── protocol.py        # FORCE_PROTOCOL_v1.0 hashes
   ├── clocks.py          # 4 clocks + L4 GPR veto-only (real Iacoviello files)
   ├── layers.py          # L2 vol/credit, L3 breadth
   ├── loader.py          # config/force*.yaml
@@ -58,6 +60,10 @@ PYTHONPATH=. python scripts/run_negative_control_audit.py
 PYTHONPATH=. python scripts/run_regime_label_null.py
 PYTHONPATH=. python scripts/validate_hypothesis_freeze.py
 PYTHONPATH=. python scripts/test_leading_observables.py
+PYTHONPATH=. python scripts/test_negative_control_contract.py
+PYTHONPATH=. python scripts/test_evidence_record.py
+PYTHONPATH=. python scripts/run_evidence_record.py
+
 PYTHONPATH=. python scripts/run_leading_observables.py
 PYTHONPATH=. python scripts/run_literature_hypothesis_sim.py
 PYTHONPATH=. python scripts/failfast_force_taxonomy.py

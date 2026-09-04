@@ -1,0 +1,38 @@
+# F1/F2/F3 as architectural fixtures. A change that "rescues" one is a
+# framework regression, not a discovery. Cannot promote. Capital $0.
+
+cannot_promote: true
+capital: 0
+force4: wait
+source_audit: data/meta/negative_control_audit.json
+distrust_if_f2_clean: true
+
+controls:
+  f1:
+    expected_status: FALSIFIED
+    required_labels:
+      - STATISTICAL_FAIL
+      - CONCENTRATION_FAIL
+    max_observed_ir: 0.10
+    research_role: negative_control
+  f2_oos_hedged:
+    expected_status: CONCENTRATION_FAIL
+    required_labels:
+      - CONCENTRATION_FAIL
+    # Attractive object — must stay killed on persistence, not on IR.
+    min_observed_ir: 0.40
+    min_ir_persistence: 0.40
+    research_role: negative_control
+  f3:
+    expected_status: FAIL_GATE
+    required_labels:
+      - STATISTICAL_FAIL
+      - CONCENTRATION_FAIL
+    max_observed_ir: 0.25
+    research_role: negative_control
+
+must_not_contain:
+  - PASS
+  - PROMOTE
+  - PROMOTE_CANDIDATE
+  - REVIVE
