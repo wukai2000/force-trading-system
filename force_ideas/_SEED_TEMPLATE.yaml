@@ -1,23 +1,42 @@
-# Force seed. Copy to seeds/<id>.yaml. Tickers forbidden. IR forbidden.
+# Force seed. Copy to seeds/FS-NNNN.yaml. Tickers forbidden. IR forbidden.
 # Vague is allowed. Favorable is not. Max 8 seeds in seeds/. No minimum.
+# OBSERVATION → SEED → PROVENANCE → SCREEN → T0–T4. No instruments yet.
 
 state: seed
-seed_id: _template_not_a_seed
-name: ""                    # temporary descriptive name
-origin_type: contradiction  # see registry.yaml origin_types
-origin_evidence: []         # source references, not prices
-phenomenon: ""              # what appears to be changing?
-mechanism: ""               # why should it happen? may be incomplete at seed
+seed_id: _template_not_a_seed   # real cards: FS-0001
+version: 1                      # never overwrite a frozen version
+status: SEED
+
+# Provenance — why does this idea exist? Not "why will it make money?"
+origin_type: contradiction      # see registry.yaml origin_types
+origin_date: ""                 # YYYY-MM-DD of the observation
+origin_source: ""               # document / series / conversation / paper
+origin_evidence: []             # references, not prices
+original_observation: ""        # what was seen in the world (≥12 chars)
+why_this_exists: ""             # restates the observation in one line
+
+phenomenon: ""
+mechanism: ""
 who_gains_loses: ""
-why_slow: ""                # why arbitrage should not instantly remove it
-observable_guess: ""        # optional at seed; required at hypothesis
-failure_condition: ""       # required even at seed — when should this die?
-alternatives: []            # what else could produce the same observation?
-independence_note: ""       # why not F1/F2/F3/F4 or a known factor?
-tickers: []                 # MUST stay empty
-controls: []                # MUST stay empty
-instruments: []             # MUST stay empty
-observed_ir: null           # MUST stay null
+why_slow: ""
+observable_guess: ""
+failure_condition: ""
+alternatives: []
+independence_note: ""
+
+# Recorded, does not replace T4 kinds (geography / instrument / manifestation / market_expression)
+independence_kinds:
+  causal: null
+  expression: null
+  instrument: null
+  geography: null
+  rationale: ""
+
+tickers: []
+controls: []
+instruments: []
+returns: []
+observed_ir: null
 sharpe: null
 scannable: false
 capital: 0

@@ -1,10 +1,11 @@
 # Idea Observatory — Explorer / Gatekeeper
 
-Locked 2026-09-04 with FORCE_PROTOCOL_v1.0.
+Locked 2026-09-04 with FORCE_PROTOCOL_v1.0. Provenance layer 2026-09-04.
 
 ```
-Explorer → Gatekeeper → T0–T4 FREEZE → T5 instruments → Prosecutor → Case Against
+WORLD → OBSERVATION → SEED → PROVENANCE → SCREEN → T0–T4 FREEZE → T5 → Prosecutor → Case Against
 ```
+
 
 Not:
 
@@ -29,6 +30,10 @@ Neither allocates capital.
 10. One frozen hypothesis at a time.
 11. Independent ≠ novel. T4 asks: independent of *our* prior Forces, not “unpublished.”
 12. Capital $0. Promotion `NOT_PERMITTED`. Force 4 WAIT.
+13. Provenance required: `origin_type`, `origin_date`, `original_observation`.
+14. IDs are `FS-NNNN`; frozen versions are immutable.
+15. Daily GitHub Action refreshes locked sources and diagnostic pipelines. It does not scan, promote, or overwrite the 5k fixture.
+
 
 ## States
 
@@ -36,18 +41,22 @@ Neither allocates capital.
 |---|---|---|---|
 | Seed | `force_ideas/seeds/` | forbidden | Is this a mechanism? |
 | Hypothesis | `force_ideas/hypotheses/` | forbidden | T0–T4 specified? |
-| Frozen | `force_ideas/frozen/` + `config/hypotheses/` | still empty until `attach_instruments` | Prosecutor may run |
+| Frozen | `force_ideas/frozen/` | still empty until `attach_instruments` | Prosecutor may run |
 | Rejected | `force_ideas/rejected/` | — | cousin / ticker / quota |
-| Refined | `force_ideas/refined/` | — | new id only |
+| Refined | `force_ideas/refined/` | — | new version id only |
+| Verified | `force_ideas/verified/` | — | pre-named independent dimension |
 
-`origin_type` is required: contradiction, physical_constraint, institutional_friction, demographic, technology_second_order, policy, academic_mechanism, measurement_discontinuity, human_observation, other.
+`origin_type` + `origin_date` + `original_observation` are required. `independence_kinds` (causal / expression / instrument / geography) are recorded; they do **not** replace T4’s two kinds.
+
 
 ## Commands
 
 ```
 PYTHONPATH=. python scripts/test_idea_registry.py
 PYTHONPATH=. python scripts/run_idea_registry.py
+PYTHONPATH=. python scripts/run_daily_research.py --skip-fetch --skip-nulls
 PYTHONPATH=. python scripts/run_idea_registry.py --file force_ideas/_SEED_TEMPLATE.yaml
+
 ```
 
 `--promote` and `--scan-force4` exit 2.

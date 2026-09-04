@@ -1,40 +1,50 @@
 # Hypothesis — still no tickers. Maps onto T0–T4. Freeze is computed, not a flag.
 
 state: hypothesis
+seed_id: _template_not_a_hypothesis
 hypothesis_id: _template_not_a_hypothesis
 parent_seed_id: ""
+version: 1
+status: HYPOTHESIS
+
 origin_type: contradiction
+origin_date: ""
+origin_source: ""
 origin_evidence: []
+original_observation: ""
+why_this_exists: ""
 
 # T0
-hypothesis: ""              # one sentence, ≥12 chars
+hypothesis: ""
 # T1
-mechanism: ""               # economic mechanism, ≥12 chars
+mechanism: ""
 # T2/T3
 observables: []
-# - name: named_series
-#   predicted_sign: +1        # +1 or -1
-#   lead: leading             # at least one leading
-#   absent_kills: true
-# T4 — mandatory. Independent of prior Forces, not "unpublished".
+# T4 — mandatory two kinds from: geography | instrument | manifestation | market_expression
 independence_dimensions: []
-# - kind: geography           # geography | instrument | manifestation | market_expression
-#   note: ""
-# - kind: manifestation
-#   note: ""
 
-expected_timing: ""         # what should lead what
-failure_condition: ""       # when we abandon
+# Extra record (does not replace T4)
+independence_kinds:
+  causal: null          # mechanism actually different from F1–F4?
+  expression: null      # different economic part of the world?
+  instrument: null      # genuinely different instruments? (T5 later)
+  geography: null
+  rationale: ""
+
+expected_timing: ""
+failure_condition: ""
 alternatives: []
-verification_dimension: ""  # pre-named independent test; NOT a new lookback
+verification_dimension: ""  # pre-named independent test; NOT a new lookback / ETF / lookback window
 
-tickers: []                 # FORBIDDEN until freeze_complete then attach_instruments
+tickers: []
 controls: []
+instruments: []
+returns: []
 instruments_attached: false
-freeze_complete: false      # ignored if T0–T4 missing; computed by force_engine.freeze
+freeze_complete: false
 scannable: false
 capital: 0
 cannot_promote: true
 force4: wait
 research_role: candidate
-note: "Hypothesis. T5 instruments only after computed freeze. No Force 4."
+note: "Hypothesis. T5 instruments only after computed freeze. No Force 4. Never mutate v1."

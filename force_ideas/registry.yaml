@@ -16,6 +16,20 @@ no_result_is_success: true
 
 # Independent ≠ novel. T4 asks: independent of our prior Forces and constructions.
 independence_means: independent_of_prior_forces_not_unpublished
+independence_kinds_recorded:
+  - causal
+  - expression
+  - instrument
+  - geography
+# T4 freeze still requires ≥2 of: geography | instrument | manifestation | market_expression
+# causal/expression/instrument are recorded; they do not replace T4.
+
+id_scheme: FS-NNNN
+versions_immutable: true
+provenance_required:
+  - origin_type
+  - original_observation
+  - origin_date
 
 origin_types:
   - contradiction

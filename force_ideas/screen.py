@@ -53,6 +53,7 @@ _STAT_KEYS = frozenset(
 
 from force_engine.guards import WAIT_TICKERS, HARD_EXCLUDED_LEGS  # noqa: E402
 from force_engine.freeze import hypothesis_from_mapping  # noqa: E402
+from force_ideas.ids import IdError, parse_id, parse_version, refuse_mutate_frozen  # noqa: E402
 
 
 class ScreenError(RuntimeError):
@@ -185,6 +186,40 @@ def screen_card(
     allowed_origins = set(spec.get("origin_types") or [])
     if origin not in allowed_origins:
         reasons.append(f"origin_type {origin!r} not in {sorted(allowed_origins)}")
+
+    # Provenance: why does this idea exist? Not "why will it make money?"
+    obs = str(card.get("original_observation") or card.get("why_this_exists") or "").strip()
+    evidence = card.get("origin_evidence") or []
+    if len(obs) < 12 and not evidence:
+        reasons.append(
+            "provenance missing: original_observation (or origin_evidence) required. "
+            "What external observation caused this to enter?"
+        )
+    date = str(card.get("origin_date") or "").strip()
+    if date:
+        if len(date) < 8 or not date[0:4].isdigit():
+            reasons.append(f"origin_date must be YYYY-MM-DD, got {date!r}")
+    elif writing_to in {"hypotheses", "frozen"} or str(card.get("state") or "") in {"hypothesis", "frozen"}:
+        reasons.append("origin_date required before freeze")
+
+    sid_raw = str(card.get("seed_id") or card.get("hypothesis_id") or "")
+    if sid_raw and not sid_raw.startswith("_"):
+        if parse_id(sid_raw) is None and writing_to == "seeds":
+            reasons.append(f"seed_id must be FS-NNNN or a _template, got {sid_raw!r}")
+        try:
+            ver = parse_version(card.get("version"))
+        except IdError as e:
+            reasons.append(str(e))
+            ver = 1
+        if parse_id(sid_raw) and writing_to == "frozen":
+            try:
+                refuse_mutate_frozen(
+                    Path(registry_root) if registry_root is not None else Path(__file__).resolve().parent,
+                    parse_id(sid_raw),
+                    ver,
+                )
+            except IdError as e:
+                reasons.append(str(e))
 
     tickers = _named_tickers(card)
     if tickers:

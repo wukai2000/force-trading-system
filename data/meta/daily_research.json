@@ -1,0 +1,61 @@
+{
+  "as_of": "2026-09-04T23:17:51Z",
+  "protocol_id": "FORCE_PROTOCOL_v1.0",
+  "cannot_promote": true,
+  "promotion": "NOT_PERMITTED",
+  "capital": 0,
+  "force4_scanned": false,
+  "leftover_invented": false,
+  "locked_fixture_untouched": "data/meta/negative_control_audit.json",
+  "steps": [
+    {
+      "step": "fetch_all_locked_sources",
+      "ok": true,
+      "skipped": true
+    },
+    {
+      "step": "leading_observables",
+      "ok": true,
+      "result": {
+        "rc": 0,
+        "tail": "ofr', 'rows': 2104, 'last': '2026-09-03'}\n[fred] DFF (fedfunds): {'ok': True, 'short': 'fedfunds', 'rows': 26363, 'last': '2026-09-03'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3320, 'last': '2026-09-04'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=[]\nwrote /workspace/fts/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
+      }
+    },
+    {
+      "step": "failfast_taxonomy",
+      "ok": true,
+      "result": {
+        "rc": 0,
+        "tail": "ble force.\n- F2 low-vol IR=0.067 < 0.40 \u2192 stable-force signature weak.\n- F3 failed on stealth XLV beta (0.841). Demand-side residual collapsed into regular healthcare factor.\n- No existing residual clears IR floor in a sustained non-hyper regime. Next exploration must instrument multi-layer residualization before new tickets.\n\nReport written: /workspace/fts/data/meta/failfast_taxonomy_report.json\n"
+      }
+    },
+    {
+      "step": "idea_registry",
+      "ok": true,
+      "result": {
+        "protocol_id": "FORCE_PROTOCOL_v1.0",
+        "n_seeds": 0,
+        "n_hypotheses": 0,
+        "n_frozen": 0,
+        "max_seeds": 8,
+        "min_seeds": 0,
+        "empty": true,
+        "no_result": true,
+        "no_result_is_success": true,
+        "cannot_promote": true,
+        "promotion": "NOT_PERMITTED",
+        "capital": 0,
+        "force4": "wait",
+        "one_frozen_at_a_time": true,
+        "evidence_status": "no_result",
+        "note": "No hypothesis met the pre-freeze requirements. Capital $0. Success."
+      }
+    },
+    {
+      "step": "daily_negative_control",
+      "ok": true,
+      "skipped": true
+    }
+  ],
+  "ok": true
+}

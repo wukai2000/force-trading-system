@@ -11,11 +11,11 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": -1.2929,
-      "opposition": 1.2929,
+      "z": -1.2831,
+      "opposition": 1.2831,
       "veto_flag": false,
-      "last_date": "2026-09-01",
-      "n": 791,
+      "last_date": "2026-09-03",
+      "n": 793,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -31,31 +31,31 @@
     },
     {
       "id": "baa10y",
-      "z": -1.1837,
-      "opposition": 1.1837,
+      "z": -1.2865,
+      "opposition": 1.2865,
       "veto_flag": false,
-      "last_date": "2026-09-01",
-      "n": 10167,
+      "last_date": "2026-09-03",
+      "n": 10169,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 2.0598,
-      "opposition": 2.0598,
+      "z": 1.92,
+      "opposition": 1.92,
       "veto_flag": false,
-      "last_date": "2026-09-01",
-      "n": 5921,
+      "last_date": "2026-09-03",
+      "n": 5923,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.2287,
+      "z": -1.1152,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-02",
-      "n": 12561,
+      "last_date": "2026-09-04",
+      "n": 12563,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -131,31 +131,31 @@
     },
     {
       "id": "manufacturing_hours",
-      "z": 1.9392,
-      "opposition": 1.9392,
+      "z": 1.7881,
+      "opposition": 1.7881,
       "veto_flag": false,
-      "last_date": "2026-07-01",
-      "n": 1051,
+      "last_date": "2026-08-01",
+      "n": 1052,
       "status": "wired",
       "note": "Average weekly hours, manufacturing. Hours cut before headcount."
     },
     {
       "id": "temp_help",
-      "z": -0.6316,
-      "opposition": -0.6316,
+      "z": -0.4525,
+      "opposition": -0.4525,
       "veto_flag": false,
-      "last_date": "2026-07-01",
-      "n": 439,
+      "last_date": "2026-08-01",
+      "n": 440,
       "status": "wired",
       "note": "Temporary help services employment."
     },
     {
       "id": "initial_claims",
-      "z": -1.0173,
-      "opposition": 1.0173,
+      "z": -0.7558,
+      "opposition": 0.7558,
       "veto_flag": false,
-      "last_date": "2026-08-22",
-      "n": 3112,
+      "last_date": "2026-08-29",
+      "n": 3113,
       "status": "wired",
       "note": "Initial claims. High = labor stress. More coincident than WARN."
     },
@@ -261,31 +261,31 @@
     },
     {
       "id": "sofr",
-      "z": -0.503,
+      "z": -0.4905,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-01",
-      "n": 2102,
+      "last_date": "2026-09-03",
+      "n": 2104,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": -0.5645,
+      "z": -0.5542,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-01",
-      "n": 26361,
+      "last_date": "2026-09-03",
+      "n": 26363,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.488,
+      "z": -0.481,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-02",
-      "n": 3318,
+      "last_date": "2026-09-04",
+      "n": 3320,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -311,5 +311,108 @@
     }
   ],
   "note": "Diagnostic. Veto flags do not promote. Do not use as s_t.",
-  "fetch": null
+  "fetch": {
+    "VIXCLS": {
+      "ok": true,
+      "short": "vix_cls",
+      "rows": 9266,
+      "last": "2026-09-03"
+    },
+    "VXVCLS": {
+      "ok": true,
+      "short": "vxv_cls",
+      "rows": 4717,
+      "last": "2026-09-03"
+    },
+    "T10Y2Y": {
+      "ok": true,
+      "short": "t10y2y",
+      "rows": 12563,
+      "last": "2026-09-04"
+    },
+    "DFII10": {
+      "ok": true,
+      "short": "dfii10",
+      "rows": 5923,
+      "last": "2026-09-03"
+    },
+    "BAA10Y": {
+      "ok": true,
+      "short": "baa10y",
+      "rows": 10169,
+      "last": "2026-09-03"
+    },
+    "BAMLH0A0HYM2": {
+      "ok": true,
+      "short": "hy_oas",
+      "rows": 793,
+      "last": "2026-09-03"
+    },
+    "NFCI": {
+      "ok": true,
+      "short": "nfci",
+      "rows": 2904,
+      "last": "2026-08-28"
+    },
+    "FRGSHPUSM649NCIS": {
+      "ok": true,
+      "short": "cass_freight",
+      "rows": 127,
+      "last": "2026-07-01"
+    },
+    "RAILFRTCARLOADSD11": {
+      "ok": true,
+      "short": "rail_carloads",
+      "rows": 318,
+      "last": "2026-06-01"
+    },
+    "IPG2211A2N": {
+      "ok": true,
+      "short": "industrial_electric",
+      "rows": 1051,
+      "last": "2026-07-01"
+    },
+    "AWHMAN": {
+      "ok": true,
+      "short": "manufacturing_hours",
+      "rows": 1052,
+      "last": "2026-08-01"
+    },
+    "TEMPHELPS": {
+      "ok": true,
+      "short": "temp_help",
+      "rows": 440,
+      "last": "2026-08-01"
+    },
+    "ICSA": {
+      "ok": true,
+      "short": "initial_claims",
+      "rows": 3113,
+      "last": "2026-08-29"
+    },
+    "DRTSCILM": {
+      "ok": true,
+      "short": "sloos_tighten",
+      "rows": 146,
+      "last": "2026-07-01"
+    },
+    "SOFR": {
+      "ok": true,
+      "short": "sofr",
+      "rows": 2104,
+      "last": "2026-09-03"
+    },
+    "DFF": {
+      "ok": true,
+      "short": "fedfunds",
+      "rows": 26363,
+      "last": "2026-09-03"
+    },
+    "RRPONTSYD": {
+      "ok": true,
+      "short": "rrp",
+      "rows": 3320,
+      "last": "2026-09-04"
+    }
+  }
 }

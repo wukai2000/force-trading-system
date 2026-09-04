@@ -69,6 +69,8 @@ PYTHONPATH=. python scripts/test_evidence_record.py
 PYTHONPATH=. python scripts/run_evidence_record.py
 PYTHONPATH=. python scripts/test_idea_registry.py
 PYTHONPATH=. python scripts/run_idea_registry.py
+PYTHONPATH=. python scripts/run_daily_research.py --skip-fetch --skip-nulls
+
 
 
 PYTHONPATH=. python scripts/run_leading_observables.py
