@@ -1,0 +1,78 @@
+# Idea Observatory — Explorer / Gatekeeper only.
+# The Prosecutor (force_engine) does not read this file to score returns.
+# Max 8 seeds, no minimum. Empty registry is NO_RESULT = success.
+
+protocol_id: FORCE_PROTOCOL_v1.0
+locked: "2026-09-04"
+cannot_promote: true
+capital: 0
+force4: wait
+promotion: NOT_PERMITTED
+
+max_seeds: 8
+min_seeds: 0
+one_frozen_at_a_time: true
+no_result_is_success: true
+
+# Independent ≠ novel. T4 asks: independent of our prior Forces and constructions.
+independence_means: independent_of_prior_forces_not_unpublished
+
+origin_types:
+  - contradiction
+  - physical_constraint
+  - institutional_friction
+  - demographic
+  - technology_second_order
+  - policy
+  - academic_mechanism
+  - measurement_discontinuity
+  - human_observation
+  - other
+
+# Hard-ban neighborhoods. Cousin = reject, not "interesting variant".
+ban_neighborhoods:
+  f1_memory_hbm:
+    ids: [ai_infra_memory_bottleneck, f1]
+    keywords:
+      - hbm
+      - high bandwidth memory
+      - memory bottleneck
+      - semicap memory
+      - ai infra memory
+  f2_energy_ai_power:
+    ids: [energy_x_ai_power_coupling, f2, f2_oos_hedged]
+    keywords:
+      - energy x ai
+      - energy × ai
+      - ai power
+      - data center power
+      - datacenter power
+      - grid congestion
+      - gpu power
+      - ai electricity
+  f3_longevity_glp1:
+    ids: [longevity_healthspan_demand, f3]
+    keywords:
+      - longevity
+      - healthspan
+      - glp-1
+      - glp1
+      - obesity drug
+  f4_defense_prime:
+    ids: [f4, defense_sovereign_capacity]
+    keywords:
+      - defense prime
+      - sovereign capacity
+      - ita/xar/ppa
+      - aerospace defense etf
+
+refuse:
+  - tickers_before_freeze
+  - controls_before_freeze
+  - ir_or_sharpe_on_seed
+  - backtest_derived_origin
+  - quota_filling
+  - auto_promotion
+  - evaluate_from_explorer
+  - force4_scan
+  - overwrite_frozen

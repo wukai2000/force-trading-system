@@ -62,7 +62,16 @@ PYTHONPATH=. python scripts/run_negative_control_audit.py
 PYTHONPATH=. python scripts/run_regime_label_null.py
 PYTHONPATH=. python scripts/test_negative_control_contract.py
 PYTHONPATH=. python scripts/run_evidence_record.py
+PYTHONPATH=. python scripts/test_idea_registry.py
+PYTHONPATH=. python scripts/run_idea_registry.py
 ```
+
+## Idea Observatory (not the Prosecutor)
+
+`force_ideas/` holds seeds and the independence screen. It must not import
+`evaluate` / `neutralize` / `pipeline`. Max 8 seeds, no minimum. Empty is
+`NO_RESULT`. See `docs/IDEA_OBSERVATORY.md`.
+
 
 
 If that report says **F2 → PASS**, distrust the framework — do not un-pause.

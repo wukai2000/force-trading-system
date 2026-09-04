@@ -27,6 +27,10 @@ force_engine/            # neutralization BEFORE scoring
   ├── evidence.py        # EvidenceRecord (evidence / veto / promotion=NOT_PERMITTED)
   ├── protocol.py        # FORCE_PROTOCOL_v1.0 hashes
   ├── clocks.py          # 4 clocks + L4 GPR veto-only (real Iacoviello files)
+force_ideas/             # Explorer + Gatekeeper; empty registry is success
+  ├── registry.yaml      # max 8 seeds, no min; F1–F4 neighborhoods banned
+  ├── screen.py          # independence screen; does not import evaluate
+
   ├── layers.py          # L2 vol/credit, L3 breadth
   ├── loader.py          # config/force*.yaml
   └── engine.py          # suggestions only from neutralized panels
@@ -63,6 +67,9 @@ PYTHONPATH=. python scripts/test_leading_observables.py
 PYTHONPATH=. python scripts/test_negative_control_contract.py
 PYTHONPATH=. python scripts/test_evidence_record.py
 PYTHONPATH=. python scripts/run_evidence_record.py
+PYTHONPATH=. python scripts/test_idea_registry.py
+PYTHONPATH=. python scripts/run_idea_registry.py
+
 
 PYTHONPATH=. python scripts/run_leading_observables.py
 PYTHONPATH=. python scripts/run_literature_hypothesis_sim.py

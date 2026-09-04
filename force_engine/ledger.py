@@ -23,6 +23,7 @@ KINDS = (
     "post_result_modification",
     "protocol_bump",
     "instrument_hardening",
+    "explorer_registry",
 )
 
 

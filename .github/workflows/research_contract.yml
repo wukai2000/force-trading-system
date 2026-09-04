@@ -33,4 +33,8 @@ jobs:
           python scripts/test_evidence_record.py
           python scripts/test_discovery_sieve.py
       - name: NO_RESULT is success
-        run: python scripts/run_evidence_record.py
+        run: |
+          python scripts/run_evidence_record.py
+          python scripts/test_idea_registry.py
+          python scripts/run_idea_registry.py
+

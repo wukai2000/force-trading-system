@@ -20,6 +20,8 @@ locked_files:
   - config/negative_controls.yaml
   - config/leading_observables.yaml
   - config/hypotheses/_TEMPLATE.yaml
+  - force_ideas/registry.yaml
+
 
 # What the canonical research path must emit (not a gate fusion).
 evidence_record:
@@ -44,7 +46,14 @@ refuse:
   - s_t_timing_overlay
   - fama_french_as_l1
   - hmm_position_scale
+  - idea_quota
+  - explorer_calls_prosecutor
 
 # P3 (queued): one genuine leftover through this protocol, intervention_count=0.
 # Do not invent a candidate to exercise the machinery.
+# Idea Observatory may hold 0–8 seeds. Empty = NO_RESULT = success.
 blind_candidate: queued_until_leftover
+idea_registry: force_ideas/registry.yaml
+max_seeds: 8
+min_seeds: 0
+

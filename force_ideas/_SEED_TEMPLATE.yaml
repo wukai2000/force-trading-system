@@ -1,0 +1,26 @@
+# Force seed. Copy to seeds/<id>.yaml. Tickers forbidden. IR forbidden.
+# Vague is allowed. Favorable is not. Max 8 seeds in seeds/. No minimum.
+
+state: seed
+seed_id: _template_not_a_seed
+name: ""                    # temporary descriptive name
+origin_type: contradiction  # see registry.yaml origin_types
+origin_evidence: []         # source references, not prices
+phenomenon: ""              # what appears to be changing?
+mechanism: ""               # why should it happen? may be incomplete at seed
+who_gains_loses: ""
+why_slow: ""                # why arbitrage should not instantly remove it
+observable_guess: ""        # optional at seed; required at hypothesis
+failure_condition: ""       # required even at seed — when should this die?
+alternatives: []            # what else could produce the same observation?
+independence_note: ""       # why not F1/F2/F3/F4 or a known factor?
+tickers: []                 # MUST stay empty
+controls: []                # MUST stay empty
+instruments: []             # MUST stay empty
+observed_ir: null           # MUST stay null
+sharpe: null
+scannable: false
+capital: 0
+cannot_promote: true
+force4: wait
+note: "Seed only. No tester. No tickers. Empty registry is success."

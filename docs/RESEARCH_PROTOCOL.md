@@ -100,6 +100,12 @@ has no pass/fail. Conc A stays the kill. F1/F2/F3 are regression fixtures
 `NO_RESULT` — a success. Blind-candidate (P3) stays queued until a
 genuine leftover exists. Do not invent one. See `docs/EVIDENCE_RECORD.md`.
 
+**Idea Observatory (2026-09-04).** `force_ideas/` is the Explorer and
+Gatekeeper. It does not import the Prosecutor. Flow: seed → independence
+screen → T0–T4 freeze → T5 instruments → EvidenceRecord → Case Against.
+Maximum 8 seeds, no minimum. T4 is mandatory. Cousins of F1–F4 are
+rejected at the door. See `docs/IDEA_OBSERVATORY.md`.
+
 
 ### Phase B — validate the validator (this package)
 
@@ -234,6 +240,9 @@ PYTHONPATH=. python scripts/run_leading_observables.py
 PYTHONPATH=. python scripts/test_negative_control_contract.py
 PYTHONPATH=. python scripts/test_evidence_record.py
 PYTHONPATH=. python scripts/run_evidence_record.py
+PYTHONPATH=. python scripts/test_idea_registry.py
+PYTHONPATH=. python scripts/run_idea_registry.py
+
 
 
 ```
