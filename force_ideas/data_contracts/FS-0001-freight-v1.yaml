@@ -1,0 +1,91 @@
+# T5 preregistration for FS-0001 — freight realization.
+# Series are TBD until a later freeze of this file. Empty series ≠ permission
+# to pick the cleanest country after seeing results.
+# This is NOT the rejected US FRED overlay (CASSEXP / RAILFRTINTERMODAL).
+
+force_id: FS-0001
+version: 1
+resource_class: freight
+role: t5_preregistration
+status: CONTRACT_PREREGISTERED
+t5_candidate: true
+instruments: []
+tickers: []
+scannable: false
+prosecutor_allowed: false
+capital_allowed: false
+cannot_promote: true
+
+lock:
+  resource_class: freight
+  primary_geography: multi_country
+  independent_geography: European_Union
+  allowed_leads: [1, 2, 3]
+  lead_unit: years
+
+primary_geography:
+  type: multi_country
+  name: multi_country_panel
+  source: TBD
+  us_only: false
+
+independent_geography:
+  name: European_Union
+  type: aggregate_or_pre_specified_european_panel
+  source: TBD
+  note: Named before any market result. Geography is independence, not evidence.
+
+efficiency:
+  concept: ton_km_per_unit_energy
+  unit: tkm_per_energy
+  expected_sign: +1
+  leading: true
+  series: TBD
+  source: TBD
+
+unit_cost:
+  concept: freight_cost_per_ton_km
+  unit: currency_per_tkm
+  expected_sign: -1
+  leading: true
+  series: TBD
+  source: TBD
+
+aggregate_use:
+  concept: freight_tonne_km
+  unit: tkm
+  expected_sign: +1
+  contemporaneous: true
+  series: TBD
+  source: TBD
+
+lead_lag:
+  allowed_leads: [1, 2, 3]
+  unit: years
+  selection: pre_registered
+  search_after_returns: false
+
+transformations:
+  efficiency: log_difference
+  unit_cost: log_difference
+  aggregate_use: log_difference
+
+missing_data_rule: frozen
+revision_rule: frozen
+vintage_rule: frozen
+
+refuse:
+  - CASSEXP
+  - RAILFRTINTERMODAL
+  - TSIFRHT
+  - TSIFRGHT
+  - us_only_primary
+  - lighting_silent_rescue
+  - tickers
+  - prosecutor
+  - capital
+  - clockbus_as_t2
+
+note: >
+  TBD series means the contract is not DATA_READY. Do not fill series by
+  shopping FRED. Do not attach instruments. NO_RESULT is success.

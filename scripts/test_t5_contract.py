@@ -15,16 +15,24 @@ from force_learning.observatory.resource_contract import report_fs0001
 
 
 def test_contract_on_disk():
-    p = ROOT / "force_ideas" / "data_contracts" / "FS-0001-lighting-v1.yaml"
-    assert p.exists()
-    text = p.read_text()
     import yaml
-    spec = yaml.safe_load(p.read_text())
+
+    light = ROOT / "force_ideas" / "data_contracts" / "FS-0001-lighting-v1.yaml"
+    freight = ROOT / "force_ideas" / "data_contracts" / "FS-0001-freight-v1.yaml"
+    idx = yaml.safe_load((ROOT / "force_ideas" / "data_contracts" / "index.yaml").read_text())
+    assert idx["t5_resource"] == "freight"
+    assert "lighting" in idx["observatory_only"]
+    spec = yaml.safe_load(light.read_text())
     assert spec["resource_class"] == "lighting"
-    assert spec["independent_geography"]["name"] == "European_Union"
-    assert spec.get("instruments") == []
+    assert spec.get("t5_candidate") is False
     assert refused_series_hits(spec) == ()
-    print("PASS lighting contract on disk, no freight FRED ids")
+    fr = yaml.safe_load(freight.read_text())
+    assert fr["resource_class"] == "freight"
+    assert fr["lock"]["independent_geography"] == "European_Union"
+    assert fr.get("instruments") == []
+    assert str(fr["efficiency"]["series"]).upper() == "TBD"
+    assert refused_series_hits(fr) == ()
+    print("PASS lighting observatory-only; freight T5 preregistration TBD")
 
 
 
@@ -40,7 +48,8 @@ def test_freight_overlay_refused():
 def test_observatory_no_result():
     payload = report_fs0001()
     assert payload["force_id"] == "FS-0001"
-    assert payload["resource"] == "lighting"
+    assert payload["resource"] == "freight"
+    assert payload["lighting_role"] == "observatory_only"
     assert payload["t5_ready"] is False
     assert payload["prosecutor_allowed"] is False
     assert payload["capital_allowed"] is False
@@ -48,7 +57,12 @@ def test_observatory_no_result():
     assert payload["status"] in {"NO_RESULT", "REFUSED"}
     assert payload["cells"]["efficiency_data"] == "NO_RESULT"
     assert payload["cells"]["second_geography"] == "PASS"
-    print("PASS observatory NO_RESULT, T5_READY false, EU named")
+    md = ROOT / "docs" / "FS-0001-T5-DATA-CONTRACT-REPORT.md"
+    assert md.exists()
+    text = md.read_text()
+    assert "No IR" in text
+    assert "T5_READY: False" in text
+    print("PASS observatory NO_RESULT, T5_READY false, EU named, markdown written")
 
 
 def test_fs0001_cannot_attach():
@@ -66,6 +80,20 @@ def test_fs0001_cannot_attach():
     print("PASS FS-0001 attach_instruments refused:", reason)
 
 
+def test_lock_cannot_silently_swap():
+    import yaml
+    from force_ideas.t5_gate import load_index
+
+    idx = load_index()
+    assert idx["t5_resource"] == "freight"
+    freight = yaml.safe_load(
+        (ROOT / "force_ideas" / "data_contracts" / "FS-0001-freight-v1.yaml").read_text()
+    )
+    assert freight["resource_class"] == freight["lock"]["resource_class"] == "freight"
+    assert freight["lead_lag"]["search_after_returns"] is False
+    print("PASS resource/geography/lead-lag locks intact")
+
+
 def test_rejected_mutation_file():
     p = ROOT / "force_ideas" / "rejected" / "FS-0001-freight-fred-mutation.yaml"
     assert p.exists()
@@ -80,6 +108,7 @@ def main():
     test_freight_overlay_refused()
     test_observatory_no_result()
     test_fs0001_cannot_attach()
+    test_lock_cannot_silently_swap()
     test_rejected_mutation_file()
     print("ALL T5-CONTRACT TESTS PASSED")
 

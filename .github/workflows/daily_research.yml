@@ -41,13 +41,14 @@ jobs:
           python scripts/test_evidence_record.py
           python scripts/test_discovery_sieve.py
           python scripts/test_idea_registry.py
+          python scripts/test_t5_contract.py
           python scripts/test_l4_wire.py
       - name: NO_RESULT paths
         run: |
           python scripts/run_evidence_record.py
           python scripts/run_idea_registry.py
-          python scripts/run_daily_research.py --promote; test $? -eq 2
-          python scripts/run_daily_research.py --scan-force4; test $? -eq 2
+          python scripts/assert_exit.py 2 python scripts/run_daily_research.py --promote
+          python scripts/assert_exit.py 2 python scripts/run_daily_research.py --scan-force4
 
   refresh:
     needs: regress
@@ -80,6 +81,8 @@ jobs:
             data/meta/failfast_taxonomy_report.json
             data/meta/last_fetch.json
             data/meta/fs0001_lighting_contract.json
+            data/meta/fs0001_t5_contract.json
+            docs/FS-0001-T5-DATA-CONTRACT-REPORT.md
           if-no-files-found: ignore
       - name: Commit meta JSON if changed
         run: |
@@ -93,6 +96,8 @@ jobs:
             data/meta/failfast_taxonomy_report.json \
             data/meta/last_fetch.json \
             data/meta/fs0001_lighting_contract.json \
+            data/meta/fs0001_t5_contract.json \
+            docs/FS-0001-T5-DATA-CONTRACT-REPORT.md \
             || true
           if git diff --cached --quiet; then
             echo "No meta changes."

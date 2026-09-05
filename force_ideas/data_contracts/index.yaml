@@ -1,0 +1,15 @@
+# Which T5 realization is live. Lighting is observatory-only.
+# Changing t5_resource after this file exists is a new version, not a rescue.
+force_id: FS-0001
+t5_resource: freight
+observatory_only:
+  - lighting
+forbidden_silent_swap: true
+t5_blocked: true
+prosecutor_allowed: false
+capital_allowed: false
+instruments: []
+note: >
+  Freight is the first T5 measurement candidate. Lighting remains an
+  observatory diagnostic. A lighting DATA_READY does not unlock T5.
+  Switching resource class after results is FS-0001 v2.

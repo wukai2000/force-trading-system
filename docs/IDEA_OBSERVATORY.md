@@ -73,8 +73,7 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**T5 status: blocked.** Lighting data contract frozen (`force_ideas/data_contracts/FS-0001-lighting-v1.yaml`). Primary geography = IEA multi-country; second = EU aggregate. Observatory reports **NO_RESULT** until IEA series are actually wired. A freight FRED overlay (CASSEXP / RAILFRTINTERMODAL / TSIFRHT) is **rejected** as a v1 mutation. Switching to freight/compute/water after seeing lighting data would be FS-0001 v2, not a rescue.
+**T5 status: blocked.** Freight is the T5 preregistration (`FS-0001-freight-v1.yaml`); series are TBD. Lighting is observatory-only and cannot unlock T5. US FRED overlay stays rejected. `attach_instruments(FS-0001)` refused until DATA_READY. Capital $0.
 
-`attach_instruments(FS-0001)` is refused until DATA_READY. Prosecutor still false. Capital $0.
 
 

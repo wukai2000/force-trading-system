@@ -27,11 +27,29 @@ REFUSED_FS0001_V1_SERIES = frozenset(
 )
 
 
-def load_contract(force_id: str = "FS-0001", version: int = 1) -> Dict[str, Any]:
-    p = CONTRACTS / f"{force_id}-lighting-v{version}.yaml"
+def load_index() -> Dict[str, Any]:
+    p = CONTRACTS / "index.yaml"
     if not p.exists():
         return {}
     return yaml.safe_load(p.read_text()) or {}
+
+
+def load_contract(
+    force_id: str = "FS-0001",
+    version: int = 1,
+    resource: Optional[str] = None,
+) -> Dict[str, Any]:
+    if resource is None:
+        resource = str(load_index().get("t5_resource") or "freight")
+    p = CONTRACTS / f"{force_id}-{resource}-v{version}.yaml"
+    if not p.exists():
+        return {}
+    return yaml.safe_load(p.read_text()) or {}
+
+
+def load_lighting_contract() -> Dict[str, Any]:
+    return load_contract("FS-0001", 1, resource="lighting")
+
 
 
 def refused_series_hits(raw: Any) -> Tuple[str, ...]:
@@ -75,22 +93,34 @@ def t5_unlock_or_reason(force_id: str) -> Tuple[bool, str]:
         return True, "non-FS id: data-contract gate does not apply"
     if fid != "FS-0001":
         return False, f"{fid}: no data contract"
-    contract = load_contract("FS-0001", 1)
+    idx = load_index()
+    if idx.get("t5_resource") != "freight":
+        return False, "T5 resource is freight; silent swap refused"
+    if idx.get("prosecutor_allowed") or idx.get("capital_allowed"):
+        return False, "prosecutor/capital still false"
+    lighting = load_lighting_contract()
+    if lighting.get("t5_candidate") is True:
+        return False, "lighting is observatory-only and cannot unlock T5"
+    contract = load_contract("FS-0001", 1, resource="freight")
     if not contract:
-        return False, "no lighting data contract on disk"
-    if contract.get("resource_class") != "lighting":
-        return False, "FS-0001 v1 resource_class is lighting; other classes are a new version"
-    geo = contract.get("independent_geography") or {}
-    if not geo.get("name"):
-        return False, "second geography not pre-named"
+        return False, "no freight data contract on disk"
+    lock = contract.get("lock") or {}
+    if contract.get("resource_class") != "freight" or lock.get("resource_class") != "freight":
+        return False, "freight lock broken"
+    if str((contract.get("independent_geography") or {}).get("name")) != "European_Union":
+        return False, "second geography must stay European_Union"
     if contract.get("instruments") or contract.get("tickers"):
         return False, "contract must keep instruments empty"
     if contract.get("prosecutor_allowed") or contract.get("capital_allowed"):
         return False, "prosecutor/capital still false"
     hits = refused_series_hits(contract)
     if hits:
-        return False, f"freight FRED overlay refused: {hits}"
-    meta = Path(__file__).resolve().parents[1] / "data" / "meta" / "fs0001_lighting_contract.json"
+        return False, f"US FRED freight overlay refused: {hits}"
+    for key in ("efficiency", "unit_cost", "aggregate_use"):
+        series = str((contract.get(key) or {}).get("series") or "TBD")
+        if series.strip().upper() in {"", "TBD"}:
+            return False, f"{key}.series is TBD; measurement contract not frozen"
+    meta = Path(__file__).resolve().parents[1] / "data" / "meta" / "fs0001_t5_contract.json"
     if meta.exists():
         import json
 
@@ -98,7 +128,8 @@ def t5_unlock_or_reason(force_id: str) -> Tuple[bool, str]:
         if report.get("t5_ready") is True:
             return True, "DATA_READY"
         return False, f"observatory status={report.get('status', 'NO_RESULT')} t5_ready=false"
-    return False, "observatory has not reported DATA_READY (lighting IEA unwired)"
+    return False, "observatory has not reported DATA_READY"
+
 
 
 

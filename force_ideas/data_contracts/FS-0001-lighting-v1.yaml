@@ -6,7 +6,9 @@
 force_id: FS-0001
 version: 1
 resource_class: lighting
-status: CONTRACT_FROZEN
+role: observatory_only
+t5_candidate: false
+status: OBSERVATORY_ONLY
 instruments: []
 tickers: []
 scannable: false
