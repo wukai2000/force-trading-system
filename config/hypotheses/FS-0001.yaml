@@ -1,0 +1,40 @@
+# T0–T4 freeze for FS-0001. Completeness is computed. Tickers empty.
+# Do not scan. Do not attach ITA/XAR/PPA. Do not recycle VST/ETN/PWR.
+hypothesis_id: FS-0001
+hypothesis: >
+  When the effective unit cost of a capability falls sharply, previously
+  uneconomic applications become viable and aggregate demand for the
+  underlying resource rises rather than falls.
+mechanism: >
+  If the price elasticity of demand for the final services a resource enables
+  exceeds one in absolute value, a drop in unit cost unlocks new scalable uses.
+  Efficiency improvements therefore lead expansion in total resource use
+  instead of net conservation.
+observables:
+  - name: resource_efficiency_index
+    predicted_sign: +1
+    lead: leading
+    absent_kills: true
+  - name: resource_unit_cost
+    predicted_sign: -1
+    lead: leading
+    absent_kills: true
+  - name: aggregate_resource_use
+    predicted_sign: +1
+    lead: contemporaneous
+    absent_kills: true
+independence_dimensions:
+  - kind: manifestation
+    note: Physical resource-use totals, not a US power-equipment residual.
+  - kind: geography
+    note: Must be specifiable outside one national market; a second US ETF is not geography.
+tickers: []
+controls: []
+instruments_attached: false
+freeze_complete: false
+scannable: false
+capital: 0
+cannot_promote: true
+research_role: candidate
+force4: wait
+note: "T5 only after freeze_complete. evaluate_candidate cannot promote. No Force 4."

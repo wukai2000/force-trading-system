@@ -1,0 +1,91 @@
+# FS-0001 v1 FROZEN. Immutable. Tickers still empty. T5 not attached.
+# Completeness is computed by force_engine.freeze, not this flag.
+state: frozen
+seed_id: FS-0001
+hypothesis_id: FS-0001
+parent_seed_id: FS-0001
+version: 1
+status: FROZEN
+
+origin_type: contradiction
+origin_date: "2026-09-05"
+origin_source: "user mechanism note; Jevons 1865 stripped of any portfolio"
+origin_evidence:
+  - "Jevons, The Coal Question (1865)"
+  - "2026-09-05: elastic demand for efficiency-enabled applications"
+original_observation: >
+  Efficiency and unit-cost declines are expected to conserve a resource, yet
+  aggregate use has risen after cost collapses when new applications appear.
+why_this_exists: >
+  Contradiction between conservation intuition and episodes of rising total use
+  after unit cost fell.
+
+hypothesis: >
+  When the effective unit cost of a capability falls sharply, previously
+  uneconomic applications become viable and aggregate demand for the
+  underlying resource rises rather than falls.
+mechanism: >
+  If the price elasticity of demand for the final services a resource enables
+  exceeds one in absolute value, a drop in unit cost unlocks new scalable uses.
+  Efficiency improvements therefore lead expansion in total resource use
+  instead of net conservation.
+observables:
+  - name: resource_efficiency_index
+    predicted_sign: +1
+    lead: leading
+    absent_kills: true
+  - name: resource_unit_cost
+    predicted_sign: -1
+    lead: leading
+    absent_kills: true
+  - name: aggregate_resource_use
+    predicted_sign: +1
+    lead: contemporaneous
+    absent_kills: true
+independence_dimensions:
+  - kind: manifestation
+    note: >
+      Physical resource-use totals (efficiency leading aggregate use), not a
+      US listed-power-equipment residual and not paused F2 scarcity.
+  - kind: geography
+    note: >
+      The signed leading relationship must be specifiable outside a single
+      national market. A second US sector ETF is not geography.
+independence_kinds:
+  causal: true
+  expression: true
+  instrument: false
+  geography: true
+  rationale: >
+    Causal independence from F2 (bottleneck vs elasticity). Expression is
+    real-economy use. Instruments remain empty on purpose.
+
+expected_timing: >
+  Efficiency up / unit cost down is leading. Aggregate physical use of the
+  same resource is the coincident/lagging consequence.
+failure_condition: >
+  A ~50% decline in per-unit resource input cost followed by a net decrease
+  in aggregate use in a mature unconstrained market kills the hypothesis.
+  Rationing, one shortage, or one boom also kills it.
+alternatives:
+  - "Income/GDP, not new applications"
+  - "Common-cycle measurement artifact"
+  - "Paused F2-style scarcity, not demand expansion"
+verification_dimension: >
+  Pre-named: the same signed leading relationship in at least one other
+  geography or in a second resource class (lighting, freight, water, or
+  compute cycles) that is not a US power-equipment basket. A new lookback
+  or a cousin ETF is not verification.
+
+tickers: []
+controls: []
+instruments: []
+returns: []
+instruments_attached: false
+freeze_complete: false
+scannable: false
+capital: 0
+cannot_promote: true
+force4: wait
+research_role: candidate
+note: "v1 frozen. Do not mutate. T5 not attached. Prosecutor cannot run without instruments. Capital $0."

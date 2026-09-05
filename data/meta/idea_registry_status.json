@@ -1,18 +1,19 @@
 {
   "protocol_id": "FORCE_PROTOCOL_v1.0",
-  "n_seeds": 0,
-  "n_hypotheses": 0,
-  "n_frozen": 0,
+  "n_seeds": 1,
+  "n_hypotheses": 1,
+  "n_frozen": 1,
   "max_seeds": 8,
   "min_seeds": 0,
-  "empty": true,
-  "no_result": true,
+  "empty": false,
+  "no_result": false,
+  "awaiting_t5": true,
   "no_result_is_success": true,
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
   "capital": 0,
   "force4": "wait",
   "one_frozen_at_a_time": true,
-  "evidence_status": "no_result",
-  "note": "No hypothesis met the pre-freeze requirements. Capital $0. Success."
+  "evidence_status": "frozen_awaiting_t5",
+  "note": "T0\u2013T4 frozen; instruments not attached. Prosecutor not run. Capital $0."
 }

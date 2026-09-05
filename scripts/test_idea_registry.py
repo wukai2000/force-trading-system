@@ -29,22 +29,26 @@ PROV = {
 }
 
 
-def test_empty_is_success():
+def test_empty_or_admitted_cannot_promote():
     st = empty_registry_is_success()
-    assert st["empty"] is True
-    assert st["n_seeds"] == 0
     assert st["min_seeds"] == 0
     assert st["max_seeds"] == 8
+    assert st["n_seeds"] <= 8
     assert st["no_result_is_success"] is True
-    assert st["evidence_status"] == "no_result"
     assert st["capital"] == 0
     assert st["promotion"] == "NOT_PERMITTED"
-    print("PASS empty registry is NO_RESULT success")
+    if st["n_seeds"] == 0 and st["n_frozen"] == 0:
+        assert st["empty"] is True
+        assert st["evidence_status"] == "no_result"
+    print("PASS registry cannot promote (empty or admitted)")
 
 
-def test_next_id_on_empty():
-    assert next_seed_id(ROOT / "force_ideas") == "FS-0001"
-    print("PASS next id on empty registry is FS-0001 (not written)")
+def test_next_id():
+    nxt = next_seed_id(ROOT / "force_ideas")
+    assert nxt.startswith("FS-")
+    if (ROOT / "force_ideas" / "seeds" / "FS-0001.yaml").exists():
+        assert nxt != "FS-0001"
+    print("PASS next id does not collide with existing seeds")
 
 
 def test_valid_seed_admits():
@@ -271,6 +275,34 @@ def test_frozen_version_immutable():
     print("PASS frozen FS-0001 v1 is immutable")
 
 
+def test_fs0001_admitted_no_tickers():
+    from force_ideas.screen import screen_path
+    from force_engine.freeze import load_freeze
+
+    seed = ROOT / "force_ideas" / "seeds" / "FS-0001.yaml"
+    hyp = ROOT / "force_ideas" / "hypotheses" / "FS-0001.yaml"
+    freeze_path = ROOT / "config" / "hypotheses" / "FS-0001.yaml"
+    assert seed.exists() and hyp.exists() and freeze_path.exists()
+    s = screen_path(seed, writing_to="seeds")
+    assert s["verdict"] == "admit"
+    assert s["freeze_ready"] is False
+    h = screen_path(hyp, writing_to="hypotheses")
+    assert h["verdict"] == "admit"
+    assert h["freeze_ready"] is True, h.get("missing_for_freeze")
+    fh = load_freeze(freeze_path)
+    assert fh.freeze_complete is True
+    assert fh.tickers == []
+    assert fh.hypothesis_id == "FS-0001"
+    assert not any(o.lead == "leading" for o in fh.observables) or True
+    assert any(o.lead == "leading" for o in fh.observables)
+    st = empty_registry_is_success()
+    assert st["n_seeds"] >= 1
+    assert st["awaiting_t5"] is True
+    assert st["cannot_promote"] is True
+    assert st["capital"] == 0
+    print("PASS FS-0001 admitted, T0–T4 complete, tickers empty, awaiting T5")
+
+
 def test_no_prosecutor_imports():
     assert_no_prosecutor_imports()
     print("PASS gatekeeper does not import evaluate/neutralize/pipeline")
@@ -285,8 +317,8 @@ def test_status_matches_yaml():
 
 
 def main():
-    test_empty_is_success()
-    test_next_id_on_empty()
+    test_empty_or_admitted_cannot_promote()
+    test_next_id()
     test_valid_seed_admits()
     test_missing_observation_refused()
     test_ticker_refused()
@@ -297,6 +329,7 @@ def main():
     test_seed_cap()
     test_hypothesis_without_t4_not_freeze_ready()
     test_frozen_version_immutable()
+    test_fs0001_admitted_no_tickers()
     test_no_prosecutor_imports()
     test_status_matches_yaml()
     print("ALL IDEA-REGISTRY TESTS PASSED")

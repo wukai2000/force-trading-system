@@ -53,6 +53,9 @@ trading_interface/       # python_sim default
 3. Longevity / healthspan demand — **FAIL_GATE** (IHF+IHI+XHS vs XLV+XBI)
 4. Defense / sovereign capacity — **sketch only, wait** (ITA+XAR+PPA vs XLI+SPY)
 
+Idea Observatory: **FS-0001** demand expansion after cost collapse — T0–T4 frozen, tickers empty, T5 not attached, cannot promote.
+
+
 ## Quick start
 
 ```

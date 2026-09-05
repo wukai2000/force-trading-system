@@ -121,6 +121,7 @@ def registry_status(root: Optional[Path] = None) -> Dict[str, Any]:
     n_hyp = len(_yaml_files(base / "hypotheses"))
     n_frozen = len(_yaml_files(base / "frozen"))
     empty = n_seeds == 0 and n_hyp == 0 and n_frozen == 0
+    awaiting_t5 = n_frozen >= 1
     return {
         "protocol_id": spec.get("protocol_id"),
         "n_seeds": n_seeds,
@@ -130,6 +131,7 @@ def registry_status(root: Optional[Path] = None) -> Dict[str, Any]:
         "min_seeds": int(spec.get("min_seeds") or 0),
         "empty": empty,
         "no_result": empty,
+        "awaiting_t5": awaiting_t5,
         "no_result_is_success": True,
         "cannot_promote": True,
         "promotion": "NOT_PERMITTED",
@@ -314,4 +316,10 @@ def empty_registry_is_success(root: Optional[Path] = None) -> Dict[str, Any]:
     if st["empty"]:
         st["evidence_status"] = "no_result"
         st["note"] = "No hypothesis met the pre-freeze requirements. Capital $0. Success."
+    elif st.get("awaiting_t5"):
+        st["evidence_status"] = "frozen_awaiting_t5"
+        st["note"] = "T0–T4 frozen; instruments not attached. Prosecutor not run. Capital $0."
+    else:
+        st["evidence_status"] = "seeds_only"
+        st["note"] = "Seeds exist; none frozen. Capital $0."
     return st

@@ -61,4 +61,17 @@ PYTHONPATH=. python scripts/run_idea_registry.py --file force_ideas/_SEED_TEMPLA
 
 `--promote` and `--scan-force4` exit 2.
 
-This package does **not** invent a leftover. The registry is empty on purpose.
+## FS-0001 (2026-09-05)
+
+**Demand expansion after cost collapse** — not “Jevons” as a label, not F2.
+
+T0: when unit cost of a capability falls sharply, aggregate demand for the underlying resource can rise because new applications become viable.
+
+Admitted as seed + hypothesis. T0–T4 freeze_complete with **tickers empty**. T5 not attached. Prosecutor not run.
+
+Verification (pre-named): same signed leading relationship in another geography **or** a second resource class. A cousin ETF or a new lookback is not verification.
+
+Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
+
+This is not a leftover in the sieve sense and not a tradable Force.
+

@@ -1,0 +1,76 @@
+# FS-0001 v1 — seed. Tickers forbidden. Not a Force. Not F2.
+state: seed
+seed_id: FS-0001
+version: 1
+status: SEED
+name: Demand expansion after cost collapse
+
+origin_type: contradiction
+origin_date: "2026-09-05"
+origin_source: "user mechanism note; Jevons 1865 as academic mechanism stripped of any portfolio"
+origin_evidence:
+  - "Jevons, The Coal Question (1865) — efficiency in a resource can raise aggregate use; not a trading paper"
+  - "2026-09-05 note: elastic demand for efficiency-enabled applications (|ε_d| > 1)"
+original_observation: >
+  Efficiency improvements and unit-cost declines are widely expected to conserve
+  a resource, yet in several historical episodes total use of that resource rose
+  after the cost of using it fell. The two facts sit together only if new uses
+  appear.
+why_this_exists: >
+  External contradiction: falling unit cost plus rising aggregate use, before
+  any security is named.
+
+phenomenon: >
+  When the effective unit cost of a capability falls sharply, total demand for
+  the underlying resource can expand rather than merely substitute toward
+  efficiency.
+mechanism: >
+  If demand for the final services a resource enables is elastic, a drop in
+  unit cost makes previously uneconomic applications viable. New scalable uses
+  then dominate conservation of old uses.
+who_gains_loses: >
+  Producers of the newly enabled applications and of the resource itself gain
+  volume; holders of a pure-conservation bet lose. No names at seed.
+why_slow: >
+  New applications require complementary capital, skills, standards, and
+  habits. Those adjust on investment cycles, not on the day unit cost prints.
+observable_guess: >
+  A rise in a resource-efficiency (or fall in unit-cost) index should precede
+  a rise in aggregate physical use of that same resource.
+failure_condition: >
+  A technological change that cuts per-unit resource input cost by about 50%
+  and is followed by a net decrease in aggregate use in a mature, unconstrained
+  market kills the idea. One shortage episode, rationing, or a single boom also
+  kills it.
+alternatives:
+  - "Income effects and GDP growth, not elasticity of new applications"
+  - "Measurement: efficiency and use share a common cycle"
+  - "Policy or price floors that prevent unit cost from actually falling"
+  - "Scarcity bottleneck (paused F2): constrained supply, not demand expansion"
+independence_note: >
+  Not F1 memory/HBM. Not F2 power-equipment scarcity versus model-training
+  load. Not F3 longevity. Not F4 defense primes. Different ETFs in one sector
+  are not independence. Causal claim is demand elasticity after cost collapse,
+  testable in more than one resource class and geography.
+
+independence_kinds:
+  causal: true
+  expression: true
+  instrument: false
+  geography: true
+  rationale: >
+    Mechanism is elasticity of newly enabled uses, not a bottleneck in listed
+    power equipment. Expression is physical resource use. Instruments stay
+    empty until after freeze.
+
+tickers: []
+controls: []
+instruments: []
+returns: []
+observed_ir: null
+sharpe: null
+scannable: false
+capital: 0
+cannot_promote: true
+force4: wait
+note: "Seed only. T5 not attached. Capital $0."

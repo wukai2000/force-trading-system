@@ -106,6 +106,10 @@ screen → T0–T4 freeze → T5 instruments → EvidenceRecord → Case Against
 Maximum 8 seeds, no minimum. T4 is mandatory. Cousins of F1–F4 are
 rejected at the door. See `docs/IDEA_OBSERVATORY.md`.
 
+**FS-0001 (2026-09-05).** Demand expansion after cost collapse. T0–T4
+frozen, instruments empty, capital $0. Not F2. Prosecutor not run.
+
+
 
 ### Phase B — validate the validator (this package)
 

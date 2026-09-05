@@ -1,23 +1,13 @@
-# force-trading-system-20260904-daily
+# force-trading-system-20260905-fs0001
 
-Provenance layer on the Idea Observatory + daily GitHub Action.
-Capital $0. Force 4 WAIT. Registry still empty. No leftover invented.
+FS-0001 first seed: demand expansion after cost collapse.
+T0–T4 frozen. Tickers empty. T5 not attached. Capital $0. Force 4 WAIT.
 
-## This drop
-
-- Seed provenance: `origin_type` + `origin_date` + `original_observation`
-- IDs `FS-NNNN`; frozen versions immutable
-- `independence_kinds` recorded (causal/expression/instrument/geography) — does not replace T4
-- `scripts/run_daily_research.py` + `.github/workflows/daily_research.yml`
-  - regression tests
-  - refresh prices/FRED/COT for locked tickers (not ITA/XAR/PPA)
-  - re-run leading observables, failfast taxonomy, idea-registry status, short-n daily nulls
-  - **does not** overwrite `negative_control_audit.json`
-  - **does not** scan Force 4, sieve-hunt, or promote
-  - commits `data/meta/*.json` with `[skip ci]`
+Not Jevons-as-label. Not F2 power-equipment scarcity.
 
 ## Do not
 
-- Fill the registry to have something to test
-- Revive F2 / scan F4
-- Treat daily nulls as the locked fixture
+- Attach VST/ETN/PWR/XLU or any ETF because “energy rebound”
+- Scan Force 4
+- Run the prosecutor until T5 is a separate, human-owned decision
+- Mutate v1
