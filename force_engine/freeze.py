@@ -313,6 +313,14 @@ def attach_instruments(
 ) -> FrozenHypothesis:
     """T5. Refused until freeze_complete. Still cannot promote. Still not scannable."""
     assert_freeze_complete(fh)
+    hid = str(fh.hypothesis_id or "").strip().upper()
+    if hid.startswith("FS-"):
+        from force_ideas.t5_gate import T5LockError, assert_t5_unlock
+
+        try:
+            assert_t5_unlock(hid)
+        except T5LockError as e:
+            raise FreezeError(str(e)) from e
     legs_u = [str(t).upper() for t in legs]
     ctrl_u = [str(t).upper() for t in controls]
     if not legs_u or not ctrl_u:

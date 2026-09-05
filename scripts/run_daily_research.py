@@ -127,6 +127,7 @@ def main() -> int:
     steps.append(_safe("leading_observables", _leading))
     steps.append(_safe("failfast_taxonomy", _taxonomy))
     steps.append(_safe("idea_registry", _ideas))
+    steps.append(_safe("fs0001_observatory", lambda: _run_script("scripts/run_observatory.py")))
     if not args.skip_nulls:
         steps.append(_safe("daily_negative_control", _daily_nulls))
     else:

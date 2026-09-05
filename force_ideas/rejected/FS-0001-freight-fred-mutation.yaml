@@ -1,0 +1,32 @@
+# REJECTED overlay. Not admitted. Not a v2.
+# Attempted to mutate FS-0001 v1 into a US freight FRED ClockBus story.
+state: rejected
+seed_id: FS-0001
+version: refused
+status: REJECTED
+origin_type: other
+origin_date: "2026-09-05"
+original_observation: "A freight FRED overlay was proposed after T0–T4 freeze."
+why_this_exists: "Provenance of a refused mutation so it cannot sneak in as T2."
+
+reason:
+  - "Mutates T1 from demand-elasticity after cost collapse to unit transport friction"
+  - "Mutates failure_condition ~50% to 20%"
+  - "Names US FRED series as T2 (CASSEXP invented/wrong; RAILFRTINTERMODAL is volume not efficacy; TSIFRHT typo for TSIFRGHT)"
+  - "Relabels a quantity series as efficiency"
+  - "Claims multi-geography while all T2 series are US"
+  - "Treats ClockBus/FRED as Force T2; clocks are veto-only"
+  - "Would make freight the v1 resource after freeze; that is a new hypothesis"
+
+fred_ids_refused:
+  - CASSEXP
+  - RAILFRTINTERMODAL
+  - TSIFRHT
+  - TSIFRGHT
+
+tickers: []
+scannable: false
+capital: 0
+cannot_promote: true
+force4: wait
+note: "Rejected. FS-0001 v1 resource class remains lighting."

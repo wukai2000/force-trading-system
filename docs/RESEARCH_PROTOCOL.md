@@ -108,6 +108,9 @@ rejected at the door. See `docs/IDEA_OBSERVATORY.md`.
 
 **FS-0001 (2026-09-05).** Demand expansion after cost collapse. T0–T4
 frozen, instruments empty, capital $0. Not F2. Prosecutor not run.
+T5 locked behind lighting IEA data contract + pre-named EU geography.
+Freight FRED overlay rejected. Observatory NO_RESULT is success.
+
 
 
 

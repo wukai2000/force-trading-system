@@ -79,6 +79,7 @@ jobs:
             data/meta/idea_registry_status.json
             data/meta/failfast_taxonomy_report.json
             data/meta/last_fetch.json
+            data/meta/fs0001_lighting_contract.json
           if-no-files-found: ignore
       - name: Commit meta JSON if changed
         run: |
@@ -91,6 +92,7 @@ jobs:
             data/meta/idea_registry_status.json \
             data/meta/failfast_taxonomy_report.json \
             data/meta/last_fetch.json \
+            data/meta/fs0001_lighting_contract.json \
             || true
           if git diff --cached --quiet; then
             echo "No meta changes."

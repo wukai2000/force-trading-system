@@ -1,0 +1,89 @@
+# T5 data contract for FS-0001 v1. Not a Force. Not instruments.
+# Frozen separately from T0–T4. Switching resource class after seeing data
+# is a new hypothesis (FS-0001 v2), not a rescue of v1.
+# NO_RESULT from this contract is success.
+
+force_id: FS-0001
+version: 1
+resource_class: lighting
+status: CONTRACT_FROZEN
+instruments: []
+tickers: []
+scannable: false
+prosecutor_allowed: false
+capital_allowed: false
+cannot_promote: true
+
+primary_geography:
+  type: multi_country_panel
+  source: IEA_EEI
+  name: IEA_member_and_beyond
+  us_doe_primary: false
+
+independent_geography:
+  name: European_Union
+  type: aggregate_or_pre_specified_european_panel
+  source: IEA_EEI
+  note: Named before any market result. Geography is independence, not evidence.
+
+efficiency:
+  concept: lighting_efficacy
+  unit: lm_per_W
+  expected_sign: +1
+  leading: true
+  series: ""          # empty until a public vintage is wired; do not invent
+  fallback: none      # no post-hoc substitute
+
+unit_cost:
+  concept: electricity_cost_per_lumen_hour
+  construction: electricity_price / lighting_efficacy
+  expected_sign: -1
+  leading: true
+  series: ""
+  fallback: none
+
+aggregate_use:
+  concept: lighting_service_lumen_hours
+  expected_sign: +1
+  contemporaneous: true
+  series: ""
+  proxy:
+    formula: lighting_electricity_use * lighting_efficacy
+    labeled_as_proxy: true
+    allowed: true
+    chosen_after_results: false
+  fallback: none
+
+lead_lag:
+  allowed_leads: [1, 2, 3]
+  unit: years
+  selection: pre_registered
+  search_after_returns: false
+
+transformations:
+  efficiency: log_difference
+  unit_cost: log_difference
+  aggregate_use: log_difference
+
+missing_data_rule: frozen
+revision_rule: frozen
+vintage_rule: frozen
+
+known_limitations:
+  - "Full IEA EEI database is paid; Highlights are a limited free subset."
+  - "IEA docs: residential lighting consumption mixed into appliances after ~2013/2014 in some countries."
+  - "US DOE lighting characterizations are validation-only; US-only would violate T4 geography."
+  - "A failed lighting contract is NO_RESULT. Do not switch to freight/compute/water on v1."
+
+refuse:
+  - fred_freight_overlay
+  - CASSEXP
+  - RAILFRTINTERMODAL
+  - TSIFRHT
+  - TSIFRGHT
+  - us_only_primary
+  - mutate_failure_50pct_to_20pct
+  - clockbus_as_t2
+  - tickers
+  - prosecutor
+  - capital

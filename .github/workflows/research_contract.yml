@@ -36,6 +36,7 @@ jobs:
         run: |
           python scripts/run_evidence_record.py
           python scripts/test_idea_registry.py
+          python scripts/test_t5_contract.py
           python scripts/run_idea_registry.py
           python scripts/run_daily_research.py --skip-fetch --skip-nulls
           python scripts/run_daily_research.py --promote; test $? -eq 2

@@ -1,0 +1,50 @@
+{
+  "as_of": "2026-09-05T13:49:28Z",
+  "force_id": "FS-0001",
+  "resource": "lighting",
+  "status": "NO_RESULT",
+  "cells": {
+    "efficiency_data": "NO_RESULT",
+    "unit_cost_construction": "NO_RESULT",
+    "aggregate_use_data": "NO_RESULT",
+    "primary_geography": "PASS",
+    "second_geography": "PASS",
+    "lead_lag_observability": "NO_RESULT"
+  },
+  "t5_ready": false,
+  "prosecutor_allowed": false,
+  "capital_allowed": false,
+  "cannot_promote": true,
+  "instruments": [],
+  "refused_fred_freight_overlay": true,
+  "refused_series_in_contract": [],
+  "lighting": {
+    "efficiency": "NO_RESULT",
+    "unit_cost": "NO_RESULT",
+    "aggregate_use": "NO_RESULT",
+    "lead_lag": "NO_RESULT",
+    "wired": false,
+    "source": "IEA_EEI",
+    "probes": {
+      "highlights": {
+        "ok": false,
+        "status_code": 403,
+        "url": "https://www.iea.org/data-and-statistics/data-product/energy-efficiency-indicators-highlights"
+      },
+      "full_product": {
+        "ok": false,
+        "status_code": 403,
+        "url": "https://www.iea.org/data-and-statistics/data-product/energy-end-uses-and-efficiency-indicators"
+      }
+    },
+    "reason": "IEA EEI lighting efficacy / lumen-hours is not in the local cache. Highlights are a limited free subset; the extended database is paid. US DOE is validation-only. No synthetic lighting panel."
+  },
+  "geography": {
+    "primary": "PASS",
+    "second": "PASS",
+    "primary_wired": "NO_RESULT",
+    "second_wired": "NO_RESULT",
+    "note": "Named geography is an independence dimension, not a PASS on the Force."
+  },
+  "note": "NO_RESULT is success. Do not switch v1 to freight/compute/water. Do not attach instruments. Do not run the prosecutor."
+}
