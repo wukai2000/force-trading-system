@@ -15,7 +15,7 @@
       "opposition": 1.2831,
       "veto_flag": false,
       "last_date": "2026-09-03",
-      "n": 793,
+      "n": 787,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -345,7 +345,7 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 793,
+      "rows": 787,
       "last": "2026-09-03"
     },
     "NFCI": {
