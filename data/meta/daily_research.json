@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-06T14:03:43Z",
+  "as_of": "2026-09-07T16:20:57Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-11-29        NaN       NaN  ...                0      unknown\n2024-12-06  -0.004826  1.247282  ...                0      unknown\n2024-12-13  -0.017277  1.325310  ...                0      unknown\n2024-12-20   0.013375  1.125476  ...                0      unknown\n2024-12-27  -0.022787  1.053790  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-07  -0.042347  0.628795  ...                0      unknown\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n\n[93 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-11-29        NaN       NaN  ...                0      unknown\n2024-12-06  -0.004827  1.247285  ...                0      unknown\n2024-12-13  -0.017277  1.325314  ...                0      unknown\n2024-12-20   0.013375  1.125480  ...                0      unknown\n2024-12-27  -0.022787  1.053793  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-07  -0.042347  0.628795  ...                0      unknown\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n\n[93 rows x 8 columns]",
         "force4_fetched": false
       }
     },
