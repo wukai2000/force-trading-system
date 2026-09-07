@@ -7,8 +7,9 @@ force_id: FS-0001
 version: 1
 resource_class: freight
 role: t5_preregistration
-status: CONTRACT_PREREGISTERED
+status: NO_RESULT
 t5_candidate: true
+t5_ready: false
 instruments: []
 tickers: []
 scannable: false

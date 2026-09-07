@@ -15,8 +15,9 @@ from .lighting import lighting_availability
 
 ROOT = Path(__file__).resolve().parents[2]
 JSON_OUT = ROOT / "data" / "meta" / "fs0001_t5_contract.json"
-MD_OUT = ROOT / "docs" / "FS-0001-T5-DATA-CONTRACT-REPORT.md"
+MD_OUT = ROOT / "docs" / "FS-0001-T5-DATA-CONTRACT-SNAPSHOT.md"
 LIGHTING_JSON = ROOT / "data" / "meta" / "fs0001_lighting_contract.json"
+AUDIT_MD = ROOT / "docs" / "FS-0001-T5-DATA-CONTRACT-REPORT.md"
 
 
 def _now() -> str:

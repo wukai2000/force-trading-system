@@ -1,10 +1,9 @@
-# force-trading-system-20260905-t5-freight-prereg
+# force-trading-system-20260907-t5-freight-audit-no-result
 
-T5 measurement-contract package. Not a trading release.
+T5 freight data-contract audit. NO_RESULT. Not a trading release.
 
-- T0–T4 unchanged, tickers empty
-- T5 resource = freight (series TBD); lighting observatory-only
-- US FRED overlay still rejected
-- CI: `assert_exit.py` so `--promote` exit 2 does not fail the job
-- Report: docs/FS-0001-T5-DATA-CONTRACT-REPORT.md → NO_RESULT
-- CAPITAL=$0 PROSECUTOR=false T5_READY=false
+- FS-0001 T0–T4 unmodified
+- Unit cost: no harmonized cost/tkm; SPPI refused
+- I_TKM_E is intensity substrate, not silent +1 efficiency
+- Lead horizon unresolved; vintage specified not activated
+- T5_READY=false PROSECUTOR=false CAPITAL=$0

@@ -1,0 +1,81 @@
+# Audit status. NOT an unlock file. T5_READY stays false.
+hypothesis_id: FS-0001
+protocol: FORCE_PROTOCOL_v1.0
+resource: FREIGHT
+status: NO_RESULT
+t5_ready: false
+unlock: false
+
+efficiency:
+  source: IEA
+  native_measure: I_TKM_E
+  native_unit: MJ/tkm
+  native_sign: -1
+  frozen_observable: resource_efficiency_index
+  frozen_sign: +1
+  status: available_substrate
+  frozen_observable_operationalized: false
+  silent_inversion_allowed: false
+  note: >
+    IEA publishes energy per tonne-km. 1/I_TKM_E would match the frozen +1
+    efficiency index but is a transformation and is not frozen.
+
+unit_cost:
+  status: unavailable
+  reason: no_harmonized_cross_country_cost_per_tkm
+  refused_substitutes:
+    - eurostat_sppi_transport
+    - fuel_price_index
+    - revenue_over_tkm
+    - cass_fred
+  note: >
+    OECD/ITF is physical tkm, not monetary cost/tkm. Eurostat SPPI is a
+    producer-price index, not the frozen physical unit-cost observable.
+
+aggregate_use:
+  source_candidates:
+    - IEA
+    - OECD_ITF
+    - Eurostat
+  native_unit: tkm
+  status: available_subject_to_definition_lock
+  frozen_observable_operationalized: false
+
+geography:
+  primary: multi_country
+  independent: European_Union
+  replacement_geography_allowed: false
+  same_definition_across_sources: not_yet_deterministic
+  note: >
+    Eurostat road freight is nationality then territorialized; rail/IWW are
+    territorial. Mixing with OECD/ITF national definitions needs a frozen
+    harmonization rule.
+
+lead_lag:
+  status: unresolved
+  rule: null
+  frozen_roles:
+    efficiency: leading
+    unit_cost: leading
+    aggregate_use: contemporaneous
+  allowed_leads_years: [1, 2, 3]
+  selection_after_outcomes: false
+
+vintage:
+  status: specified_not_yet_activated
+  proposed_rule: >
+    For reference year Y, use the latest source release publicly available
+    by 31 December of Y+1. Hash the raw file. Later revisions are a new
+    vintage. Do not overwrite the research panel.
+  activated: false
+
+instruments: []
+tickers: []
+scannable: false
+prosecutor_allowed: false
+capital: 0
+cannot_promote: true
+force4: wait
+lighting_silent_rescue: false
+new_version_required: false
+note: NO_RESULT is success. This file cannot unlock T5.
