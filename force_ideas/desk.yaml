@@ -1,0 +1,19 @@
+# Operational desk state. Not a mutation of frozen/FS-0001.v1.yaml.
+hypothesis_id: FS-0001
+status: FROZEN
+t5_status: NO_RESULT
+t5_ready: false
+t5_quarter_lock: "2026-Q3"
+instruments: []
+tickers: []
+scannable: false
+prosecutor_allowed: false
+capital_allowed: false
+capital: 0
+force4: wait
+one_frozen_at_a_time: true
+research_state: T5_NO_RESULT
+cannot_promote: true
+note: >
+  T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
+  immutable. This file is the operational overlay.

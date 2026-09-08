@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**T5 status: blocked / NO_RESULT (2026-09-07 audit).** Freight unit-cost/tkm is unavailable in IEA/OECD/ITF/Eurostat. I_TKM_E is intensity, not the frozen +1 efficiency index. SPPI is not unit cost. Lead horizon unresolved. Vintage specified, not activated. Lighting observatory-only. `attach_instruments(FS-0001)` refused. Capital $0.
+**T5 status: NO_RESULT (terminal for 2026-Q3).** Do not reopen freight, FRED, lighting, or instruments this quarter. `one_frozen_at_a_time` is a repository invariant: seeds may still enter; a second FROZEN id is refused. Capital $0.
+
 
 
 
