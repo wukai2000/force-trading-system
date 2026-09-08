@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**T5 status: NO_RESULT.** Unit cost is **NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION**. OECD/Eurostat is a better ingredient list, not a construction. PUR_MEUR and ITF infrastructure spend are failed cousins. Capital $0.
+**T5 status: NO_RESULT.** Unit cost is **NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION**. National-account margins and 49.41 hire-or-reward opex are failed cousins. Mapping break: residence vs territoriality. Capital $0.
+
 
 
 

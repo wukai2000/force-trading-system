@@ -1,8 +1,8 @@
-# force-trading-system-20260908-oecd-eurostat-not-breakthrough
+# force-trading-system-20260908-na-margins-not-constructible
 
 Protocol lock. Not a trading release.
 
-- OECD/Eurostat is not a unit-cost breakthrough
-- PUR_MEUR and ITF infrastructure spend are failed cousins
-- Two logos ≠ two independent tkm measurements
-- T5 NO_RESULT. CAPITAL=$0
+- SNA/ESA transport margins refused (valuation residual)
+- Closest failed: NACE 49.41 opex / hire-or-reward road tkm = new version if enacted
+- Desk: T5_NO_RESULT, not MEASUREMENT_DEAD_END
+- CAPITAL=$0

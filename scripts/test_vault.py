@@ -77,35 +77,46 @@ def test_unit_cost_not_constructible():
     assert spec["verdict"] == "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION"
     assert spec["t5_ready"] is False
     assert spec["oecd_eurostat_breakthrough"] is False
+    assert spec["national_accounts_breakthrough"] is False
+    assert spec["measurement_dead_end"] is False
+    assert spec["mapping_break"] == "residence_vs_territoriality"
     assert spec["closest_failed_candidate"]["status"] == "failed"
-    assert spec["independent_geography"]["oecd_vs_eurostat_tkm"] == "same_common_questionnaire"
+    assert spec["closest_failed_candidate"]["id"] == "nace_4941_opex_hire_or_reward"
     ids = refused_ids()
     for k in (
-        "eurostat_sbs",
         "eurostat_sbs_pur_meur",
+        "nace_4941_opex_hire_or_reward",
+        "sna_esa_transport_margins",
+        "naio_10_cp1620",
         "itf_infrastructure_spend",
-        "eurostat_nama_10_a64",
-        "eurostat_coicop_cp07",
-        "eurostat_hicp_transport",
     ):
         assert k in ids
     for label in (
-        "Eurostat SBS turnover",
-        "PUR_MEUR / tkm",
-        "ITF infrastructure spend",
-        "COICOP CP07",
-        "HICP transport",
-        "nama_10_a64 output",
+        "SNA transport margins",
+        "naio_10_cp1620",
+        "NACE 49.41 opex / hire-or-reward tkm",
+        "deflate cost by SPPI",
     ):
         try:
             refuse_cousin(label)
             raise AssertionError(f"cousin {label} must be refused")
         except UnitCostError:
             pass
+    # last label is SPPI
+    try:
+        refuse_cousin("freight SPPI as cost deflator")
+    except UnitCostError:
+        pass
+    else:
+        raise AssertionError("SPPI must be refused")
     text = (ROOT / "docs" / "FS-0001-UNIT-COST-AUDIT.md").read_text()
-    assert "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION" in text
     assert "Better ingredients are not a breakthrough" in text
-    print("PASS unit cost not constructible; OECD/Eurostat not a breakthrough")
+    assert "T5_NO_RESULT" in text
+    br = (ROOT / "docs" / "FS-0001-BREAKTHROUGH-OPTIONS.md").read_text()
+    assert "territorial freight expenditure" in br
+    assert "Attach instruments" in br
+    print("PASS national accounts not a breakthrough; margins refused; T5 NO_RESULT")
+
 
 
 

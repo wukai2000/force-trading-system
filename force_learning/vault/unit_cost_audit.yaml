@@ -9,10 +9,17 @@ new_version_required: false
 preregistered_construction_rule: none
 joint_cost_tkm_coverage: empty
 replication: failed
+# Locked 2026-09-08. Nine independent audits. Not a T5 construction.
 oecd_eurostat_breakthrough: false
+national_accounts_breakthrough: false
 better_ingredients_is_not_breakthrough: true
+measurement_dead_end: false
+mapping_break: residence_vs_territoriality
+sppi_as_cost_deflator: identification_theatre
+single_national_market_rescue: false
 capital: 0
 scannable: false
+
 
 # Qualifying source class = official statistical systems that publish
 # (i) a monetary freight-transport *cost* magnitude already aligned to
@@ -20,19 +27,41 @@ scannable: false
 # model layer. None found.
 
 closest_failed_candidate:
-  id: eurostat_sbs_pur_meur
-  formula: PUR_MEUR / official_tkm
+  id: nace_4941_opex_hire_or_reward
+  formula: (SBS_purchases_49.41 + SBS_employee_benefits_49.41) / eurostat_road_tkm_hire_or_reward_registered
   status: failed
   why: >
-    Intermediate purchases are not total economic cost of producing tkm.
-    Enterprise population ≠ territorial (or nationality) tkm population.
-    Using it would be a new version of Observable 2, not a rescue.
+    Strongest official pair: freight-labelled expenditure and a hire-or-reward
+    tkm split. Still not frozen resource_unit_cost. Own-account is out of
+    NACE 49.41. Capital user-cost is omitted. Road-only. Resident enterprises
+    vs registered-vehicle tkm is a choice. Using it would be a new version
+    ("unit cost of purchased road haulage"), not a rescue of FS-0001.
+
+weaker_failed_candidate:
+  id: sna_esa_transport_margins
+  formula: naio_10_cp1620_transport_margins / official_tkm
+  status: failed
+  why: >
+    SNA/ESA transport margins are a valuation residual: separately invoiced,
+    seller-arranged freight in the basic→purchasers' price bridge. Not total
+    resource cost of producing the tkm surveys measure. Published table mixes
+    trade and transport. Five-yearly mandatory transmission.
+
 
 refused_candidates:
   eurostat_sbs:
     reason: enterprise accounting ≠ territorial tkm; which SBS column is "cost" is Type B
   eurostat_sbs_pur_meur:
     reason: purchases of goods and services is intermediate expenditure, not frozen unit cost
+  nace_4941_opex_hire_or_reward:
+    reason: hire-or-reward road opex/tkm is a different observable (purchased haulage, not the capability)
+  sna_esa_transport_margins:
+    reason: valuation residual for separately invoiced seller-arranged freight; not total resource cost
+  naio_10_cp1620:
+    reason: joint trade+transport margin table; not a freight-cost series
+  sut_intermediate_consumption_transport:
+    reason: purchased services only; own-account missing; not mode-split
+
   eurostat_sppi:
     reason: price index is not currency/tkm
   oecd_itic_cif_fob:
@@ -74,6 +103,10 @@ forbidden_conversions:
   - nama_output_over_tkm
   - household_cp07_over_tkm
   - sppi_times_base_year_price
+  - sna_transport_margins_over_tkm
+  - deflate_cost_by_output_sppi
+  - single_country_as_independent_geography
+
 
 type_a_locks_only:
   - named_base_year

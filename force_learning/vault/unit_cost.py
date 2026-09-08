@@ -36,7 +36,13 @@ COUSIN_TOKENS = (
     "hicp",
     "cofog",
     "purchases of goods",
+    "transport margin",
+    "naio_10",
+    "49.41",
+    "nace 49.41",
+    "hire-or-reward",
 )
+
 
 
 
@@ -78,7 +84,18 @@ def assert_not_constructible() -> Dict[str, Any]:
         raise UnitCostError("PUR_MEUR candidate must remain failed")
     if spec.get("independent_geography", {}).get("oecd_vs_eurostat_tkm") != "same_common_questionnaire":
         raise UnitCostError("OECD vs Eurostat tkm is the Common Questionnaire, not independence")
+    if spec.get("national_accounts_breakthrough") is True:
+        raise UnitCostError("national accounts are not a unit-cost breakthrough")
+    if spec.get("measurement_dead_end") is True:
+        raise UnitCostError("desk state is T5_NO_RESULT, not MEASUREMENT_DEAD_END")
+    if spec.get("mapping_break") != "residence_vs_territoriality":
+        raise UnitCostError("mapping break is residence vs territoriality")
+    if spec.get("sppi_as_cost_deflator") != "identification_theatre":
+        raise UnitCostError("deflating cost by SPPI is identification theatre")
+    if spec.get("single_national_market_rescue") is True:
+        raise UnitCostError("AU/NZ/DE single-market case studies do not satisfy frozen geography")
     return spec
+
 
 
 

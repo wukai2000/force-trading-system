@@ -52,3 +52,18 @@ OECD vs Eurostat European tkm is the UNECE–ITF–Eurostat Common Questionnaire
 
 Better ingredients are not a breakthrough.
 
+## National accounts are not a breakthrough
+
+Transport margins (`naio_10_cp1620`) are a **valuation residual**, not total resource cost.
+
+Closest still-failed pair: NACE 49.41 purchases + employee benefits ÷ hire-or-reward road tkm of registered vehicles. That is unit cost of **purchased road haulage**, not the frozen capability. Enacting it is `NEW_VERSION`, which this quarter does not do.
+
+Mapping break: **residence vs territoriality**.
+
+Deflating cost by freight SPPI recovers a quantity residual. That is identification theatre.
+
+Desk state remains **T5_NO_RESULT**, not `MEASUREMENT_DEAD_END`. The mapping is dead. The Force is frozen.
+
+Single-country markets (AU/NZ/DE) fail the frozen multi-country geography rule.
+
+
