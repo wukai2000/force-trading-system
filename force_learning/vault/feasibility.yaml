@@ -28,12 +28,19 @@ observables:
     geography: TBD
     frequency: annual
     status: critical_blocker
+    verdict: NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION
     refuse:
       - freight_rate_as_unit_cost
       - sppi
       - fuel_price_index
       - revenue_over_tkm
       - cass_fred
+      - eurostat_sbs
+      - oecd_itic
+      - unctad_tt
+      - us_bts
+      - cnr_mitma
+
   aggregate_use:
     frozen_definition: tonne_km
     frozen_sign: +1

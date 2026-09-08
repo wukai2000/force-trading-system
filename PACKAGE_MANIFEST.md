@@ -1,9 +1,8 @@
-# force-trading-system-20260908-fs0001-historical-study
+# force-trading-system-20260908-unit-cost-not-constructible
 
-FS-0001 historical feasibility. Not a trading release.
+Protocol lock. Not a trading release.
 
-- OECD/ITF tkm coverage-wired (2000–2024, 55 geos, 5339 obs)
-- IEA energy 403; unit cost still critical blocker
-- Decision: NO_RESULT (not DATA_READY, not NEW_VERSION)
-- No episode search, no FS-0002, no tickers
-- T5_READY=false CAPITAL=$0
+- Verdict: NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION
+- T5 NO_RESULT retained
+- SBS/SPPI/ITIC/UNCTAD/BTS/CNR/Cass refused as cousins
+- No tickers, no FS-0002, CAPITAL=$0

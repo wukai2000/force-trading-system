@@ -73,6 +73,9 @@ def report() -> Dict[str, Any]:
         coverage = coverage_build()
     elif COVERAGE_OUT.exists():
         coverage = json.loads(COVERAGE_OUT.read_text())
+    from force_learning.vault.unit_cost import assert_not_constructible
+
+    uc = assert_not_constructible()
     payload = {
         "as_of": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "force_id": "FS-0001",
@@ -84,7 +87,8 @@ def report() -> Dict[str, Any]:
         "episode_search": False,
         "wired_panels": bool((coverage.get("aggregate_use") or {}).get("wired")),
         "unit_cost_status": spec["observables"]["unit_cost"]["status"],
-        "decision": coverage.get("decision") or "NO_RESULT",
+        "unit_cost_verdict": uc["verdict"],
+        "decision": "NO_RESULT",
         "new_version_required": False,
         "target_window": spec.get("target_window"),
         "rows": inventory_rows(),

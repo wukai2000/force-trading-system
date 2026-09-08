@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-08T16:33:20Z",
+  "as_of": "2026-09-08T17:14:34Z",
   "force_id": "FS-0001",
   "episode_search": false,
   "t5_ready": false,
@@ -13,8 +13,11 @@
   },
   "unit_cost": {
     "status": "critical_blocker",
+    "verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
     "currency_in_oecd_tkm_file": false,
-    "sppi_refused": true
+    "sppi_refused": true,
+    "preregistered_construction_rule": null,
+    "joint_coverage": "empty"
   },
   "aggregate_use": {
     "wired": true,

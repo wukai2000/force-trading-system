@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**T5 status: NO_RESULT after historical study (2026-09-08).** OECD/ITF tkm is coverage-wired (2000–2024, 55 geos). IEA energy 403. Unit cost still the blocker. No FS-0002. No episodes. Capital $0.
+**T5 status: NO_RESULT.** Unit cost is **NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION**. OECD tkm is a denominator only. SBS/SPPI/ITIC/BTS/Cass are cousins, not a construction. No FS-0002. Capital $0.
+
 
 
 

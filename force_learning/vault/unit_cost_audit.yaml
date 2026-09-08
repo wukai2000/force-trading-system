@@ -1,0 +1,65 @@
+# Locked 2026-09-08. Three independent audits. Not a T5 construction.
+force_id: FS-0001
+observable: resource_unit_cost
+frozen_definition: real_currency / tonne_km
+verdict: NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION
+t5_ready: false
+t5_status: NO_RESULT
+new_version_required: false
+preregistered_construction_rule: none
+joint_cost_tkm_coverage: empty
+replication: failed
+capital: 0
+scannable: false
+
+# Qualifying source class = official statistical systems that publish
+# (i) a monetary freight-transport *cost* magnitude already aligned to
+# (ii) official tonne-km, at country × year × mode, without a proprietary
+# model layer. None found.
+
+refused_candidates:
+  eurostat_sbs:
+    reason: enterprise accounting ≠ territorial tkm; which SBS column is "cost" is Type B
+  eurostat_sppi:
+    reason: price index is not currency/tkm
+  oecd_itic_cif_fob:
+    reason: trade margins + gravity; not official tkm
+  unctad_worldbank_tt:
+    reason: experimental, modelled distance, wrong denominator, short panel
+  us_bts_revenue_per_ton_mile:
+    reason: revenue not cost; single national market
+  cnr_mitma_vehicle_cost:
+    reason: not a multi-country official class; load factor is discretion
+  cass_drewry_bdi:
+    reason: shipper rates, not producer unit cost
+  fuel_expenditure_over_tkm:
+    reason: fuel is a stand-in, not frozen unit cost
+  sbs_plus_us_bts_glue:
+    reason: different objects glued to fake independence
+
+forbidden_conversions:
+  - turnover_or_revenue_over_tkm
+  - sppi_as_level
+  - cif_fob_margin_over_modelled_distance
+  - national_eur_per_km_times_assumed_load
+  - fuel_over_tkm
+  - interpolate_sbs_confidentiality
+  - splice_sbs_regimes_after_seeing_continuity
+  - drop_countries_or_modes_after_seeing_breaks
+
+type_a_locks_only:
+  - named_base_year
+  - leave_missing_as_missing
+  - no_interpolation
+# Type A cannot create a cost numerator.
+
+independent_geography:
+  tkm_multi_country: true
+  cost_tkm_multi_country: false
+  eu_as_second_system: false
+  note: EU SBS + EU tkm are the same European Statistical System.
+
+consequence: >
+  T5 remains NO_RESULT. Data exist for the frozen denominator and for
+  several non-equivalent monetary cousins. Activating DATA_READY would
+  require shopping a cousin or rewriting "cost". Both are prohibited.

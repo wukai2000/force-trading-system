@@ -65,12 +65,41 @@ def test_docs():
     print("PASS inventory + feasibility docs")
 
 
+def test_unit_cost_not_constructible():
+    from force_learning.vault.unit_cost import (
+        UnitCostError,
+        assert_not_constructible,
+        refuse_cousin,
+        refused_ids,
+    )
+
+    spec = assert_not_constructible()
+    assert spec["verdict"] == "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION"
+    assert spec["t5_ready"] is False
+    assert spec["preregistered_construction_rule"] == "none"
+    assert spec["joint_cost_tkm_coverage"] == "empty"
+    ids = refused_ids()
+    for k in ("eurostat_sbs", "eurostat_sppi", "us_bts_revenue_per_ton_mile", "cass_drewry_bdi"):
+        assert k in ids
+    for label in ("Eurostat SBS turnover", "SPPI road freight", "Cass Freight Index", "BTS ton-mile"):
+        try:
+            refuse_cousin(label)
+            raise AssertionError(f"cousin {label} must be refused")
+        except UnitCostError:
+            pass
+    text = (ROOT / "docs" / "FS-0001-UNIT-COST-AUDIT.md").read_text()
+    assert "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION" in text
+    print("PASS unit cost not constructible; cousins refused; T5 stays NO_RESULT")
+
+
 def main():
     test_vault_not_activation()
     test_inventory()
     test_historical_study_no_result()
+    test_unit_cost_not_constructible()
     test_docs()
     print("ALL VAULT/INVENTORY TESTS PASSED")
+
 
 
 if __name__ == "__main__":

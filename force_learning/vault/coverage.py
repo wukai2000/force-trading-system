@@ -141,8 +141,11 @@ def build() -> Dict[str, Any]:
         "efficiency": {"status": "unwired", "source": "IEA_EEI", "http": 403},
         "unit_cost": {
             "status": "critical_blocker",
+            "verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
             "currency_in_oecd_tkm_file": False,
             "sppi_refused": True,
+            "preregistered_construction_rule": None,
+            "joint_coverage": "empty",
         },
         "aggregate_use": oecd,
         "eu_geography": {

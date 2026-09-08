@@ -17,6 +17,9 @@ cannot_promote: true
 historical_feasibility: INVESTIGATED
 aggregate_use_oecd_wired: true
 unit_cost_status: critical_blocker
+unit_cost_verdict: NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION
+joint_cost_tkm_coverage: empty
+
 
 note: >
   T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
