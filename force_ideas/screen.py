@@ -122,6 +122,11 @@ def registry_status(root: Optional[Path] = None) -> Dict[str, Any]:
     n_frozen = len(_yaml_files(base / "frozen"))
     empty = n_seeds == 0 and n_hyp == 0 and n_frozen == 0
     awaiting_t5 = n_frozen >= 1
+    t5_status = None
+    if n_frozen:
+        from force_ideas.state import load_desk, load_frozen_card
+
+        t5_status = load_desk().get("t5_status") or load_frozen_card("FS-0001").get("t5_status")
     return {
         "protocol_id": spec.get("protocol_id"),
         "n_seeds": n_seeds,
@@ -132,6 +137,7 @@ def registry_status(root: Optional[Path] = None) -> Dict[str, Any]:
         "empty": empty,
         "no_result": empty,
         "awaiting_t5": awaiting_t5,
+        "t5_status": t5_status,
         "no_result_is_success": True,
         "cannot_promote": True,
         "promotion": "NOT_PERMITTED",
@@ -250,8 +256,15 @@ def screen_card(
             f"seed cap {spec.get('max_seeds')} already reached; quota-filling is refused"
         )
 
-    if writing_to == "frozen" and status["n_frozen"] >= 1 and spec.get("one_frozen_at_a_time"):
-        reasons.append("one frozen hypothesis at a time")
+    if writing_to == "frozen" and spec.get("one_frozen_at_a_time"):
+        from force_ideas.state import active_frozen_forces
+
+        incoming = parse_id(sid_raw) if sid_raw else ""
+        base = Path(registry_root) if registry_root is not None else Path(__file__).resolve().parent
+        others = [i for i in active_frozen_forces(base) if i != incoming]
+        if others:
+            reasons.append(f"one frozen hypothesis at a time; occupied by {others}")
+
 
     if card.get("scannable") is True:
         reasons.append("scannable=true is refused on an idea card")
@@ -316,6 +329,9 @@ def empty_registry_is_success(root: Optional[Path] = None) -> Dict[str, Any]:
     if st["empty"]:
         st["evidence_status"] = "no_result"
         st["note"] = "No hypothesis met the pre-freeze requirements. Capital $0. Success."
+    elif st.get("t5_status") == "NO_RESULT":
+        st["evidence_status"] = "t5_no_result"
+        st["note"] = "T0–T4 frozen; T5 NO_RESULT is terminal this quarter. Capital $0."
     elif st.get("awaiting_t5"):
         st["evidence_status"] = "frozen_awaiting_t5"
         st["note"] = "T0–T4 frozen; instruments not attached. Prosecutor not run. Capital $0."

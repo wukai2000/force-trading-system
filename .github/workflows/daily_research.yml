@@ -44,6 +44,7 @@ jobs:
           python scripts/test_t5_contract.py
           python scripts/test_t5_freight_contract.py
           python scripts/test_no_result_lock.py
+          python scripts/test_one_frozen.py
           python scripts/test_l4_wire.py
       - name: NO_RESULT paths
         run: |
