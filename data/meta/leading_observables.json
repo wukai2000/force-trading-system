@@ -261,11 +261,11 @@
     },
     {
       "id": "sofr",
-      "z": -0.4905,
+      "z": -0.5258,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-03",
-      "n": 2104,
+      "last_date": "2026-09-04",
+      "n": 2105,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -315,14 +315,14 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9266,
-      "last": "2026-09-03"
+      "rows": 9268,
+      "last": "2026-09-07"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4717,
-      "last": "2026-09-03"
+      "rows": 4718,
+      "last": "2026-09-04"
     },
     "T10Y2Y": {
       "ok": true,
@@ -399,8 +399,8 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2104,
-      "last": "2026-09-03"
+      "rows": 2105,
+      "last": "2026-09-04"
     },
     "DFF": {
       "ok": true,

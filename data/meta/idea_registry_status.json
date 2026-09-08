@@ -8,12 +8,13 @@
   "empty": false,
   "no_result": false,
   "awaiting_t5": true,
+  "t5_status": "NO_RESULT",
   "no_result_is_success": true,
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
   "capital": 0,
   "force4": "wait",
   "one_frozen_at_a_time": true,
-  "evidence_status": "frozen_awaiting_t5",
-  "note": "T0\u2013T4 frozen; instruments not attached. Prosecutor not run. Capital $0."
+  "evidence_status": "t5_no_result",
+  "note": "T0\u2013T4 frozen; T5 NO_RESULT is terminal this quarter. Capital $0."
 }
