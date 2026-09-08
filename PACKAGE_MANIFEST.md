@@ -1,8 +1,8 @@
-# force-trading-system-20260908-unit-cost-not-constructible
+# force-trading-system-20260908-oecd-eurostat-not-breakthrough
 
 Protocol lock. Not a trading release.
 
-- Verdict: NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION
-- T5 NO_RESULT retained
-- SBS/SPPI/ITIC/UNCTAD/BTS/CNR/Cass refused as cousins
-- No tickers, no FS-0002, CAPITAL=$0
+- OECD/Eurostat is not a unit-cost breakthrough
+- PUR_MEUR and ITF infrastructure spend are failed cousins
+- Two logos ≠ two independent tkm measurements
+- T5 NO_RESULT. CAPITAL=$0

@@ -26,7 +26,18 @@ COUSIN_TOKENS = (
     "turnover",
     "revenue_over_tkm",
     "fuel_expenditure",
+    "pur_meur",
+    "v13110",
+    "infrastructure investment",
+    "infrastructure spend",
+    "nama_10",
+    "coicop",
+    "cp07",
+    "hicp",
+    "cofog",
+    "purchases of goods",
 )
+
 
 
 class UnitCostError(RuntimeError):
@@ -61,7 +72,14 @@ def assert_not_constructible() -> Dict[str, Any]:
         raise UnitCostError("hypothesis is not the problem; do not require a new version")
     if int(spec.get("capital") or 0) != 0:
         raise UnitCostError("capital must be 0")
+    if spec.get("oecd_eurostat_breakthrough") is True:
+        raise UnitCostError("OECD/Eurostat is not a unit-cost breakthrough")
+    if (spec.get("closest_failed_candidate") or {}).get("status") != "failed":
+        raise UnitCostError("PUR_MEUR candidate must remain failed")
+    if spec.get("independent_geography", {}).get("oecd_vs_eurostat_tkm") != "same_common_questionnaire":
+        raise UnitCostError("OECD vs Eurostat tkm is the Common Questionnaire, not independence")
     return spec
+
 
 
 def refused_ids() -> List[str]:

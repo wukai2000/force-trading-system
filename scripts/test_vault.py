@@ -76,12 +76,27 @@ def test_unit_cost_not_constructible():
     spec = assert_not_constructible()
     assert spec["verdict"] == "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION"
     assert spec["t5_ready"] is False
-    assert spec["preregistered_construction_rule"] == "none"
-    assert spec["joint_cost_tkm_coverage"] == "empty"
+    assert spec["oecd_eurostat_breakthrough"] is False
+    assert spec["closest_failed_candidate"]["status"] == "failed"
+    assert spec["independent_geography"]["oecd_vs_eurostat_tkm"] == "same_common_questionnaire"
     ids = refused_ids()
-    for k in ("eurostat_sbs", "eurostat_sppi", "us_bts_revenue_per_ton_mile", "cass_drewry_bdi"):
+    for k in (
+        "eurostat_sbs",
+        "eurostat_sbs_pur_meur",
+        "itf_infrastructure_spend",
+        "eurostat_nama_10_a64",
+        "eurostat_coicop_cp07",
+        "eurostat_hicp_transport",
+    ):
         assert k in ids
-    for label in ("Eurostat SBS turnover", "SPPI road freight", "Cass Freight Index", "BTS ton-mile"):
+    for label in (
+        "Eurostat SBS turnover",
+        "PUR_MEUR / tkm",
+        "ITF infrastructure spend",
+        "COICOP CP07",
+        "HICP transport",
+        "nama_10_a64 output",
+    ):
         try:
             refuse_cousin(label)
             raise AssertionError(f"cousin {label} must be refused")
@@ -89,7 +104,9 @@ def test_unit_cost_not_constructible():
             pass
     text = (ROOT / "docs" / "FS-0001-UNIT-COST-AUDIT.md").read_text()
     assert "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION" in text
-    print("PASS unit cost not constructible; cousins refused; T5 stays NO_RESULT")
+    assert "Better ingredients are not a breakthrough" in text
+    print("PASS unit cost not constructible; OECD/Eurostat not a breakthrough")
+
 
 
 def main():

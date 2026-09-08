@@ -1,4 +1,4 @@
-# Locked 2026-09-08. Three independent audits. Not a T5 construction.
+# Locked 2026-09-08. Six independent audits. Not a T5 construction.
 force_id: FS-0001
 observable: resource_unit_cost
 frozen_definition: real_currency / tonne_km
@@ -9,6 +9,8 @@ new_version_required: false
 preregistered_construction_rule: none
 joint_cost_tkm_coverage: empty
 replication: failed
+oecd_eurostat_breakthrough: false
+better_ingredients_is_not_breakthrough: true
 capital: 0
 scannable: false
 
@@ -17,9 +19,20 @@ scannable: false
 # (ii) official tonne-km, at country × year × mode, without a proprietary
 # model layer. None found.
 
+closest_failed_candidate:
+  id: eurostat_sbs_pur_meur
+  formula: PUR_MEUR / official_tkm
+  status: failed
+  why: >
+    Intermediate purchases are not total economic cost of producing tkm.
+    Enterprise population ≠ territorial (or nationality) tkm population.
+    Using it would be a new version of Observable 2, not a rescue.
+
 refused_candidates:
   eurostat_sbs:
     reason: enterprise accounting ≠ territorial tkm; which SBS column is "cost" is Type B
+  eurostat_sbs_pur_meur:
+    reason: purchases of goods and services is intermediate expenditure, not frozen unit cost
   eurostat_sppi:
     reason: price index is not currency/tkm
   oecd_itic_cif_fob:
@@ -36,6 +49,16 @@ refused_candidates:
     reason: fuel is a stand-in, not frozen unit cost
   sbs_plus_us_bts_glue:
     reason: different objects glued to fake independence
+  itf_infrastructure_spend:
+    reason: capex/public O&M, passenger+freight network, not carrier operating unit cost
+  eurostat_nama_10_a64:
+    reason: NACE H production/GVA is mixed sector output, not freight unit cost
+  eurostat_coicop_cp07:
+    reason: household transport spending is mostly passenger
+  eurostat_hicp_transport:
+    reason: price index, not currency cost
+  eurostat_cofog_transport:
+    reason: government outlays, not carrier unit cost
 
 forbidden_conversions:
   - turnover_or_revenue_over_tkm
@@ -46,6 +69,11 @@ forbidden_conversions:
   - interpolate_sbs_confidentiality
   - splice_sbs_regimes_after_seeing_continuity
   - drop_countries_or_modes_after_seeing_breaks
+  - infrastructure_spend_over_tkm
+  - pur_meur_over_tkm
+  - nama_output_over_tkm
+  - household_cp07_over_tkm
+  - sppi_times_base_year_price
 
 type_a_locks_only:
   - named_base_year
@@ -57,9 +85,14 @@ independent_geography:
   tkm_multi_country: true
   cost_tkm_multi_country: false
   eu_as_second_system: false
-  note: EU SBS + EU tkm are the same European Statistical System.
+  oecd_vs_eurostat_tkm: same_common_questionnaire
+  note: >
+    EU SBS + EU tkm are the same European Statistical System.
+    OECD/ITF European tkm is largely the UNECE–ITF–Eurostat Common
+    Questionnaire. Two logos are not two independent cost measurements.
 
 consequence: >
-  T5 remains NO_RESULT. Data exist for the frozen denominator and for
-  several non-equivalent monetary cousins. Activating DATA_READY would
-  require shopping a cousin or rewriting "cost". Both are prohibited.
+  T5 remains NO_RESULT. The source class can freeze the denominator.
+  It cannot freeze a defensible currency-cost numerator that is the same
+  country, year, mode, and statistical population as that denominator.
+  Better ingredients are not a breakthrough.

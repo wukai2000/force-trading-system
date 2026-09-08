@@ -33,3 +33,22 @@ Reproducibility of an arbitrary formula does not rescue the definition. Two rese
 EU SBS + EU tkm are the same European Statistical System. That is not a second independent geography for the frozen numerator.
 
 Locked file: `force_learning/vault/unit_cost_audit.yaml`.
+
+## OECD / Eurostat is not a breakthrough
+
+Six independent audits (2026-09-08). Same verdict. New refused numerators:
+
+| Cousin | Why refused |
+|---|---|
+| ITF infrastructure investment / public maintenance | Capex + mixed passenger/freight network, not carrier operating cost |
+| SBS PUR_MEUR (purchases of goods and services) | Intermediate expenditure; enterprise ≠ territorial tkm population |
+| nama_10_a64 output / GVA / IC | Mixed NACE H production, not freight unit cost |
+| COICOP CP07 / HICP transport | Household/passenger prices and spending |
+| COFOG transport | Government outlays |
+
+SBS PUR_MEUR / tkm is the **closest failed candidate**. Recording it as a candidate is not authorization to freeze it. That would be a new version of Observable 2.
+
+OECD vs Eurostat European tkm is the UNECE–ITF–Eurostat Common Questionnaire. Two logos are not two independent measurements.
+
+Better ingredients are not a breakthrough.
+
