@@ -81,6 +81,12 @@ def _taxonomy() -> Dict[str, Any]:
     return _run_script("scripts/failfast_force_taxonomy.py")
 
 
+def _vault() -> Dict[str, Any]:
+    from force_learning.vault.vault import report
+
+    return report()
+
+
 def _ideas() -> Dict[str, Any]:
     from force_ideas.screen import empty_registry_is_success
 
@@ -128,6 +134,7 @@ def main() -> int:
     steps.append(_safe("failfast_taxonomy", _taxonomy))
     steps.append(_safe("idea_registry", _ideas))
     steps.append(_safe("fs0001_observatory", lambda: _run_script("scripts/run_observatory.py")))
+    steps.append(_safe("fs0001_vault", _vault))
     if not args.skip_nulls:
         steps.append(_safe("daily_negative_control", _daily_nulls))
     else:

@@ -1,0 +1,374 @@
+# Observable inventory for potential seeds. NOT admitted seeds.
+# Max 8 seeds still applies. FS-0001 occupies the frozen slot.
+# No tickers. No IR. No freeze. Cousins are marked refused.
+
+protocol_id: FORCE_PROTOCOL_v1.0
+cannot_promote: true
+capital: 0
+one_frozen_at_a_time: true
+admitted_as_seeds: false
+note: >
+  Inventory only. Admitting all 19 leftovers would be quota-filling.
+  Item 4 is already FS-0001. Item 10 is an F3 cousin.
+
+items:
+  - id: PX-01
+    title: Productivity-wage decoupling
+    origin_type: institutional_friction
+    mechanism: Rent capture via asymmetric bargaining power after automation/arbitrage.
+    falsifier: Real median wages rise in non-union tech/services during high automation and low scarcity, with no labor-law or bargaining change.
+    observables:
+      - name: real_median_wage
+        sign: -1
+        lead: contemporaneous
+        definition: Inflation-adjusted median wage in the named sector.
+      - name: output_per_hour
+        sign: +1
+        lead: leading
+        definition: Real output per hour; decoupling is productivity up, wage flat.
+      - name: labor_share
+        sign: -1
+        lead: contemporaneous
+        definition: Compensation as a share of sector value-added.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-02
+    title: Greedflation / margin expansion
+    origin_type: institutional_friction
+    mechanism: Focal-point coordination under public supply-shock narratives.
+    falsifier: Margins expand in price stability/deflation with no public cost-push narrative.
+    observables:
+      - name: corporate_profit_margin
+        sign: +1
+        lead: contemporaneous
+        definition: Sector operating margin, not a stock residual.
+      - name: unit_labor_cost
+        sign: +1
+        lead: leading
+        definition: Cost-push that should exist if the narrative is real; absence + margin up kills the story.
+      - name: headline_cost_narrative
+        sign: +1
+        lead: leading
+        definition: Presence of a shared public cost-push story (count/index), not a ticker.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-03
+    title: Sovereign debt without hyperinflation
+    origin_type: institutional_friction
+    mechanism: Safe-asset shortage; own-currency debt as collateral utility, not deferred tax.
+    falsifier: Low-inflation monetary sovereign sees runaway yields/currency collapse from debt/GDP alone, with no BoP deficit or supply shock.
+    observables:
+      - name: own_currency_debt_to_gdp
+        sign: +1
+        lead: leading
+        definition: Gross public debt in own currency / GDP.
+      - name: real_sovereign_yield
+        sign: 0
+        lead: contemporaneous
+        definition: Real bond yield; mechanism says it need not spike with debt/GDP.
+      - name: bop_deficit
+        sign: +1
+        lead: leading
+        definition: Absent BoP stress is required for the non-crisis claim.
+    cousin: none
+    seed_status: inventory_only
+    note: sign 0 on yields is "not predicted to rise"; freeze would need a signed T3.
+
+  - id: PX-04
+    title: Rebound / demand expansion after cost collapse
+    origin_type: contradiction
+    mechanism: Elastic demand for efficiency-enabled applications (|ε_d|>1).
+    falsifier: 50% unit-cost drop then net decrease in aggregate use in a mature unconstrained market.
+    observables:
+      - name: resource_efficiency_index
+        sign: +1
+        lead: leading
+      - name: resource_unit_cost
+        sign: -1
+        lead: leading
+      - name: aggregate_resource_use
+        sign: +1
+        lead: contemporaneous
+    cousin: none
+    seed_status: already_frozen
+    hypothesis_id: FS-0001
+    note: Already T0–T4 frozen. T5 NO_RESULT. Do not re-admit.
+
+  - id: PX-05
+    title: Labor shortages with stagnant real wages
+    origin_type: institutional_friction
+    mechanism: Pay-scale lock-in and public-formula rigidity.
+    falsifier: Unregulated private essential providers with flexible margins leave jobs unfilled for years without raising entry wages.
+    observables:
+      - name: vacancy_rate
+        sign: +1
+        lead: contemporaneous
+      - name: real_entry_wage
+        sign: -1
+        lead: contemporaneous
+        definition: Real starting wage in the constrained sector.
+      - name: pay_scale_rigidity
+        sign: +1
+        lead: leading
+        definition: Presence of formula/scale that reprices the whole workforce with entry pay.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-06
+    title: Super-app platform concentration
+    origin_type: technology_second_order
+    mechanism: Multi-sided data-liquidity loops; switching costs from network+data.
+    falsifier: Zero-cost privacy-focused open platform displaces the leader with no interoperability and no data portability.
+    observables:
+      - name: multi_homing_rate
+        sign: -1
+        lead: contemporaneous
+      - name: user_count
+        sign: +1
+        lead: leading
+      - name: data_moat_proxy
+        sign: +1
+        lead: contemporaneous
+        definition: Repeat-use / default-app share, not a FAANG ticker.
+    cousin: none
+    seed_status: inventory_only
+    note: Naming platform mega-caps on a seed is refused.
+
+
+  - id: PX-07
+    title: Unpaid care and GDP exclusion
+    origin_type: measurement_discontinuity
+    mechanism: Transaction-centric GDP omits non-market care by design.
+    falsifier: A major statistical agency folds household care into standard GDP without wrecking inflation/productivity/fiscal series.
+    observables:
+      - name: unpaid_care_hours
+        sign: +1
+        lead: contemporaneous
+      - name: gdp_ex_nonmarket
+        sign: +1
+        lead: contemporaneous
+        definition: Official GDP remaining exclusive of non-market care.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-08
+    title: Housing as speculative asset vs commodity
+    origin_type: physical_constraint
+    mechanism: Land inelasticity; prices raise leveraged demand faster than construction supplies shelter.
+    falsifier: Rapid price rise on strictly fixed land causes demand collapse back to construction cost.
+    observables:
+      - name: real_house_price
+        sign: +1
+        lead: contemporaneous
+      - name: housing_starts
+        sign: -1
+        lead: contemporaneous
+        definition: New shelter supply not keeping up; mechanism says prices can rise anyway.
+      - name: owner_occupier_share
+        sign: -1
+        lead: lagging
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-09
+    title: Baumol cost disease
+    origin_type: physical_constraint
+    mechanism: Non-standardizable human time must match wages set in scalable tech.
+    falsifier: A non-automated human service stays fully staffed and high-quality for decades with flat real wages vs software/engineering.
+    observables:
+      - name: relative_service_price
+        sign: +1
+        lead: contemporaneous
+      - name: service_labor_hours_per_output
+        sign: +1
+        lead: leading
+        definition: Hours per unit of teaching/nursing output; should stay high.
+      - name: tech_sector_real_wage
+        sign: +1
+        lead: leading
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-10
+    title: Longevity gap / pension inversion
+    origin_type: demographic
+    mechanism: PAYG depends on perpetual worker/retiree growth.
+    falsifier: PAYG stays solvent without tax/benefit/age changes while workers-per-retiree drops 50%.
+    observables:
+      - name: dependency_ratio
+        sign: +1
+        lead: leading
+      - name: pension_balance
+        sign: -1
+        lead: contemporaneous
+    cousin: f3_longevity_glp1
+    seed_status: refused_cousin
+    note: F3 neighborhood. Cousin = reject, not interesting variant.
+
+  - id: PX-11
+    title: Voluntary open-source
+    origin_type: human_observation
+    mechanism: Status/signaling plus near-zero reproduction cost.
+    falsifier: OSS contributions collapse when every PR is micro-monetized.
+    observables:
+      - name: unpaid_contribution_count
+        sign: +1
+        lead: contemporaneous
+      - name: reproduction_cost
+        sign: -1
+        lead: leading
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-12
+    title: Carbon-offset additionality failure
+    origin_type: institutional_friction
+    mechanism: Asymmetric information; neither buyer nor seller pays for true additionality.
+    falsifier: Unregulated private credit market with 100% verified additionality and zero double-count for five years.
+    observables:
+      - name: credit_issuance
+        sign: +1
+        lead: contemporaneous
+      - name: verified_additionality_rate
+        sign: -1
+        lead: contemporaneous
+        definition: Independent-audit pass rate; mechanism predicts it stays low.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-13
+    title: Bullshit jobs / managerial imperialism
+    origin_type: institutional_friction
+    mechanism: Prestige and pay tied to headcount, not output.
+    falsifier: PE-owned firms lose profit immediately when they cut admin layers staff call useless.
+    observables:
+      - name: admin_share_of_employment
+        sign: +1
+        lead: contemporaneous
+      - name: output_per_worker
+        sign: 0
+        lead: contemporaneous
+        definition: Flat/falling output per worker while admin share rises.
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-14
+    title: Algorithmic price collusion
+    origin_type: technology_second_order
+    mechanism: RL pricing learns Nash high-margin equilibria without human agreement.
+    falsifier: Competing RL pricers consistently go to marginal cost with no matching.
+    observables:
+      - name: posted_price_dispersion
+        sign: -1
+        lead: contemporaneous
+      - name: price_vs_marginal_cost
+        sign: +1
+        lead: contemporaneous
+    cousin: none
+    seed_status: inventory_only
+    note: Hard to measure without a named market; still no tickers on a seed.
+
+  - id: PX-15
+    title: Zero-cost digital content
+    origin_type: technology_second_order
+    mechanism: Attention/data monetization replaces nominal price.
+    falsifier: Users cut screen time to near zero when platforms go ad-supported without cash fees.
+    observables:
+      - name: time_spent
+        sign: +1
+        lead: contemporaneous
+      - name: cash_price
+        sign: -1
+        lead: leading
+      - name: ad_revenue_per_hour
+        sign: +1
+        lead: contemporaneous
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-16
+    title: Inflation stickiness vs policy rates
+    origin_type: physical_constraint
+    mechanism: Rate hikes cut capex and worsen supply in housing/energy, holding prices up.
+    falsifier: Aggressive hikes immediately drop rents in cities with severe housing shortage.
+    observables:
+      - name: policy_rate
+        sign: +1
+        lead: leading
+      - name: housing_starts
+        sign: -1
+        lead: contemporaneous
+      - name: real_rent
+        sign: +1
+        lead: lagging
+    cousin: none
+    seed_status: inventory_only
+    note: Do not rewrite as F2 AI-power. Housing-supply path only.
+
+  - id: PX-17
+    title: Personalized price discrimination
+    origin_type: technology_second_order
+    mechanism: Reservation-price inversion via tracking.
+    falsifier: Individualized pricing cuts total revenue because users clear profiles or find the public price.
+    observables:
+      - name: price_dispersion_across_users
+        sign: +1
+        lead: contemporaneous
+      - name: tracking_coverage
+        sign: +1
+        lead: leading
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-18
+    title: Paradox of thrift on sovereign accounts
+    origin_type: academic_mechanism
+    mechanism: Accounting identity; one agent's saving is another's lost income.
+    falsifier: Closed system where all agents raise cash savings 20% and Y, revenue, and employment all rise.
+    observables:
+      - name: private_saving_rate
+        sign: +1
+        lead: leading
+      - name: national_income
+        sign: -1
+        lead: contemporaneous
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-19
+    title: Cost-of-living salience
+    origin_type: human_observation
+    mechanism: Frequency-weighted heuristic overweighting food/fuel vs rare high-value prices.
+    falsifier: Inflation expectations track core perfectly while food/fuel double and electronics crash.
+    observables:
+      - name: food_fuel_inflation
+        sign: +1
+        lead: leading
+      - name: survey_inflation_expectation
+        sign: +1
+        lead: contemporaneous
+      - name: core_inflation
+        sign: 0
+        lead: contemporaneous
+    cousin: none
+    seed_status: inventory_only
+
+  - id: PX-20
+    title: E-waste / material disconnect
+    origin_type: physical_constraint
+    mechanism: Disposal costs externalized in time and space; prices reflect virgin extraction.
+    falsifier: Recycling hits 90%+ via free markets while virgin extraction stays cheaper.
+    observables:
+      - name: virgin_extraction_cost
+        sign: -1
+        lead: leading
+      - name: recycling_rate
+        sign: -1
+        lead: contemporaneous
+      - name: e_waste_tonnes
+        sign: +1
+        lead: contemporaneous
+    cousin: none
+    seed_status: inventory_only

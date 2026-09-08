@@ -1,0 +1,61 @@
+# Historical-data feasibility matrix. Not DATA_READY. Not an unlock.
+force_id: FS-0001
+t5_ready: false
+scannable: false
+prosecutor_allowed: false
+capital: 0
+episode_search: false
+target_window: "2000-2024"
+preferred_window: "1990-2024"
+do_not_force: "1970-2024"
+
+observables:
+  efficiency:
+    frozen_definition: tonne_km / energy
+    frozen_sign: +1
+    lead: leading
+    source: IEA_EEI
+    historical_depth: "2000-2024 claimed by IEA; not wired here"
+    geography: multi_country
+    frequency: annual
+    status: promising_unwired
+  unit_cost:
+    frozen_definition: real_currency / tonne_km
+    frozen_sign: -1
+    lead: leading
+    source: TBD
+    historical_depth: TBD
+    geography: TBD
+    frequency: annual
+    status: critical_blocker
+    refuse:
+      - freight_rate_as_unit_cost
+      - sppi
+      - fuel_price_index
+      - revenue_over_tkm
+      - cass_fred
+  aggregate_use:
+    frozen_definition: tonne_km
+    frozen_sign: +1
+    lead: contemporaneous
+    source: OECD_ITF
+    historical_depth: "potentially deep; coverage varies by country/mode; not a clean 1970 panel"
+    geography: multi_country
+    frequency: annual
+    status: promising_unwired
+  eu_geography:
+    source: Eurostat
+    geography: European_Union
+    status: promising_unwired
+    replacement_geography_allowed: false
+  cross_check:
+    source: World_Bank
+    role: independent_validation
+    may_replace_oecd: false
+    status: secondary
+
+layers:
+  raw: never_modified
+  harmonized: unit_conversions_only
+  frozen_observables: three_only
+  metadata: provenance_required

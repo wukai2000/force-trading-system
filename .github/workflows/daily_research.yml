@@ -45,6 +45,7 @@ jobs:
           python scripts/test_t5_freight_contract.py
           python scripts/test_no_result_lock.py
           python scripts/test_one_frozen.py
+          python scripts/test_vault.py
           python scripts/test_l4_wire.py
       - name: NO_RESULT paths
         run: |
@@ -85,6 +86,7 @@ jobs:
             data/meta/last_fetch.json
             data/meta/fs0001_lighting_contract.json
             data/meta/fs0001_t5_contract.json
+            data/meta/fs0001_vault.json
             docs/FS-0001-T5-DATA-CONTRACT-SNAPSHOT.md
           if-no-files-found: ignore
       - name: Commit meta JSON if changed
@@ -100,6 +102,7 @@ jobs:
             data/meta/last_fetch.json \
             data/meta/fs0001_lighting_contract.json \
             data/meta/fs0001_t5_contract.json \
+            data/meta/fs0001_vault.json \
             docs/FS-0001-T5-DATA-CONTRACT-SNAPSHOT.md \
             || true
           if git diff --cached --quiet; then

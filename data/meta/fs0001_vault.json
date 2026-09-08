@@ -1,0 +1,46 @@
+{
+  "as_of": "2026-09-08T15:27:02Z",
+  "force_id": "FS-0001",
+  "role": "historical_evidence_vault",
+  "t5_ready": false,
+  "scannable": false,
+  "prosecutor_allowed": false,
+  "capital": 0,
+  "episode_search": false,
+  "wired_panels": false,
+  "unit_cost_status": "critical_blocker",
+  "target_window": "2000-2024",
+  "rows": [
+    {
+      "observable": "efficiency",
+      "source": "IEA_EEI",
+      "status": "promising_unwired",
+      "depth": "2000-2024 claimed by IEA; not wired here"
+    },
+    {
+      "observable": "unit_cost",
+      "source": "TBD",
+      "status": "critical_blocker",
+      "depth": "TBD"
+    },
+    {
+      "observable": "aggregate_use",
+      "source": "OECD_ITF",
+      "status": "promising_unwired",
+      "depth": "potentially deep; coverage varies by country/mode; not a clean 1970 panel"
+    },
+    {
+      "observable": "eu_geography",
+      "source": "Eurostat",
+      "status": "promising_unwired",
+      "depth": ""
+    },
+    {
+      "observable": "cross_check",
+      "source": "World_Bank",
+      "status": "secondary",
+      "depth": ""
+    }
+  ],
+  "note": "Acquisition only. No invented tkm panel. No episode hunt. T5_NO_RESULT remains. Capital $0."
+}
