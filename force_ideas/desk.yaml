@@ -14,8 +14,10 @@ force4: wait
 one_frozen_at_a_time: true
 research_state: T5_NO_RESULT
 cannot_promote: true
-vault_authorized: true
-vault_is_not_t5_activation: true
+historical_feasibility: INVESTIGATED
+aggregate_use_oecd_wired: true
+unit_cost_status: critical_blocker
+
 note: >
   T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
   immutable. Historical vault may collect source files without unlocking

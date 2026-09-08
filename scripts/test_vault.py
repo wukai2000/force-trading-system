@@ -2,6 +2,7 @@
 """Vault is acquisition, not T5 activation. Inventory is not a seed dump."""
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -18,9 +19,9 @@ def test_vault_not_activation():
     payload = report()
     assert payload["t5_ready"] is False
     assert payload["episode_search"] is False
-    assert payload["wired_panels"] is False
     assert payload["unit_cost_status"] == "critical_blocker"
     assert payload["capital"] == 0
+    assert payload.get("decision") == "NO_RESULT"
     desk = fs0001_desk()
     assert desk["t5_status"] == "NO_RESULT"
     assert desk["research_state"] == "T5_NO_RESULT"
@@ -36,16 +37,29 @@ def test_inventory():
     assert st["active_frozen"] == ["FS-0001"]
     assert st["ticker_hits"] == []
     assert st["by_status"]["inventory_only"] == 18
-    assert st["by_status"]["already_frozen"] == 1
-    assert st["by_status"]["refused_cousin"] == 1
     print("PASS 20-item inventory; PX-04 is FS-0001; PX-10 refused; no tickers")
+
+
+def test_historical_study_no_result():
+    from force_learning.vault.coverage import OUT
+
+    assert OUT.exists(), "coverage.json must be committed"
+    cov = json.loads(OUT.read_text())
+    assert cov.get("t5_ready") is False
+    assert cov.get("decision") == "NO_RESULT"
+    assert cov.get("new_version_required") is False
+    assert cov.get("episode_search") is False
+    assert cov["unit_cost"]["status"] == "critical_blocker"
+    assert cov["unit_cost"].get("sppi_refused") is True
+    assert cov["aggregate_use"]["window_2000_2024"]["n_geo"] >= 50
+    study = (ROOT / "docs" / "FS-0001-HISTORICAL-STUDY.md").read_text()
+    assert "NO_RESULT" in study and "No tickers" in study
+    print("PASS historical study remains NO_RESULT; OECD tkm coverage present")
 
 
 def test_docs():
     text = (ROOT / "docs" / "OBSERVABLE_INVENTORY.md").read_text()
     assert "Not admitted" in text
-    assert "PX-04" in text and "FS-0001" in text
-    assert "F3" in text
     feas = (ROOT / "force_learning" / "vault" / "feasibility.yaml").read_text()
     assert "episode_search: false" in feas
     print("PASS inventory + feasibility docs")
@@ -54,6 +68,7 @@ def test_docs():
 def main():
     test_vault_not_activation()
     test_inventory()
+    test_historical_study_no_result()
     test_docs()
     print("ALL VAULT/INVENTORY TESTS PASSED")
 

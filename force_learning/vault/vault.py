@@ -66,6 +66,13 @@ def inventory_rows() -> List[Dict[str, str]]:
 def report() -> Dict[str, Any]:
     assert_not_activation()
     spec = load_feasibility()
+    from .coverage import build as coverage_build, OUT as COVERAGE_OUT
+
+    coverage = {}
+    if (VAULT / "raw" / "oecd_itf_trendsfreight.csv").exists():
+        coverage = coverage_build()
+    elif COVERAGE_OUT.exists():
+        coverage = json.loads(COVERAGE_OUT.read_text())
     payload = {
         "as_of": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "force_id": "FS-0001",
@@ -75,15 +82,23 @@ def report() -> Dict[str, Any]:
         "prosecutor_allowed": False,
         "capital": 0,
         "episode_search": False,
-        "wired_panels": False,
+        "wired_panels": bool((coverage.get("aggregate_use") or {}).get("wired")),
         "unit_cost_status": spec["observables"]["unit_cost"]["status"],
+        "decision": coverage.get("decision") or "NO_RESULT",
+        "new_version_required": False,
         "target_window": spec.get("target_window"),
         "rows": inventory_rows(),
+        "coverage": {
+            "oecd_window_2000_2024": (coverage.get("aggregate_use") or {}).get("window_2000_2024"),
+            "iea": coverage.get("efficiency"),
+            "unit_cost": coverage.get("unit_cost"),
+        },
         "note": (
-            "Acquisition only. No invented tkm panel. No episode hunt. "
-            "T5_NO_RESULT remains. Capital $0."
+            "Acquisition + coverage only. OECD tkm is wired. IEA energy is not. "
+            "Unit cost remains the blocker. T5_NO_RESULT remains. Capital $0."
         ),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2))
     return payload
+

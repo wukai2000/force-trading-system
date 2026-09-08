@@ -49,6 +49,11 @@ force-trading-system-*.tar.gz
 *.swp
 *~
 
-# Force residual series are large; prefer GitHub LFS or Drive for full history.
-# Keep gates and summaries tracked.
-# data/force*/force*_daily_residual.csv  # uncomment if size becomes issue
+# Historical vault raw extracts (hashed in metadata; re-fetch via scripts)
+force_learning/vault/raw/*.csv
+force_learning/vault/raw/*.bin
+force_learning/vault/raw/worldbank_rail_tkm.json
+force_learning/vault/raw/oecd_itf_structure.json
+!force_learning/vault/raw/probes.json
+!force_learning/vault/raw/.gitkeep
+

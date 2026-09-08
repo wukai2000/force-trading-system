@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**T5 status: NO_RESULT (terminal for 2026-Q3).** Historical Evidence Vault may collect IEA/OECD/Eurostat files without unlocking T5. World Bank is a cross-check, not a primary. 20-paradox list is an **observable inventory**, not 19 new seeds. PX-04 is FS-0001. PX-10 is an F3 cousin. Capital $0.
+**T5 status: NO_RESULT after historical study (2026-09-08).** OECD/ITF tkm is coverage-wired (2000–2024, 55 geos). IEA energy 403. Unit cost still the blocker. No FS-0002. No episodes. Capital $0.
+
 
 
 

@@ -39,10 +39,11 @@ observables:
     frozen_sign: +1
     lead: contemporaneous
     source: OECD_ITF
-    historical_depth: "potentially deep; coverage varies by country/mode; not a clean 1970 panel"
+    historical_depth: "2000-2024 coverage-wired from DF_TRENDSFREIGHT; 1970 exists but missingness is structural"
     geography: multi_country
     frequency: annual
-    status: promising_unwired
+    status: coverage_wired
+
   eu_geography:
     source: Eurostat
     geography: European_Union

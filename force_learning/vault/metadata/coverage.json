@@ -1,0 +1,127 @@
+{
+  "as_of": "2026-09-08T16:33:20Z",
+  "force_id": "FS-0001",
+  "episode_search": false,
+  "t5_ready": false,
+  "decision": "NO_RESULT",
+  "new_version_required": false,
+  "reason": "Aggregate tkm is now coverage-wired from OECD/ITF. IEA energy is 403. No currency/tkm series in the OECD freight file. Unit cost remains the blocker. Three-observable contract is not satisfied.",
+  "efficiency": {
+    "status": "unwired",
+    "source": "IEA_EEI",
+    "http": 403
+  },
+  "unit_cost": {
+    "status": "critical_blocker",
+    "currency_in_oecd_tkm_file": false,
+    "sppi_refused": true
+  },
+  "aggregate_use": {
+    "wired": true,
+    "unit": "million_tkm",
+    "source": "OECD.ITF DSD_TRENDS@DF_TRENDSFREIGHT",
+    "currency_present": false,
+    "energy_present": false,
+    "all_nonmissing": {
+      "n_obs": 10542,
+      "n_geo": 55,
+      "n_years": 55,
+      "year_min": 1970,
+      "year_max": 2024,
+      "n_geo_mode_year": 10542,
+      "estimated": 273,
+      "breaks": 178
+    },
+    "window_2000_2024": {
+      "n_obs": 5339,
+      "n_geo": 55,
+      "n_years": 25,
+      "year_min": 2000,
+      "year_max": 2024,
+      "n_geo_mode_year": 5339,
+      "estimated": 155,
+      "breaks": 115
+    },
+    "eu_2000_2024": {
+      "n_obs": 2735,
+      "n_geo": 25,
+      "n_years": 25,
+      "year_min": 2000,
+      "year_max": 2024,
+      "n_geo_mode_year": 2735,
+      "estimated": 49,
+      "breaks": 68
+    },
+    "by_mode_2000_2024": {
+      "COASTAL": {
+        "n_obs": 448,
+        "n_geo": 23
+      },
+      "IWW": {
+        "n_obs": 634,
+        "n_geo": 29
+      },
+      "PIPE": {
+        "n_obs": 717,
+        "n_geo": 34
+      },
+      "RAIL": {
+        "n_obs": 1240,
+        "n_geo": 54
+      },
+      "ROAD": {
+        "n_obs": 1188,
+        "n_geo": 52
+      },
+      "TOT_INL": {
+        "n_obs": 1112,
+        "n_geo": 51
+      }
+    },
+    "sha256": "4b701c02b7612b8643aae39df5f7ff6c35d1b94a6cc72218947526a173ede2a5",
+    "n_bytes": 3274978
+  },
+  "eu_geography": {
+    "named": "European_Union",
+    "oecd_eu_2000_2024": {
+      "n_obs": 2735,
+      "n_geo": 25,
+      "n_years": 25,
+      "year_min": 2000,
+      "year_max": 2024,
+      "n_geo_mode_year": 2735,
+      "estimated": 49,
+      "breaks": 68
+    },
+    "eurostat_rail": {
+      "wired": true,
+      "unit": "million_tkm",
+      "source": "ESTAT:RAIL_GO_TOTAL",
+      "window_2000_2024": {
+        "n_obs": 646,
+        "n_geo": 37,
+        "n_years": 21,
+        "year_min": 2004,
+        "year_max": 2024,
+        "n_geo_mode_year": 646,
+        "estimated": 0,
+        "breaks": 1
+      },
+      "sha256": "bc2bbf848a95decbaa86a42d0a65e895c78ed6be30bf436d30b3ad55443775b3",
+      "n_bytes": 97851
+    }
+  },
+  "cross_check": {
+    "wired": true,
+    "role": "cross_check_not_primary",
+    "indicator": "IS.RRS.GOOD.MT.K6",
+    "n_obs": 2710,
+    "n_geo": 142,
+    "year_min": 1995,
+    "year_max": 2021,
+    "sha256": "c58771f8042ade3b2a1113e790f352b9a782933c7b8b4f736ac97a4146ea06ae",
+    "n_bytes": 4033943
+  },
+  "cannot_promote": true,
+  "capital": 0
+}

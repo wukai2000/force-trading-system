@@ -1,0 +1,65 @@
+[
+  {
+    "name": "oecd_itf_trendsfreight",
+    "url": "https://sdmx.oecd.org/public/rest/data/OECD.ITF,DSD_TRENDS@DF_TRENDSFREIGHT,/.A.....?dimensionAtObservation=AllDimensions",
+    "status_code": 200,
+    "content_type": "application/vnd.sdmx.data+csv; charset=utf-8; labels=both",
+    "n_bytes": 3274978,
+    "ok": true,
+    "path": "force_learning/vault/raw/oecd_itf_trendsfreight.csv"
+  },
+  {
+    "name": "oecd_itf_structure",
+    "url": "https://sdmx.oecd.org/public/rest/dataflow/OECD.ITF/DSD_TRENDS@DF_TRENDSFREIGHT/?references=all",
+    "status_code": 200,
+    "content_type": "application/vnd.sdmx.structure+json; version=1.0; charset=utf-8",
+    "n_bytes": 611884,
+    "ok": true,
+    "path": "force_learning/vault/raw/oecd_itf_structure.json"
+  },
+  {
+    "name": "eurostat_road_go_ta_tott",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/road_go_ta_tott?format=SDMX-CSV&compressed=false",
+    "status_code": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=1.0.0",
+    "n_bytes": 6292720,
+    "ok": true,
+    "path": "force_learning/vault/raw/eurostat_road_go_ta_tott.csv"
+  },
+  {
+    "name": "eurostat_rail_go_total",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/rail_go_total?format=SDMX-CSV&compressed=false",
+    "status_code": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=1.0.0",
+    "n_bytes": 97851,
+    "ok": true,
+    "path": "force_learning/vault/raw/eurostat_rail_go_total.csv"
+  },
+  {
+    "name": "worldbank_rail_tkm",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/IS.RRS.GOOD.MT.K6?format=json&per_page=20000",
+    "status_code": 200,
+    "content_type": "application/json;charset=utf-8",
+    "n_bytes": 4033943,
+    "ok": true,
+    "path": "force_learning/vault/raw/worldbank_rail_tkm.json"
+  },
+  {
+    "name": "iea_eei_landing",
+    "url": "https://www.iea.org/data-and-statistics/data-product/energy-end-uses-and-efficiency-indicators",
+    "status_code": 403,
+    "content_type": "text/html; charset=UTF-8",
+    "n_bytes": 5858,
+    "ok": false,
+    "head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+    "name": "eurostat_sppi_road_freight",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/sts_sepp_a?format=SDMX-CSV&compressed=false",
+    "status_code": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=1.0.0",
+    "n_bytes": 6000604,
+    "ok": true,
+    "path": "force_learning/vault/raw/eurostat_sppi_road_freight.csv"
+  }
+]

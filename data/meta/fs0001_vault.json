@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-08T15:27:02Z",
+  "as_of": "2026-09-08T16:33:20Z",
   "force_id": "FS-0001",
   "role": "historical_evidence_vault",
   "t5_ready": false,
@@ -7,8 +7,10 @@
   "prosecutor_allowed": false,
   "capital": 0,
   "episode_search": false,
-  "wired_panels": false,
+  "wired_panels": true,
   "unit_cost_status": "critical_blocker",
+  "decision": "NO_RESULT",
+  "new_version_required": false,
   "target_window": "2000-2024",
   "rows": [
     {
@@ -26,8 +28,8 @@
     {
       "observable": "aggregate_use",
       "source": "OECD_ITF",
-      "status": "promising_unwired",
-      "depth": "potentially deep; coverage varies by country/mode; not a clean 1970 panel"
+      "status": "coverage_wired",
+      "depth": "2000-2024 coverage-wired from DF_TRENDSFREIGHT; 1970 exists but missingness is structural"
     },
     {
       "observable": "eu_geography",
@@ -42,5 +44,27 @@
       "depth": ""
     }
   ],
-  "note": "Acquisition only. No invented tkm panel. No episode hunt. T5_NO_RESULT remains. Capital $0."
+  "coverage": {
+    "oecd_window_2000_2024": {
+      "n_obs": 5339,
+      "n_geo": 55,
+      "n_years": 25,
+      "year_min": 2000,
+      "year_max": 2024,
+      "n_geo_mode_year": 5339,
+      "estimated": 155,
+      "breaks": 115
+    },
+    "iea": {
+      "status": "unwired",
+      "source": "IEA_EEI",
+      "http": 403
+    },
+    "unit_cost": {
+      "status": "critical_blocker",
+      "currency_in_oecd_tkm_file": false,
+      "sppi_refused": true
+    }
+  },
+  "note": "Acquisition + coverage only. OECD tkm is wired. IEA energy is not. Unit cost remains the blocker. T5_NO_RESULT remains. Capital $0."
 }
