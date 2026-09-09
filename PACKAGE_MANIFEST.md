@@ -1,6 +1,6 @@
-# force-trading-system-20260909-pair-census
+# force-trading-system-20260909-cand-eval-refused
 
-- Observable-pair census is inventory only
-- Freight not abandoned; IEA still 403 / 0 pairs
-- Steel/cement/electricity OPEN, not excellent, not A/B
-- No new freeze. CAPITAL=$0
+- CAND-01 electricity is not Grade A (fossil / total generation is mix)
+- Freight is not REJECTED
+- Immediate testing lead: none. Hostile test: not permitted
+- CAPITAL=$0

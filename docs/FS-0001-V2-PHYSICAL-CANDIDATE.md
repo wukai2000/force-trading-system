@@ -51,6 +51,7 @@ Do not abandon freight. Do not swap the domain because IEA returned 403.
 
 A named census exists at [observable_pairs.yaml](../force_ideas/inventory/observable_pairs.yaml). Steel, cement, aluminium, electricity are **OPEN and unscored**. None are excellent. None are A/B. Electricity carries mix contamination. Data/comms is REJECT. Labor/water/land/compute not opened this quarter.
 
-Rank by measurement integrity after an official extract. Attractiveness ranking is refused. This is not a new freeze and not FS-0001.v3.
+A 2026-09-09 memo graded US EIA fossil-input / total generation as **A QUALIFIED** and freight as **D REJECTED**, then named electricity the testing lead. That is a domain swap plus a mix-contaminated ratio. Fossil heat into the power sector divided by *total* net generation falls when nuclear, hydro, or renewables are added. That is not a heat rate and not Grade A. Labor-hours per tonne of steel is a different resource than energy. USGS+Census ammonia is a splice. Freight stays **X / not abandoned**. Immediate testing lead: **none**. Hostile test: **not permitted**.
+
 
 

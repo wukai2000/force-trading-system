@@ -95,9 +95,11 @@ pairs:
     grade: OPEN
     status: OPEN
     excellent: false
+    note: Clinker vs finished-cement boundary is a real C concern. Not extracted. Not A/B.
 
   - id: OP-05
     domain: aluminium
+
     resource_requirement: energy / tonne aluminium
     capability_unit: aluminium
     activity_outcome: tonnes aluminium
@@ -122,8 +124,13 @@ pairs:
     status: OPEN
     excellent: false
     mix_contamination: true
-    note: Fuel/MWh falls with mix shift (renewables, nuclear) without a
-      capability becoming cheaper to operate. Not a freeze candidate.
+    qualified: false
+    fossil_input_over_total_generation: refused
+    note: >
+      Fuel/MWh falls with mix shift (renewables, nuclear, coal-to-gas) without
+      a capability becoming cheaper to operate. Fossil input / total generation
+      is not a heat rate. Not Grade A. Not a testing lead.
+
 
   - id: OP-07
     domain: passenger_transport
@@ -158,6 +165,28 @@ refused:
   - silent_v2_domain_swap
   - abandoning_freight_because_403
   - A_or_B_grade_without_official_extract
+  - cand01_electricity_grade_A
+  - cand02_labor_steel_grade_A
+  - cand03_ammonia_usgs_census_splice
+  - cand04_transistor_density_as_force
+  - cand06_freight_rejected
+  - fossil_input_over_total_generation
+  - labor_hours_as_v2_resource
+  - immediate_testing_lead
+  - hostile_test_before_extract
+  - reporting_intensity_direction_during_qualification
+
+immediate_testing_lead: none
+hostile_test_permitted: false
+
+memo_20260909_cand_eval:
+  CAND-01: {grade: OPEN, qualified: false, reason: mix_and_fossil_over_total}
+  CAND-02: {grade: OPEN, qualified: false, reason: labor_is_not_v2_energy}
+  CAND-03: {grade: D, qualified: false, reason: census_usgs_splice}
+  CAND-04: {grade: REJECT, qualified: false, reason: y_is_density_transform}
+  CAND-05: {grade: OPEN, qualified: false, reason: clinker_boundary_unextracted}
+  CAND-06: {grade: X, qualified: false, abandoned: false, reason: cube_not_obtained_is_not_reject}
+
 
 not_opened_this_quarter:
   - labor_hours_per_output

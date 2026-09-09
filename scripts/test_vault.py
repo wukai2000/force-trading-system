@@ -154,13 +154,19 @@ def test_pair_census():
     assert by["OP-01"]["grade"] == "X"
     assert by["OP-03"]["excellent"] is False
     assert by["OP-04"]["excellent"] is False
+    assert by["OP-06"]["qualified"] is False
     assert by["OP-06"]["mix_contamination"] is True
-    assert by["OP-08"]["grade"] == "REJECT"
+    assert spec["immediate_testing_lead"] == "none"
+    assert spec["hostile_test_permitted"] is False
+    assert spec["memo_20260909_cand_eval"]["CAND-01"]["qualified"] is False
+    assert spec["memo_20260909_cand_eval"]["CAND-06"]["abandoned"] is False
+    assert "cand01_electricity_grade_A" in spec["refused"]
     assert not any(p.get("grade") in ("A", "B") for p in spec["pairs"])
-    assert "silent_v2_domain_swap" in spec["refused"]
     frozen_dir = ROOT / "force_ideas" / "frozen"
     assert list(frozen_dir.glob("*.yaml")) == [frozen_dir / "FS-0001.v1.yaml"]
-    print("PASS pair census is inventory; freight not abandoned; no excellent grades")
+    print("PASS pair census; electricity not A; freight not rejected; no testing lead")
+
+
 
 
 

@@ -51,12 +51,31 @@ def assert_census() -> Dict[str, Any]:
         raise PairCensusError("data/comms stays REJECT")
     if by_id["OP-06"].get("mix_contamination") is not True:
         raise PairCensusError("electricity mix contamination must be flagged")
+    if by_id["OP-06"].get("qualified") is True:
+        raise PairCensusError("electricity is not qualified")
+    if by_id["OP-06"].get("fossil_input_over_total_generation") != "refused":
+        raise PairCensusError("fossil/total generation is not a heat rate")
+    if spec.get("immediate_testing_lead") not in (None, "none"):
+        raise PairCensusError("no immediate testing lead")
+    if spec.get("hostile_test_permitted") is True:
+        raise PairCensusError("hostile test before extract is refused")
+    evals = spec.get("memo_20260909_cand_eval") or {}
+    if evals.get("CAND-01", {}).get("qualified") is True:
+        raise PairCensusError("CAND-01 is not Grade A")
+    if evals.get("CAND-06", {}).get("abandoned") is True:
+        raise PairCensusError("freight is not rejected")
     refused = spec.get("refused") or []
+
     for tok in (
         "ranking_by_economic_attractiveness",
         "silent_v2_domain_swap",
         "abandoning_freight_because_403",
         "new_frozen_id",
+        "cand01_electricity_grade_A",
+        "immediate_testing_lead",
+        "hostile_test_before_extract",
+        "fossil_input_over_total_generation",
+
     ):
         if tok not in refused:
             raise PairCensusError(f"missing refuse: {tok}")
