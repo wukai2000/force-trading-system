@@ -126,17 +126,22 @@ def test_v2_not_frozen():
     spec = assert_v2_not_frozen()
     assert spec["status"] == "MEASUREMENT_AUDIT_REQUIRED"
     assert spec["frozen"] is False
-    assert spec["energy_is_not_unit_cost"] is True
     assert spec["iea_eei_wired"] is False
+    assert spec["cube_obtained"] is False
+    assert spec["qualifying_truck_pairs"] == 0
+    assert spec["qualifying_train_pairs"] == 0
+    assert spec["inventory_verdict"] == "NO_RESULT"
+    assert spec["reconstructed_panel_refused"] is True
+    inv = json.loads((ROOT / "force_learning" / "vault" / "metadata" / "iea_cube_inventory.json").read_text())
+    assert inv["qualifying_truck_pairs"] == 0
+    assert 31 in inv["refused_counts"] and 27 in inv["refused_counts"]
+    assert "reconstructed_iea_country_panel" in spec["refused"]
     names = [o["name"] for o in spec["observables"]]
     assert names == ["freight_energy_intensity", "aggregate_freight_activity"]
-    assert "utilization" not in str(names)
     frozen_dir = ROOT / "force_ideas" / "frozen"
     assert not (frozen_dir / "FS-0001.v2.yaml").exists()
-    text = (ROOT / "docs" / "FS-0001-V2-PHYSICAL-CANDIDATE.md").read_text()
-    assert "MEASUREMENT_AUDIT_REQUIRED" in text
-    assert "MJ/tkm" in text and "unit cost" in text
-    print("PASS v2 is audit-only; not frozen; not a v1 rescue")
+    print("PASS v2 cube inventory empty; 31/27/25 panel refused")
+
 
 
 

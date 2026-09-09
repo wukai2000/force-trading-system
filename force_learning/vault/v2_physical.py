@@ -1,14 +1,19 @@
 """FS-0001.v2 is a measurement-audit candidate. Not a freeze. Not a v1 rescue."""
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Dict
+
 
 import yaml
 
 from force_ideas.state import active_frozen_forces, fs0001_desk
 
 CAND = Path(__file__).resolve().parents[2] / "force_ideas" / "candidates" / "FS-0001.v2.yaml"
+INV = Path(__file__).resolve().parent / "metadata" / "iea_cube_inventory.json"
+
+
 
 
 class V2Error(RuntimeError):
@@ -53,4 +58,17 @@ def assert_v2_not_frozen() -> Dict[str, Any]:
         raise V2Error("v2 audit cannot reopen v1 T5")
     if int(spec.get("capital") or 0) != 0 or int(desk.get("capital") or 0) != 0:
         raise V2Error("capital must be 0")
+    inv = json.loads(INV.read_text())
+    if inv.get("cube_obtained") is True or spec.get("cube_obtained") is True:
+        raise V2Error("IEA cube was not obtained this run")
+    for key in ("qualifying_truck_pairs", "qualifying_train_pairs", "qualifying_both"):
+        if int(inv.get(key) or 0) != 0 or int(spec.get(key) or 0) != 0:
+            raise V2Error(f"{key} must be 0 until the real cube is enumerated")
+    if inv.get("inventory_verdict") != "NO_RESULT":
+        raise V2Error("empty inventory is NO_RESULT, not SUFFICIENT")
+    if inv.get("reconstructed_panel_refused") is not True:
+        raise V2Error("fabricated 31/27/25 panel is refused")
+    if inv.get("direction_filter_applied") is True:
+        raise V2Error("FILTER 2 cannot run on an empty FILTER 1 universe")
     return spec
+

@@ -30,3 +30,20 @@ Three audits agree: MJ/tkm (IEA `ENERGY_INT_TKM`, freight trucks and trains sepa
 Intensity uses tkm in the denominator. Conceptual independence ≠ algebraic independence. Disclose it. If a later freeze review requires strict algebraic independence, v2 returns NO_RESULT rather than residualizing the overlap.
 
 Until country×mode continuous IEA pairs are tabulated from the actual cube — without keeping countries because intensity falls — the stack is a design, not a dataset.
+
+## Cube inventory (2026-09-09)
+
+| Metric | Count |
+|---|---:|
+| Qualifying truck pairs | **0** |
+| Qualifying train pairs | **0** |
+| Both | **0** |
+
+The licensed cube was not obtained. Highlights are a sparse index, not annual, not freight-train intensity. FILTER 2 (direction) was not applied.
+
+A third memo reported 31/27/25 country pairs with start/end intensities. That panel is **refused**. It is not the cube. Do not load it.
+
+IEA docs: freight-train energy is often included in passenger trains. Total-rail energy + freight tkm is incompatible.
+
+Inventory verdict: **NO_RESULT**. v2 is still not frozen. v1 T5 stays NO_RESULT.
+

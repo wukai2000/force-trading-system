@@ -16,6 +16,15 @@ v1_monetary_path: CLOSED
 energy_is_not_unit_cost: true
 iea_eei_wired: false
 iea_http: 403
+cube_obtained: false
+qualifying_truck_pairs: 0
+qualifying_train_pairs: 0
+qualifying_both: 0
+inventory_verdict: NO_RESULT
+reconstructed_panel_refused: true
+freight_rail_energy_often_in_passenger_trains: true
+highlights_fail_continuity: true
+
 
 t0: >
   When the energy required to deliver one tonne-kilometre of freight falls,
@@ -53,6 +62,12 @@ refused:
   - lag_search_over_k
   - treating_mj_tkm_as_v1_unit_cost
   - silent_freeze
+  - reconstructed_iea_country_panel
+  - highlights_index_as_cube
+  - total_rail_energy_with_freight_tkm
+  - direction_filter_before_qualifying_universe
+  - plus_minus_2pct_direction_rule
+
 
 unresolved_before_freeze:
   - iea_truck_energy_tkm_continuous_pairs

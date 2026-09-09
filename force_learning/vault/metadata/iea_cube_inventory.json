@@ -1,0 +1,16 @@
+{
+  "as_of": "2026-09-09",
+  "dataset": "IEA Energy End-uses and Efficiency Indicators — Transport",
+  "cube_obtained": false,
+  "iea_http": 403,
+  "highlights_are_not_the_cube": true,
+  "qualifying_truck_pairs": 0,
+  "qualifying_train_pairs": 0,
+  "qualifying_both": 0,
+  "declining_subset": null,
+  "direction_filter_applied": false,
+  "inventory_verdict": "NO_RESULT",
+  "reconstructed_panel_refused": true,
+  "refused_counts": [31, 27, 25, 41, 22, 19],
+  "note": "No licensed cube extract. Highlights fail continuity. Do not invent country pairs. FILTER 2 (direction) is not applied to an empty FILTER 1 universe."
+}

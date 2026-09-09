@@ -1,8 +1,6 @@
-# force-trading-system-20260909-v2-audit-candidate
+# force-trading-system-20260909-iea-cube-empty
 
-Not a freeze. Not a trading release.
-
-- FS-0001.v2 status: MEASUREMENT_AUDIT_REQUIRED
-- MJ/tkm is not unit cost; v1 monetary path CLOSED
-- Frozen slot still FS-0001.v1 / T5 NO_RESULT
-- CAPITAL=$0
+- IEA cube not obtained. Qualifying truck/train pairs: 0 / 0
+- Reconstructed 31/27/25 panel refused
+- Highlights are not the cube
+- v2 still not frozen. v1 T5 NO_RESULT. CAPITAL=$0
