@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**Observable-pair census:** inventory only. Freight not abandoned. Steel/cement/electricity OPEN, not excellent. No A/B without extract.
+**Unfrozen discovery:** observatory only. UD-01/02 parked as PROMISING_FOR_T0_REVIEW, not frozen. Grid/queue is F2, not a new Force. Next op is series-id inventory only — no lag peek.
+
 
 
 

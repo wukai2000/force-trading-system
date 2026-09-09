@@ -25,7 +25,10 @@ v2_frozen: false
 v2_inventory_verdict: NO_RESULT
 v2_qualifying_pairs: 0
 v2_freight_abandoned: false
-observable_pair_census: inventory_only
+unfrozen_discovery: OBSERVATORY
+new_frozen_forces_this_quarter: 0
+grid_queue_promising: false
+
 
 
 

@@ -53,5 +53,11 @@ A named census exists at [observable_pairs.yaml](../force_ideas/inventory/observ
 
 A 2026-09-09 memo graded US EIA fossil-input / total generation as **A QUALIFIED** and freight as **D REJECTED**, then named electricity the testing lead. That is a domain swap plus a mix-contaminated ratio. Fossil heat into the power sector divided by *total* net generation falls when nuclear, hydro, or renewables are added. That is not a heat rate and not Grade A. Labor-hours per tonne of steel is a different resource than energy. USGS+Census ammonia is a splice. Freight stays **X / not abandoned**. Immediate testing lead: **none**. Hostile test: **not permitted**.
 
+## Unfrozen discovery (not v2)
+
+Utilization → capacity and inventory → flow are distinct from FS-0001. They are **not** a v2 mutation and **not** frozen. Grid thermal loading + interconnection queues are F2, not PROMISING. ENTSO-E / EIA-930 are mid-2010s, not 1990. IEA MODS is licensed. Next operation is a series-id list for at most three plant classes, with co-movement uninspected.
+
+
+
 
 

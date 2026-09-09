@@ -1,6 +1,7 @@
-# force-trading-system-20260909-cand-eval-refused
+# force-trading-system-20260909-unfrozen-discovery
 
-- CAND-01 electricity is not Grade A (fossil / total generation is mix)
-- Freight is not REJECTED
-- Immediate testing lead: none. Hostile test: not permitted
+- Observatory only. Zero new frozen Forces. No T0.
+- UD-01/02 parked PROMISING_FOR_T0_REVIEW, lag test not permitted
+- Grid/queue = F2 duplicate, not PROMISING
+- Next: series-id inventory only, no co-movement peek
 - CAPITAL=$0

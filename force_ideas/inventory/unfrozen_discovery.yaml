@@ -1,0 +1,142 @@
+# Unfrozen seed & observable-discovery audit. Explorer only.
+# Nothing frozen. No T0. No Force ID. No tickers. No capital.
+protocol_id: FORCE_PROTOCOL_v1.0
+status: OBSERVATORY
+admitted_as_seeds: false
+cannot_promote: true
+frozen: false
+t0_issued: false
+capital: 0
+one_frozen_slot: FS-0001.v1
+fs0001_v1_path: NO_RESULT
+fs0001_v2_not_mutated: true
+
+# Multi-clock fields are the method. Attractiveness is not.
+clock_fields: [leading, response, delayed]
+independent_manifestation_required: true
+residualization_is_falsification: true
+preregister_before_comovement: true
+
+candidates:
+  - id: UD-01
+    title: utilization_then_capacity_formation
+    classification: PROMISING_FOR_T0_REVIEW
+    frozen: false
+    t0_ready: false
+    mechanism: >
+      Persistent high use of installed plant precedes operable-capacity
+      additions or cancelled retirements. Lag is construction/permitting.
+      Efficiency is not required.
+    distinct_from_fs0001: true
+    distinct_from_f2: true
+    primary_systems: [us_refining_eia, us_nuclear_cf]
+    weaker_analogs: [fed_g17_model_estimated, eurostat_business_survey]
+    next: preregister_series_list_only
+    lag_test_permitted: false
+    claimed_series_unverified: true
+    note: >
+      Memo-1 next operation, not executed. Series list may be written.
+      Co-movement strength may not be inspected. G.17 is not the primary clock.
+
+  - id: UD-02
+    title: inventory_buffer_then_flow
+    classification: PROMISING_FOR_T0_REVIEW
+    frozen: false
+    t0_ready: false
+    mechanism: >
+      Stocks and unfilled orders are buffers. Inventory/flow moves first,
+      production/runs next, capacity last if at all.
+    distinct_from_fs0001: true
+    primary_systems: [eia_petroleum_stocks, eia_crude_runs]
+    weaker_analogs: [census_m3_book_value, iea_mods_licensed]
+    iea_mods_wired: false
+    lag_test_permitted: false
+    claimed_series_unverified: true
+    note: M3 is mostly book value. IEA MODS is licensed (same failure mode as EEI).
+
+  - id: UD-03
+    title: operable_vs_nameplate
+    classification: OBSERVATORY
+    frozen: false
+    t0_ready: false
+    role: clock_inside_UD-01
+    standalone_t0: false
+    note: Idle/operable split is a control, not a Force.
+
+  - id: UD-04
+    title: constraint_migration
+    classification: OBSERVATORY
+    frozen: false
+    t0_ready: false
+    f2_overlap: true
+    congestion_clocks_long_history: false
+    note: Throughput is good; long consistent congestion clocks are not.
+
+  - id: UD-05
+    title: physical_modal_or_fuel_substitution
+    classification: OBSERVATORY
+    frozen: false
+    t0_ready: false
+    fs0001_danger_zone: true
+    note: Composition change is distinct; unit-cost-induced aggregate use is FS-0001.
+
+  - id: UD-06
+    title: capital_age_retirement_lag
+    classification: DATA_FEASIBILITY_PROBLEM
+    frozen: false
+    t0_ready: false
+    note: EIA-860 is the exception. PIM capital stock is not a physical count.
+
+  - id: UD-07
+    title: grid_thermal_loading_and_interconnection_queue
+    classification: DUPLICATE_OF_EXISTING_FORCE
+    frozen: false
+    t0_ready: false
+    force_overlap: F2
+    data_feasibility: DATA_FEASIBILITY_PROBLEM
+    promising: false
+    unregistered_threshold_pct: null
+    note: >
+      Memo-3 Candidate 1. ENTSO-E Transparency and EIA-930 are mid-2010s,
+      not 1990. Interconnection queues are short and non-harmonized.
+      80-88% loading threshold is unregistered. Do not run OP_GRID_QUEUE.
+
+  - id: UD-08
+    title: certified_fleet_scrap_to_build
+    classification: DATA_FEASIBILITY_PROBLEM
+    frozen: false
+    t0_ready: false
+    promising: false
+    licensed_sources: [clarksons, ihs_markit]
+    note: Memo-3 HIGH feasibility is refused. Commercial cubes are not wired.
+
+next_operation:
+  id: SERIES_ID_INVENTORY_ONLY
+  not: [OP_DATA_FEASIBILITY_GRID_QUEUE_1990_2025, twenty_to_thirty_system_hunt, lag_estimation]
+  systems_max: 3
+  systems: [us_refining_operable, us_nuclear_capacity_factor, one_idle_or_860_class]
+  inspect_comovement: false
+  freeze_after: false
+
+successful_quarter_allows_no_result: true
+new_frozen_forces_this_quarter: 0
+
+refused:
+  - new_frozen_force
+  - t0_issue
+  - ticker_first
+  - fs0001_v1_rescue
+  - silent_v2_mutation
+  - grid_queue_as_promising
+  - f2_rename
+  - interconnection_queue_as_1990_panel
+  - entsoe_hourly_from_1990
+  - unregistered_80_88_utilization_threshold
+  - clarksons_ihs_as_wired
+  - iea_mods_as_wired
+  - g17_as_primary_clock
+  - census_m3_as_physical_inventory
+  - twenty_to_thirty_system_hunt
+  - lag_test_before_series_list
+  - ais_dwell_as_primary_clock
+  - price_as_unit_cost

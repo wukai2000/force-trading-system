@@ -167,6 +167,25 @@ def test_pair_census():
     print("PASS pair census; electricity not A; freight not rejected; no testing lead")
 
 
+def test_unfrozen_discovery():
+    from force_learning.vault.unfrozen_discovery import assert_unfrozen
+
+    spec = assert_unfrozen()
+    by = {c["id"]: c for c in spec["candidates"]}
+    assert spec["t0_issued"] is False
+    assert spec["admitted_as_seeds"] is False
+    assert spec["new_frozen_forces_this_quarter"] == 0
+    assert by["UD-01"]["classification"] == "PROMISING_FOR_T0_REVIEW"
+    assert by["UD-01"]["lag_test_permitted"] is False
+    assert by["UD-07"]["classification"] == "DUPLICATE_OF_EXISTING_FORCE"
+    assert by["UD-07"]["promising"] is False
+    assert spec["next_operation"]["inspect_comovement"] is False
+    frozen_dir = ROOT / "force_ideas" / "frozen"
+    assert list(frozen_dir.glob("*.yaml")) == [frozen_dir / "FS-0001.v1.yaml"]
+    print("PASS unfrozen discovery; no T0; grid/queue is F2; no lag peek")
+
+
+
 
 
 
@@ -181,7 +200,9 @@ def main():
     test_unit_cost_not_constructible()
     test_v2_not_frozen()
     test_pair_census()
+    test_unfrozen_discovery()
     test_docs()
+
 
     print("ALL VAULT/INVENTORY TESTS PASSED")
 
