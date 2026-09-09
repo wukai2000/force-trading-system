@@ -33,10 +33,13 @@ candidates:
     weaker_analogs: [fed_g17_model_estimated, eurostat_business_survey]
     next: preregister_series_list_only
     lag_test_permitted: false
-    claimed_series_unverified: true
+    cf_same_period_identity: refused
+    rank_winner: false
     note: >
-      Memo-1 next operation, not executed. Series list may be written.
-      Co-movement strength may not be inspected. G.17 is not the primary clock.
+      Memos disagree whether this outranks inventory. Neither wins.
+      Same-period capacity factor is generation/capacity. Lagged CF vs
+      subsequent ΔMW only. Series IDs claimed, not extracted. No lag test.
+
 
   - id: UD-02
     title: inventory_buffer_then_flow
@@ -51,8 +54,13 @@ candidates:
     weaker_analogs: [census_m3_book_value, iea_mods_licensed]
     iea_mods_wired: false
     lag_test_permitted: false
-    claimed_series_unverified: true
-    note: M3 is mostly book value. IEA MODS is licensed (same failure mode as EEI).
+    accounting_identity_risk: high
+    rank_winner: false
+    note: >
+      M3 is book value — CONVENTIONAL_EXPLANATION_DOMINATES, not primary.
+      IEA MODS licensed. EIA weekly stocks/runs are the claimed public path.
+      Stock is a residual of prior flows; that is the prosecutor, not a freeze.
+
 
   - id: UD-03
     title: operable_vs_nameplate
@@ -65,12 +73,13 @@ candidates:
 
   - id: UD-04
     title: constraint_migration
-    classification: OBSERVATORY
+    classification: DATA_FEASIBILITY_PROBLEM
     frozen: false
     t0_ready: false
     f2_overlap: true
     congestion_clocks_long_history: false
-    note: Throughput is good; long consistent congestion clocks are not.
+    note: Ton-km substitution is not a constraint clock. Do not rescue with rates or GPS backcast.
+
 
   - id: UD-05
     title: physical_modal_or_fuel_substitution
@@ -117,6 +126,17 @@ next_operation:
   systems: [us_refining_operable, us_nuclear_capacity_factor, one_idle_or_860_class]
   inspect_comovement: false
   freeze_after: false
+  claimed_series_file: force_ideas/inventory/claimed_series.yaml
+  extracted: false
+
+rank_disagreement:
+  memo_stock_flow_first: true
+  memo_utilization_first: true
+  winner: none
+
+census_m3: CONVENTIONAL_EXPLANATION_DOMINATES
+g17: OBSERVATORY_CONTROL_ONLY
+
 
 successful_quarter_allows_no_result: true
 new_frozen_forces_this_quarter: 0
@@ -140,3 +160,10 @@ refused:
   - lag_test_before_series_list
   - ais_dwell_as_primary_clock
   - price_as_unit_cost
+  - same_period_capacity_factor_identity
+  - lag_band_6_to_60_search
+  - order_test_this_turn
+  - event_inventory_this_turn
+  - m3_as_primary_physical_stock
+  - safety_stock_10_day_threshold
+

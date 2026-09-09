@@ -6,6 +6,9 @@ import json
 import sys
 from pathlib import Path
 
+import yaml
+
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
@@ -179,10 +182,15 @@ def test_unfrozen_discovery():
     assert by["UD-01"]["lag_test_permitted"] is False
     assert by["UD-07"]["classification"] == "DUPLICATE_OF_EXISTING_FORCE"
     assert by["UD-07"]["promising"] is False
-    assert spec["next_operation"]["inspect_comovement"] is False
-    frozen_dir = ROOT / "force_ideas" / "frozen"
-    assert list(frozen_dir.glob("*.yaml")) == [frozen_dir / "FS-0001.v1.yaml"]
-    print("PASS unfrozen discovery; no T0; grid/queue is F2; no lag peek")
+    assert by["UD-01"]["cf_same_period_identity"] == "refused"
+    assert by["UD-04"]["classification"] == "DATA_FEASIBILITY_PROBLEM"
+    assert spec["rank_disagreement"]["winner"] == "none"
+    assert spec["census_m3"] == "CONVENTIONAL_EXPLANATION_DOMINATES"
+    claimed = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "claimed_series.yaml").read_text())
+    assert claimed["extracted"] is False
+    assert claimed["order_test_run"] is False
+    print("PASS unfrozen discovery; claimed IDs only; no order test; no rank winner")
+
 
 
 

@@ -1,7 +1,6 @@
-# force-trading-system-20260909-unfrozen-discovery
+# force-trading-system-20260909-claimed-series
 
-- Observatory only. Zero new frozen Forces. No T0.
-- UD-01/02 parked PROMISING_FOR_T0_REVIEW, lag test not permitted
-- Grid/queue = F2 duplicate, not PROMISING
-- Next: series-id inventory only, no co-movement peek
-- CAPITAL=$0
+- EIA series IDs claimed, not extracted. No order test.
+- Same-period capacity factor identity refused
+- Rank winner none (inventory vs utilization)
+- Grid/queue still F2. M3 conventional. CAPITAL=$0

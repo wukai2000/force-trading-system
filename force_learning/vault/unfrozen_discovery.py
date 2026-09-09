@@ -9,6 +9,9 @@ import yaml
 from force_ideas.state import active_frozen_forces, fs0001_desk
 
 PATH = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "unfrozen_discovery.yaml"
+CLAIMED = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "claimed_series.yaml"
+
+
 
 
 class UnfrozenError(RuntimeError):
@@ -45,9 +48,23 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("do not inspect co-movement yet")
     if nxt.get("id") != "SERIES_ID_INVENTORY_ONLY":
         raise UnfrozenError("next op is series-id inventory only")
-    if "OP_DATA_FEASIBILITY_GRID_QUEUE_1990_2025" not in (nxt.get("not") or []):
-        raise UnfrozenError("grid-queue operation is refused")
+    if nxt.get("extracted") is True:
+        raise UnfrozenError("claimed series are not extracted")
+    claimed = yaml.safe_load(CLAIMED.read_text()) or {}
+    if claimed.get("extracted") is True or claimed.get("order_test_run") is True:
+        raise UnfrozenError("do not run order tests this turn")
+    if claimed.get("event_inventory_built") is True:
+        raise UnfrozenError("event inventory is not built")
+    if spec.get("rank_disagreement", {}).get("winner") not in (None, "none"):
+        raise UnfrozenError("do not pick a rank winner")
+    if spec.get("census_m3") != "CONVENTIONAL_EXPLANATION_DOMINATES":
+        raise UnfrozenError("M3 is conventional, not physical")
+    if by["UD-01"].get("cf_same_period_identity") != "refused":
+        raise UnfrozenError("same-period CF identity is refused")
+    if by["UD-04"].get("classification") != "DATA_FEASIBILITY_PROBLEM":
+        raise UnfrozenError("constraint migration has no constraint clock")
     refused = spec.get("refused") or []
+
     for tok in (
         "new_frozen_force",
         "grid_queue_as_promising",
@@ -56,6 +73,9 @@ def assert_unfrozen() -> Dict[str, Any]:
         "twenty_to_thirty_system_hunt",
         "lag_test_before_series_list",
         "iea_mods_as_wired",
+        "same_period_capacity_factor_identity",
+        "order_test_this_turn",
+
     ):
         if tok not in refused:
             raise UnfrozenError(f"missing refuse: {tok}")

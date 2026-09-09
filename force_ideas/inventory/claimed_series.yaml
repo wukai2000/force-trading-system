@@ -1,0 +1,60 @@
+# Claimed series IDs. Not extracted. Coverage not verified. No lag test.
+protocol_id: FORCE_PROTOCOL_v1.0
+extracted: false
+coverage_verified: false
+order_test_run: false
+event_inventory_built: false
+capital: 0
+
+systems:
+  - id: eia_petroleum_stock_flow
+    candidate: UD-02
+    claimed:
+      - {id: PET.WCRSTUS1.W, role: leading, unit: million_barrels, freq: weekly, claimed_start: 1982}
+      - {id: PET.WCRRIUS2.W, role: response, unit: kb_d, freq: weekly, claimed_start: 1982}
+      - {id: WPULEUS3.W, role: response, unit: percent, freq: weekly, claimed_start: 1990}
+    notes:
+      - weekly_reconciled_to_monthly_psm
+      - lease_stock_definition_change_2005
+      - spr_is_confounder_not_a_clock
+      - do_not_use_price_as_clock
+
+  - id: eia_ng_working_gas
+    candidate: UD-02
+    claimed:
+      - {id: EIA_NG_working_gas_monthly, role: leading, freq: monthly, claimed_start: 1973}
+      - {id: EIA_NG_dry_production, role: response, freq: monthly, claimed_start: 1973}
+    weekly_l48_from: 2010
+    notes:
+      - second_molecule_not_a_second_force
+      - seasonal_caverns_vs_tanks
+
+  - id: eia_refining_utilization_capacity
+    candidate: UD-01
+    claimed:
+      - {id: EIA_refinery_utilization, role: leading, freq: monthly, claimed_start: 1985}
+      - {id: EIA_operable_capacity, role: delayed, freq: monthly, claimed_start: 1985}
+      - {id: EIA_idle_capacity, role: headroom, freq: monthly, claimed_start: 1985}
+    notes:
+      - calendar_day_vs_stream_day_must_be_fixed_before_test
+
+  - id: eia_electric_cf_capacity
+    candidate: UD-01
+    claimed:
+      - {id: EIA_EPA_capacity_factor, role: leading, freq: monthly, claimed_start: 1990}
+      - {id: EIA_860_net_summer_capacity, role: state, freq: annual, claimed_start: 1990}
+      - {id: EIA_860M_additions_retirements, role: delayed, freq: monthly, claimed_start: 2002}
+    notes:
+      - same_period_CF_is_generation_over_capacity_tautology
+      - use_lagged_CF_vs_subsequent_delta_MW_only
+      - technology_stratify_or_test_collapses
+      - g17_is_not_this_clock
+
+not_claimed_as_primary:
+  - FRB_G17
+  - Census_M3
+  - IEA_MODS
+  - ENTSOE_Transparency
+  - EIA_Form_930
+  - Clarksons
+  - IHS_Markit

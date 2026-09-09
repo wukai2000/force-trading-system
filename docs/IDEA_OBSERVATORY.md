@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**Unfrozen discovery:** observatory only. UD-01/02 parked as PROMISING_FOR_T0_REVIEW, not frozen. Grid/queue is F2, not a new Force. Next op is series-id inventory only — no lag peek.
+**Claimed series:** EIA IDs listed, not extracted. Same-period CF identity refused. Rank winner none. Order test not run.
+
 
 
 
