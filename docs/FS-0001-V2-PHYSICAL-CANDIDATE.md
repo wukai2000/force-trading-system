@@ -45,5 +45,12 @@ A third memo reported 31/27/25 country pairs with start/end intensities. That pa
 
 IEA docs: freight-train energy is often included in passenger trains. Total-rail energy + freight tkm is incompatible.
 
-Inventory verdict: **NO_RESULT**. v2 is still not frozen. v1 T5 stays NO_RESULT.
+## Observable-pair census
+
+Do not abandon freight. Do not swap the domain because IEA returned 403.
+
+A named census exists at [observable_pairs.yaml](../force_ideas/inventory/observable_pairs.yaml). Steel, cement, aluminium, electricity are **OPEN and unscored**. None are excellent. None are A/B. Electricity carries mix contamination. Data/comms is REJECT. Labor/water/land/compute not opened this quarter.
+
+Rank by measurement integrity after an official extract. Attractiveness ranking is refused. This is not a new freeze and not FS-0001.v3.
+
 

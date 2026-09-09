@@ -67,6 +67,13 @@ refused:
   - total_rail_energy_with_freight_tkm
   - direction_filter_before_qualifying_universe
   - plus_minus_2pct_direction_rule
+  - silent_v2_domain_swap
+  - abandoning_freight_because_403
+  - ranking_steel_cement_electricity_excellent
+
+freight_abandoned: false
+observable_pair_census: inventory_only
+
 
 
 unresolved_before_freeze:

@@ -24,7 +24,9 @@ v2_status: MEASUREMENT_AUDIT_REQUIRED
 v2_frozen: false
 v2_inventory_verdict: NO_RESULT
 v2_qualifying_pairs: 0
-energy_is_not_unit_cost: true
+v2_freight_abandoned: false
+observable_pair_census: inventory_only
+
 
 
 

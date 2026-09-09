@@ -143,6 +143,27 @@ def test_v2_not_frozen():
     print("PASS v2 cube inventory empty; 31/27/25 panel refused")
 
 
+def test_pair_census():
+    from force_learning.vault.pair_census import assert_census
+
+    spec = assert_census()
+    assert spec["admitted_as_seeds"] is False
+    assert spec["attractiveness_rank_refused"] is True
+    by = {p["id"]: p for p in spec["pairs"]}
+    assert by["OP-01"]["abandoned"] is False
+    assert by["OP-01"]["grade"] == "X"
+    assert by["OP-03"]["excellent"] is False
+    assert by["OP-04"]["excellent"] is False
+    assert by["OP-06"]["mix_contamination"] is True
+    assert by["OP-08"]["grade"] == "REJECT"
+    assert not any(p.get("grade") in ("A", "B") for p in spec["pairs"])
+    assert "silent_v2_domain_swap" in spec["refused"]
+    frozen_dir = ROOT / "force_ideas" / "frozen"
+    assert list(frozen_dir.glob("*.yaml")) == [frozen_dir / "FS-0001.v1.yaml"]
+    print("PASS pair census is inventory; freight not abandoned; no excellent grades")
+
+
+
 
 
 
@@ -153,7 +174,9 @@ def main():
     test_historical_study_no_result()
     test_unit_cost_not_constructible()
     test_v2_not_frozen()
+    test_pair_census()
     test_docs()
+
     print("ALL VAULT/INVENTORY TESTS PASSED")
 
 

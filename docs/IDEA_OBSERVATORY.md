@@ -73,7 +73,8 @@ Verification (pre-named): same signed leading relationship in another geography 
 
 Failure: ~50% unit-cost drop then net *decrease* in aggregate use in a mature unconstrained market.
 
-**FS-0001.v2:** MEASUREMENT_AUDIT_REQUIRED. MJ/tkm is not frozen. Not unit cost. IEA cube not wired.
+**Observable-pair census:** inventory only. Freight not abandoned. Steel/cement/electricity OPEN, not excellent. No A/B without extract.
+
 
 
 

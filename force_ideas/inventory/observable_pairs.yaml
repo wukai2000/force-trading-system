@@ -1,0 +1,166 @@
+# Observable-pair census. Not seeds. Not a freeze. Not a domain hunt.
+# Rank by measurement integrity only. Attractiveness ranking is refused.
+protocol_id: FORCE_PROTOCOL_v1.0
+cannot_promote: true
+admitted_as_seeds: false
+capital: 0
+one_frozen_at_a_time: true
+frozen_slot: FS-0001.v1
+v2_status: MEASUREMENT_AUDIT_REQUIRED
+purpose: >
+  After the IEA cube was not obtained, do not abandon the physical claim
+  and do not shop a friendlier domain. Enumerate pairs. Score only on
+  numerator/denominator compatibility and coverage. No market data.
+
+gate_fields:
+  - resource_requirement
+  - capability_unit
+  - activity_outcome
+  - data_provider
+  - historical_coverage
+
+# Test-design preference, not a domain ranking.
+tiers:
+  1: requirement_over_capability THEN independent_downstream_use
+  2: requirement_over_capability THEN same_capability_output
+  3: energy_over_tkm THEN tkm
+  4: monetary_cost_over_unit  # v1 path; CLOSED
+  5: residual_over_residual   # forbidden
+
+grades:
+  A: "clean physical pair + continuous official extract in-repo"
+  B: "usable official extract, documented coverage limits"
+  C: "definition or boundary concern; extract not shown"
+  D: "reconstruction required"
+  X: "incompatible or inaccessible this run"
+  OPEN: "named; not extracted; not ranked by attractiveness"
+  REJECT: "out of scope this quarter"
+
+attractiveness_rank_refused: true
+iea_cube_not_a_census_source: true
+no_a_or_b_without_extract: true
+
+pairs:
+  - id: OP-01
+    domain: road_freight
+    resource_requirement: energy / tonne-km
+    capability_unit: freight transport
+    activity_outcome: tonne-km
+    data_provider: IEA_EEI
+    historical_coverage: cube_not_obtained
+    numerator_denominator_compatible: unknown
+    outcome_independent_of_denominator: false
+    grade: X
+    status: OPEN
+    abandoned: false
+    note: IEA cube 403. Highlights fail continuity. Not abandoned.
+
+  - id: OP-02
+    domain: rail_freight
+    resource_requirement: energy / tonne-km
+    capability_unit: freight rail
+    activity_outcome: tonne-km
+    data_provider: IEA_EEI
+    historical_coverage: cube_not_obtained
+    numerator_denominator_compatible: likely_false
+    outcome_independent_of_denominator: false
+    grade: X
+    status: OPEN
+    abandoned: false
+    note: Freight-train energy often sits in passenger trains.
+
+  - id: OP-03
+    domain: steel
+    resource_requirement: energy / tonne steel
+    capability_unit: steel
+    activity_outcome: tonnes steel
+    data_provider: unspecified
+    historical_coverage: not_extracted
+    numerator_denominator_compatible: unknown
+    outcome_independent_of_denominator: false
+    grade: OPEN
+    status: OPEN
+    excellent: false
+    note: Same-denominator construction. Not scored excellent.
+
+  - id: OP-04
+    domain: cement
+    resource_requirement: energy / tonne cement
+    capability_unit: cement
+    activity_outcome: tonnes cement
+    data_provider: unspecified
+    historical_coverage: not_extracted
+    numerator_denominator_compatible: unknown
+    outcome_independent_of_denominator: false
+    grade: OPEN
+    status: OPEN
+    excellent: false
+
+  - id: OP-05
+    domain: aluminium
+    resource_requirement: energy / tonne aluminium
+    capability_unit: aluminium
+    activity_outcome: tonnes aluminium
+    data_provider: unspecified
+    historical_coverage: not_extracted
+    numerator_denominator_compatible: unknown
+    outcome_independent_of_denominator: false
+    grade: OPEN
+    status: OPEN
+    excellent: false
+
+  - id: OP-06
+    domain: electricity
+    resource_requirement: primary_energy / MWh
+    capability_unit: electricity
+    activity_outcome: MWh generation or demand
+    data_provider: unspecified
+    historical_coverage: not_extracted
+    numerator_denominator_compatible: unknown
+    outcome_independent_of_denominator: mixed
+    grade: OPEN
+    status: OPEN
+    excellent: false
+    mix_contamination: true
+    note: Fuel/MWh falls with mix shift (renewables, nuclear) without a
+      capability becoming cheaper to operate. Not a freeze candidate.
+
+  - id: OP-07
+    domain: passenger_transport
+    resource_requirement: energy / passenger-km
+    capability_unit: passenger transport
+    activity_outcome: passenger-km
+    data_provider: unspecified
+    historical_coverage: not_extracted
+    grade: OPEN
+    status: OPEN
+    excellent: false
+    note: Weaker fit to the frozen freight T0. Not a silent mutation.
+
+  - id: OP-08
+    domain: data_communications
+    resource_requirement: energy / data unit
+    capability_unit: communications
+    activity_outcome: data traffic
+    data_provider: unspecified
+    historical_coverage: low
+    grade: REJECT
+    status: REJECT
+    note: Historical depth too thin this quarter.
+
+refused:
+  - ranking_by_economic_attractiveness
+  - marking_steel_cement_electricity_excellent_before_extract
+  - iea_eei_as_if_accessible
+  - 10_to_20_domain_hunt_this_quarter
+  - labor_water_land_compute_stack
+  - new_frozen_id
+  - silent_v2_domain_swap
+  - abandoning_freight_because_403
+  - A_or_B_grade_without_official_extract
+
+not_opened_this_quarter:
+  - labor_hours_per_output
+  - water_per_output
+  - land_per_output
+  - compute_per_delivered_computation
