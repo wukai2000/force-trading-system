@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-08T15:01:20Z",
+  "as_of": "2026-09-09T15:04:37Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -15,123 +15,123 @@
         "prices": {
           "VST": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "ETN": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "PWR": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "CEG": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "XLU": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "QQQ": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "XLE": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "SPY": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "VOO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "MAGS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "SMH": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "SPMO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "DRAM": {
             "ok": true,
-            "rows": 109,
-            "last": "2026-09-08"
+            "rows": 110,
+            "last": "2026-09-09"
           },
           "IHF": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "IHI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "XHS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "XLV": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "XBI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "IBB": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           },
           "TLT": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-09-08"
+            "rows": 502,
+            "last": "2026-09-09"
           }
         },
         "macro": {
           "DTWEXBGS": {
             "ok": true,
             "short": "broad_usd",
-            "rows": 5179,
-            "last": "2026-08-28"
+            "rows": 5184,
+            "last": "2026-09-04"
           },
           "DGS10": {
             "ok": true,
             "short": "us_10y",
-            "rows": 16154,
-            "last": "2026-09-03"
+            "rows": 16155,
+            "last": "2026-09-04"
           },
           "DGS2": {
             "ok": true,
             "short": "us_2y",
-            "rows": 12562,
-            "last": "2026-09-03"
+            "rows": 12563,
+            "last": "2026-09-04"
           },
           "FYONET": {
             "ok": true,
@@ -144,26 +144,26 @@
           "VIXCLS": {
             "ok": true,
             "short": "vix_cls",
-            "rows": 9268,
-            "last": "2026-09-07"
+            "rows": 9269,
+            "last": "2026-09-08"
           },
           "VXVCLS": {
             "ok": true,
             "short": "vxv_cls",
-            "rows": 4718,
-            "last": "2026-09-04"
+            "rows": 4719,
+            "last": "2026-09-08"
           },
           "T10Y2Y": {
             "ok": true,
             "short": "t10y2y",
-            "rows": 12563,
-            "last": "2026-09-04"
+            "rows": 12564,
+            "last": "2026-09-08"
           },
           "DFII10": {
             "ok": true,
             "short": "dfii10",
-            "rows": 5923,
-            "last": "2026-09-03"
+            "rows": 5924,
+            "last": "2026-09-04"
           },
           "BAA10Y": {
             "ok": true,
@@ -174,8 +174,8 @@
           "BAMLH0A0HYM2": {
             "ok": true,
             "short": "hy_oas",
-            "rows": 787,
-            "last": "2026-09-03"
+            "rows": 786,
+            "last": "2026-09-08"
           },
           "NFCI": {
             "ok": true,
@@ -228,20 +228,20 @@
           "SOFR": {
             "ok": true,
             "short": "sofr",
-            "rows": 2105,
-            "last": "2026-09-04"
+            "rows": 2106,
+            "last": "2026-09-08"
           },
           "DFF": {
             "ok": true,
             "short": "fedfunds",
-            "rows": 26363,
-            "last": "2026-09-03"
+            "rows": 26367,
+            "last": "2026-09-07"
           },
           "RRPONTSYD": {
             "ok": true,
             "short": "rrp",
-            "rows": 3320,
-            "last": "2026-09-04"
+            "rows": 3321,
+            "last": "2026-09-08"
           }
         },
         "cot": {
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-06  -0.006927  1.247284  ...                0      unknown\n2024-12-13  -0.017277  1.325313  ...                0      unknown\n2024-12-20   0.013375  1.125481  ...                0      unknown\n2024-12-27  -0.022787  1.053794  ...                0      unknown\n2025-01-03   0.057208  1.151636  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n2026-09-11   0.026663  0.504452  ...                0      unknown\n\n[93 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-06  -0.006926  1.247285  ...                0      unknown\n2024-12-13  -0.017277  1.325313  ...                0      unknown\n2024-12-20   0.013375  1.125478  ...                0      unknown\n2024-12-27  -0.022787  1.053791  ...                0      unknown\n2025-01-03   0.057208  1.151632  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n2026-09-11   0.017441  0.529147  ...                0      unknown\n\n[93 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -272,7 +272,7 @@
       "ok": true,
       "result": {
         "rc": 0,
-        "tail": "ed] DFF (fedfunds): {'ok': True, 'short': 'fedfunds', 'rows': 26363, 'last': '2026-09-03'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3320, 'last': '2026-09-04'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=[]\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
+        "tail": "ed] DFF (fedfunds): {'ok': True, 'short': 'fedfunds', 'rows': 26367, 'last': '2026-09-07'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3321, 'last': '2026-09-08'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=[]\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
       }
     },
     {
@@ -313,6 +313,84 @@
       "result": {
         "rc": 0,
         "tail": "ighting efficacy / lumen-hours is not in the local cache. Highlights are a limited free subset; the extended database is paid. US DOE is validation-only. No synthetic lighting panel.\",\n    \"t5_candidate\": false\n  },\n  \"note\": \"NO_RESULT is success. Lighting cannot silently unlock T5. Do not attach instruments. Do not run the prosecutor. Capital $0.\"\n}\nT5_READY False PROSECUTOR False CAPITAL False\n"
+      }
+    },
+    {
+      "step": "fs0001_vault",
+      "ok": true,
+      "result": {
+        "as_of": "2026-09-09T15:04:36Z",
+        "force_id": "FS-0001",
+        "role": "historical_evidence_vault",
+        "t5_ready": false,
+        "scannable": false,
+        "prosecutor_allowed": false,
+        "capital": 0,
+        "episode_search": false,
+        "wired_panels": true,
+        "unit_cost_status": "critical_blocker",
+        "unit_cost_verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
+        "decision": "NO_RESULT",
+        "new_version_required": false,
+        "target_window": "2000-2024",
+        "rows": [
+          {
+            "observable": "efficiency",
+            "source": "IEA_EEI",
+            "status": "promising_unwired",
+            "depth": "2000-2024 claimed by IEA; not wired here"
+          },
+          {
+            "observable": "unit_cost",
+            "source": "TBD",
+            "status": "critical_blocker",
+            "depth": "TBD"
+          },
+          {
+            "observable": "aggregate_use",
+            "source": "OECD_ITF",
+            "status": "coverage_wired",
+            "depth": "2000-2024 coverage-wired from DF_TRENDSFREIGHT; 1970 exists but missingness is structural"
+          },
+          {
+            "observable": "eu_geography",
+            "source": "Eurostat",
+            "status": "promising_unwired",
+            "depth": ""
+          },
+          {
+            "observable": "cross_check",
+            "source": "World_Bank",
+            "status": "secondary",
+            "depth": ""
+          }
+        ],
+        "coverage": {
+          "oecd_window_2000_2024": {
+            "n_obs": 5339,
+            "n_geo": 55,
+            "n_years": 25,
+            "year_min": 2000,
+            "year_max": 2024,
+            "n_geo_mode_year": 5339,
+            "estimated": 155,
+            "breaks": 115
+          },
+          "iea": {
+            "status": "unwired",
+            "source": "IEA_EEI",
+            "http": 403
+          },
+          "unit_cost": {
+            "status": "critical_blocker",
+            "verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
+            "currency_in_oecd_tkm_file": false,
+            "sppi_refused": true,
+            "preregistered_construction_rule": null,
+            "joint_coverage": "empty"
+          }
+        },
+        "note": "Acquisition + coverage only. OECD tkm is wired. IEA energy is not. Unit cost remains the blocker. T5_NO_RESULT remains. Capital $0."
       }
     },
     {

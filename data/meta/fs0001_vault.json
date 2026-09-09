@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-08T16:33:20Z",
+  "as_of": "2026-09-09T15:04:36Z",
   "force_id": "FS-0001",
   "role": "historical_evidence_vault",
   "t5_ready": false,
@@ -9,6 +9,7 @@
   "episode_search": false,
   "wired_panels": true,
   "unit_cost_status": "critical_blocker",
+  "unit_cost_verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
   "decision": "NO_RESULT",
   "new_version_required": false,
   "target_window": "2000-2024",
@@ -62,8 +63,11 @@
     },
     "unit_cost": {
       "status": "critical_blocker",
+      "verdict": "NOT_CONSTRUCTIBLE_WITHOUT_DISCRETION",
       "currency_in_oecd_tkm_file": false,
-      "sppi_refused": true
+      "sppi_refused": true,
+      "preregistered_construction_rule": null,
+      "joint_coverage": "empty"
     }
   },
   "note": "Acquisition + coverage only. OECD tkm is wired. IEA energy is not. Unit cost remains the blocker. T5_NO_RESULT remains. Capital $0."
