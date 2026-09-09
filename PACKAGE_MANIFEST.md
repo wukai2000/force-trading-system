@@ -1,8 +1,8 @@
-# force-trading-system-20260908-na-margins-not-constructible
+# force-trading-system-20260909-v2-audit-candidate
 
-Protocol lock. Not a trading release.
+Not a freeze. Not a trading release.
 
-- SNA/ESA transport margins refused (valuation residual)
-- Closest failed: NACE 49.41 opex / hire-or-reward road tkm = new version if enacted
-- Desk: T5_NO_RESULT, not MEASUREMENT_DEAD_END
+- FS-0001.v2 status: MEASUREMENT_AUDIT_REQUIRED
+- MJ/tkm is not unit cost; v1 monetary path CLOSED
+- Frozen slot still FS-0001.v1 / T5 NO_RESULT
 - CAPITAL=$0

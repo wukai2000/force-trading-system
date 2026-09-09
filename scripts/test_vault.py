@@ -120,13 +120,37 @@ def test_unit_cost_not_constructible():
 
 
 
+def test_v2_not_frozen():
+    from force_learning.vault.v2_physical import V2Error, assert_v2_not_frozen
+
+    spec = assert_v2_not_frozen()
+    assert spec["status"] == "MEASUREMENT_AUDIT_REQUIRED"
+    assert spec["frozen"] is False
+    assert spec["energy_is_not_unit_cost"] is True
+    assert spec["iea_eei_wired"] is False
+    names = [o["name"] for o in spec["observables"]]
+    assert names == ["freight_energy_intensity", "aggregate_freight_activity"]
+    assert "utilization" not in str(names)
+    frozen_dir = ROOT / "force_ideas" / "frozen"
+    assert not (frozen_dir / "FS-0001.v2.yaml").exists()
+    text = (ROOT / "docs" / "FS-0001-V2-PHYSICAL-CANDIDATE.md").read_text()
+    assert "MEASUREMENT_AUDIT_REQUIRED" in text
+    assert "MJ/tkm" in text and "unit cost" in text
+    print("PASS v2 is audit-only; not frozen; not a v1 rescue")
+
+
+
+
+
 def main():
     test_vault_not_activation()
     test_inventory()
     test_historical_study_no_result()
     test_unit_cost_not_constructible()
+    test_v2_not_frozen()
     test_docs()
     print("ALL VAULT/INVENTORY TESTS PASSED")
+
 
 
 

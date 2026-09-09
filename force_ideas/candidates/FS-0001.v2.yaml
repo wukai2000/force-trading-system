@@ -1,0 +1,73 @@
+# NOT FROZEN. Measurement-audit candidate only. Does not occupy the frozen slot.
+id: FS-0001.v2
+parent: FS-0001.v1
+status: MEASUREMENT_AUDIT_REQUIRED
+frozen: false
+t5_ready: false
+t5_status: not_applicable
+autonomous_freeze: false
+one_frozen_slot_occupied_by: FS-0001.v1
+capital: 0
+instruments: []
+evidence_record: NOT_PERMITTED
+
+# v1 monetary path stays closed. This is a narrowed physical claim, not a synonym of unit cost.
+v1_monetary_path: CLOSED
+energy_is_not_unit_cost: true
+iea_eei_wired: false
+iea_http: 403
+
+t0: >
+  When the energy required to deliver one tonne-kilometre of freight falls,
+  measured freight work can expand. This is not "unit cost fell."
+t1: >
+  Energy is one input to the capability. MJ/tkm is a physical requirement,
+  not wages, capital, prices, or time. False if pre-registered declines in
+  freight energy intensity are not followed by expansion of the same
+  mode-and-geography activity after a single pre-registered horizon.
+observables:
+  - name: freight_energy_intensity
+    definition: official IEA ENERGY_INT_TKM for the same freight mode
+    unit: MJ/tkm
+    sign: -1
+    lead: leading
+    source: IEA_EEI_Transport
+    modes: [freight_trucks, freight_trains]
+    inverse_forbidden: true
+  - name: aggregate_freight_activity
+    definition: official tkm for the same mode family and pre-declared geography
+    unit: million_tkm
+    sign: +1
+    lead: contemporaneous
+    source: OECD_ITF_or_Eurostat
+    not_iea_tkm_in_both_slots: true
+
+refused:
+  - tkm_per_mj_as_second_observable
+  - transport_energy_over_gdp
+  - eurostat_road_energy_over_road_tkm
+  - homemade_intensity_from_nrg_bal
+  - odyssee_splice_to_extend_pre2000
+  - utilization_as_frozen_third
+  - all_mode_average_when_components_missing
+  - lag_search_over_k
+  - treating_mj_tkm_as_v1_unit_cost
+  - silent_freeze
+
+unresolved_before_freeze:
+  - iea_truck_energy_tkm_continuous_pairs
+  - iea_train_energy_tkm_continuous_pairs
+  - oecd_eurostat_tkm_matched_to_iea_energy_boundaries
+  - one_lead_length_not_fitted
+  - sharp_decline_threshold_not_fitted
+  - no_interpolation
+  - licensed_eei_access
+
+independence:
+  statistical_system: IEA_energy_vs_OECD_ITF_or_Eurostat_activity
+  mode_partition: truck_not_validated_on_rail
+  algebraic: intensity_uses_tkm_in_denominator_must_be_disclosed
+  inverse_pair: forbidden
+
+lead_rule: not_locked
+# Memos proposed k=1 or k=2. Neither is frozen. One rule later, before any test.
