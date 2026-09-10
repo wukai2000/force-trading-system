@@ -1,0 +1,133 @@
+# Independence / provenance only. Not a lag test. Not a seed. Not a panel extract.
+protocol_id: FORCE_PROTOCOL_v1.0
+date: 2026-09-10
+kind: provenance_independence
+extracted_panel: false
+lag_test: false
+order_test: false
+t0: false
+seed: false
+capital: 0
+mechanism_audit: not_authorized
+electricity_reopened: false
+
+# Backward inversion is a method. It is not a Force.
+method: observed_event_then_prior_attribute_on_same_object
+method_status: LEARNED
+
+candidates:
+  - id: OA-NBI-CONDITION
+    rank: strongest_this_batch
+    status: PARTIAL
+    verdict: MEASUREMENT_AVAILABLE_WITH_BREAK
+    seed: false
+    transition_type: rehabilitation_replacement
+    official_system: FHWA National Bridge Inventory
+    physical_object: public-road bridges and culverts
+    clocks:
+      precursor:
+        fields: [Item_58_deck, Item_59_superstructure, Item_60_substructure, Item_62_culvert]
+        scale: 0_to_9_or_N
+        collection: NBIS on-site inspection
+      transition:
+        field: Item_106_year_reconstructed
+        type: four_digit_year
+        collection: inventory field in the same annual NBI record
+      state_optional:
+        field: Item_27_year_built
+    independence:
+      precursor_vs_transition: WEAK_TO_MODERATE
+      reason: different physical acts; same annual NBI submission and structure number
+      not_PASS: true
+    forbidden_precursors:
+      - sufficiency_rating  # formula includes ADT and geometry
+      - ADT_as_condition
+      - structurally_deficient_flag_as_fitted_trigger
+    forbidden_transition:
+      - delta_bridge_count
+    history:
+      public_ascii_from: 1992
+      coding_guide_ascii_last_year: 2025
+      snbi_transition: true
+    breaks:
+      - ten_year_rule_in_older_files
+      - 2018_structurally_deficient_term_eliminated
+      - 2017_good_fair_poor_performance_measure
+    sources:
+      - https://www.fhwa.dot.gov/bridge/nbi/format.cfm
+      - https://www.fhwa.dot.gov/bridge/nbi/ascii.cfm
+      - http://www.fhwa.dot.gov/BRIDGE/nbi/ascii1992.cfm
+    notes: >
+      Strongest pair in this batch: inspected condition vs explicit reconstructed
+      year, not Δstock. Still one NBI file. Not QUALIFIES. Not a seed.
+
+  - id: OA-SOC-PIPELINE
+    rank: not_condition_to_adaptation
+    status: PARTIAL
+    verdict: MEASUREMENT_AVAILABLE
+    seed: false
+    architecture_class: PROJECT_DURATION
+    official_system: Census Survey of Construction
+    clocks:
+      precursor:
+        variable: housing_starts
+        definition: excavation_for_footings_or_foundation
+        start: 1959
+      transition:
+        variable: housing_completions
+        definition: finished_flooring_or_occupancy
+        start: 1968
+    independence:
+      precursor_vs_transition: SAME_SURVEY_TWO_DATE_FIELDS
+      reason: one SOC interview of the sampled builder/owner; start date and completion date
+    breaks:
+      - april_2001_compilation_revision_back_to_1999
+      - september_1992_rebuilds_on_existing_foundation_counted_as_starts
+    sources:
+      - https://www.census.gov/construction/soc/about.html
+      - https://www.census.gov/construction/soc/methodology.html
+      - https://census.gov/construction/soc/definitions.html
+    notes: >
+      Two dated physical events, not Δstock. Same survey. This is how long a
+      house takes to build, not operating condition → later adaptation.
+
+  - id: OA-LPMS-LOCK
+    rank: delay_clock_exists
+    status: PARTIAL
+    verdict: INSUFFICIENT_TO_JUDGE
+    seed: false
+    clocks:
+      precursor:
+        variable: lock_average_delay
+        public_usage_tables: 1993_to_2019
+        collection: lock_operator_LPMS_entry
+      transition:
+        variable: major_rehab_completion
+        access: UNVERIFIED_as_continuous_event_series
+    independence: UNVERIFIED
+    sources:
+      - https://ndc.ops.usace.army.mil/ords/f?p=108
+    notes: Delay hours are real operational logs. Rehab event clock not shown as a public series.
+
+  - id: PT-01-EIA-AGE-RETIRE
+    status: PARTIAL
+    verdict: NOT_AN_OPERATING_CONDITION
+    seed: false
+    electricity_reopened: false
+    notes: Retirement event ≠ Δcapacity. Age is a state attribute in the same EIA-860 census.
+
+refused:
+  - ntd_age_mileage_to_disposal_as_qualifies
+  - usgs_ore_grade_to_expansion_as_qualifies
+  - eia_interconnection_to_cod
+  - sufficiency_rating_as_precursor
+  - rating_le_4_as_unregistered_gate
+  - nuclear_pris_as_third_geography_rule
+  - housing_starts_completions_as_condition_adaptation
+  - memo3_four_qualifies_quota
+
+unregistered_refused:
+  - soc_6_to_9_month_as_fitted_lag
+  - nbi_rating_le_4_at_t_minus_4
+  - lpms_t_minus_3_delay_spike
+  - mine_t_minus_5_grade

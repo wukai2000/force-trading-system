@@ -215,6 +215,14 @@ def test_unfrozen_discovery():
     assert by_oa["OA-CATTLE-SLAUGHTER"]["status"] == "IDENTITY_DOMINATES"
     assert "clock_C_is_delta_state" in census["collapse_modes"]
     assert "ntd_sys01_as_qualifies" in census["refused_as_qualifies"]
+    assert by_oa["OA-NBI-CONDITION"]["status"] == "PARTIAL"
+    assert by_oa["OA-NBI-CONDITION"]["verdict"] == "MEASUREMENT_AVAILABLE_WITH_BREAK"
+    assert by_oa["OA-SOC-PIPELINE"]["architecture_class"] == "PROJECT_DURATION"
+    assert by_oa["OA-LPMS-LOCK"]["verdict"] == "INSUFFICIENT_TO_JUDGE"
+    from force_learning.vault.provenance_audit import assert_provenance
+    assert_provenance()
+    print("PASS provenance; NBI PARTIAL same-file; SOC project duration; no panel")
+
     print("PASS three-clock census; refinery/NTD/FHWA PARTIAL; collapse modes locked")
 
 

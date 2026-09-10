@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Three-clock forensics (2026-09-10):** Clock B must not be flow/state. Clock C must not be Δstock. FHWA VMT-from-counts is PARTIAL (A+C same register). Refinery gross input is PARTIAL, not QUALIFIES; UD-01 parked. NTD/cement/Form 41 QUALIFIES dismissed. Housing is a 2-clock A+C. Electricity stays closed. n_seeds=0.
+**Provenance 2026-09-10:** Backward inversion learned (event first). NBI Items 58–60 vs Item 106 = MEASUREMENT_AVAILABLE_WITH_BREAK, same file, PARTIAL. SOC starts→completions = project duration, same survey. LPMS delay exists; rehab events unverified. Sufficiency rating and NTD age→disposal refused. No panel, no lag, n_seeds=0.
+
 
 
 

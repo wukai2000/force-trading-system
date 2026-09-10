@@ -13,6 +13,8 @@ CLAIMED = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "c
 MISSION = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "explorer_mission.yaml"
 CENSUS = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "architecture_census.yaml"
 CONTRACT = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "research_contract.yaml"
+PROVENANCE = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "provenance_audit.yaml"
+
 
 
 
@@ -119,6 +121,16 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("FHWA A and C are register siblings")
     if "clock_B_is_flow_over_state" not in (census.get("collapse_modes") or []):
         raise UnfrozenError("collapse modes must be locked")
+    if by_oa["OA-NBI-CONDITION"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("NBI Item 106 is the same NBI file")
+    if by_oa["OA-SOC-PIPELINE"].get("architecture_class") != "PROJECT_DURATION":
+        raise UnfrozenError("SOC is project duration")
+    prov = yaml.safe_load(PROVENANCE.read_text()) or {}
+    if prov.get("lag_test") is True or prov.get("extracted_panel") is True:
+        raise UnfrozenError("do not extract an NBI panel this cycle")
+    if prov.get("seed") is True:
+        raise UnfrozenError("provenance is not a seed")
+
 
 
     if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":

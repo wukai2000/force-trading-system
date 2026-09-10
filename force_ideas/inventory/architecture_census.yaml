@@ -7,12 +7,13 @@ t0_issued: false
 admitted_as_seeds: false
 capital: 0
 census_run: finite_official_pass
-n_documented: 11
-
+n_documented: 14
 n_seeds: 0
 zero_seeds_is_success: true
 deeper_audit_authorized: false
+provenance_audit: force_ideas/inventory/provenance_audit.yaml
 winner: none
+
 q4_ack: stay_frozen
 
 schema:
@@ -209,6 +210,39 @@ architectures:
     transition: deliveries_or_B7_dispositions
     notes: Load factor remains identity. Hours vs fleet is the OA-06 shape. Not QUALIFIES.
 
+  - id: OA-NBI-CONDITION
+    status: PARTIAL
+    seed: false
+    t0: false
+    audit_authorized: false
+    domain: us_highway_bridges
+    precursor: nbi_items_58_59_60_62
+    transition: item_106_year_reconstructed
+    independence: WEAK_TO_MODERATE_same_nbi_file
+    verdict: MEASUREMENT_AVAILABLE_WITH_BREAK
+    forbidden_B: sufficiency_rating
+    notes: >
+      Inspected condition vs reconstructed year. Not Δcount. Same annual NBI
+      record. Strongest this batch. Not QUALIFIES. Not a seed.
+
+  - id: OA-SOC-PIPELINE
+    status: PARTIAL
+    seed: false
+    architecture_class: PROJECT_DURATION
+    precursor: housing_starts_1959
+    transition: housing_completions_1968
+    independence: SAME_SURVEY_TWO_DATE_FIELDS
+    notes: Start ≠ completion. Same SOC interview. Not condition → adaptation.
+
+  - id: OA-LPMS-LOCK
+    status: PARTIAL
+    seed: false
+    precursor: lpms_average_delay
+    transition: rehab_event_UNVERIFIED
+    verdict: INSUFFICIENT_TO_JUDGE
+    notes: Delay tables exist. Rehab event series not shown.
+
+
 
 refused_as_qualifies:
   - OA-EL-US_with_capacity_factor
@@ -241,6 +275,12 @@ refused_as_qualifies:
   - unregistered_12_to_24_month_lag
   - unregistered_18_to_36_month_lag
   - electricity_reopen
+  - ntd_age_to_disposal_as_qualifies
+  - usgs_ore_grade_as_qualifies
+  - soc_starts_completions_as_force_architecture
+  - sufficiency_rating_as_precursor
+  - nbi_as_qualifies_same_file
+
 
 
 measurement_leads:
