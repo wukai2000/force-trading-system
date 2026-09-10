@@ -19,9 +19,9 @@ candidates:
   - id: OA-NBI-CONDITION
     rank: strongest_this_batch
     status: PARTIAL
-    verdict: MEASUREMENT_AVAILABLE_WITH_BREAK
+    verdict: DISTINCT_ACTS_PLAUSIBLE_INDEPENDENCE_NOT_PROVEN
     seed: false
-    transition_type: rehabilitation_replacement
+    transition_type: qualifying_reconstruction_year_not_replacement
     official_system: FHWA National Bridge Inventory
     physical_object: public-road bridges and culverts
     clocks:
@@ -29,22 +29,46 @@ candidates:
         fields: [Item_58_deck, Item_59_superstructure, Item_60_substructure, Item_62_culvert]
         scale: 0_to_9_or_N
         collection: NBIS on-site inspection
+        trigger: 23_CFR_650.315_b_inspection
+        item_90: inspection_date
       transition:
         field: Item_106_year_reconstructed
         type: four_digit_year
-        collection: inventory field in the same annual NBI record
+        collection: inventory_update_after_opening
+        trigger: 23_CFR_650.315_c_opening_to_traffic
+        snbi: B.W.02_year_work_performed
       state_optional:
         field: Item_27_year_built
+    same_file_equals_one_act: false
+    two_collection_acts: PARTIAL
+    independent_measurement_streams: not_established
     independence:
-      precursor_vs_transition: WEAK_TO_MODERATE
-      reason: different physical acts; same annual NBI submission and structure number
+      I1_physical: PASS
+      I2_temporal: PASS_archived_annual_files_only
+      I3_collection_act: PARTIAL
+      I4_information: PARTIAL
+      I5_system: TYPE_B
       not_PASS: true
+      not_Type_A: true
+    operational_if_ever_used:
+      precursor: archived_nbi_year_strictly_before_item_106
+      item_106: greater_than_zero_and_year_built
+      drop: same_year_post_reconstruction_ratings
+      no_fitted_lag: true
     forbidden_precursors:
-      - sufficiency_rating  # formula includes ADT and geometry
+      - sufficiency_rating
       - ADT_as_condition
       - structurally_deficient_flag_as_fitted_trigger
     forbidden_transition:
       - delta_bridge_count
+      - item_106_as_clean_replacement
+      - paint_overlay_safety_as_106
+    item_106_excludes:
+      - safety_feature_upgrades
+      - painting
+      - deck_overlay_only
+      - emergency_restore_prior_status
+      - complete_rebuild_may_get_new_structure_number
     history:
       public_ascii_from: 1992
       coding_guide_ascii_last_year: 2025
@@ -53,13 +77,16 @@ candidates:
       - ten_year_rule_in_older_files
       - 2018_structurally_deficient_term_eliminated
       - 2017_good_fair_poor_performance_measure
+    next_if_reopened: state_owner_item_106_source_document
+    next_authorized_this_cycle: false
     sources:
       - https://www.fhwa.dot.gov/bridge/nbi/format.cfm
       - https://www.fhwa.dot.gov/bridge/nbi/ascii.cfm
-      - http://www.fhwa.dot.gov/BRIDGE/nbi/ascii1992.cfm
     notes: >
-      Strongest pair in this batch: inspected condition vs explicit reconstructed
-      year, not Δstock. Still one NBI file. Not QUALIFIES. Not a seed.
+      Same NBI tape is a reporting container, not one observation.
+      650.315(b) vs (c) are distinct triggers. Item 106 source document
+      is not a national Type-A chain. Not QUALIFIES. Not a seed.
+
 
   - id: OA-SOC-PIPELINE
     rank: not_condition_to_adaptation

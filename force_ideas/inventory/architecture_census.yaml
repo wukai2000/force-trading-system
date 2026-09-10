@@ -218,12 +218,15 @@ architectures:
     domain: us_highway_bridges
     precursor: nbi_items_58_59_60_62
     transition: item_106_year_reconstructed
-    independence: WEAK_TO_MODERATE_same_nbi_file
-    verdict: MEASUREMENT_AVAILABLE_WITH_BREAK
+    independence: TYPE_B
+    same_file_equals_one_act: false
+    independent_streams: not_established
+    verdict: DISTINCT_ACTS_PLAUSIBLE_INDEPENDENCE_NOT_PROVEN
     forbidden_B: sufficiency_rating
     notes: >
-      Inspected condition vs reconstructed year. Not Δcount. Same annual NBI
-      record. Strongest this batch. Not QUALIFIES. Not a seed.
+      650.315(b) inspection vs 650.315(c) opening. Item 106 is not a
+      replacement clock. Use prior-year archived extracts only. Not QUALIFIES.
+
 
   - id: OA-SOC-PIPELINE
     status: PARTIAL

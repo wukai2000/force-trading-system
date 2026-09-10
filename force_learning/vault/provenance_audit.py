@@ -30,9 +30,18 @@ def assert_provenance() -> Dict[str, Any]:
     by = {c["id"]: c for c in spec.get("candidates") or []}
     nbi = by["OA-NBI-CONDITION"]
     if nbi.get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
-        raise ProvenanceError("NBI is PARTIAL; same-file Item 106")
-    if nbi.get("independence", {}).get("not_PASS") is not True:
-        raise ProvenanceError("NBI independence is not PASS")
+        raise ProvenanceError("NBI is PARTIAL; Type B not Type A")
+    if nbi.get("same_file_equals_one_act") is not False:
+        raise ProvenanceError("same NBI tape is not one collection act")
+    if nbi.get("independent_measurement_streams") != "not_established":
+        raise ProvenanceError("NBI streams are not established")
+    if nbi.get("independence", {}).get("I5_system") != "TYPE_B":
+        raise ProvenanceError("NBI is Type B")
+    if nbi.get("next_authorized_this_cycle") is True:
+        raise ProvenanceError("state DOT hunt is not this cycle")
+    if "item_106_as_clean_replacement" not in (nbi.get("forbidden_transition") or []):
+        raise ProvenanceError("Item 106 is not a replacement clock")
+
     if "Item_106_year_reconstructed" != nbi["clocks"]["transition"]["field"]:
         raise ProvenanceError("NBI transition is Item 106")
     if "sufficiency_rating" not in (nbi.get("forbidden_precursors") or []):

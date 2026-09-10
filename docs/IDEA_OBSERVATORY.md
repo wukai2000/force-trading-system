@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Provenance 2026-09-10:** Backward inversion learned (event first). NBI Items 58–60 vs Item 106 = MEASUREMENT_AVAILABLE_WITH_BREAK, same file, PARTIAL. SOC starts→completions = project duration, same survey. LPMS delay exists; rehab events unverified. Sufficiency rating and NTD age→disposal refused. No panel, no lag, n_seeds=0.
+**NBI collection acts (2026-09-10):** Same tape ≠ one act (650.315(b) vs (c)). Type B, not Type A. Item 106 is qualifying-work year, not replacement. Independence not proven. State-DOT source hunt not this cycle. PARTIAL. n_seeds=0.
+
 
 
 

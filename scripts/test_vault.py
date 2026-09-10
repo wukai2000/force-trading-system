@@ -216,7 +216,10 @@ def test_unfrozen_discovery():
     assert "clock_C_is_delta_state" in census["collapse_modes"]
     assert "ntd_sys01_as_qualifies" in census["refused_as_qualifies"]
     assert by_oa["OA-NBI-CONDITION"]["status"] == "PARTIAL"
-    assert by_oa["OA-NBI-CONDITION"]["verdict"] == "MEASUREMENT_AVAILABLE_WITH_BREAK"
+    assert by_oa["OA-NBI-CONDITION"]["verdict"] == "DISTINCT_ACTS_PLAUSIBLE_INDEPENDENCE_NOT_PROVEN"
+    assert by_oa["OA-NBI-CONDITION"]["same_file_equals_one_act"] is False
+    assert by_oa["OA-NBI-CONDITION"]["independence"] == "TYPE_B"
+
     assert by_oa["OA-SOC-PIPELINE"]["architecture_class"] == "PROJECT_DURATION"
     assert by_oa["OA-LPMS-LOCK"]["verdict"] == "INSUFFICIENT_TO_JUDGE"
     from force_learning.vault.provenance_audit import assert_provenance
