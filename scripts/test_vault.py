@@ -206,7 +206,17 @@ def test_unfrozen_discovery():
     assert leads["ML-ARMS-REPLANT"]["history_15yr"] == "unverified"
     assert leads["ML-RMA-COL"]["independence"] == "not_PASS"
     assert "poor_plus_very_poor_ge_35_for_3_weeks" in census["unregistered_thresholds_refused"]
-    print("PASS grain downgraded; ARMS lead not seed; RMA not PASS; no thresholds")
+    assert by_oa["OA-REFINERY-EVENTS"]["status"] == "PARTIAL"
+    assert by_oa["OA-REFINERY-EVENTS"]["ud01"] == "parked"
+    assert by_oa["OA-HV-FHWA"]["status"] == "PARTIAL"
+    assert by_oa["OA-HV-FHWA"]["state_vs_transition"] == "WEAK_same_register_family"
+    assert by_oa["OA-NTD-TRANSIT"]["status"] == "PARTIAL"
+    assert by_oa["OA-HOUSING-COMPLETIONS"]["clocks"] == 2
+    assert by_oa["OA-CATTLE-SLAUGHTER"]["status"] == "IDENTITY_DOMINATES"
+    assert "clock_C_is_delta_state" in census["collapse_modes"]
+    assert "ntd_sys01_as_qualifies" in census["refused_as_qualifies"]
+    print("PASS three-clock census; refinery/NTD/FHWA PARTIAL; collapse modes locked")
+
 
     assert by_oa["OA-EL-RELIABILITY"]["status"] == "PARTIAL"
     assert by_oa["OA-RAIL-STB-KINEMATIC"]["official_stb_metrics_start"] == "2014-10"

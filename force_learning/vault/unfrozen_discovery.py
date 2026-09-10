@@ -111,8 +111,15 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("ARMS replant is not PROMISING without a 15y series")
     if leads.get("ML-RMA-COL", {}).get("independence") == "PASS":
         raise UnfrozenError("RMA is administrative, not independence PASS")
-    if not census.get("unregistered_thresholds_refused"):
-        raise UnfrozenError("Memo-3 Poor/PDSI/14-day thresholds must be refused")
+    if by_oa["OA-REFINERY-EVENTS"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("refinery gross input is not a QUALIFIES; UD-01 stays parked")
+    if by_oa["OA-NTD-TRANSIT"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("NTD is PARTIAL, same reporter family")
+    if by_oa["OA-HV-FHWA"].get("state_vs_transition") != "WEAK_same_register_family":
+        raise UnfrozenError("FHWA A and C are register siblings")
+    if "clock_B_is_flow_over_state" not in (census.get("collapse_modes") or []):
+        raise UnfrozenError("collapse modes must be locked")
+
 
     if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":
         raise UnfrozenError("OECD investment is spend, not a physical response")

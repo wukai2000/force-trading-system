@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Grain follow-on (2026-09-10):** next-year planted acres **REJECTED** as adaptation (it is a stock). In-season leads: FSA failed PARTIAL, ARMS replant MEASUREMENT_LEAD (no 15y series), RMA COL administrative. Memo-3 35%/PDSI/14-day thresholds refused. No seed.
+**Three-clock forensics (2026-09-10):** Clock B must not be flow/state. Clock C must not be Δstock. FHWA VMT-from-counts is PARTIAL (A+C same register). Refinery gross input is PARTIAL, not QUALIFIES; UD-01 parked. NTD/cement/Form 41 QUALIFIES dismissed. Housing is a 2-clock A+C. Electricity stays closed. n_seeds=0.
+
 
 
 

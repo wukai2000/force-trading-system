@@ -7,7 +7,8 @@ t0_issued: false
 admitted_as_seeds: false
 capital: 0
 census_run: finite_official_pass
-n_documented: 6
+n_documented: 11
+
 n_seeds: 0
 zero_seeds_is_success: true
 deeper_audit_authorized: false
@@ -32,6 +33,18 @@ disagreement:
   rail_stb_kinematic: PARTIAL  # memo-3 QUALIFIES with false 1999 start; STB metrics Oct 2014
   aviation_load_factor: IDENTITY_DOMINATES
   g17: IDENTITY_DOMINATES
+  refinery_utilization_pct: IDENTITY_DOMINATES
+  refinery_gross_input_as_B: PARTIAL  # not a QUALIFIES; UD-01 stays parked
+  highway_vmt_over_stock: IDENTITY_DOMINATES
+  ntd_transit_qualifies: dismissed
+  usgs_cement_qualifies: dismissed
+
+collapse_modes:
+  - clock_B_is_flow_over_state
+  - clock_C_is_delta_state
+  - occupancy_or_cf_census_or_ratio
+  - openings_as_narrative_notes_not_a_series
+
 
 architectures:
   - id: OA-AG-USGRAIN
@@ -124,7 +137,78 @@ architectures:
   - id: OA-REFINING-EIA
     status: IDENTITY_DOMINATES
     seed: false
-    notes: Utilization = inputs/operable capacity. Already UD-01 parked. Not reopened.
+    notes: Utilization % = inputs/operable capacity. Already UD-01 parked. Not reopened.
+
+  - id: OA-REFINERY-EVENTS
+    status: PARTIAL
+    seed: false
+    t0: false
+    audit_authorized: false
+    domain: us_petroleum_refining
+    state: eia_820_operable_capacity
+    operating: gross_cdu_input_not_utilization_pct
+    transition: named_new_shutdown_reactivate
+    a_and_b: utilization_identity_pair
+    ud01: parked
+    notes: >
+      Gross input is reported. Do not use utilization %. Named Table-11 events
+      are not Δcapacity. A and B are still the two legs of the utilization
+      identity. Not QUALIFIES. Do not unpark UD-01.
+
+  - id: OA-HV-FHWA
+    status: PARTIAL
+    seed: false
+    t0: false
+    audit_authorized: false
+    domain: us_on_road_vehicles
+    state: fhwa_mv1_registered_stock
+    operating: hpms_vmt_from_counts
+    transition: new_registrations
+    state_vs_transition: WEAK_same_register_family
+    forbidden_B: vmt_over_stock
+    notes: >
+      B is roadway counts, not a ratio. A and C are registration siblings.
+      QUALIFIES only after register-vs-count forensics — not authorized.
+
+  - id: OA-HOUSING-COMPLETIONS
+    status: PARTIAL
+    seed: false
+    clocks: 2
+    state: dwelling_stock
+    operating: vacancy_census_periodic
+    transition: dwellings_completed_certificates
+    notes: Cleanest A+C pair. Vacancy is not a continuous Clock B.
+
+  - id: OA-CATTLE-SLAUGHTER
+    status: IDENTITY_DOMINATES
+    seed: false
+    clocks: 2
+    state: nass_inventory
+    operating: fsis_slaughter_counts
+    transition: herd_change_balance_sheet
+    notes: A and B independent. C is the published identity.
+
+  - id: OA-NTD-TRANSIT
+    status: PARTIAL
+    seed: false
+    t0: false
+    audit_authorized: false
+    domain: us_transit_agencies
+    state: ntd_active_fleet
+    operating: vehicle_revenue_miles
+    transition: form_5102_retirements_deliveries
+    unregistered_lag: 12_to_24_months_refused
+    notes: Same NTD reporter family as A and C. Not QUALIFIES.
+
+  - id: OA-AV-HOURS
+    status: PARTIAL
+    seed: false
+    domain: us_air_carriers
+    state: fleet_inventory
+    operating: block_hours_or_departures_not_load_factor
+    transition: deliveries_or_B7_dispositions
+    notes: Load factor remains identity. Hours vs fleet is the OA-06 shape. Not QUALIFIES.
+
 
 refused_as_qualifies:
   - OA-EL-US_with_capacity_factor
@@ -149,6 +233,15 @@ refused_as_qualifies:
   - unregistered_14_day_lag
   - pdsi_minus_3_threshold
   - florida_citrus_abandoned_2008_2016
+  - oa_refinery_events_as_qualifies
+  - ntd_sys01_as_qualifies
+  - usgs_cement_sys02_as_qualifies
+  - form41_sys03_as_qualifies
+  - hpms_delta_lane_miles_as_event
+  - unregistered_12_to_24_month_lag
+  - unregistered_18_to_36_month_lag
+  - electricity_reopen
+
 
 measurement_leads:
   - id: ML-FSA-FAILED
