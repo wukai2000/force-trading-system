@@ -59,6 +59,7 @@ candidates:
       - sufficiency_rating
       - ADT_as_condition
       - structurally_deficient_flag_as_fitted_trigger
+
     forbidden_transition:
       - delta_bridge_count
       - item_106_as_clean_replacement
@@ -152,9 +153,20 @@ refused:
   - nuclear_pris_as_third_geography_rule
   - housing_starts_completions_as_condition_adaptation
   - memo3_four_qualifies_quota
+  - faa_sdr_as_qualifies
+  - fia_harvest_as_qualifies
+  - usgs_smelter_ore_as_qualifies
+  - groundwater_recharge_as_qualifies
+  - adt_as_nbi_precursor
+  - memo2_yes_on_nbi
+
 
 unregistered_refused:
   - soc_6_to_9_month_as_fitted_lag
   - nbi_rating_le_4_at_t_minus_4
   - lpms_t_minus_3_delay_spike
   - mine_t_minus_5_grade
+  - aircraft_12_24_month_lag
+  - smelter_3_7_year_lag
+  - timber_2_10_year_lag
+

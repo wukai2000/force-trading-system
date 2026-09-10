@@ -68,5 +68,10 @@ refused:
   - brent_price_as_clock
   - financing_credit_clock
   - policy_legislation_clock
+  - nbi_as_qualifies
+  - faa_sdr_as_qualifies
+  - fia_harvest_as_qualifies
+  - memo3_four_qualifies_quota
+
 
 

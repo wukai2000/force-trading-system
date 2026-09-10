@@ -215,6 +215,12 @@ def test_unfrozen_discovery():
     assert by_oa["OA-CATTLE-SLAUGHTER"]["status"] == "IDENTITY_DOMINATES"
     assert "clock_C_is_delta_state" in census["collapse_modes"]
     assert "ntd_sys01_as_qualifies" in census["refused_as_qualifies"]
+    assert "faa_sdr_as_qualifies" in census["refused_as_qualifies"]
+    assert "memo3_four_qualifies_quota" in census["refused_as_qualifies"]
+    assert "adt_as_nbi_precursor" in census["refused_as_qualifies"]
+    assert all(p.get("qualifies") is False for p in census.get("parked_not_this_cycle") or [])
+    assert all(f.get("status") != "QUALIFIES_FOR_DEEPER_AUDIT" for f in census.get("transition_census_failures") or [])
+
     assert by_oa["OA-NBI-CONDITION"]["status"] == "PARTIAL"
     assert by_oa["OA-NBI-CONDITION"]["verdict"] == "DISTINCT_ACTS_PLAUSIBLE_INDEPENDENCE_NOT_PROVEN"
     assert by_oa["OA-NBI-CONDITION"]["same_file_equals_one_act"] is False

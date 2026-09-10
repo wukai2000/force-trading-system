@@ -54,6 +54,11 @@ def assert_provenance() -> Dict[str, Any]:
     lpms = by["OA-LPMS-LOCK"]
     if lpms.get("verdict") != "INSUFFICIENT_TO_JUDGE":
         raise ProvenanceError("LPMS rehab clock is unverified")
-    if "usgs_ore_grade_to_expansion_as_qualifies" not in (spec.get("refused") or []):
-        raise ProvenanceError("USGS grade QUALIFIES is refused")
+    if "ADT_as_condition" not in (nbi.get("forbidden_precursors") or []):
+        raise ProvenanceError("ADT is demand, not condition")
+    if "faa_sdr_as_qualifies" not in (spec.get("refused") or []):
+        raise ProvenanceError("FAA SDR QUALIFIES is refused")
+    if "memo2_yes_on_nbi" not in (spec.get("refused") or []):
+        raise ProvenanceError("memo-2 YES on NBI is refused")
+
     return spec

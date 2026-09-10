@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**NBI collection acts (2026-09-10):** Same tape ≠ one act (650.315(b) vs (c)). Type B, not Type A. Item 106 is qualifying-work year, not replacement. Independence not proven. State-DOT source hunt not this cycle. PARTIAL. n_seeds=0.
+**Transition census 2026-09-10:** Memo-1 PARTIAL is the right *overall* call. Memo-2 YES and Memo-3 four QUALIFIES dismissed. Age clocks identity. Livestock/network-km residual stock. SOC is project duration. BTS vehicle age is commercial. Electricity stays closed. NBI remains Type B PARTIAL. FAA SDR / FIA harvest / USGS smelter / groundwater parked unverified, not this cycle. n_seeds=0.
+
 
 
 

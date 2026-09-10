@@ -7,7 +7,7 @@ t0_issued: false
 admitted_as_seeds: false
 capital: 0
 census_run: finite_official_pass
-n_documented: 14
+n_documented: 15
 n_seeds: 0
 zero_seeds_is_success: true
 deeper_audit_authorized: false
@@ -39,6 +39,8 @@ disagreement:
   highway_vmt_over_stock: IDENTITY_DOMINATES
   ntd_transit_qualifies: dismissed
   usgs_cement_qualifies: dismissed
+  nbi_as_qualifies: dismissed  # Type B PARTIAL; memo-1/2 QUALIFIES overclaim
+  memo3_four_qualifies: dismissed  # USGS smelter, FAA SDR, FIA harvest, groundwater
 
 collapse_modes:
   - clock_B_is_flow_over_state
@@ -222,10 +224,12 @@ architectures:
     same_file_equals_one_act: false
     independent_streams: not_established
     verdict: DISTINCT_ACTS_PLAUSIBLE_INDEPENDENCE_NOT_PROVEN
-    forbidden_B: sufficiency_rating
+    forbidden_B: [sufficiency_rating, ADT_as_condition]
     notes: >
       650.315(b) inspection vs 650.315(c) opening. Item 106 is not a
       replacement clock. Use prior-year archived extracts only. Not QUALIFIES.
+      ADT is demand, not condition. Memo-1/2 QUALIFIES overclaim dismissed.
+
 
 
   - id: OA-SOC-PIPELINE
@@ -244,6 +248,71 @@ architectures:
     transition: rehab_event_UNVERIFIED
     verdict: INSUFFICIENT_TO_JUDGE
     notes: Delay tables exist. Rehab event series not shown.
+
+
+transition_census_failures:
+  # Memo-1/2 useful NO_RESULT rows. Not seeds. Not QUALIFIES.
+  - id: C-NBI-AGE
+    status: IDENTITY_DOMINATES
+    reason: year_built_is_the_construction_date
+  - id: C-NTD-AGE
+    status: IDENTITY_DOMINATES
+    reason: manufacture_year_on_same_vehicle_file
+  - id: C-ORR-AGE
+    status: IDENTITY_DOMINATES
+    reason: average_rolling_stock_age
+  - id: C-CENSUS-SOC-AS-CONDITION
+    status: BOUNDARY_FAIL
+    reason: new_unit_flow_is_not_existing_stock_condition
+  - id: C-USDA-LS
+    status: RESIDUAL_STOCK_RISK
+    reason: crop_plus_inventory_to_slaughter_identity
+  - id: C-EURO-LS
+    status: RESIDUAL_STOCK_RISK
+  - id: C-USGS-NARRATIVE
+    status: NO_RESULT
+    reason: plant_openings_are_notes_not_an_event_clock
+  - id: C-RAIL-EU-KM
+    status: RESIDUAL_STOCK_RISK
+    reason: delta_network_km
+  - id: C-BTS-AGE
+    status: INDEPENDENCE_FAIL
+    reason: commercial_ihs_age_under_official_table
+  - id: C-PRIS
+    status: NO_RESULT
+    reason: electricity_domain_frozen
+  - id: C-EIA-860
+    status: NO_RESULT
+    reason: electricity_domain_frozen
+  - id: USDA-EQUIPMENT
+    status: IDENTITY_DOMINATES
+    reason: census_age_and_presence_same_file
+  - id: EUROSTAT-VEHICLE-RENEWAL
+    status: IDENTITY_DOMINATES
+
+parked_not_this_cycle:
+  - id: OA-FAA-SDR
+    status: UNVERIFIED
+    seed: false
+    qualifies: false
+    reason: tail_number_join_is_the_right_shape; lag_and_fatigue_threshold_unregistered; provenance_not_run
+  - id: OA-FIA-HARVEST
+    status: UNVERIFIED
+    seed: false
+    qualifies: false
+    reason: plot_age_cmai_is_identity_adjacent; harvest_often_tree_disappearance; 1998_break
+  - id: OA-USGS-SMELTER
+    status: UNVERIFIED
+    seed: false
+    qualifies: false
+    reason: ore_grade_qualifies_already_refused; narrative_events; mine_vs_smelter_boundary
+  - id: OA-GW-RECHARGE
+    status: UNVERIFIED
+    seed: false
+    qualifies: false
+    reason: piezometer_and_recharge_often_same_water_agency
+
+
 
 
 
@@ -283,6 +352,18 @@ refused_as_qualifies:
   - soc_starts_completions_as_force_architecture
   - sufficiency_rating_as_precursor
   - nbi_as_qualifies_same_file
+  - nbi_as_qualifies_type_b
+  - adt_as_nbi_precursor
+  - faa_sdr_as_qualifies
+  - fia_harvest_as_qualifies
+  - usgs_smelter_ore_as_qualifies
+  - groundwater_recharge_as_qualifies
+  - memo2_yes_on_nbi
+  - memo3_four_qualifies_quota
+  - unregistered_12_24_month_aircraft_lag
+  - unregistered_3_7_year_smelter_lag
+  - unregistered_2_10_year_timber_lag
+
 
 
 

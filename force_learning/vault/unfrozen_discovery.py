@@ -122,7 +122,12 @@ def assert_unfrozen() -> Dict[str, Any]:
     if "clock_B_is_flow_over_state" not in (census.get("collapse_modes") or []):
         raise UnfrozenError("collapse modes must be locked")
     if by_oa["OA-NBI-CONDITION"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
-        raise UnfrozenError("NBI Item 106 is the same NBI file")
+        raise UnfrozenError("NBI is Type B PARTIAL, not QUALIFIES")
+    if "faa_sdr_as_qualifies" not in (census.get("refused_as_qualifies") or []):
+        raise UnfrozenError("FAA SDR QUALIFIES is refused")
+    if "memo3_four_qualifies_quota" not in (census.get("refused_as_qualifies") or []):
+        raise UnfrozenError("memo-3 four QUALIFIES quota is refused")
+
     if by_oa["OA-SOC-PIPELINE"].get("architecture_class") != "PROJECT_DURATION":
         raise UnfrozenError("SOC is project duration")
     prov = yaml.safe_load(PROVENANCE.read_text()) or {}
