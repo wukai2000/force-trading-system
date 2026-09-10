@@ -166,4 +166,11 @@ refused:
   - event_inventory_this_turn
   - m3_as_primary_physical_stock
   - safety_stock_10_day_threshold
+  - fifty_to_two_hundred_chain_census
+  - bottleneck_signature_proxy
+  - constraint_migration_reopen
+
+explorer_mission: measurement_architecture_then_transition_then_mechanism
+q4_default: stay_frozen
+
 

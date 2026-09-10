@@ -187,9 +187,13 @@ def test_unfrozen_discovery():
     assert spec["rank_disagreement"]["winner"] == "none"
     assert spec["census_m3"] == "CONVENTIONAL_EXPLANATION_DOMINATES"
     claimed = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "claimed_series.yaml").read_text())
-    assert claimed["extracted"] is False
-    assert claimed["order_test_run"] is False
-    print("PASS unfrozen discovery; claimed IDs only; no order test; no rank winner")
+    assert spec["q4_default"] == "stay_frozen"
+    assert "fifty_to_two_hundred_chain_census" in spec["refused"]
+    mission = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "explorer_mission.yaml").read_text())
+    assert mission["census_size_this_quarter"] == 0
+    assert mission["levels_open_this_quarter"] == [0]
+    print("PASS unfrozen discovery; claimed IDs only; no 50-200 census; Q4 stay frozen")
+
 
 
 

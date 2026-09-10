@@ -10,6 +10,9 @@ from force_ideas.state import active_frozen_forces, fs0001_desk
 
 PATH = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "unfrozen_discovery.yaml"
 CLAIMED = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "claimed_series.yaml"
+MISSION = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "explorer_mission.yaml"
+
+
 
 
 
@@ -63,7 +66,21 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("same-period CF identity is refused")
     if by["UD-04"].get("classification") != "DATA_FEASIBILITY_PROBLEM":
         raise UnfrozenError("constraint migration has no constraint clock")
+    if spec.get("q4_default") != "stay_frozen":
+        raise UnfrozenError("Q4 default is stay frozen")
+    mission = yaml.safe_load(MISSION.read_text()) or {}
+    if mission.get("search_to") != "measurement_architecture_then_transition_then_mechanism":
+        raise UnfrozenError("explorer mission inversion not locked")
+    if mission.get("census_size_this_quarter") != 0:
+        raise UnfrozenError("50-200 census is refused")
+    if 7 in (mission.get("levels_open_this_quarter") or []):
+        raise UnfrozenError("T0 level is blocked this quarter")
+    if "fifty_to_two_hundred_chain_census" not in (mission.get("refused") or []):
+        raise UnfrozenError("50-200 census must be refused")
+    if "bottleneck_signature_proxy" not in (mission.get("refused") or []):
+        raise UnfrozenError("bottleneck signatures are constraint-migration rescue")
     refused = spec.get("refused") or []
+
 
     for tok in (
         "new_frozen_force",
@@ -75,6 +92,9 @@ def assert_unfrozen() -> Dict[str, Any]:
         "iea_mods_as_wired",
         "same_period_capacity_factor_identity",
         "order_test_this_turn",
+        "fifty_to_two_hundred_chain_census",
+        "bottleneck_signature_proxy",
+
 
     ):
         if tok not in refused:

@@ -1,0 +1,49 @@
+# Explorer mission lock. Not a freeze. Not a 50-200 census.
+protocol_id: FORCE_PROTOCOL_v1.0
+frozen: false
+t0_issued: false
+admitted_as_seeds: false
+capital: 0
+one_frozen_slot: FS-0001.v1
+
+# Inversion learned 2026-09-09. Do not run Levels 5-7 this quarter.
+search_from: force_idea_then_dataset
+search_to: measurement_architecture_then_transition_then_mechanism
+utilization_is: state_detector_not_force
+identities: classify_not_auto_reject
+lagged_response_first: true
+
+levels:
+  0: measurement_extract
+  1: physical_state
+  2: transition
+  3: clock_order
+  4: delayed_response
+  5: cross_system_repetition
+  6: mechanism
+  7: t0
+levels_open_this_quarter: [0]
+levels_blocked_this_quarter: [5, 6, 7]
+
+q4_default: stay_frozen
+q4_optional_b: verify_claimed_eia_ids_no_lag
+q4_optional_c: filter_1_if_iea_cube_arrives
+
+census_size_this_quarter: 0
+systems_max: 3
+new_rows_this_quarter: []
+
+refused:
+  - fifty_to_two_hundred_chain_census
+  - twenty_to_thirty_system_hunt
+  - bottleneck_signature_proxy
+  - constraint_migration_reopen
+  - housing_agriculture_aviation_rows
+  - new_observable_observatory_product
+  - oecd_eurostat_topology_as_extract
+  - flow_over_stock_as_search_query
+  - force_idea_brainstorm
+  - fs0001_cousin_hunt
+  - licensed_dataset_speculation
+  - ticker_first
+  - t0_from_mission_change

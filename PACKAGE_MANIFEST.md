@@ -1,6 +1,5 @@
-# force-trading-system-20260909-claimed-series
+# force-trading-system-20260909-explorer-mission
 
-- EIA series IDs claimed, not extracted. No order test.
-- Same-period capacity factor identity refused
-- Rank winner none (inventory vs utilization)
-- Grid/queue still F2. M3 conventional. CAPITAL=$0
+- Explorer mission: measurement architecture → transition → mechanism
+- 50-200 census refused. Bottleneck-signature rescue refused
+- Q4 default: stay frozen. Levels 5-7 blocked. Capital $0

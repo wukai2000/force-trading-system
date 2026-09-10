@@ -28,6 +28,10 @@ v2_freight_abandoned: false
 unfrozen_discovery: OBSERVATORY
 new_frozen_forces_this_quarter: 0
 grid_queue_promising: false
+explorer_mission: measurement_architecture_then_transition_then_mechanism
+q4_default: stay_frozen
+census_50_200: refused
+
 
 
 
