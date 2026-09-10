@@ -196,7 +196,15 @@ def test_unfrozen_discovery():
     census = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "architecture_census.yaml").read_text())
     assert census["n"] == 0
     assert census["zero_is_success"] is True
-    print("PASS unfrozen discovery; clocks first; census empty; Q4 stay frozen")
+    assert mission["q4_optional_b_this_cycle"] == "not_authorized"
+    contract = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "research_contract.yaml").read_text())
+    assert contract["q4_ack"] == "stay_frozen"
+    assert contract["eia_audit_run"] is False
+    assert contract["frozen_slot_count"] == 1
+    assert contract["year_end_contribution"] == "silence"
+    assert "EIA.STEO.NOBRT.M" in contract["fabricated_eia_ids_refused"]
+    print("PASS Q4 ACK; EIA audit not authorized; slot count 1; capital silence")
+
 
 
 

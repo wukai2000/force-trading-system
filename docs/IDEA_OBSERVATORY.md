@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Explorer mission (2026-09-09):** measurement architecture → transition → mechanism. Clocks first, not variables. Object = ObservableArchitecture, not ForceCandidate. Census n=0 is success. OECD infrastructure investment is spend, not a physical response. Seed families are not seeds. Levels 5–7 blocked. Q4 default: stay frozen.
+**Q4 ACK 2026-09-10:** stay frozen. EIA optional **not authorized**. Frozen slot count = 1 (FS-0001). Census n=0. Capital $0. Year-end contribution: silence. Brent/imports are not the claimed series.
+
 
 
 

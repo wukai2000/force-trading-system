@@ -172,6 +172,10 @@ refused:
   - architecture_census_v1_this_quarter
   - oecd_infrastructure_investment_as_response
   - delayed_adaptation_as_seed
+  - eia_audit_this_cycle
+  - fabricated_eia_ids
+  - brent_price_as_clock
+
 
 
 explorer_mission: measurement_architecture_then_transition_then_mechanism

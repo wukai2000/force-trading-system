@@ -1,0 +1,51 @@
+# Q4 freeze contract. ACK 2026-09-10. Not a Force. Not an EIA extract.
+protocol_id: FORCE_PROTOCOL_v1.0
+date: 2026-09-10
+q4_ack: stay_frozen
+eia_optional_this_cycle: not_authorized
+eia_audit_run: false
+second_frozen_slot: unallocated
+fs0001_v2_freeze: false
+new_explorer_seed: false
+architecture_census_n: 0
+frozen_slot_count: 1
+frozen_id: FS-0001
+capital: 0
+trump_account: SPYM_only
+year_end_contribution: silence
+force4: wait
+evidence_record_promotion: NOT_PERMITTED
+period_result: NO_RESULT
+no_result_is_success: true
+
+gates:
+  conc_a_persist_kill: 0.40
+  placebo_max: 0.15
+  neighbor_min: 0.40
+  multilayer_ir_min: 0.40
+  loosening: false
+
+negative_controls: [F1, F2, F3]
+
+measurement_first_gate:
+  encoded: true
+  executed: false
+  path:
+    - historical_measurement_exists
+    - stable_definition
+    - independent_clocks
+    - physical_transition_observable
+    - then_maybe_t0
+  financing_credit_clock: refused
+  policy_legislation_clock: refused
+
+fabricated_eia_ids_refused:
+  - TOTAL.PET_IMPORTS.M
+  - EIA.STEO.NOBRT.M
+reason_fabricated: >
+  Not the claimed series. NOBRT is a price. Imports are not stocks/runs/capacity.
+
+claimed_ids_remain_unverified: true
+lag_test: false
+t0: false
+attach_instruments: false

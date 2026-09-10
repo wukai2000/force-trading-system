@@ -30,6 +30,11 @@ new_frozen_forces_this_quarter: 0
 grid_queue_promising: false
 explorer_mission: measurement_architecture_then_transition_then_mechanism
 q4_default: stay_frozen
+q4_ack: stay_frozen
+eia_optional_this_cycle: not_authorized
+frozen_slot_count: 1
+year_end_contribution: silence
+
 census_50_200: refused
 
 

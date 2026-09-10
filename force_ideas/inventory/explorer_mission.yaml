@@ -32,8 +32,11 @@ levels_open_this_quarter: [0]
 levels_blocked_this_quarter: [5, 6, 7]
 
 q4_default: stay_frozen
+q4_ack: stay_frozen
 q4_optional_b: verify_claimed_eia_ids_no_lag
+q4_optional_b_this_cycle: not_authorized
 q4_optional_c: filter_1_if_iea_cube_arrives
+
 
 census_size_this_quarter: 0
 systems_max: 3
@@ -58,4 +61,10 @@ refused:
   - architecture_census_v1_this_quarter
   - delayed_adaptation_as_seed
   - latent_capacity_as_seed
+  - eia_audit_this_cycle
+  - fabricated_eia_ids
+  - brent_price_as_clock
+  - financing_credit_clock
+  - policy_legislation_clock
+
 

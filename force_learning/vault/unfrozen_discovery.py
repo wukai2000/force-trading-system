@@ -12,6 +12,8 @@ PATH = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "unfr
 CLAIMED = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "claimed_series.yaml"
 MISSION = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "explorer_mission.yaml"
 CENSUS = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "architecture_census.yaml"
+CONTRACT = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "research_contract.yaml"
+
 
 
 
@@ -93,7 +95,23 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("architectures are not seeds")
     if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":
         raise UnfrozenError("OECD investment is spend, not a physical response")
+    if mission.get("q4_optional_b_this_cycle") != "not_authorized":
+        raise UnfrozenError("EIA optional is not authorized this cycle")
+    contract = yaml.safe_load(CONTRACT.read_text()) or {}
+    if contract.get("q4_ack") != "stay_frozen":
+        raise UnfrozenError("Q4 ACK missing")
+    if contract.get("eia_audit_run") is True:
+        raise UnfrozenError("do not run the EIA audit this cycle")
+    if contract.get("frozen_slot_count") != 1:
+        raise UnfrozenError("one frozen slot: FS-0001")
+    if "EIA.STEO.NOBRT.M" not in (contract.get("fabricated_eia_ids_refused") or []):
+        raise UnfrozenError("Brent price is not a clock")
+    if contract.get("measurement_first_gate", {}).get("executed") is True:
+        raise UnfrozenError("measurement-first gate is spec only")
+    if contract.get("capital") != 0:
+        raise UnfrozenError("capital $0")
     refused = spec.get("refused") or []
+
 
 
 
