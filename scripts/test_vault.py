@@ -198,8 +198,16 @@ def test_unfrozen_discovery():
     assert census["deeper_audit_authorized"] is False
     assert census["winner"] == "none"
     by_oa = {a["id"]: a for a in census["architectures"]}
-    assert by_oa["OA-AG-USGRAIN"]["status"] == "QUALIFIES_FOR_DEEPER_AUDIT"
+    assert by_oa["OA-AG-USGRAIN"]["status"] == "REJECTED_AS_ADAPTATION"
     assert by_oa["OA-AG-USGRAIN"]["seed"] is False
+    leads = {x["id"]: x for x in census["measurement_leads"]}
+    assert leads["ML-ARMS-REPLANT"]["status"] == "MEASUREMENT_LEAD"
+    assert leads["ML-ARMS-REPLANT"]["promising"] is False
+    assert leads["ML-ARMS-REPLANT"]["history_15yr"] == "unverified"
+    assert leads["ML-RMA-COL"]["independence"] == "not_PASS"
+    assert "poor_plus_very_poor_ge_35_for_3_weeks" in census["unregistered_thresholds_refused"]
+    print("PASS grain downgraded; ARMS lead not seed; RMA not PASS; no thresholds")
+
     assert by_oa["OA-EL-RELIABILITY"]["status"] == "PARTIAL"
     assert by_oa["OA-RAIL-STB-KINEMATIC"]["official_stb_metrics_start"] == "2014-10"
     assert by_oa["OA-RAIL-STB-KINEMATIC"]["status"] == "PARTIAL"

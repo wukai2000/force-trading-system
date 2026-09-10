@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Finite census (2026-09-10):** documented OAs, **n_seeds=0**. Grain stocks→plantings parked QUALIFIES, not a seed. Electricity reliability PARTIAL (do not splice 861 onto 411). STB rail kinematics PARTIAL (start Oct 2014, not 1999). No winner. Deeper audit not authorized. Q4 frozen.
+**Grain follow-on (2026-09-10):** next-year planted acres **REJECTED** as adaptation (it is a stock). In-season leads: FSA failed PARTIAL, ARMS replant MEASUREMENT_LEAD (no 15y series), RMA COL administrative. Memo-3 35%/PDSI/14-day thresholds refused. No seed.
+
 
 
 

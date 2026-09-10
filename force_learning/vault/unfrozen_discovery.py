@@ -104,6 +104,16 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("STB metrics start 2014, not 1999")
     if by_oa["OA-AG-USGRAIN"].get("seed") is True:
         raise UnfrozenError("grain is not a seed")
+    if by_oa["OA-AG-USGRAIN"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("next-year acres is a stock, not an adaptation")
+    leads = {x["id"]: x for x in census.get("measurement_leads") or []}
+    if leads.get("ML-ARMS-REPLANT", {}).get("promising") is True:
+        raise UnfrozenError("ARMS replant is not PROMISING without a 15y series")
+    if leads.get("ML-RMA-COL", {}).get("independence") == "PASS":
+        raise UnfrozenError("RMA is administrative, not independence PASS")
+    if not census.get("unregistered_thresholds_refused"):
+        raise UnfrozenError("Memo-3 Poor/PDSI/14-day thresholds must be refused")
+
     if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":
         raise UnfrozenError("OECD investment is spend, not a physical response")
 

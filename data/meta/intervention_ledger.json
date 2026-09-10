@@ -506,6 +506,28 @@
       "protocol_from": "FORCE_PROTOCOL_v1.0",
       "protocol_to": "FORCE_PROTOCOL_v1.0",
       "cannot_promote": true
+    },
+    {
+      "timestamp_utc": "2026-09-10T14:28:25Z",
+      "kind": "explorer_registry",
+      "reason": "Next-year acres rejected as adaptation. ARMS replant is a lead without 15y series. RMA not independence PASS. Unregistered 35%/PDSI/14d refused. n_seeds=0.",
+      "candidate_id": "OA-AG-USGRAIN",
+      "counts": {
+        "candidate_definition": 0,
+        "universe_change": 0,
+        "control_change": 0,
+        "parameter_change": 0,
+        "date_window_change": 0,
+        "cost_change": 0,
+        "post_result_modification": 0,
+        "protocol_bump": 0,
+        "instrument_hardening": 0,
+        "explorer_registry": 1
+      },
+      "intervention_count": 1,
+      "protocol_from": "FORCE_PROTOCOL_v1.0",
+      "protocol_to": "FORCE_PROTOCOL_v1.0",
+      "cannot_promote": true
     }
   ]
 }

@@ -26,14 +26,16 @@ schema:
 disagreement:
   electricity_cf: IDENTITY_DOMINATES  # all three
   electricity_reliability_as_third_clock: PARTIAL  # memo-2 QUALIFIES; memo-1/3 kill mix/weather
-  grain_stocks_to_plantings: QUALIFIES_FOR_DEEPER_AUDIT  # memo-1; memo-2 residual; memo-3 weather=prosecutor
+  grain_stocks_to_plantings: REJECTED_AS_ADAPTATION  # next-year acres is a stock
+  grain_in_season_event: MEASUREMENT_LEAD  # not a seed
+
   rail_stb_kinematic: PARTIAL  # memo-3 QUALIFIES with false 1999 start; STB metrics Oct 2014
   aviation_load_factor: IDENTITY_DOMINATES
   g17: IDENTITY_DOMINATES
 
 architectures:
   - id: OA-AG-USGRAIN
-    status: QUALIFIES_FOR_DEEPER_AUDIT
+    status: REJECTED_AS_ADAPTATION
     seed: false
     t0: false
     audit_authorized: false
@@ -43,14 +45,15 @@ architectures:
     utilization: none_non_constructed
     constraint: stocks_vs_use_or_storage_same_survey
     response: next_season_planted_acreage
+    response_is: stock_not_event
     years: multi_decade
     geography: US
     sources: [USDA-NASS Grain Stocks, Acreage, Crop Production]
-    identity_risk: residual_stock_present_but_stocks_enumerated
+    identity_risk: residual_stock
     notes: >
-      Best three-object case. Do not use yield as utilization (identity).
-      Do not splice FAS PS&D. Weather/policy are prosecutors, not census kills.
-      One crop system = one manifestation.
+      Closed. Planted(t+1) is a later stock, not a physical transition.
+      Yield is an identity. Do not reopen as Clock B.
+
 
   - id: OA-EL-RELIABILITY
     status: PARTIAL
@@ -138,6 +141,77 @@ refused_as_qualifies:
   - shipping_ais
   - water_municipal
   - memo3_12_to_36_month_lag
+  - next_year_planted_acres_as_adaptation
+  - nass_planted_minus_harvested
+  - rma_independence_pass
+  - arms_replant_as_15yr_series
+  - unregistered_poor_35pct_threshold
+  - unregistered_14_day_lag
+  - pdsi_minus_3_threshold
+  - florida_citrus_abandoned_2008_2016
+
+measurement_leads:
+  - id: ML-FSA-FAILED
+    status: PARTIAL
+    seed: false
+    promising: false
+    clock_b: fsa_failed_acres
+    operating: nass_crop_condition
+    administrative: true
+    public_files_from: 2009
+    independence: UNVERIFIED
+    nass_uses_fsa_as_abandonment_floor: true
+    notes: Closest labeled in-season failure category. Shared personnel. Not a field census.
+
+  - id: ML-ARMS-REPLANT
+    status: MEASUREMENT_LEAD
+    seed: false
+    promising: false
+    clock_b: arms_acres_replanted
+    operating: nass_crop_progress
+    administrative: false
+    documented_year: 2021
+    commodity_modules_rotate_years: 5
+    history_15yr: unverified
+    notes: Direct operator question, not a stock difference. Series not shown continuous.
+
+  - id: ML-RMA-COL
+    status: PARTIAL
+    seed: false
+    promising: false
+    clock_b: rma_cause_of_loss_acres
+    administrative: true
+    independence: not_PASS
+    acres_from: 2001
+    notes: Event-dated claims. Revenue plans and PP must be filtered. Not A-type.
+
+  - id: ML-NASS-OYS
+    status: PARTIAL
+    seed: false
+    promising: false
+    clock_b: oys_plot_harvest_status
+    geography: major_states_only
+    plot_microdata: CIPSEA_restricted
+    notes: Physical plots exist. Not a national public abandonment panel.
+
+  - id: ML-FSA-PP
+    status: REJECTED_AS_ADAPTATION
+    seed: false
+    notes: Same-season non-planting program outcome. Not next-year adaptation.
+
+unregistered_thresholds_refused:
+  - poor_plus_very_poor_ge_35_for_3_weeks
+  - pdsi_le_minus_3
+  - lag_14_days
+  - lag_2_to_6_weeks
+  - coverage_60_vs_75_vs_85
+  - poor_plus_very_poor_ge_40
+
+next_study_not_authorized_this_cycle:
+  - fsa_failed_provenance
+  - arms_replant_15yr
+  - rma_policy_independence
+
 
 extracted: false
 lag_test: false
