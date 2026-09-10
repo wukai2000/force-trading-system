@@ -11,6 +11,9 @@ from force_ideas.state import active_frozen_forces, fs0001_desk
 PATH = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "unfrozen_discovery.yaml"
 CLAIMED = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "claimed_series.yaml"
 MISSION = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "explorer_mission.yaml"
+CENSUS = Path(__file__).resolve().parents[2] / "force_ideas" / "inventory" / "architecture_census.yaml"
+
+
 
 
 
@@ -79,7 +82,19 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("50-200 census must be refused")
     if "bottleneck_signature_proxy" not in (mission.get("refused") or []):
         raise UnfrozenError("bottleneck signatures are constraint-migration rescue")
+    if mission.get("clocks_first_not_variables") is not True:
+        raise UnfrozenError("clocks first, not variables")
+    if mission.get("seed_finder_this_quarter") is True:
+        raise UnfrozenError("do not run the seed finder this quarter")
+    census = yaml.safe_load(CENSUS.read_text()) or {}
+    if census.get("n") != 0 or census.get("census_run") is True:
+        raise UnfrozenError("architecture census stays empty")
+    if census.get("admitted_as_seeds") is True:
+        raise UnfrozenError("architectures are not seeds")
+    if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":
+        raise UnfrozenError("OECD investment is spend, not a physical response")
     refused = spec.get("refused") or []
+
 
 
     for tok in (
@@ -94,6 +109,8 @@ def assert_unfrozen() -> Dict[str, Any]:
         "order_test_this_turn",
         "fifty_to_two_hundred_chain_census",
         "bottleneck_signature_proxy",
+        "architecture_census_v1_this_quarter",
+
 
 
     ):

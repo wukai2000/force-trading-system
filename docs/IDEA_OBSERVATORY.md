@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Explorer mission (2026-09-09):** measurement architecture → transition → mechanism. Not Force-idea → dataset hunt. Levels 5–7 (cross-system / mechanism / T0) are blocked this quarter. A 50–200 chain census is refused. Bottleneck-signature rescue of constraint migration is refused. Q4 default: stay frozen.
+**Explorer mission (2026-09-09):** measurement architecture → transition → mechanism. Clocks first, not variables. Object = ObservableArchitecture, not ForceCandidate. Census n=0 is success. OECD infrastructure investment is spend, not a physical response. Seed families are not seeds. Levels 5–7 blocked. Q4 default: stay frozen.
+
 
 
 ## Locked decisions

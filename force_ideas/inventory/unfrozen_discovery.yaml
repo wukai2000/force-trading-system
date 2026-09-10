@@ -169,6 +169,10 @@ refused:
   - fifty_to_two_hundred_chain_census
   - bottleneck_signature_proxy
   - constraint_migration_reopen
+  - architecture_census_v1_this_quarter
+  - oecd_infrastructure_investment_as_response
+  - delayed_adaptation_as_seed
+
 
 explorer_mission: measurement_architecture_then_transition_then_mechanism
 q4_default: stay_frozen

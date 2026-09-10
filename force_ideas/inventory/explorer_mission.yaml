@@ -9,9 +9,15 @@ one_frozen_slot: FS-0001.v1
 # Inversion learned 2026-09-09. Do not run Levels 5-7 this quarter.
 search_from: force_idea_then_dataset
 search_to: measurement_architecture_then_transition_then_mechanism
+clocks_first_not_variables: true
 utilization_is: state_detector_not_force
 identities: classify_not_auto_reject
 lagged_response_first: true
+object: ObservableArchitecture
+not_object: ForceCandidate
+seed_finder_this_quarter: false
+architecture_census_file: force_ideas/inventory/architecture_census.yaml
+
 
 levels:
   0: measurement_extract
@@ -47,3 +53,9 @@ refused:
   - licensed_dataset_speculation
   - ticker_first
   - t0_from_mission_change
+  - oecd_infrastructure_investment_as_response
+  - seed_finder_this_quarter
+  - architecture_census_v1_this_quarter
+  - delayed_adaptation_as_seed
+  - latent_capacity_as_seed
+

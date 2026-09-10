@@ -1,0 +1,38 @@
+# ObservableArchitecture inventory. Not ForceCandidate. Empty is success.
+protocol_id: FORCE_PROTOCOL_v1.0
+object: ObservableArchitecture
+not: ForceCandidate
+frozen: false
+t0_issued: false
+admitted_as_seeds: false
+capital: 0
+census_run: false
+architectures: []
+n: 0
+zero_is_success: true
+
+schema:
+  state: null
+  flow: null
+  utilization: null
+  constraint: null
+  response: null
+rule: clocks_first_not_variables
+search_backward_from: delayed_physical_response
+min_clocks: 3
+min_years: 15
+min_manifestations: 3
+monetary_denominator: refused
+same_period_identity: refused
+licensed: refused
+securities: refused
+
+families_not_seeds:
+  delayed_physical_adaptation: UD-01_restatement
+  latent_capacity_exhaustion: MECHANISM_TOO_VAGUE
+  constraint_migration: DATA_FEASIBILITY_PROBLEM
+
+oecd_transport_90_indicators: not_an_extract
+oecd_infrastructure_investment: monetary_spend_refused
+itf_infra_already_refused: true
+iea_leave_fs0001: true

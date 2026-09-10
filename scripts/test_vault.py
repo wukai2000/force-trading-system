@@ -191,8 +191,13 @@ def test_unfrozen_discovery():
     assert "fifty_to_two_hundred_chain_census" in spec["refused"]
     mission = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "explorer_mission.yaml").read_text())
     assert mission["census_size_this_quarter"] == 0
-    assert mission["levels_open_this_quarter"] == [0]
-    print("PASS unfrozen discovery; claimed IDs only; no 50-200 census; Q4 stay frozen")
+    assert mission["clocks_first_not_variables"] is True
+    assert mission["seed_finder_this_quarter"] is False
+    census = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "architecture_census.yaml").read_text())
+    assert census["n"] == 0
+    assert census["zero_is_success"] is True
+    print("PASS unfrozen discovery; clocks first; census empty; Q4 stay frozen")
+
 
 
 
