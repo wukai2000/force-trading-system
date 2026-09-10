@@ -72,6 +72,10 @@ refused:
   - faa_sdr_as_qualifies
   - fia_harvest_as_qualifies
   - memo3_four_qualifies_quota
+  - nbi_collection_act_independence_pass
+  - nbi_24_month_inspection_cycle_as_lag
+  - single_bridge_lineage_this_cycle
+
 
 
 

@@ -37,8 +37,19 @@ def assert_provenance() -> Dict[str, Any]:
         raise ProvenanceError("NBI streams are not established")
     if nbi.get("independence", {}).get("I5_system") != "TYPE_B":
         raise ProvenanceError("NBI is Type B")
+    if nbi.get("collection_act_independence") != "PARTIAL_not_PASS":
+        raise ProvenanceError("collection-act independence is PARTIAL, not PASS")
+    if nbi.get("record_level_non_contamination") != "not_proven_from_public_extracts":
+        raise ProvenanceError("public extracts do not prove non-contamination")
+    if nbi.get("retrospective_contamination") != "RETROSPECTIVE_CONTAMINATION_RISK":
+        raise ProvenanceError("retrospective contamination remains")
     if nbi.get("next_authorized_this_cycle") is True:
-        raise ProvenanceError("state DOT hunt is not this cycle")
+        raise ProvenanceError("single-bridge lineage is not this cycle")
+    if "nbi_24_month_inspection_cycle_as_lag" not in (spec.get("refused") or []):
+        raise ProvenanceError("24-month inspection cycle is not a lag")
+    if "collection_act_independence_pass" not in (spec.get("refused") or []):
+        raise ProvenanceError("collection-act PASS is refused")
+
     if "item_106_as_clean_replacement" not in (nbi.get("forbidden_transition") or []):
         raise ProvenanceError("Item 106 is not a replacement clock")
 

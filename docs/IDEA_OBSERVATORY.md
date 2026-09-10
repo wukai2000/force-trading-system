@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Transition census 2026-09-10:** Memo-1 PARTIAL is the right *overall* call. Memo-2 YES and Memo-3 four QUALIFIES dismissed. Age clocks identity. Livestock/network-km residual stock. SOC is project duration. BTS vehicle age is commercial. Electricity stays closed. NBI remains Type B PARTIAL. FAA SDR / FIA harvest / USGS smelter / groundwater parked unverified, not this cycle. n_seeds=0.
+**NBI lineage 2026-09-10:** Memo-2 PARTIAL is the honest verdict. Process-level 650.315(b)/(c) split ≠ record-level YES. Collection-act PASS refused. 24-month inspection cycle is not a lag. Single-bridge 9-item lineage specified, not authorized this cycle. n_seeds=0.
+
 
 
 

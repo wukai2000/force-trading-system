@@ -42,6 +42,8 @@ candidates:
     same_file_equals_one_act: false
     two_collection_acts: PARTIAL
     independent_measurement_streams: not_established
+    collection_act_independence: PARTIAL_not_PASS
+    record_level_non_contamination: not_proven_from_public_extracts
     independence:
       I1_physical: PASS
       I2_temporal: PASS_archived_annual_files_only
@@ -50,6 +52,24 @@ candidates:
       I5_system: TYPE_B
       not_PASS: true
       not_Type_A: true
+      not_strong: true
+    retrospective_contamination: RETROSPECTIVE_CONTAMINATION_RISK
+    counterfactuals:
+      A_ratings_without_reconstruction: true
+      B_item_106_without_prior_rating: operationally_possible
+    next_if_reopened: single_bridge_record_lineage
+    next_authorized_this_cycle: false
+    single_bridge_lineage_not_this_cycle:
+      - original_inspection_date
+      - original_inspection_report_rating
+      - inventory_entry_date
+      - subsequent_revision_date_value
+      - reconstruction_completion_date
+      - construction_completion_document
+      - item_106_entry_date
+      - evidence_106_not_from_prior_rating
+      - persistent_structure_number
+
     operational_if_ever_used:
       precursor: archived_nbi_year_strictly_before_item_106
       item_106: greater_than_zero_and_year_built
@@ -78,15 +98,17 @@ candidates:
       - ten_year_rule_in_older_files
       - 2018_structurally_deficient_term_eliminated
       - 2017_good_fair_poor_performance_measure
-    next_if_reopened: state_owner_item_106_source_document
-    next_authorized_this_cycle: false
     sources:
+
+
       - https://www.fhwa.dot.gov/bridge/nbi/format.cfm
       - https://www.fhwa.dot.gov/bridge/nbi/ascii.cfm
     notes: >
       Same NBI tape is a reporting container, not one observation.
-      650.315(b) vs (c) are distinct triggers. Item 106 source document
-      is not a national Type-A chain. Not QUALIFIES. Not a seed.
+      650.315(b) vs (c) are distinct triggers. Collection-act PASS is
+      refused: process-level split is not record-level YES. Item 106
+      source document is not a national Type-A chain. Not QUALIFIES.
+
 
 
   - id: OA-SOC-PIPELINE
@@ -159,6 +181,11 @@ refused:
   - groundwater_recharge_as_qualifies
   - adt_as_nbi_precursor
   - memo2_yes_on_nbi
+  - memo1_yes_collection_act_pass
+  - memo3_yes_on_nbi
+  - nbi_24_month_inspection_cycle_as_lag
+  - collection_act_independence_pass
+
 
 
 unregistered_refused:
@@ -169,4 +196,6 @@ unregistered_refused:
   - aircraft_12_24_month_lag
   - smelter_3_7_year_lag
   - timber_2_10_year_lag
+  - nbi_24_month_lag
+
 

@@ -39,7 +39,10 @@ disagreement:
   highway_vmt_over_stock: IDENTITY_DOMINATES
   ntd_transit_qualifies: dismissed
   usgs_cement_qualifies: dismissed
-  nbi_as_qualifies: dismissed  # Type B PARTIAL; memo-1/2 QUALIFIES overclaim
+  nbi_as_qualifies: dismissed  # Type B PARTIAL; memo YES overclaim
+  nbi_collection_act_pass: dismissed  # process split ≠ record-level YES
+  nbi_24_month_lag: dismissed
+
   memo3_four_qualifies: dismissed  # USGS smelter, FAA SDR, FIA harvest, groundwater
 
 collapse_modes:
@@ -353,6 +356,11 @@ refused_as_qualifies:
   - sufficiency_rating_as_precursor
   - nbi_as_qualifies_same_file
   - nbi_as_qualifies_type_b
+  - nbi_collection_act_independence_pass
+  - nbi_24_month_inspection_cycle_as_lag
+  - memo1_yes_on_nbi_streams
+  - memo3_yes_24_month_lag
+
   - adt_as_nbi_precursor
   - faa_sdr_as_qualifies
   - fia_harvest_as_qualifies
