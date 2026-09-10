@@ -39,6 +39,8 @@ q4_optional_c: filter_1_if_iea_cube_arrives
 
 
 census_size_this_quarter: 0
+finite_pass_documented: true
+
 systems_max: 3
 new_rows_this_quarter: []
 

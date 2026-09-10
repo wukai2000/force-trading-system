@@ -194,9 +194,17 @@ def test_unfrozen_discovery():
     assert mission["clocks_first_not_variables"] is True
     assert mission["seed_finder_this_quarter"] is False
     census = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "architecture_census.yaml").read_text())
-    assert census["n"] == 0
-    assert census["zero_is_success"] is True
-    assert mission["q4_optional_b_this_cycle"] == "not_authorized"
+    assert census["n_seeds"] == 0
+    assert census["deeper_audit_authorized"] is False
+    assert census["winner"] == "none"
+    by_oa = {a["id"]: a for a in census["architectures"]}
+    assert by_oa["OA-AG-USGRAIN"]["status"] == "QUALIFIES_FOR_DEEPER_AUDIT"
+    assert by_oa["OA-AG-USGRAIN"]["seed"] is False
+    assert by_oa["OA-EL-RELIABILITY"]["status"] == "PARTIAL"
+    assert by_oa["OA-RAIL-STB-KINEMATIC"]["official_stb_metrics_start"] == "2014-10"
+    assert by_oa["OA-RAIL-STB-KINEMATIC"]["status"] == "PARTIAL"
+    print("PASS finite census; grain parked not seed; rail 1999 dismissed; no winner")
+
     contract = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "research_contract.yaml").read_text())
     assert contract["q4_ack"] == "stay_frozen"
     assert contract["eia_audit_run"] is False

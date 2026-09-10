@@ -89,12 +89,24 @@ def assert_unfrozen() -> Dict[str, Any]:
     if mission.get("seed_finder_this_quarter") is True:
         raise UnfrozenError("do not run the seed finder this quarter")
     census = yaml.safe_load(CENSUS.read_text()) or {}
-    if census.get("n") != 0 or census.get("census_run") is True:
-        raise UnfrozenError("architecture census stays empty")
     if census.get("admitted_as_seeds") is True:
         raise UnfrozenError("architectures are not seeds")
+    if census.get("deeper_audit_authorized") is True:
+        raise UnfrozenError("deeper audit is not authorized this cycle")
+    if census.get("winner") not in (None, "none"):
+        raise UnfrozenError("do not pick a census winner")
+    if int(census.get("n_seeds") or 0) != 0:
+        raise UnfrozenError("zero seeds")
+    by_oa = {a["id"]: a for a in census.get("architectures") or []}
+    if by_oa["OA-EL-RELIABILITY"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("electricity reliability is PARTIAL until one clock is frozen")
+    if by_oa["OA-RAIL-STB-KINEMATIC"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
+        raise UnfrozenError("STB metrics start 2014, not 1999")
+    if by_oa["OA-AG-USGRAIN"].get("seed") is True:
+        raise UnfrozenError("grain is not a seed")
     if census.get("oecd_infrastructure_investment") != "monetary_spend_refused":
         raise UnfrozenError("OECD investment is spend, not a physical response")
+
     if mission.get("q4_optional_b_this_cycle") != "not_authorized":
         raise UnfrozenError("EIA optional is not authorized this cycle")
     contract = yaml.safe_load(CONTRACT.read_text()) or {}

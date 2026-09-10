@@ -8,6 +8,10 @@ second_frozen_slot: unallocated
 fs0001_v2_freeze: false
 new_explorer_seed: false
 architecture_census_n: 0
+architecture_census_n_seeds: 0
+architecture_census_documented: 6
+deeper_audit_authorized: false
+
 frozen_slot_count: 1
 frozen_id: FS-0001
 capital: 0
