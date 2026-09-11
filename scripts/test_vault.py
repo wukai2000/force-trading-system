@@ -239,6 +239,16 @@ def test_unfrozen_discovery():
     assert by_oa["OA-LPMS-LOCK"]["verdict"] == "INSUFFICIENT_TO_JUDGE"
     from force_learning.vault.provenance_audit import assert_provenance
     assert_provenance()
+    from force_learning.vault.physical_survey import assert_survey, survey
+    s = assert_survey()
+    rows = survey(s)
+    assert s["n_seeds"] == 0
+    assert s["audit_authorized"] is False
+    assert all(not r["qualifies"] and not r["seed"] for r in rows)
+    assert any(r["id"] == "OA-VOLCANO-ERUPTION" and r["status"] == "SHAPE_INTERESTING" for r in rows)
+    assert any(r["id"] == "OA-STREAMFLOW-DAM" and r["status"] == "DISMISSED_AS_DAM_CONDITION" for r in rows)
+    print("PASS physical survey; volcano shape only; streamflow-dam dismissed; n_seeds=0")
+
     print("PASS provenance; NBI PARTIAL same-file; SOC project duration; no panel")
 
     print("PASS three-clock census; refinery/NTD/FHWA PARTIAL; collapse modes locked")

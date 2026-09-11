@@ -1,0 +1,136 @@
+# Physical-change survey. Not a seed dump. Not a ranking. Not an audit authorization.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: physical_measurement_survey
+object: ObservableArchitecture
+not: ForceCandidate
+seed: false
+t0: false
+capital: 0
+extracted_panel: false
+lag_test: false
+n_seeds: 0
+winner: none
+audit_authorized: false
+q4_ack: stay_frozen
+ranking_refused: true
+
+# A survey tests SHAPE. It does not freeze, residualize, or predict.
+gates:
+  - G1_physical_precursor_not_age_hours_stock
+  - G2_named_event_not_delta_state
+  - G3_distinct_collection_acts_claimed
+  - G4_frozen_vintage_required
+  - G5_object_identity
+  - G6_public_contemporaneous_archive
+  - G7_transition_not_reconstructed_from_precursor
+  - G8_event_not_monetary_admin
+
+learned_from_nbi:
+  - same_file_is_not_one_act
+  - construction_db_is_not_coding_handoff
+  - vintage_annual_file_can_freeze_a_precursor
+  - live_inventory_is_not_write_once
+  - famous_case_is_selection_bias
+
+candidates:
+  - id: OA-VOLCANO-ERUPTION
+    status: SHAPE_INTERESTING
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: observatory_seismic_gnss_tilt_gas
+    transition: independently_dated_eruption_onset
+    independence_claimed: A
+    independence_proven: false
+    frozen_vintage: REQUIRED_not_current_catalog
+    contamination: catalog_reprocessing_network_density_post_event_precursor_definition
+    notes: Strongest *shape*. Fail if frozen HVO/OVPF vintages cannot be produced.
+
+  - id: OA-FIA-MTBS-FIRE
+    status: SHAPE_INTERESTING
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: pre_fire_fia_plot_visit
+    transition: mtbs_perimeter_not_fia_disturbance_code
+    collapse_if: fia_own_fire_indicator_used_as_event
+    independence_claimed: A
+    independence_proven: false
+    notes: Pre-fire visit vs independent fire map. Public coordinates fuzzed.
+
+  - id: OA-FRA-ATIP
+    status: SHAPE_INTERESTING
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: track_geometry_car
+    transition: fra_accident_incident_6180_54
+    independence_claimed: A
+    independence_proven: false
+    identity: milepost_subdivision_PARTIAL
+    notes: Engineered-infrastructure alternative to NBI. Link object without using the failure to select the run.
+
+  - id: OA-LANDSLIDE-GEODETIC
+    status: SHAPE_INTERESTING
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: insar_cgps_displacement
+    transition: independently_dated_collapse
+    contamination: post_event_processing_of_pre_event_scenes
+    notes: Raw scenes can predate failure. Processed products often do not.
+
+  - id: OA-EQ-GEODETIC
+    status: PARTIAL
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: gps_strain
+    transition: comcat_origin_time
+    notes: Shape can be clean while any precursor hypothesis fails. Catalog revision after the event. Not this cycle.
+
+  - id: OA-GLACIER-EVENT
+    status: PARTIAL
+    qualifies: false
+    seed: false
+    identity_risk: event_may_be_integral_of_mass_balance
+    notes: Same observer family often records state and event.
+
+  - id: OA-PIPELINE-ILI
+    status: WEAK
+    qualifies: false
+    seed: false
+    reason: ilI_feature_lists_generally_private
+
+  - id: OA-STREAMFLOW-DAM
+    status: DISMISSED_AS_DAM_CONDITION
+    qualifies: false
+    seed: false
+    reason: usgs_stage_is_hydrologic_load_not_dam_fabric
+    famous_event_bias: oroville_spencer
+    notes: Load clock ≠ structure-condition clock. Rating-curve revision after floods.
+
+  - id: OA-BRIDGE-SONAR
+    status: PARKED
+    qualifies: false
+    seed: false
+    reason: nbi_adjacent_small_n_no_further_bridge_hunt
+
+refused:
+  - hours_cycles_to_retirement
+  - capacity_utilization_to_maintenance
+  - yield_as_independent_transition
+  - grace_to_well_collapse_spatial
+  - port_insar_to_municipal_contract
+  - boem_operator_self_report_as_type_a
+  - ferc_ceii_as_public_archive
+  - earthquake_precursor_reconstructed_after
+  - ten_promising_quota
+  - attractiveness_rank
+  - volcano_audit_this_cycle
+  - streamflow_dam_as_next
+  - oroville_as_selected_case
+  - fia_disturbance_code_as_event
+
+next_authorized_this_cycle: false
+stop_further_domain_hunt: true

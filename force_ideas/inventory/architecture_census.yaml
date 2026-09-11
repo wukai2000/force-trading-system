@@ -56,6 +56,9 @@ collapse_modes:
   - clock_C_is_delta_state
   - occupancy_or_cf_census_or_ratio
   - openings_as_narrative_notes_not_a_series
+  - post_event_precursor_definition
+  - hydrologic_load_as_structure_condition
+
 
 
 architectures:
@@ -320,6 +323,22 @@ parked_not_this_cycle:
     seed: false
     qualifies: false
     reason: piezometer_and_recharge_often_same_water_agency
+  - id: OA-VOLCANO-ERUPTION
+    status: SHAPE_INTERESTING
+    seed: false
+    qualifies: false
+    reason: frozen_catalog_required; audit_not_this_cycle
+  - id: OA-FIA-MTBS-FIRE
+    status: SHAPE_INTERESTING
+    seed: false
+    qualifies: false
+    reason: use_pre_fire_visit_not_fia_disturbance_code
+  - id: OA-FRA-ATIP
+    status: SHAPE_INTERESTING
+    seed: false
+    qualifies: false
+    reason: geometry_vs_6180_54; milepost_identity_partial
+
 
 
 
@@ -372,6 +391,12 @@ refused_as_qualifies:
   - memorial_bridge_as_qualifies
   - another_bridge_hunt
   - 2020_to_2022_nbi_as_lag
+  - ten_promising_quota
+  - volcano_audit_this_cycle
+  - streamflow_dam_as_next
+  - hours_cycles_to_retirement
+  - fia_disturbance_code_as_event
+
 
 
 

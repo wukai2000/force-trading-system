@@ -123,8 +123,9 @@ def assert_unfrozen() -> Dict[str, Any]:
         raise UnfrozenError("collapse modes must be locked")
     if by_oa["OA-NBI-CONDITION"].get("status") == "QUALIFIES_FOR_DEEPER_AUDIT":
         raise UnfrozenError("NBI is Type B PARTIAL, not QUALIFIES")
-    if "faa_sdr_as_qualifies" not in (census.get("refused_as_qualifies") or []):
-        raise UnfrozenError("FAA SDR QUALIFIES is refused")
+    from force_learning.vault.physical_survey import assert_survey
+    assert_survey()
+
     if "memo3_four_qualifies_quota" not in (census.get("refused_as_qualifies") or []):
         raise UnfrozenError("memo-3 four QUALIFIES quota is refused")
 
