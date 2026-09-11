@@ -69,6 +69,19 @@ candidates:
     independence_proven: false
     identity: milepost_subdivision_PARTIAL
     notes: Engineered-infrastructure alternative to NBI. Link object without using the failure to select the run.
+    probe_expect: form54_public; atip_raw_geometry_unverified
+
+  - id: OA-AIRCRAFT-SDR
+    status: PARTIAL
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: faa_sdr_annual_csv
+    transition: ntsb_carol
+    independence_claimed: A
+    independence_proven: false
+    collapse_if: hours_cycles_used_as_condition
+    notes: SDR annual files exist. They are difficulty reports, not frozen NDT logbooks. Same-event coupling risk.
 
   - id: OA-LANDSLIDE-GEODETIC
     status: SHAPE_INTERESTING
@@ -79,6 +92,25 @@ candidates:
     transition: independently_dated_collapse
     contamination: post_event_processing_of_pre_event_scenes
     notes: Raw scenes can predate failure. Processed products often do not.
+
+  - id: OA-DAM-SURVEILLANCE
+    status: PARTIAL
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: owner_instrumentation
+    transition: independent_forensic_investigation
+    notes: NID is a stock inventory (NBI-like). Instrumentation series generally not public. Not USGS stage.
+
+  - id: OA-VESSEL-PSIX
+    status: PARTIAL
+    qualifies: false
+    seed: false
+    audit_authorized: false
+    precursor: uscg_inspection_deficiency
+    transition: marine_casualty_investigation
+    notes: PSIX is deficiency/activity, not hull-thickness survey. Casualty side separate in principle.
+
 
   - id: OA-EQ-GEODETIC
     status: PARTIAL
@@ -134,3 +166,50 @@ refused:
 
 next_authorized_this_cycle: false
 stop_further_domain_hunt: true
+probe_kind: landing_page_existence
+probe_not:
+  - vintage_catalog_pull
+  - famous_event_lineage
+  - lag_test
+probe_cohort_6:
+  - OA-VOLCANO-ERUPTION
+  - OA-FRA-ATIP
+  - OA-AIRCRAFT-SDR
+  - OA-LANDSLIDE-GEODETIC
+  - OA-DAM-SURVEILLANCE
+  - OA-VESSEL-PSIX
+last_probe:
+  at: "2026-09-11"
+  kind: landing_page_existence
+  n_seeds: 0
+  winner: none
+  findings:
+    OA-VOLCANO-ERUPTION:
+      precursor: LIVE_USGS_API_not_frozen_vintage
+      transition: LIVE_HANS_not_GVP_chronology_vintage
+      verdict: SHAPE_INTERESTING
+      public_landing: true
+    OA-FRA-ATIP:
+      precursor: ATIP_raw_not_public
+      precursor_http: railroads.dot.gov_403
+      transition: FORM_54_PUBLIC
+      verdict: SHAPE_INTERESTING_transition_only
+    OA-AIRCRAFT-SDR:
+      precursor: SDR_annual_CSV_landing
+      transition: NTSB_CAROL_1962
+      verdict: PARTIAL
+      note: SDR_is_difficulty_report_not_NDT_logbook
+    OA-LANDSLIDE-GEODETIC:
+      precursor: program_and_gps_landing
+      transition: not_a_frozen_event_table
+      verdict: SHAPE_INTERESTING
+    OA-DAM-SURVEILLANCE:
+      precursor: NID_is_STOCK_inventory
+      transition: not_in_NID
+      verdict: PARTIAL
+    OA-VESSEL-PSIX:
+      precursor: PSIX_deficiency_portal
+      transition: not_proven_separate_in_PSIX
+      verdict: PARTIAL
+
+

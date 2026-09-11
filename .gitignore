@@ -55,5 +55,7 @@ force_learning/vault/raw/*.bin
 force_learning/vault/raw/worldbank_rail_tkm.json
 force_learning/vault/raw/oecd_itf_structure.json
 !force_learning/vault/raw/probes.json
+!force_learning/vault/raw/physical_survey_probes.json
 !force_learning/vault/raw/.gitkeep
+
 

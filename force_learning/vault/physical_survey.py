@@ -100,4 +100,31 @@ def assert_survey() -> Dict[str, Any]:
             raise SurveyError(f"{c['id']} admitted")
         if c.get("status") not in TERMINAL:
             raise SurveyError(f"{c['id']} unknown status {c.get('status')}")
+    if "OA-AIRCRAFT-SDR" not in by or by["OA-AIRCRAFT-SDR"].get("status") != "PARTIAL":
+        raise SurveyError("aircraft SDR is PARTIAL")
+    if by["OA-DAM-SURVEILLANCE"].get("status") != "PARTIAL":
+        raise SurveyError("dam surveillance is PARTIAL; NID is stock")
+    if by["OA-VESSEL-PSIX"].get("status") != "PARTIAL":
+        raise SurveyError("vessel PSIX is PARTIAL")
+    cohort = spec.get("probe_cohort_6") or []
+    if cohort != [
+        "OA-VOLCANO-ERUPTION",
+        "OA-FRA-ATIP",
+        "OA-AIRCRAFT-SDR",
+        "OA-LANDSLIDE-GEODETIC",
+        "OA-DAM-SURVEILLANCE",
+        "OA-VESSEL-PSIX",
+    ]:
+        raise SurveyError("probe cohort must be the six, not a ranking")
+    if spec.get("probe_kind") != "landing_page_existence":
+        raise SurveyError("probe is landing-page existence only")
+    findings = (spec.get("last_probe") or {}).get("findings") or {}
+    if (findings.get("OA-FRA-ATIP") or {}).get("precursor") != "ATIP_raw_not_public":
+        raise SurveyError("ATIP raw geometry is not a public tape")
+    if (findings.get("OA-DAM-SURVEILLANCE") or {}).get("precursor") != "NID_is_STOCK_inventory":
+        raise SurveyError("NID is stock, not dam instrumentation")
+    if (findings.get("OA-VOLCANO-ERUPTION") or {}).get("precursor") != "LIVE_USGS_API_not_frozen_vintage":
+        raise SurveyError("volcano API is live, not a frozen vintage")
     return spec
+
+

@@ -1,0 +1,123 @@
+{
+  "kind": "landing_page_existence",
+  "not": [
+    "vintage_catalog_pull",
+    "famous_event_lineage",
+    "lag_test",
+    "seed"
+  ],
+  "n_seeds": 0,
+  "probed_at": "2026-09-11T23:30:54Z",
+  "rows": [
+    {
+      "id": "OA-VOLCANO-ERUPTION",
+      "role": "precursor_live_api",
+      "url": "https://volcanoes.usgs.gov/vsc/api/volcanoApi/volcanoesUS",
+      "note": "live US volcano list; not a frozen pre-eruption catalog",
+      "status_code": 200,
+      "n_bytes": 40787,
+      "final_url": "https://volcanoes.usgs.gov/vsc/api/volcanoApi/volcanoesUS",
+      "reachable": true
+    },
+    {
+      "id": "OA-VOLCANO-ERUPTION",
+      "role": "transition_current",
+      "url": "https://volcanoes.usgs.gov/hans-public/api/volcano/getUSVolcanoes",
+      "note": "HANS current volcano records; not GVP chronology vintage",
+      "status_code": 200,
+      "n_bytes": 170146,
+      "final_url": "https://volcanoes.usgs.gov/hans-public/api/volcano/getUSVolcanoes",
+      "reachable": true
+    },
+    {
+      "id": "OA-FRA-ATIP",
+      "role": "transition_form54",
+      "url": "https://data.transportation.gov/resource/85tf-25kj.json?$limit=1",
+      "note": "public Form 6180.54 accident extract exists",
+      "status_code": 200,
+      "n_bytes": 3887,
+      "final_url": "https://data.transportation.gov/resource/85tf-25kj.json?$limit=1",
+      "reachable": true
+    },
+    {
+      "id": "OA-FRA-ATIP",
+      "role": "transition_landing",
+      "url": "https://safetydata.fra.dot.gov/",
+      "note": "FRA safety data landing",
+      "status_code": 200,
+      "n_bytes": 26265,
+      "final_url": "https://safetydata.fra.dot.gov/OfficeofSafety/default.aspx",
+      "reachable": true
+    },
+    {
+      "id": "OA-FRA-ATIP",
+      "role": "precursor_atip_program",
+      "url": "https://railroads.dot.gov/railroad-safety/divisions/track-and-structures/automated-track-inspection-program-atip",
+      "note": "ATIP program page; raw geometry-car archive not claimed",
+      "status_code": 403,
+      "n_bytes": 497,
+      "final_url": "https://railroads.dot.gov/railroad-safety/divisions/track-and-structures/automated-track-inspection-program-atip",
+      "reachable": false
+    },
+    {
+      "id": "OA-AIRCRAFT-SDR",
+      "role": "precursor_sdr_landing",
+      "url": "https://www.faa.gov/av-info/download_SDR",
+      "note": "annual SDR CSV landing exists; not a frozen inspection logbook",
+      "status_code": 200,
+      "n_bytes": 107267,
+      "final_url": "https://www.faa.gov/av-info/download_SDR",
+      "reachable": true
+    },
+    {
+      "id": "OA-AIRCRAFT-SDR",
+      "role": "transition_ntsb",
+      "url": "https://www.ntsb.gov/Pages/CAROL.aspx",
+      "note": "NTSB CAROL aviation investigations 1962\u2013present",
+      "status_code": 200,
+      "n_bytes": 53036,
+      "final_url": "https://www.ntsb.gov/Pages/CAROL.aspx",
+      "reachable": true
+    },
+    {
+      "id": "OA-LANDSLIDE-GEODETIC",
+      "role": "inventory_landing",
+      "url": "https://www.usgs.gov/programs/landslide-hazards",
+      "note": "USGS landslide hazards program; not a frozen InSAR vintage",
+      "status_code": 200,
+      "n_bytes": 121609,
+      "final_url": "https://www.usgs.gov/programs/landslide-hazards",
+      "reachable": true
+    },
+    {
+      "id": "OA-LANDSLIDE-GEODETIC",
+      "role": "gps_archive",
+      "url": "https://www.unavco.org/data/gps-gnss/gps-gnss.html",
+      "note": "EarthScope/UNAVCO GPS access; may redirect",
+      "status_code": 200,
+      "n_bytes": 50864,
+      "final_url": "https://www.unavco.org/data/gps-gnss/gps-gnss.html",
+      "reachable": true
+    },
+    {
+      "id": "OA-DAM-SURVEILLANCE",
+      "role": "inventory_nid",
+      "url": "https://nid.sec.usace.army.mil/",
+      "note": "NID is a dam STOCK inventory, not instrumentation time series",
+      "status_code": 200,
+      "n_bytes": 6026,
+      "final_url": "https://nid.sec.usace.army.mil/",
+      "reachable": true
+    },
+    {
+      "id": "OA-VESSEL-PSIX",
+      "role": "inspection_psix",
+      "url": "https://cgmix.uscg.mil/psix/",
+      "note": "USCG PSIX inspection/deficiency portal",
+      "status_code": 200,
+      "n_bytes": 20518,
+      "final_url": "https://cgmix.uscg.mil/psix/",
+      "reachable": true
+    }
+  ]
+}

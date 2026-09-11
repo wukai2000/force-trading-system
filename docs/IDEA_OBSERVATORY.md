@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Physical survey 2026-09-11:** Engine tests SHAPE only (G1–G8). Volcano/FIA-MTBS/FRA-ATIP = SHAPE_INTERESTING, not QUALIFIES. Streamflow→dam dismissed (load ≠ fabric). Hours/cycles, GRACE spatial, port contracts refused. Frozen catalogs required. No ranking. No audit this cycle. n_seeds=0.
+**Physical survey 2026-09-11:** Engine tests SHAPE only (G1–G8). Six landing-page probes run. Volcano APIs live not frozen. FRA Form 54 public; ATIP geometry 403. SDR+CAROL exist but SDR is a difficulty report. NID is stock. PSIX is deficiency. n_seeds=0.
+
 
 
 

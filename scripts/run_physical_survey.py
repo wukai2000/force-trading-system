@@ -21,6 +21,7 @@ def main() -> int:
     p.add_argument("--rank", action="store_true")
     p.add_argument("--lag-test", action="store_true")
     p.add_argument("--json", action="store_true")
+    p.add_argument("--probe", action="store_true", help="landing-page existence only")
     args = p.parse_args()
     if args.promote:
         print("REFUSED: survey cannot promote a Force, seed, or QUALIFIES.")
@@ -38,6 +39,17 @@ def main() -> int:
         print("REFUSED: survey does not time a residual or fit a lag.")
         return 2
     spec = assert_survey()
+    if args.probe:
+        from force_learning.vault.survey_probe import probe_all
+        rows = probe_all()
+        n_ok = sum(1 for r in rows if r.get("reachable"))
+        print(f"physical probe  landing-page existence  reachable={n_ok}/{len(rows)}  n_seeds=0")
+        for r in rows:
+            flag = "OK" if r.get("reachable") else "MISS"
+            code = r.get("status_code") or r.get("error") or "?"
+            print(f"  {flag:4} {r['id']:24} {r['role']:24} {code}")
+        return 0 if n_ok else 1
+
     rows = survey(spec)
     if args.json:
         print(json.dumps({"n": len(rows), "n_seeds": 0, "winner": None, "rows": rows}, indent=2))

@@ -245,7 +245,11 @@ def test_unfrozen_discovery():
     assert s["n_seeds"] == 0
     assert s["audit_authorized"] is False
     assert all(not r["qualifies"] and not r["seed"] for r in rows)
-    assert any(r["id"] == "OA-VOLCANO-ERUPTION" and r["status"] == "SHAPE_INTERESTING" for r in rows)
+    assert any(r["id"] == "OA-AIRCRAFT-SDR" and r["status"] == "PARTIAL" for r in rows)
+    assert any(r["id"] == "OA-DAM-SURVEILLANCE" and r["status"] == "PARTIAL" for r in rows)
+    assert s["last_probe"]["findings"]["OA-FRA-ATIP"]["precursor"] == "ATIP_raw_not_public"
+    assert s["last_probe"]["findings"]["OA-VOLCANO-ERUPTION"]["precursor"] == "LIVE_USGS_API_not_frozen_vintage"
+
     assert any(r["id"] == "OA-STREAMFLOW-DAM" and r["status"] == "DISMISSED_AS_DAM_CONDITION" for r in rows)
     print("PASS physical survey; volcano shape only; streamflow-dam dismissed; n_seeds=0")
 
