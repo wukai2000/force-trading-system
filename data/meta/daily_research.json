@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-10T14:56:43Z",
+  "as_of": "2026-09-11T14:56:46Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -16,102 +16,102 @@
           "VST": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "ETN": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "PWR": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "CEG": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "XLU": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "QQQ": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "XLE": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "SPY": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "VOO": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "MAGS": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "SMH": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "SPMO": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "DRAM": {
             "ok": true,
-            "rows": 111,
-            "last": "2026-09-10"
+            "rows": 112,
+            "last": "2026-09-11"
           },
           "IHF": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "IHI": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "XHS": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "XLV": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "XBI": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "IBB": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           },
           "TLT": {
             "ok": true,
             "rows": 502,
-            "last": "2026-09-10"
+            "last": "2026-09-11"
           }
         },
         "macro": {
@@ -124,14 +124,14 @@
           "DGS10": {
             "ok": true,
             "short": "us_10y",
-            "rows": 16156,
-            "last": "2026-09-08"
+            "rows": 16157,
+            "last": "2026-09-09"
           },
           "DGS2": {
             "ok": true,
             "short": "us_2y",
-            "rows": 12564,
-            "last": "2026-09-08"
+            "rows": 12565,
+            "last": "2026-09-09"
           },
           "FYONET": {
             "ok": true,
@@ -144,44 +144,44 @@
           "VIXCLS": {
             "ok": true,
             "short": "vix_cls",
-            "rows": 9269,
-            "last": "2026-09-08"
+            "rows": 9271,
+            "last": "2026-09-10"
           },
           "VXVCLS": {
             "ok": true,
             "short": "vxv_cls",
-            "rows": 4719,
-            "last": "2026-09-08"
+            "rows": 4721,
+            "last": "2026-09-10"
           },
           "T10Y2Y": {
             "ok": true,
             "short": "t10y2y",
-            "rows": 12565,
-            "last": "2026-09-09"
+            "rows": 12566,
+            "last": "2026-09-10"
           },
           "DFII10": {
             "ok": true,
             "short": "dfii10",
-            "rows": 5925,
-            "last": "2026-09-08"
+            "rows": 5926,
+            "last": "2026-09-09"
           },
           "BAA10Y": {
             "ok": true,
             "short": "baa10y",
-            "rows": 10171,
-            "last": "2026-09-08"
+            "rows": 10172,
+            "last": "2026-09-09"
           },
           "BAMLH0A0HYM2": {
             "ok": true,
             "short": "hy_oas",
             "rows": 787,
-            "last": "2026-09-09"
+            "last": "2026-09-10"
           },
           "NFCI": {
             "ok": true,
             "short": "nfci",
-            "rows": 2904,
-            "last": "2026-08-28"
+            "rows": 2905,
+            "last": "2026-09-04"
           },
           "FRGSHPUSM649NCIS": {
             "ok": true,
@@ -216,8 +216,8 @@
           "ICSA": {
             "ok": true,
             "short": "initial_claims",
-            "rows": 3113,
-            "last": "2026-08-29"
+            "rows": 3114,
+            "last": "2026-09-05"
           },
           "DRTSCILM": {
             "ok": true,
@@ -228,20 +228,20 @@
           "SOFR": {
             "ok": true,
             "short": "sofr",
-            "rows": 2106,
-            "last": "2026-09-08"
+            "rows": 2108,
+            "last": "2026-09-10"
           },
           "DFF": {
             "ok": true,
             "short": "fedfunds",
-            "rows": 26368,
-            "last": "2026-09-08"
+            "rows": 26369,
+            "last": "2026-09-09"
           },
           "RRPONTSYD": {
             "ok": true,
             "short": "rrp",
-            "rows": 3322,
-            "last": "2026-09-09"
+            "rows": 3323,
+            "last": "2026-09-10"
           }
         },
         "cot": {
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-06  -0.005121  1.247284  ...                0      unknown\n2024-12-13  -0.017277  1.325311  ...                0      unknown\n2024-12-20   0.013375  1.125478  ...                0      unknown\n2024-12-27  -0.022787  1.053792  ...                0      unknown\n2025-01-03   0.057208  1.151633  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n2026-09-11   0.022204  0.537912  ...                0      unknown\n\n[93 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-06   0.000732  1.247283  ...                0      unknown\n2024-12-13  -0.017277  1.325311  ...                0      unknown\n2024-12-20   0.013375  1.125478  ...                0      unknown\n2024-12-27  -0.022787  1.053793  ...                0      unknown\n2025-01-03   0.057208  1.151634  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-14   0.002204  0.674236  ...                0      unknown\n2026-08-21  -0.020074  0.677519  ...                0      unknown\n2026-08-28  -0.036784  0.544875  ...                0      unknown\n2026-09-04   0.038364  0.505122  ...                0      unknown\n2026-09-11   0.034179  0.552911  ...                0      unknown\n\n[93 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -272,7 +272,7 @@
       "ok": true,
       "result": {
         "rc": 0,
-        "tail": "ed] DFF (fedfunds): {'ok': True, 'short': 'fedfunds', 'rows': 26368, 'last': '2026-09-08'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3322, 'last': '2026-09-09'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=[]\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
+        "tail": "ed] DFF (fedfunds): {'ok': True, 'short': 'fedfunds', 'rows': 26369, 'last': '2026-09-09'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3323, 'last': '2026-09-10'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=[]\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
       }
     },
     {
@@ -319,7 +319,7 @@
       "step": "fs0001_vault",
       "ok": true,
       "result": {
-        "as_of": "2026-09-10T14:56:42Z",
+        "as_of": "2026-09-11T14:56:46Z",
         "force_id": "FS-0001",
         "role": "historical_evidence_vault",
         "t5_ready": false,
