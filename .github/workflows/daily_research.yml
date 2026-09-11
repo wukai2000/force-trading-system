@@ -53,6 +53,10 @@ jobs:
           python scripts/run_idea_registry.py
           python scripts/assert_exit.py 2 python scripts/run_daily_research.py --promote
           python scripts/assert_exit.py 2 python scripts/run_daily_research.py --scan-force4
+          python scripts/run_physical_survey.py
+          python scripts/assert_exit.py 2 python scripts/run_physical_survey.py --promote
+          python scripts/assert_exit.py 2 python scripts/run_physical_survey.py --audit-volcano
+
 
   refresh:
     needs: regress
