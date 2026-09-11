@@ -44,7 +44,26 @@ def assert_provenance() -> Dict[str, Any]:
     if nbi.get("retrospective_contamination") != "RETROSPECTIVE_CONTAMINATION_RISK":
         raise ProvenanceError("retrospective contamination remains")
     if nbi.get("next_authorized_this_cycle") is True:
-        raise ProvenanceError("single-bridge lineage is not this cycle")
+        raise ProvenanceError("SI&A retrieval is not this cycle")
+    case = nbi.get("single_bridge_case") or {}
+
+    if case.get("status") != "PARTIAL":
+        raise ProvenanceError("Memorial Bridge case is PARTIAL")
+    if case.get("evidence_record") is True or case.get("seed") is True:
+        raise ProvenanceError("case is not an EvidenceRecord or seed")
+    if case.get("item106_coding_act") != "UNVERIFIED":
+        raise ProvenanceError("Item 106 coding act remains unverified")
+    if case.get("vintage_2021_item_106") != 1986:
+        raise ProvenanceError("2021 ratings moved; Item 106 did not")
+    if case.get("architecture_upgrade") is True:
+        raise ProvenanceError("one case does not upgrade the architecture")
+    if nbi.get("stop_further_bridge_search") is not True:
+        raise ProvenanceError("stop further bridge search")
+    if "another_bridge_hunt" not in (spec.get("refused") or []):
+        raise ProvenanceError("another-bridge hunt is refused")
+    if "2020_to_2022_nbi_as_lag" not in (spec.get("refused") or []):
+        raise ProvenanceError("2020→2022 is not a lag parameter")
+
     if "nbi_24_month_inspection_cycle_as_lag" not in (spec.get("refused") or []):
         raise ProvenanceError("24-month inspection cycle is not a lag")
     if nbi.get("national_generalization") != "NOT_JUSTIFIED":

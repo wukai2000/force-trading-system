@@ -57,8 +57,9 @@ candidates:
     counterfactuals:
       A_ratings_without_reconstruction: true
       B_item_106_without_prior_rating: operationally_possible
-    next_if_reopened: single_bridge_record_lineage
+    next_if_reopened: eflhd_sia_item106_2020_for_3300016P_only
     next_authorized_this_cycle: false
+    stop_further_bridge_search: true
     single_bridge_lineage_not_this_cycle:
       - original_inspection_date
       - original_inspection_report_rating
@@ -69,6 +70,41 @@ candidates:
       - item_106_entry_date
       - evidence_106_not_from_prior_rating
       - persistent_structure_number
+    single_bridge_case:
+      id: NBI-DC-3300016P
+      name: Arlington_Memorial_Bridge
+      status: PARTIAL
+      seed: false
+      evidence_record: false
+      extracted_panel: false
+      selection_bias: famous_federal_rehab_not_a_random_draw
+      identity: PARTIAL
+      item_8_bitwise_invariant: false
+      center_span_replaced_number_kept: true
+      precursor_vintage: 2016
+      precursor_item_90: "0415"
+      precursor_ratings: [3, 3, 3]
+      precursor_item_106: 1986
+      work_start: "2018-10-15"
+      work_complete: "2020-12-04"
+      independent_completion_docs: [FHWA_29-20, NPS_GWMP]
+      vintage_2021_ratings: [8, 8, 8]
+      vintage_2021_item_106: 1986
+      item106_first_in_archive: 2022
+      item106_coding_act: UNVERIFIED
+      temporal_precedence_this_case: ESTABLISHED
+      architecture_upgrade: false
+      missing_years: not_inferred
+      learned:
+        - vintage_file_can_freeze_a_precursor_row
+        - 2021_ratings_moved_item106_did_not
+        - item_8_format_drifts
+        - keep_the_number_rehab_is_not_unaltered_fabric
+      notes: >
+        One documented case. Not national Type A. 2021 split is evidence
+        against one keystroke. Coding act that wrote 106=2020 was not
+        retrieved. Do not hunt another bridge. Do not fit 2020→2022 as lag.
+
 
     operational_if_ever_used:
       precursor: archived_nbi_year_strictly_before_item_106
@@ -224,6 +260,11 @@ refused:
   - common_architecture_three_states
   - lag_t_completion_vs_inventory
   - national_item106_generalization
+  - memorial_bridge_as_qualifies
+  - another_bridge_hunt
+  - 2020_to_2022_nbi_as_lag
+  - memo3_contamination_material_without_case
+
 
 
 

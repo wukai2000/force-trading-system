@@ -229,6 +229,9 @@ def test_unfrozen_discovery():
     assert "nbi_collection_act_independence_pass" in census["refused_as_qualifies"]
     assert "tx_ca_fl_item106_direct" in census["refused_as_qualifies"]
     assert "lag_t_completion_vs_inventory" in census["refused_as_qualifies"]
+    assert "memorial_bridge_as_qualifies" in census["refused_as_qualifies"]
+    assert "another_bridge_hunt" in census["refused_as_qualifies"]
+
 
 
 

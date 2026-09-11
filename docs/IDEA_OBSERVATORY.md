@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Item 106 handoff 2026-09-10:** Construction DB ≠ coding source. Memo-2 PARTIAL (MA/WA/AR) is the honest multi-state result. Washington Contract History = strong inference, not DIRECT. TxDOT Form 2506 and Caltrans LA-1241 DIRECT claims unverified; Caltrans SC-6303 enters BIRIS but does not prove Item 106 coding. National generalization refused. Lag distributions refused. n_seeds=0.
+**Single-bridge case 2026-09-10:** Arlington Memorial (3300016P) PARTIAL. 2016 vintage froze 3/3/3 with Item 106=1986 before 2018–2020 work. 2021 ratings 8/8/8, Item 106 still 1986. Coding act for 106=2020 unverified. Item 8 format drifts. Famous-project selection bias. STOP further bridge hunt. Not a seed. n_seeds=0.
+
 
 
 

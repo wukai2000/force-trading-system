@@ -44,6 +44,9 @@ disagreement:
   nbi_24_month_lag: dismissed
   nbi_state_handoff_direct: dismissed  # construction DB ≠ coding source
   nbi_lag_distributions: dismissed
+  nbi_single_bridge_qualifies: dismissed
+  nbi_another_bridge_hunt: dismissed
+
 
 
   memo3_four_qualifies: dismissed  # USGS smelter, FAA SDR, FIA harvest, groundwater
@@ -366,6 +369,10 @@ refused_as_qualifies:
   - tx_ca_fl_item106_direct
   - lag_t_completion_vs_inventory
   - nbi_common_architecture_three_states
+  - memorial_bridge_as_qualifies
+  - another_bridge_hunt
+  - 2020_to_2022_nbi_as_lag
+
 
 
   - adt_as_nbi_precursor
