@@ -108,6 +108,39 @@ candidates:
       650.315(b) vs (c) are distinct triggers. Collection-act PASS is
       refused: process-level split is not record-level YES. Item 106
       source document is not a national Type-A chain. Not QUALIFIES.
+    # Construction database existence ≠ Item 106 coding handoff.
+    item106_handoff_test: construction_record_must_be_the_source_used
+    national_generalization: NOT_JUSTIFIED
+    state_item106_handoff:
+      verdict: PARTIAL
+      next_authorized_this_cycle: false
+      tx:
+        grade: UNVERIFIED
+        claimed_form: Form_2506
+        check: coding_guide_defines_item_106_not_the_handoff; form_2506_not_shown_as_source
+      ca:
+        grade: PARTIAL
+        claimed_form: LA-1241_UNVERIFIED
+        real_named_form: SC-6303_Report_of_Completion_Bridges
+        check: SC-6303_enters_BIRIS; Item_106_coding_rule_not_shown; initial_inspection_within_3_months_couples
+      fl:
+        grade: UNVERIFIED
+        claimed: Certificate_of_Final_Acceptance
+      ma:
+        grade: UNVERIFIED
+        district_codes_item_106: true
+        projectinfo_exists: true
+        handoff: not_documented
+      wa:
+        grade: STRONG_INFERENCE_not_DIRECT
+        contract_history_exists: true
+        wsbis_1336_year_rebuilt: Item_106
+        explicit_populate_from_contract_history: false
+      ar:
+        grade: UNVERIFIED
+        inspectx_is_inspection: true
+        item106_source: not_established
+
 
 
 
@@ -185,6 +218,13 @@ refused:
   - memo3_yes_on_nbi
   - nbi_24_month_inspection_cycle_as_lag
   - collection_act_independence_pass
+  - tx_ca_fl_direct_handoff
+  - form_2506_as_item106_source
+  - form_la1241_as_item106_source
+  - common_architecture_three_states
+  - lag_t_completion_vs_inventory
+  - national_item106_generalization
+
 
 
 

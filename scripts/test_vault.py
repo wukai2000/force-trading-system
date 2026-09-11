@@ -227,6 +227,9 @@ def test_unfrozen_discovery():
     assert by_oa["OA-NBI-CONDITION"]["independence"] == "TYPE_B"
     assert "nbi_24_month_inspection_cycle_as_lag" in census["refused_as_qualifies"]
     assert "nbi_collection_act_independence_pass" in census["refused_as_qualifies"]
+    assert "tx_ca_fl_item106_direct" in census["refused_as_qualifies"]
+    assert "lag_t_completion_vs_inventory" in census["refused_as_qualifies"]
+
 
 
     assert by_oa["OA-SOC-PIPELINE"]["architecture_class"] == "PROJECT_DURATION"

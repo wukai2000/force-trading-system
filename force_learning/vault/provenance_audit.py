@@ -47,8 +47,24 @@ def assert_provenance() -> Dict[str, Any]:
         raise ProvenanceError("single-bridge lineage is not this cycle")
     if "nbi_24_month_inspection_cycle_as_lag" not in (spec.get("refused") or []):
         raise ProvenanceError("24-month inspection cycle is not a lag")
-    if "collection_act_independence_pass" not in (spec.get("refused") or []):
-        raise ProvenanceError("collection-act PASS is refused")
+    if nbi.get("national_generalization") != "NOT_JUSTIFIED":
+        raise ProvenanceError("Item 106 handoff is not national")
+    handoff = nbi.get("state_item106_handoff") or {}
+    if handoff.get("verdict") != "PARTIAL":
+        raise ProvenanceError("state Item 106 handoff is PARTIAL")
+    if handoff.get("next_authorized_this_cycle") is True:
+        raise ProvenanceError("stage-2 handoff hunt is not this cycle")
+    if (handoff.get("wa") or {}).get("grade") != "STRONG_INFERENCE_not_DIRECT":
+        raise ProvenanceError("Washington is inference, not DIRECT")
+    if (handoff.get("tx") or {}).get("grade") == "DIRECT":
+        raise ProvenanceError("TxDOT Form 2506 is not a proven Item 106 source")
+    if (handoff.get("ca") or {}).get("claimed_form") != "LA-1241_UNVERIFIED":
+        raise ProvenanceError("Caltrans LA-1241 is unverified")
+    if "tx_ca_fl_direct_handoff" not in (spec.get("refused") or []):
+        raise ProvenanceError("TX/CA/FL DIRECT handoff is refused")
+    if "lag_t_completion_vs_inventory" not in (spec.get("refused") or []):
+        raise ProvenanceError("completion-vs-inventory lag hunt is refused")
+
 
     if "item_106_as_clean_replacement" not in (nbi.get("forbidden_transition") or []):
         raise ProvenanceError("Item 106 is not a replacement clock")

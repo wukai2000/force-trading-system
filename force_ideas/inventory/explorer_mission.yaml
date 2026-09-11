@@ -75,6 +75,10 @@ refused:
   - nbi_collection_act_independence_pass
   - nbi_24_month_inspection_cycle_as_lag
   - single_bridge_lineage_this_cycle
+  - lag_t_completion_vs_inventory
+  - nbi_common_architecture_three_states
+  - stage2_item106_handoff_this_cycle
+
 
 
 

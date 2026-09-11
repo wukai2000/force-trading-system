@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**NBI lineage 2026-09-10:** Memo-2 PARTIAL is the honest verdict. Process-level 650.315(b)/(c) split ≠ record-level YES. Collection-act PASS refused. 24-month inspection cycle is not a lag. Single-bridge 9-item lineage specified, not authorized this cycle. n_seeds=0.
+**Item 106 handoff 2026-09-10:** Construction DB ≠ coding source. Memo-2 PARTIAL (MA/WA/AR) is the honest multi-state result. Washington Contract History = strong inference, not DIRECT. TxDOT Form 2506 and Caltrans LA-1241 DIRECT claims unverified; Caltrans SC-6303 enters BIRIS but does not prove Item 106 coding. National generalization refused. Lag distributions refused. n_seeds=0.
+
 
 
 

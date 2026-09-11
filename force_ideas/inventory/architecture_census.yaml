@@ -42,6 +42,9 @@ disagreement:
   nbi_as_qualifies: dismissed  # Type B PARTIAL; memo YES overclaim
   nbi_collection_act_pass: dismissed  # process split ≠ record-level YES
   nbi_24_month_lag: dismissed
+  nbi_state_handoff_direct: dismissed  # construction DB ≠ coding source
+  nbi_lag_distributions: dismissed
+
 
   memo3_four_qualifies: dismissed  # USGS smelter, FAA SDR, FIA harvest, groundwater
 
@@ -360,6 +363,10 @@ refused_as_qualifies:
   - nbi_24_month_inspection_cycle_as_lag
   - memo1_yes_on_nbi_streams
   - memo3_yes_24_month_lag
+  - tx_ca_fl_item106_direct
+  - lag_t_completion_vs_inventory
+  - nbi_common_architecture_three_states
+
 
   - adt_as_nbi_precursor
   - faa_sdr_as_qualifies
