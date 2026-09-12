@@ -31,41 +31,41 @@
     },
     {
       "id": "baa10y",
-      "z": -1.4993,
-      "opposition": 1.4993,
+      "z": -1.967,
+      "opposition": 1.967,
       "veto_flag": false,
-      "last_date": "2026-09-09",
-      "n": 10172,
+      "last_date": "2026-09-10",
+      "n": 10173,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 2.0273,
-      "opposition": 2.0273,
+      "z": 2.3881,
+      "opposition": 2.3881,
       "veto_flag": false,
-      "last_date": "2026-09-09",
-      "n": 5926,
+      "last_date": "2026-09-10",
+      "n": 5927,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.2798,
+      "z": -1.837,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-10",
-      "n": 12566,
+      "last_date": "2026-09-11",
+      "n": 12567,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
     {
       "id": "cass_freight",
-      "z": -1.1075,
-      "opposition": -1.1075,
+      "z": -0.1551,
+      "opposition": -0.1551,
       "veto_flag": false,
-      "last_date": "2026-07-01",
-      "n": 127,
+      "last_date": "2026-08-01",
+      "n": 128,
       "status": "wired",
       "note": "Cass Freight Index shipments. Collapse vetoes; does not promote."
     },
@@ -271,21 +271,21 @@
     },
     {
       "id": "fedfunds",
-      "z": -0.5236,
+      "z": -0.5186,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-09",
-      "n": 26369,
+      "last_date": "2026-09-10",
+      "n": 26370,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.0839,
+      "z": -0.03,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-10",
-      "n": 3323,
+      "last_date": "2026-09-11",
+      "n": 3324,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -327,20 +327,20 @@
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12566,
-      "last": "2026-09-10"
+      "rows": 12567,
+      "last": "2026-09-11"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5926,
-      "last": "2026-09-09"
+      "rows": 5927,
+      "last": "2026-09-10"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10172,
-      "last": "2026-09-09"
+      "rows": 10173,
+      "last": "2026-09-10"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
@@ -357,8 +357,8 @@
     "FRGSHPUSM649NCIS": {
       "ok": true,
       "short": "cass_freight",
-      "rows": 127,
-      "last": "2026-07-01"
+      "rows": 128,
+      "last": "2026-08-01"
     },
     "RAILFRTCARLOADSD11": {
       "ok": true,
@@ -405,14 +405,14 @@
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26369,
-      "last": "2026-09-09"
+      "rows": 26370,
+      "last": "2026-09-10"
     },
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3323,
-      "last": "2026-09-10"
+      "rows": 3324,
+      "last": "2026-09-11"
     }
   }
 }
