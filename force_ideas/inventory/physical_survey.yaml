@@ -13,6 +13,11 @@ winner: none
 audit_authorized: false
 q4_ack: stay_frozen
 ranking_refused: true
+research_status: FORMALIZE
+domain_shopping: closed
+landing_page_is_not_evidence: true
+qualified_architectures: 0
+
 
 # A survey tests SHAPE. It does not freeze, residualize, or predict.
 gates:
@@ -163,6 +168,9 @@ refused:
   - streamflow_dam_as_next
   - oroville_as_selected_case
   - fia_disturbance_code_as_event
+  - ten_more_domain_probes
+  - promising_without_ten_pass
+
 
 next_authorized_this_cycle: false
 stop_further_domain_hunt: true

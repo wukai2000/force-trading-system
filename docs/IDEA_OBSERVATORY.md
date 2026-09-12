@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Physical survey 2026-09-11:** Engine tests SHAPE only (G1–G8). Six landing-page probes run. Volcano APIs live not frozen. FRA Form 54 public; ATIP geometry 403. SDR+CAROL exist but SDR is a difficulty report. NID is stock. PSIX is deficiency. n_seeds=0.
+**FORMALIZE 2026-09-12:** Domain shopping closed. Landing pages are not evidence. MQA = all ten PASS; UNKNOWN ≠ PASS. Crypto not required. Wayback/EDGAR refused this cycle. qualified_architectures = 0. n_seeds = 0. Q4 frozen.
+
 
 
 

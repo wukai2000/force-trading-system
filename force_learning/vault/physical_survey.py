@@ -125,6 +125,16 @@ def assert_survey() -> Dict[str, Any]:
         raise SurveyError("NID is stock, not dam instrumentation")
     if (findings.get("OA-VOLCANO-ERUPTION") or {}).get("precursor") != "LIVE_USGS_API_not_frozen_vintage":
         raise SurveyError("volcano API is live, not a frozen vintage")
+    if spec.get("domain_shopping") != "closed":
+        raise SurveyError("domain shopping is closed")
+    if spec.get("landing_page_is_not_evidence") is not True:
+        raise SurveyError("landing pages are not evidence")
+    if spec.get("qualified_architectures") != 0:
+        raise SurveyError("qualified_architectures is 0")
+
+    from force_learning.vault.mqa import assert_mqa
+    assert_mqa()
     return spec
+
 
 

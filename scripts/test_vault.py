@@ -251,7 +251,13 @@ def test_unfrozen_discovery():
     assert s["last_probe"]["findings"]["OA-VOLCANO-ERUPTION"]["precursor"] == "LIVE_USGS_API_not_frozen_vintage"
 
     assert any(r["id"] == "OA-STREAMFLOW-DAM" and r["status"] == "DISMISSED_AS_DAM_CONDITION" for r in rows)
-    print("PASS physical survey; volcano shape only; streamflow-dam dismissed; n_seeds=0")
+    from force_learning.vault.mqa import assert_mqa, report as mqa_report
+    mqa = assert_mqa()
+    assert mqa["qualified_architectures"] == 0
+    assert mqa["domain_shopping"] == "closed"
+    assert all(not r["promising"] for r in mqa_report())
+    print("PASS MQA; 10 gates; qualified=0; domain shopping closed")
+
 
     print("PASS provenance; NBI PARTIAL same-file; SOC project duration; no panel")
 

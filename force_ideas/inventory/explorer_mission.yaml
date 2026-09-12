@@ -18,6 +18,11 @@ not_object: ForceCandidate
 seed_finder_this_quarter: false
 architecture_census_file: force_ideas/inventory/architecture_census.yaml
 physical_survey_file: force_ideas/inventory/physical_survey.yaml
+mqa_file: force_ideas/inventory/mqa.yaml
+research_status: FORMALIZE
+domain_shopping: closed
+search_unit: institutional_measurement_architecture
+
 
 
 
@@ -87,6 +92,10 @@ refused:
   - volcano_audit_this_cycle
   - streamflow_dam_as_next
   - hours_cycles_to_retirement
+  - ten_more_domain_probes
+  - promising_without_ten_pass
+  - crypto_as_hard_gate
+
 
 
 

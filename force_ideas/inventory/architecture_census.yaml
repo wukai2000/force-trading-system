@@ -46,6 +46,9 @@ disagreement:
   nbi_lag_distributions: dismissed
   nbi_single_bridge_qualifies: dismissed
   nbi_another_bridge_hunt: dismissed
+  domain_shopping: closed
+  landing_page_as_evidence: dismissed
+
 
 
 
@@ -396,6 +399,9 @@ refused_as_qualifies:
   - streamflow_dam_as_next
   - hours_cycles_to_retirement
   - fia_disturbance_code_as_event
+  - ten_more_domain_probes
+  - promising_without_ten_pass
+
 
 
 

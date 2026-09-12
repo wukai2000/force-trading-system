@@ -1,0 +1,140 @@
+# Minimum Qualifying Architecture. Binary. UNKNOWN is not PASS.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: minimum_qualifying_architecture
+object: ObservableArchitecture
+not: ForceCandidate
+research_status: FORMALIZE
+q4_ack: stay_frozen
+capital: 0
+n_seeds: 0
+qualified_architectures: 0
+winner: none
+domain_shopping: closed
+landing_page_is_not_evidence: true
+shape_interesting_is_not_advancement: true
+mostly_qualifies_forbidden: true
+unknown_is_not_pass: true
+cryptographic_immutability_not_required: true
+wayback_tooling_this_cycle: false
+edgar_as_trigger: refused
+
+# Search unit is the institution that preserves as-of measurement state.
+search_unit: institutional_measurement_architecture
+not_search_unit: physical_domain
+
+gates:
+  G1_object: named_physical_object_followable_through_time
+  G2_precursor: physical_measurement_not_admin_label
+  G3_timestamp: observation_time_not_upload_time
+  G4_vintage: recoverable_information_state_at_t
+  G5_transition: independently_observed_physical_event
+  G6_collection_act: two_upstream_acts_not_two_columns
+  G7_provenance: collector_instrument_form_file_generation
+  G8_barrier: precursor_vintage_has_no_post_transition_knowledge
+  G9_identity: same_object_no_silent_merge_split_relabel
+  G10_revision: dated_corrections_silent_overwrite_disqualifies
+
+# PROMISING_FOR_FORENSIC_AUDIT = all ten PASS. No 8/10. No ranking.
+promising_rule: all_ten_pass
+partial_credit: false
+
+reopen_only_if:
+  - as_of_measurement_archive
+  - independent_precursor_collection_act
+  - identity_continuity_across_transition
+  - newly_public_dataset_that_clears_G4_to_G10
+  - institution_whose_job_is_vintage_preservation
+invalid_reopen:
+  - we_have_not_found_anything_yet
+  - economic_attractiveness
+  - another_agency_landing_page
+  - census_is_zero
+  - we_need_a_force
+
+refused:
+  - ten_more_domain_probes
+  - fifty_more_domain_probes
+  - hundred_more_domain_probes
+  - crypto_as_hard_gate
+  - wayback_scraper_this_cycle
+  - sec_edgar_as_physical_archive
+  - eight_gate_collapse
+  - nbi_reopen
+  - fs0001_reopen
+  - fs0002
+  - promising_without_ten_pass
+
+# Six-probe scores. UNKNOWN blocks. None are 10/10.
+scores:
+  OA-VOLCANO-ERUPTION:
+    G1: PASS
+    G2: UNKNOWN
+    G3: UNKNOWN
+    G4: FAIL
+    G5: UNKNOWN
+    G6: UNKNOWN
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: PASS
+    G10: FAIL
+    fail_note: live_api_not_frozen_vintage
+  OA-FRA-ATIP:
+    G1: PASS
+    G2: FAIL
+    G3: UNKNOWN
+    G4: FAIL
+    G5: PASS
+    G6: UNKNOWN
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: UNKNOWN
+    G10: UNKNOWN
+    fail_note: geometry_archive_not_public_form54_is_event
+  OA-AIRCRAFT-SDR:
+    G1: PASS
+    G2: FAIL
+    G3: UNKNOWN
+    G4: UNKNOWN
+    G5: PASS
+    G6: FAIL
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: UNKNOWN
+    G10: UNKNOWN
+    fail_note: sdr_is_difficulty_report_same_event_risk
+  OA-LANDSLIDE-GEODETIC:
+    G1: PASS
+    G2: UNKNOWN
+    G3: UNKNOWN
+    G4: FAIL
+    G5: UNKNOWN
+    G6: UNKNOWN
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: UNKNOWN
+    G10: UNKNOWN
+    fail_note: program_landing_not_frozen_insar_vintage
+  OA-DAM-SURVEILLANCE:
+    G1: PASS
+    G2: FAIL
+    G3: UNKNOWN
+    G4: FAIL
+    G5: UNKNOWN
+    G6: UNKNOWN
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: PASS
+    G10: UNKNOWN
+    fail_note: nid_is_stock_inventory
+  OA-VESSEL-PSIX:
+    G1: PASS
+    G2: FAIL
+    G3: UNKNOWN
+    G4: FAIL
+    G5: UNKNOWN
+    G6: UNKNOWN
+    G7: UNKNOWN
+    G8: UNKNOWN
+    G9: UNKNOWN
+    G10: UNKNOWN
+    fail_note: psix_is_deficiency_not_hull_thickness

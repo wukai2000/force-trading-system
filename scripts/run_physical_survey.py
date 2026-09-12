@@ -22,6 +22,8 @@ def main() -> int:
     p.add_argument("--lag-test", action="store_true")
     p.add_argument("--json", action="store_true")
     p.add_argument("--probe", action="store_true", help="landing-page existence only")
+    p.add_argument("--mqa", action="store_true", help="print 10-gate scores; none are 10/10")
+    p.add_argument("--domain-shop", action="store_true")
     args = p.parse_args()
     if args.promote:
         print("REFUSED: survey cannot promote a Force, seed, or QUALIFIES.")
@@ -38,7 +40,19 @@ def main() -> int:
     if args.lag_test:
         print("REFUSED: survey does not time a residual or fit a lag.")
         return 2
+    if args.domain_shop:
+        print("REFUSED: domain shopping is closed. Search unit is institutional architecture.")
+        return 2
     spec = assert_survey()
+    if args.mqa:
+        from force_learning.vault.mqa import report
+        rows = report()
+        print("MQA  all-ten-PASS  qualified=0  UNKNOWN≠PASS  FORMALIZE")
+        for r in rows:
+            grades = " ".join(f"{g}:{r['grades'][g][0]}" for g in r["grades"])
+            print(f"  {r['id']:24} promising={r['promising']!s:5}  {grades}  {r.get('fail_note')}")
+        return 0
+
     if args.probe:
         from force_learning.vault.survey_probe import probe_all
         rows = probe_all()
