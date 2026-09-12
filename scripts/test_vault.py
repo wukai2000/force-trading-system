@@ -257,6 +257,16 @@ def test_unfrozen_discovery():
     assert mqa["domain_shopping"] == "closed"
     assert all(not r["promising"] for r in mqa_report())
     print("PASS MQA; 10 gates; qualified=0; domain shopping closed")
+    from force_learning.lab.laboratory import assert_lab, report as lab_report
+    lab = assert_lab()
+    payload = lab_report()
+    assert payload["object"] == "ForceFingerprint"
+    assert payload["e1"] == "PROTOCOL_OPEN"
+    assert payload["e2"] == "LOCKED"
+    assert payload["n_archetypes"] == 8
+    assert all(e["status"] == "NOT_RECONSTRUCTED" for e in payload["episodes"])
+    print("PASS force lab; fingerprints not IR; E2 locked; n_seeds=0")
+
 
 
     print("PASS provenance; NBI PARTIAL same-file; SOC project duration; no panel")

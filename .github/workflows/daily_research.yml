@@ -58,6 +58,11 @@ jobs:
           python scripts/assert_exit.py 2 python scripts/run_physical_survey.py --promote
           python scripts/assert_exit.py 2 python scripts/run_physical_survey.py --audit-volcano
           python scripts/assert_exit.py 2 python scripts/run_physical_survey.py --domain-shop
+          python scripts/run_force_lab.py
+          python scripts/assert_exit.py 2 python scripts/run_force_lab.py --ir
+          python scripts/assert_exit.py 2 python scripts/run_force_lab.py --tickers
+          python scripts/assert_exit.py 2 python scripts/run_force_lab.py --reconstruct
+
 
 
 

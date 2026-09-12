@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**FORMALIZE 2026-09-12:** Domain shopping closed. Landing pages are not evidence. MQA = all ten PASS; UNKNOWN ≠ PASS. Crypto not required. Wayback/EDGAR refused this cycle. qualified_architectures = 0. n_seeds = 0. Q4 frozen.
+**Redesign v2 2026-09-12:** Force = persistent pressure + temporal fingerprint, not residual IR. Laboratory open on E1 protocol only. Archetypes A–H are ontology, not seeds. E2–E5 locked. n_seeds=0. $0. FS-0001 frozen. Domain shopping closed. MQA still binds.
+
 
 
 

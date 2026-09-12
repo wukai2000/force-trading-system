@@ -13,6 +13,15 @@ for revival. Force 4 remains **WAIT**. Capital **$0**. Trump Account = SPYM.
 This document is architectural. It does not allocate capital and it does
 not scan ITA/XAR/PPA/XLI.
 
+## Redesign v2 (2026-09-12) — does not loosen gates
+
+A Force is also, and first, a **persistent economic pressure** that acts on
+multiple agents and produces a characteristic sequence of state changes.
+Returns do not define it. Residualization remains falsification, not
+identification. See `docs/FORCE_SYSTEM_REDESIGN_v2.md`. The laboratory
+reconstructs tug-of-war fingerprints. It does not scan, promote, or time IR.
+
+
 ---
 
 ## Five immutable principles

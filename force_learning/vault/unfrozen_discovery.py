@@ -76,8 +76,13 @@ def assert_unfrozen() -> Dict[str, Any]:
     if spec.get("q4_default") != "stay_frozen":
         raise UnfrozenError("Q4 default is stay frozen")
     mission = yaml.safe_load(MISSION.read_text()) or {}
-    if mission.get("search_to") != "measurement_architecture_then_transition_then_mechanism":
+    if mission.get("search_to") != "competing_force_then_fingerprint_then_state":
         raise UnfrozenError("explorer mission inversion not locked")
+    if mission.get("object") != "ForceFingerprint":
+        raise UnfrozenError("object is ForceFingerprint")
+    if mission.get("research_status") != "FORCE_LABORATORY":
+        raise UnfrozenError("status is FORCE_LABORATORY")
+
     if mission.get("census_size_this_quarter") != 0:
         raise UnfrozenError("50-200 census is refused")
     if 7 in (mission.get("levels_open_this_quarter") or []):

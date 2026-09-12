@@ -1,0 +1,41 @@
+# Archetypes are ontology, not Forces to freeze.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: force_archetypes
+admitted_as_seeds: false
+frozen: false
+capital: 0
+
+archetypes:
+  - id: A-SCARCITY-CAPACITY
+    a: demand_utilization_scarcity
+    b: investment_capacity
+    tug: scarcity_vs_capacity
+  - id: B-COST-DECLINE-DEMAND
+    a: unit_cost_fall
+    b: demand_expansion
+    tug: cost_decline_vs_demand_expansion
+    note: FS-0001 class; do not reopen FS-0001
+  - id: C-CAPACITY-SATURATION
+    a: capacity_expansion
+    b: price_margin_compression
+    tug: expansion_vs_saturation
+  - id: D-CREDIT-BALANCE-SHEET
+    a: credit_expansion
+    b: collateral_constraint
+    tug: credit_vs_balance_sheet
+  - id: E-CAPITAL-PHYSICAL
+    a: expected_return_capital
+    b: physical_constraint
+    tug: allocation_vs_constraint
+  - id: F-SUBSTITUTION
+    a: relative_price
+    b: substitute_adoption
+    tug: A_vs_B_substitution
+  - id: G-REPLACEMENT-CYCLE
+    a: aging_stock_maintenance
+    b: replacement_orders
+    tug: age_vs_replacement
+  - id: H-REGULATION-ADAPTATION
+    a: constraint
+    b: adaptation_investment
+    tug: regulation_vs_adaptation

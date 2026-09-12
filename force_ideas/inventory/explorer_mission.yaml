@@ -6,22 +6,26 @@ admitted_as_seeds: false
 capital: 0
 one_frozen_slot: FS-0001.v1
 
-# Inversion learned 2026-09-09. Do not run Levels 5-7 this quarter.
+# Inversion learned 2026-09-09. Laboratory 2026-09-12: fingerprints, not domains.
 search_from: force_idea_then_dataset
-search_to: measurement_architecture_then_transition_then_mechanism
+search_to: competing_force_then_fingerprint_then_state
 clocks_first_not_variables: true
 utilization_is: state_detector_not_force
 identities: classify_not_auto_reject
 lagged_response_first: true
-object: ObservableArchitecture
+object: ForceFingerprint
 not_object: ForceCandidate
 seed_finder_this_quarter: false
 architecture_census_file: force_ideas/inventory/architecture_census.yaml
 physical_survey_file: force_ideas/inventory/physical_survey.yaml
 mqa_file: force_ideas/inventory/mqa.yaml
-research_status: FORMALIZE
+force_redesign_file: force_ideas/inventory/force_redesign.yaml
+force_lab_file: force_ideas/inventory/force_lab.yaml
+research_status: FORCE_LABORATORY
 domain_shopping: closed
-search_unit: institutional_measurement_architecture
+search_unit: competing_force_fingerprint
+
+
 
 
 

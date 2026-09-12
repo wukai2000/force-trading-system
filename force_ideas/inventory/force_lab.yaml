@@ -1,0 +1,78 @@
+# Force Laboratory. Reconstruct known tug-of-wars. Returns enter last.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: force_laboratory
+capital: 0
+n_seeds: 0
+tickers: []
+ir_test: false
+returns_define_force: false
+selection_by_returns: false
+
+experiments:
+  E1_historical_reconstruction:
+    status: PROTOCOL_OPEN
+    returns_allowed: false
+    tickers_allowed: false
+  E2_blind_reconstruction:
+    status: LOCKED
+    unlock_if: E1_reconstructs_without_hindsight
+  E3_competing_force:
+    status: LOCKED
+    unlock_if: E1_and_E2
+  E4_market_efficiency_challenge:
+    status: LOCKED
+    unlock_if: fingerprint_exists
+  E5_financial_transmission:
+    status: LOCKED
+    unlock_if: E1_to_E4
+    note: mechanism_derives_names_IR_does_not
+
+# Named so the protocol has objects. Not reconstructed. Not return-selected.
+episodes:
+  - id: EP-SEMI-2020
+    archetype: A-SCARCITY-CAPACITY
+    window: "2020-2023"
+    a: demand_and_scarcity
+    b: fab_capacity
+    status: NOT_RECONSTRUCTED
+    returns_used: false
+  - id: EP-CREDIT-2008
+    archetype: D-CREDIT-BALANCE-SHEET
+    window: "2007-2009"
+    a: credit_expansion
+    b: balance_sheet_constraint
+    status: NOT_RECONSTRUCTED
+    returns_used: false
+  - id: EP-EU-GAS-2022
+    archetype: F-SUBSTITUTION
+    window: "2021-2023"
+    a: pipeline_gas_scarcity
+    b: lng_coal_efficiency_substitution
+    status: NOT_RECONSTRUCTED
+    returns_used: false
+
+e1_steps:
+  - competing_forces
+  - initial_state
+  - footprints
+  - ordering
+  - delays_from_mechanism_not_returns
+  - what_resisted
+  - reversal
+  - market_recognition_last
+
+failure_modes:
+  - no_coherent_fingerprint
+  - fingerprint_after_financial_move
+  - years_too_early
+  - fingerprint_unstable_across_episodes
+  - only_one_observable
+  - hindsight_contamination
+  - underidentified_many_forces
+  - no_financial_transmission
+
+refused:
+  - reconstruct_with_returns
+  - pick_best_episode_by_ir
+  - fs0001_as_e1
+  - nbi_as_episode

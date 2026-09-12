@@ -748,6 +748,28 @@
       "protocol_from": "FORCE_PROTOCOL_v1.0",
       "protocol_to": "FORCE_PROTOCOL_v1.0",
       "cannot_promote": true
+    },
+    {
+      "timestamp_utc": "2026-09-12T21:37:07Z",
+      "kind": "explorer_registry",
+      "reason": "Redesign v2 FORCE_LABORATORY. Object=ForceFingerprint. E1 protocol only. n_seeds=0.",
+      "candidate_id": "FORCE_LAB",
+      "counts": {
+        "candidate_definition": 0,
+        "universe_change": 0,
+        "control_change": 0,
+        "parameter_change": 0,
+        "date_window_change": 0,
+        "cost_change": 0,
+        "post_result_modification": 0,
+        "protocol_bump": 0,
+        "instrument_hardening": 0,
+        "explorer_registry": 1
+      },
+      "intervention_count": 1,
+      "protocol_from": "FORCE_PROTOCOL_v1.0",
+      "protocol_to": "FORCE_PROTOCOL_v1.0",
+      "cannot_promote": true
     }
   ]
 }

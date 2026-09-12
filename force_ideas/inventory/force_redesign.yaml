@@ -1,0 +1,71 @@
+# Redesign lock. Not a freeze. Not a seed. Not a market test.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: force_system_redesign_v2
+research_status: FORCE_LABORATORY
+q4_ack: stay_frozen
+capital: 0
+n_seeds: 0
+qualified_architectures: 0
+frozen_forces: [FS-0001]
+nbi: parked
+domain_shopping: closed
+mqa_still_binds: true
+tickers: []
+returns_define_force: false
+evidence_record_promotion: NOT_PERMITTED
+
+definition: >
+  A Force is a persistent economic pressure that acts on multiple
+  agents and produces a characteristic sequence of state changes.
+  Returns are downstream. A Force is not a residual IR.
+
+object: ForceFingerprint
+not_object:
+  - ticker_basket
+  - residual_IR
+  - public_landing_page
+  - ObservableArchitecture_as_Force
+
+pipeline:
+  - economic_force
+  - mechanism
+  - system_state
+  - observable_footprints
+  - temporal_ordering
+  - force_state_inference
+  - economic_consequence
+  - financial_transmission
+  - market_incorporation
+  - falsification
+
+target_zone: measurable_transition_underway_not_news_not_20y_trend
+fingerprint_fields:
+  - direction
+  - ordering
+  - time_scale
+  - persistence
+  - feedback
+  - reversal
+force_states:
+  - A_winning
+  - B_winning
+  - neither
+  - transition
+  - reversal
+time_scale_ok: [weeks, months, years]
+time_scale_refused: [ticks, days_hft, decades_structural]
+
+search_unit: competing_force_fingerprint
+not_search_unit: physical_domain_landing_page
+
+refused:
+  - ten_more_domain_probes
+  - nbi_reopen
+  - fs0001_reopen
+  - fs0002
+  - ticker_basket
+  - residual_ir_search
+  - lag_optimized_on_returns
+  - best_episode_shopping
+  - narrative_as_success
+  - measurement_architecture_as_force
