@@ -1,0 +1,35 @@
+# Scientific object is a Mechanism. "Force" is packaging.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: mechanism_registry
+capital: 0
+n_seeds: 0
+admitted_as_seeds: false
+frozen: false
+tickers: []
+returns_define_mechanism: false
+max_competing_pair: 2
+unidentified_bin: required
+
+# A candidate that cannot be written as:
+# identity + A + B + next footprint + invalidation
+# is a story, not a Mechanism.
+
+required_fields:
+  - identity
+  - mechanism_a
+  - mechanism_b
+  - next_footprint
+  - invalidation
+  - competitor_observable
+
+refused:
+  - solo_protagonist
+  - third_force_until_two_work
+  - fingerprint_drawn_after_episode
+  - particle_filter_as_first_engine
+  - trade_gap_g_t
+  - returns_in_discovery
+  - gdp_cpi_unemployment_as_arena
+  - famous_episode_shopping
+  - fs0001_reopen
+  - nbi_reopen

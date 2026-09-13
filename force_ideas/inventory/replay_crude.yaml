@@ -1,0 +1,70 @@
+# EP-CRUDE-2014 — first replay. Not a Force. Not a freeze.
+protocol_id: FORCE_PROTOCOL_v1.0
+kind: competing_mechanism_replay
+id: EP-CRUDE-2014
+status: MECHANICAL_REPLAY
+capital: 0
+tickers: []
+financial_sidecar: sealed
+episode_name_hidden: true
+label_refused: [shale_bust, oil_glut, opec]
+
+# Selected for weekly public identity, not for the famous ending.
+why_this_arena: weekly_eia_identity_dated_releases
+not_why: we_know_how_the_story_ends
+
+identity: >
+  Δ commercial crude stocks ≈ 7×(production + imports − exports − refinery inputs) + adjustment
+
+mechanism_a:
+  id: demand_destruction
+  claim: product supplied weakens; later production falls
+mechanism_b:
+  id: lagged_supply
+  claim: production stays high after demand rolls, filling stocks
+unidentified: observationally_equivalent
+
+observables:
+  production_kbd: {eia: WCRFPUS2, speed: weekly}
+  stocks_kb: {eia: WCESTUS1, speed: weekly}
+  product_supplied_kbd: {eia: WRPUPUS2, speed: weekly}
+  refinery_inputs_kbd: {eia: WCRRIUS2, speed: weekly}
+  imports_kbd: {eia: WCRIMUS2, speed: weekly}
+  exports_kbd: {eia: WCREXUS2, speed: weekly}
+
+release_lag_days: 5
+vintage_quality: AS_REVISED_PLUS_RELEASE_LAG
+contamination:
+  - revision_leak_not_killed
+  - no_alfred_vintages
+  - no_baker_hughes_weekly
+horizon_weeks: 8
+cutoff_every_weeks: 4
+window: ["2014-07-02", "2016-06-29"]
+
+scored_series: [production_kbd, stocks_kb, product_supplied_kbd]
+baseline: persistence_last_8w_sign
+# Pre-registered rule. Not fitted on the episode.
+rule: lagged_supply_if_production_up_and_demand_down
+
+negative_control:
+  id: EP-NC-2011
+  window: ["2011-01-05", "2012-06-27"]
+  why: same schema, different mechanism expected
+
+dpr_rigs: excluded_as_revised_monthly_leak
+baker_hughes: not_fetched
+prices: excluded
+
+kill_if:
+  - rule_does_not_beat_persistence
+  - margin_under_0_05
+  - negative_control_explained_the_same_way
+  - one_series_carries_the_result
+  - notes_need_post_cutoff_data
+min_edge: 0.05
+
+
+identified: false
+n_seeds: 0
+promotion: NOT_PERMITTED

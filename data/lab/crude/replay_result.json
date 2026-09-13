@@ -1,0 +1,121 @@
+{
+  "id": "EP-CRUDE-2014",
+  "status": "MECHANICAL_REPLAY",
+  "vintage_quality": "AS_REVISED_PLUS_RELEASE_LAG",
+  "identified": false,
+  "n_seeds": 0,
+  "capital": 0,
+  "financial_sidecar": "sealed",
+  "verdict": "NO_RESULT_MARGIN_TOO_SMALL",
+  "primary": {
+    "n": 27,
+    "persist": {
+      "production_kbd": {
+        "hits": 21,
+        "n": 27,
+        "acc": 0.7777777777777778
+      },
+      "stocks_kb": {
+        "hits": 17,
+        "n": 27,
+        "acc": 0.6296296296296297
+      },
+      "product_supplied_kbd": {
+        "hits": 12,
+        "n": 27,
+        "acc": 0.4444444444444444
+      },
+      "overall": {
+        "hits": 50,
+        "n": 81,
+        "acc": 0.6172839506172839
+      }
+    },
+    "rule": {
+      "production_kbd": {
+        "hits": 21,
+        "n": 27,
+        "acc": 0.7777777777777778
+      },
+      "stocks_kb": {
+        "hits": 19,
+        "n": 27,
+        "acc": 0.7037037037037037
+      },
+      "product_supplied_kbd": {
+        "hits": 12,
+        "n": 27,
+        "acc": 0.4444444444444444
+      },
+      "overall": {
+        "hits": 52,
+        "n": 81,
+        "acc": 0.6419753086419753
+      }
+    },
+    "labels": {
+      "unidentified": 13,
+      "B": 12,
+      "A": 2
+    },
+    "beats_persistence": true,
+    "edge": 0.024691358024691357
+  },
+  "negative_control": {
+    "id": "EP-NC-2011",
+    "n": 20,
+    "persist": {
+      "production_kbd": {
+        "hits": 7,
+        "n": 19,
+        "acc": 0.3684210526315789
+      },
+      "stocks_kb": {
+        "hits": 12,
+        "n": 20,
+        "acc": 0.6
+      },
+      "product_supplied_kbd": {
+        "hits": 7,
+        "n": 20,
+        "acc": 0.35
+      },
+      "overall": {
+        "hits": 26,
+        "n": 59,
+        "acc": 0.4406779661016949
+      }
+    },
+    "rule": {
+      "production_kbd": {
+        "hits": 7,
+        "n": 19,
+        "acc": 0.3684210526315789
+      },
+      "stocks_kb": {
+        "hits": 12,
+        "n": 20,
+        "acc": 0.6
+      },
+      "product_supplied_kbd": {
+        "hits": 7,
+        "n": 20,
+        "acc": 0.35
+      },
+      "overall": {
+        "hits": 26,
+        "n": 59,
+        "acc": 0.4406779661016949
+      }
+    },
+    "labels": {
+      "B": 6,
+      "A": 5,
+      "unidentified": 9
+    },
+    "beats_persistence": false,
+    "edge": 0.0
+  },
+  "n_notes": 27,
+  "n_nc_notes": 20
+}

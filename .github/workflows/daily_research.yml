@@ -62,6 +62,11 @@ jobs:
           python scripts/assert_exit.py 2 python scripts/run_force_lab.py --ir
           python scripts/assert_exit.py 2 python scripts/run_force_lab.py --tickers
           python scripts/assert_exit.py 2 python scripts/run_force_lab.py --reconstruct
+          python scripts/run_crude_replay.py
+          python scripts/assert_exit.py 2 python scripts/run_crude_replay.py --ir
+          python scripts/assert_exit.py 2 python scripts/run_crude_replay.py --open-sidecar
+          python scripts/assert_exit.py 2 python scripts/run_crude_replay.py --use-dpr
+
 
 
 

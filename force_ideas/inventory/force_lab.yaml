@@ -27,29 +27,33 @@ experiments:
     unlock_if: E1_to_E4
     note: mechanism_derives_names_IR_does_not
 
-# Named so the protocol has objects. Not reconstructed. Not return-selected.
+# Named so the protocol has objects. Placeholders parked. Crude is the first replay.
 episodes:
+  - id: EP-CRUDE-2014
+    archetype: identity_lagged_supply_vs_demand
+    window: "2014-07-02/2016-06-29"
+    a: demand_destruction
+    b: lagged_supply
+    status: MECHANICAL_REPLAY
+    returns_used: false
+    identified: false
+  - id: EP-NC-2011
+    archetype: negative_control
+    window: "2011-01-05/2012-06-27"
+    a: demand_destruction
+    b: lagged_supply
+    status: NEGATIVE_CONTROL
+    returns_used: false
+    identified: false
   - id: EP-SEMI-2020
     archetype: A-SCARCITY-CAPACITY
     window: "2020-2023"
     a: demand_and_scarcity
     b: fab_capacity
-    status: NOT_RECONSTRUCTED
+    status: PARKED_SECOND_WAVE
     returns_used: false
-  - id: EP-CREDIT-2008
-    archetype: D-CREDIT-BALANCE-SHEET
-    window: "2007-2009"
-    a: credit_expansion
-    b: balance_sheet_constraint
-    status: NOT_RECONSTRUCTED
-    returns_used: false
-  - id: EP-EU-GAS-2022
-    archetype: F-SUBSTITUTION
-    window: "2021-2023"
-    a: pipeline_gas_scarcity
-    b: lng_coal_efficiency_substitution
-    status: NOT_RECONSTRUCTED
-    returns_used: false
+    identified: false
+
 
 e1_steps:
   - competing_forces
@@ -76,3 +80,7 @@ refused:
   - pick_best_episode_by_ir
   - fs0001_as_e1
   - nbi_as_episode
+  - particle_filter_first
+  - trade_execution
+  - dpr_as_vintage
+

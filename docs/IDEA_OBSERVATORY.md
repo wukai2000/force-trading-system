@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Redesign v2 2026-09-12:** Force = persistent pressure + temporal fingerprint, not residual IR. Laboratory open on E1 protocol only. Archetypes A–H are ontology, not seeds. E2–E5 locked. n_seeds=0. $0. FS-0001 frozen. Domain shopping closed. MQA still binds.
+**Replay 2026-09-12:** EP-CRUDE-2014 NO_RESULT_MARGIN_TOO_SMALL. Rule 0.642 vs persist 0.617 on as-revised weekly EIA. Edge is two stock hits. Sidecar sealed. n_seeds=0. $0.
+
 
 
 

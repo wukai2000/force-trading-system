@@ -21,6 +21,9 @@ physical_survey_file: force_ideas/inventory/physical_survey.yaml
 mqa_file: force_ideas/inventory/mqa.yaml
 force_redesign_file: force_ideas/inventory/force_redesign.yaml
 force_lab_file: force_ideas/inventory/force_lab.yaml
+replay_file: force_ideas/inventory/replay_crude.yaml
+mechanism_registry_file: force_ideas/inventory/mechanism_registry.yaml
+
 research_status: FORCE_LABORATORY
 domain_shopping: closed
 search_unit: competing_force_fingerprint

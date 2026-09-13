@@ -85,8 +85,16 @@ def assert_lab() -> Dict[str, Any]:
     eps = lab.get("episodes") or []
     if len(eps) != 3:
         raise LabError("three protocol episodes, not a quota")
-    if any(e.get("status") != "NOT_RECONSTRUCTED" or e.get("returns_used") is True for e in eps):
-        raise LabError("episodes are not reconstructed and must not use returns")
+    if any(e.get("returns_used") is True for e in eps):
+        raise LabError("episodes must not use returns")
+    by = {e["id"]: e for e in eps}
+    if by.get("EP-CRUDE-2014", {}).get("status") != "MECHANICAL_REPLAY":
+        raise LabError("crude is the first replay")
+    if by.get("EP-CRUDE-2014", {}).get("identified") is True:
+        raise LabError("crude is not identified")
+    if by.get("EP-NC-2011", {}).get("status") != "NEGATIVE_CONTROL":
+        raise LabError("2011 is the negative control")
+
     refused = (rd.get("refused") or []) + (lab.get("refused") or [])
     for tok in ("ticker_basket", "residual_ir_search", "fs0002", "nbi_reopen", "reconstruct_with_returns"):
         if tok not in refused:

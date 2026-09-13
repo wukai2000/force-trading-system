@@ -264,8 +264,19 @@ def test_unfrozen_discovery():
     assert payload["e1"] == "PROTOCOL_OPEN"
     assert payload["e2"] == "LOCKED"
     assert payload["n_archetypes"] == 8
-    assert all(e["status"] == "NOT_RECONSTRUCTED" for e in payload["episodes"])
-    print("PASS force lab; fingerprints not IR; E2 locked; n_seeds=0")
+    assert all(e["returns_used"] is False for e in payload["episodes"])
+    assert any(e["id"] == "EP-CRUDE-2014" and e["status"] == "MECHANICAL_REPLAY" for e in payload["episodes"])
+    from force_learning.lab.replay import assert_replay, run as run_replay
+    assert_replay()
+    rr = run_replay()
+    assert rr["identified"] is False
+    assert rr["n_seeds"] == 0
+    assert rr["financial_sidecar"] == "sealed"
+    assert rr["n_notes"] > 10
+    assert "NO_RESULT" in rr["verdict"] or "REVISION_LEAK" in rr["verdict"]
+
+    print(f"PASS force lab; crude replay {rr['verdict']}; n_seeds=0")
+
 
 
 

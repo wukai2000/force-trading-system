@@ -15,11 +15,13 @@ returns_define_force: false
 evidence_record_promotion: NOT_PERMITTED
 
 definition: >
-  A Force is a persistent economic pressure that acts on multiple
-  agents and produces a characteristic sequence of state changes.
-  Returns are downstream. A Force is not a residual IR.
+  A Mechanism is an identified imbalance or binding constraint inside
+  an accounting identity, with a named competitor that can win.
+  "Force" is packaging. Returns are downstream.
 
+scientific_object: CompetingMechanism
 object: ForceFingerprint
+
 not_object:
   - ticker_basket
   - residual_IR
@@ -69,3 +71,7 @@ refused:
   - best_episode_shopping
   - narrative_as_success
   - measurement_architecture_as_force
+  - particle_filter_as_first_engine
+  - trade_gap_g_t
+  - famous_episode_shopping
+
