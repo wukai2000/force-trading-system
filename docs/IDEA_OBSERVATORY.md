@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**Replay 2026-09-12:** EP-CRUDE-2014 NO_RESULT_MARGIN_TOO_SMALL. Rule 0.642 vs persist 0.617 on as-revised weekly EIA. Edge is two stock hits. Sidecar sealed. n_seeds=0. $0.
+**MTS-0001 2026-09-13:** Spec frozen on the crude pair. As-revised smoke is NOT identification. Information frontier NOT_CONSTRUCTED. Next = I_t for the same six series. No new episode. No retune. n_seeds=0. $0.
+
 
 
 

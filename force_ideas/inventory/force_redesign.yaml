@@ -19,8 +19,11 @@ definition: >
   an accounting identity, with a named competitor that can win.
   "Force" is packaging. Returns are downstream.
 
-scientific_object: CompetingMechanism
+scientific_object: MechanismTransitionSpecification
 object: ForceFingerprint
+mts_file: force_ideas/inventory/mts_0001.yaml
+information_frontier: NOT_CONSTRUCTED
+
 
 not_object:
   - ticker_basket

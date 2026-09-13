@@ -1,0 +1,92 @@
+# MTS-0001 — Methodological test only. Not a Force. Not a seed.
+protocol_id: FORCE_PROTOCOL_v1.0
+id: MTS-0001
+kind: mechanism_transition_specification
+status: FROZEN_SPEC
+purpose: methodological_test_only
+capital: 0
+n_seeds: 0
+identified: false
+tickers: []
+financial_sidecar: sealed
+promotion: NOT_PERMITTED
+
+# Frozen AFTER the as-revised smoke. Do not retune the rule on that smoke.
+rule_locked: lagged_supply_if_production_up_and_demand_down
+episode_locked: EP-CRUDE-2014
+negative_control_locked: EP-NC-2011
+do_not_select_another_episode: true
+
+mechanism_a:
+  id: demand_destruction
+  predicts:
+    production_kbd: down_after_demand
+    stocks_kb: mixed
+    product_supplied_kbd: down
+mechanism_b:
+  id: lagged_supply
+  predicts:
+    production_kbd: still_up
+    stocks_kb: up
+    product_supplied_kbd: down_or_flat
+discriminating_observation: production_sign_while_demand_is_down
+invalidation: product_supplied_and_production_do_not_separate_within_horizon
+horizon_weeks: 8
+unidentified_if: not (prod_up and demand_down) and not (prod_down and demand_down)
+
+observables:
+  - production_kbd
+  - stocks_kb
+  - product_supplied_kbd
+  - refinery_inputs_kbd
+  - imports_kbd
+  - exports_kbd
+no_new_observables: true
+
+date_fields_required:
+  - phenomenon_date
+  - observation_date
+  - publication_date
+  - first_availability
+  - revision_history
+  - contemporaneous_value
+information_frontier: NOT_CONSTRUCTED
+
+current_run:
+  id: EP-CRUDE-2014
+  quality: AS_REVISED_PLUS_RELEASE_LAG
+  valid_for_identification: false
+  verdict: NO_RESULT_MARGIN_TOO_SMALL
+  why_invalid: I_t_not_reconstructed
+  why_still_informative: as_revised_should_help_a_narrative_rule_and_it_still_lost_to_margin
+
+baselines:
+  persistence: ran
+  trend: not_run
+  single_threshold: not_run
+  lagged_var: not_run
+  state_space: not_run
+
+error_types_not_classified: true
+discovery_recognition_mixed: true
+write_once_notes: mechanical_only
+
+next_authorized: reconstruct_I_t_for_these_six_series
+next_refused:
+  - new_episode
+  - retune_rule
+  - add_observables
+  - fs0002
+  - nbi_reopen
+  - sidecar
+  - tickers
+  - ml
+  - more_brainstorming
+
+no_result_if:
+  - frontier_cannot_be_built
+  - A_and_B_not_distinguished_on_I_t
+  - next_state_no_better_than_persist_by_min_edge
+  - rule_rewritten_after_reveal
+  - negative_control_explained_the_same_way
+min_edge: 0.05

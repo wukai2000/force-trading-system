@@ -276,6 +276,12 @@ def test_unfrozen_discovery():
     assert "NO_RESULT" in rr["verdict"] or "REVISION_LEAK" in rr["verdict"]
 
     print(f"PASS force lab; crude replay {rr['verdict']}; n_seeds=0")
+    from force_learning.lab.mts import assert_mts
+    mts = assert_mts()
+    assert mts["information_frontier"] == "NOT_CONSTRUCTED"
+    assert mts["current_run"]["valid_for_identification"] is False
+    print("PASS MTS-0001 frozen; I_t not built; no new episode")
+
 
 
 
