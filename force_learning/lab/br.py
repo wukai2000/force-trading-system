@@ -43,8 +43,8 @@ def assert_br() -> Dict[str, Any]:
         raise BrError("x stays production_kbd")
     if spec.get("path_c") != "narrow_classification_only":
         raise BrError("Path C is narrow")
-    if spec.get("current_label") != "REFUSED":
-        raise BrError("current label is REFUSED")
+    if spec.get("current_label") not in {"REFUSED", "REFUSED_PENDING_PROVENANCE"}:
+        raise BrError("current label is REFUSED*")
     refused = spec.get("next_refused") or []
     for tok in ("new_episode", "mts_0002", "retune_rule", "tickers", "promote"):
         if tok not in refused:
@@ -64,6 +64,7 @@ def report() -> Dict[str, Any]:
         "label": spec["current_label"],
         "why": spec["why_refused"],
         "e1i": spec["e1i_status"],
+        "gate1": spec.get("gate1_verdict", "UNRESOLVED"),
         "vintages_ready": vintages_ready(),
         "scoring_permitted": False,
         "x": spec["x"]["id"],

@@ -15,7 +15,8 @@ scoring_permitted: false
 
 e1i_status: not_run
 e1i_vintages: missing
-gate: 0_freeze_only
+gate: 1_unresolved
+gate1_verdict: UNRESOLVED
 
 ontology: competing_adjustment_process
 force_means: cap_candidate
@@ -27,6 +28,9 @@ path_c_killed_increments:
   - cscs_pressure_vectors
   - mts_0002
   - e2i_new_episode
+  - indpro_as_leg_b
+  - utilization_as_leg_u
+  - bls_ppi_as_wpsr
 
 episode_locked: EP-CRUDE-2014
 negative_control_locked: EP-NC-2011
@@ -78,7 +82,7 @@ negative_controls_optional:
 hypothesis_freezable: provisionally_yes_identity_not_ending
 episode_selection_contamination: window_chosen_because_2014_glut_story
 
-next_authorized: e1i_vintages_then_sealed_S_T
+next_authorized: wpsr_issue_files_then_e1i_ok
 next_refused:
   - score_without_vintages
   - score_as_revised_as_if_I_t
@@ -94,6 +98,9 @@ next_refused:
   - ir
   - promote
   - numeric_hero_thresholds
+  - indpro
+  - utilization_as_U
+  - current_eia_api_as_first_print
 
 terminal_labels:
   - PASS_NARROW
@@ -103,6 +110,8 @@ terminal_labels:
   - HYPOTHESIS_UNFREEZABLE
   - KILLED_PATH_C
   - REFUSED
+  - REFUSED_PENDING_PROVENANCE
 
-current_label: REFUSED
+current_label: REFUSED_PENDING_PROVENANCE
 why_refused: e1i_vintages_missing
+gate1_doc: docs/GATE1_AUDIT.md
