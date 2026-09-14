@@ -34,19 +34,24 @@ q4_ack: stay_frozen
 eia_optional_this_cycle: not_authorized
 frozen_slot_count: 1
 year_end_contribution: silence
-
 census_50_200: refused
-
-
-
-
-
-
 joint_cost_tkm_coverage: empty
 
+# 2026-09-14 human ACK
+trade_2026: off_the_table
+live_goal: define_historically_testable_force
+recommended_stack: A_plus_B_plus_C_definition
+path_d: deferred_until_e1i_seal
+mts_0001: frozen
+i_t_status: not_constructed
+i_t_contract: docs/I_T_CONTRACT.md
+paths_doc: docs/PATHS_AND_I_T.md
+e1i_authorized: contract_only
+e1i_vintages: not_run
+next_object: I_t_on_EP_CRUDE_2014_vintages
 
 note: >
   T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
-  immutable. Historical vault may collect source files without unlocking
-  T5. This file is the operational overlay.
-
+  immutable. 2026 live trading is off the table. Live goal is a Force
+  definition that can be tested on historical vintages and later measured.
+  I_t is the missing experiment. Do not retune the 2014 rule.

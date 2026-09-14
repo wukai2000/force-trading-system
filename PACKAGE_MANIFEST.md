@@ -1,5 +1,6 @@
-# force-trading-system-20260909-explorer-mission
+# force-trading-system-20260914-it-contract
 
-- Explorer mission: measurement architecture → transition → mechanism
-- 50-200 census refused. Bottleneck-signature rescue refused
-- Q4 default: stay frozen. Levels 5-7 blocked. Capital $0
+- 2026 trading goal taken off the table
+- Live goal: define a historically testable Force
+- I_t contract sketched on EP-CRUDE-2014; vintages not run
+- Path stack A+B+C(definition). Path D deferred. Capital $0
