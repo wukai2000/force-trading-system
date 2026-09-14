@@ -1,0 +1,66 @@
+# TSG-0001 v0.1 — Temporal State Grammar. Not a Force. Mining locked.
+protocol_id: FORCE_PROTOCOL_v1.0
+id: TSG-0001
+version: v0.1
+kind: temporal_state_grammar_prosecutor
+status: FROZEN_SPEC_PREMATURE
+purpose: methodological_test_only
+capital: 0
+n_seeds: 0
+identified: false
+tickers: []
+financial_sidecar: sealed
+promotion: NOT_PERMITTED
+scoring_permitted: false
+mining_permitted: false
+fitting_permitted: false
+
+parent_tape: BR-0001
+br_0001_amendment: false
+depends_on: br_0001_gate1_first_print
+gate0: blocking_absent_tape
+
+h1: higher_order_structure_beyond_markov1
+h2: force_ontology
+h2_authorized: false
+
+alphabet_default: [A, B, U]
+alphabet_expansion: refused_in_v0.1
+new_letters_C_D: refused
+u_breaks_word: true
+u_is_wildcard: false
+u_reason_codes: [U_I, U_M, U_C, U_H]
+u_reason_codes_are_letters: false
+
+levels_authorized: [S, T]
+levels_locked: [H]
+models_authorized: [M0, M1, M2]
+models_locked: [M3, M4, M5]
+representations_locked:
+  - rle
+  - wildcard
+  - transition_motif
+  - prefixspan
+  - best_of_n
+variable_duration: locked
+
+null_load_bearing: C_markov1_simulate
+complexity_penalty: required_before_any_fit
+penalty_method: not_chosen_after_count
+
+current_label: PREMATURE
+why: br_0001_gate1_unresolved
+
+next_authorized: wait_for_br_0001_tape_then_M0_M2_only
+next_refused:
+  - mine_motifs
+  - prefixspan
+  - add_letters
+  - new_episode
+  - amend_br_0001
+  - fs0001_edit
+  - tickers
+  - ir
+  - promote
+  - force_id
+  - run_on_as_revised
