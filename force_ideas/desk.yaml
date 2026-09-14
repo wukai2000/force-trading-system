@@ -39,19 +39,27 @@ joint_cost_tkm_coverage: empty
 
 # 2026-09-14 human ACK
 trade_2026: off_the_table
-live_goal: define_historically_testable_force
-recommended_stack: A_plus_B_plus_C_definition
-path_d: deferred_until_e1i_seal
+live_goal: define_historically_testable_cap
+ontology: competing_adjustment_process
+force_means: cap_candidate
+recommended_stack: A_plus_B_plus_C_narrow
+path_c: narrow_classification_only
+path_d: deferred_until_br0001_seal
 mts_0001: frozen
+mts_0002: killed
+br_0001: frozen_spec_score_refused
 i_t_status: not_constructed
 i_t_contract: docs/I_T_CONTRACT.md
+br_contract: docs/BR_0001.md
+memo_consolidation: docs/MEMO_CONSOLIDATION_20260914.md
 paths_doc: docs/PATHS_AND_I_T.md
 e1i_authorized: contract_only
 e1i_vintages: not_run
-next_object: I_t_on_EP_CRUDE_2014_vintages
+next_object: e1i_vintages_then_BR_0001
 
 note: >
   T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
-  immutable. 2026 live trading is off the table. Live goal is a Force
-  definition that can be tested on historical vintages and later measured.
-  I_t is the missing experiment. Do not retune the 2014 rule.
+  immutable. 2026 live trading is off the table. Reconstructible object
+  is a competing adjustment process, not a latent Force. BR-0001 is
+  frozen and cannot score until E1.I vintages exist. Do not retune 2014.
+  MTS-0002/E2.I is killed.

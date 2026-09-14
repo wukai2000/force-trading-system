@@ -72,6 +72,9 @@ discovery_recognition_mixed: true
 write_once_notes: mechanical_only
 
 next_authorized: reconstruct_I_t_for_these_six_series
+reconstruction_experiment: BR-0001
+reconstruction_status: REFUSED_UNTIL_E1I
+
 next_refused:
   - new_episode
   - retune_rule
@@ -82,6 +85,10 @@ next_refused:
   - tickers
   - ml
   - more_brainstorming
+  - mts_0002
+  - e2i
+  - fingerprint_catalog
+  - replace_x_with_stocks
 
 no_result_if:
   - frontier_cannot_be_built
