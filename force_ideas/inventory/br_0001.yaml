@@ -1,0 +1,108 @@
+# BR-0001 — Blind reconstruction. Not a Force. Cannot score without E1.I vintages.
+protocol_id: FORCE_PROTOCOL_v1.0
+id: BR-0001
+parent: MTS-0001
+kind: sealed_sequential_cap_classification
+status: FROZEN_SPEC
+purpose: methodological_test_only
+capital: 0
+n_seeds: 0
+identified: false
+tickers: []
+financial_sidecar: sealed
+promotion: NOT_PERMITTED
+scoring_permitted: false
+
+e1i_status: not_run
+e1i_vintages: missing
+gate: 0_freeze_only
+
+ontology: competing_adjustment_process
+force_means: cap_candidate
+path_c: narrow_classification_only
+path_c_killed_increments:
+  - fingerprint_catalog
+  - dominance_poetry
+  - multi_domain_propagation_order
+  - cscs_pressure_vectors
+  - mts_0002
+  - e2i_new_episode
+
+episode_locked: EP-CRUDE-2014
+negative_control_locked: EP-NC-2011
+do_not_select_another_episode: true
+rule_locked: lagged_supply_if_production_up_and_demand_down
+no_new_observables: true
+
+mechanism_a:
+  id: demand_destruction
+  origin: eia_weekly_petroleum_identity
+  code: prod_down_and_product_supplied_down
+mechanism_b:
+  id: lagged_supply
+  origin: eia_weekly_petroleum_identity
+  code: prod_up_and_product_supplied_down
+x:
+  id: production_kbd
+  increment: sign_of_8w_change
+  why_not_stocks: stocks_were_the_as_revised_edge_retune_forbidden
+horizon_weeks: 8
+cutoff_weeks: 4
+lambda_version: binary_0_1
+lambda_forces_U: true
+
+state_vector:
+  - C
+  - Lambda
+  - pi
+  - F
+forbid_extra_fields: true
+
+ledgers:
+  - reconstruction
+  - transition
+  - abstention
+never_mix_ledgers: true
+always_U_is_legal: true
+
+negative_controls_required:
+  - NC-1
+  - NC-4
+  - NC-5
+  - NC-6
+negative_controls_optional:
+  - NC-2
+  - NC-3
+  - NC-7
+
+hypothesis_freezable: provisionally_yes_identity_not_ending
+episode_selection_contamination: window_chosen_because_2014_glut_story
+
+next_authorized: e1i_vintages_then_sealed_S_T
+next_refused:
+  - score_without_vintages
+  - score_as_revised_as_if_I_t
+  - new_episode
+  - mts_0002
+  - e2i
+  - retune_rule
+  - replace_x_with_stocks
+  - add_observables
+  - fingerprint
+  - sidecar
+  - tickers
+  - ir
+  - promote
+  - numeric_hero_thresholds
+
+terminal_labels:
+  - PASS_NARROW
+  - UNIDENTIFIABLE
+  - FAIL
+  - NO_RESULT
+  - HYPOTHESIS_UNFREEZABLE
+  - KILLED_PATH_C
+  - REFUSED
+
+current_label: REFUSED
+why_refused: e1i_vintages_missing
