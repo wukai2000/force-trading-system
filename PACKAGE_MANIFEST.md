@@ -1,8 +1,7 @@
-# force-trading-system-20260915-wave0-reckoning
+# force-trading-system-20260915-pass0-hold
 
+- PASS-0 HOLD in-repo: A G2=0/80 · B G2=80/80 · C G2=0/200
+- 6 nats frozen. Naive recoding REFUSE. HOU-1 REFUSE
 - Gate 1 UNRESOLVED. 2014-2016 cell tape sealed; cells ≠ I_t
-- e1i_vintages.ok refused (2011 NC grid missing)
-- E1.I single bind: 2014-07-02 I_t=U, unscored
-- Wave 0 = nested NLL, not adaptive search. G1 15/20 M1 absorbs ABC
-- A1-v1 contaminated development. Wave 1 / HOU-1 Test-0 not opened
-- Path-C increment frozen. Q4 / Force 4 frozen. n_seeds=0. Capital $0
+- next_object: 2011_nc_first_print_or_stop
+- n_seeds=0. Capital $0. Promotion NOT_PERMITTED

@@ -69,12 +69,15 @@ wpsr_cells:
 aetl_e0: lab_only
 cer_0001: wave0_only
 etl_0001: no_higher_order_structure
+pass0: hold
+pass0_hou1: refuse
 path_c_increment: frozen_2026-09-15
 
 
 note: >
   FS-0001.v1 immutable. Gate 1 UNRESOLVED. 2014-2016 WPSR cell tape
   sealed (cells ≠ I_t; e1i_vintages.ok refused). One I_t bind on
-  2014-07-02 = U, unscored. 2011 NC grid still missing. CER Wave 0 is
-  nested NLL, not adaptive search; A1-v1 development; HOU-1 Test-0
-  not authorized. Q4 / Force 4 / n_seeds=0 held. Capital $0.
+  2014-07-02 = U, unscored. 2011 NC grid still missing. PASS-0 HOLD
+  (A G2=0/80, B G2=80/80, C G2=0/200). Naive recoding REFUSE. HOU-1
+  REFUSE. CER Wave 0 nested NLL, not adaptive search. Q4 / Force 4 /
+  n_seeds=0 held. Capital $0.

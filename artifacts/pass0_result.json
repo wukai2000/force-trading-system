@@ -1,0 +1,93 @@
+{
+  "id": "PASS-0",
+  "protocol": "FORCE_PROTOCOL_v1.0",
+  "capital": 0,
+  "force_language": "OFF",
+  "gate_nats": 6.0,
+  "gate_moved": false,
+  "master_seed": 20260915,
+  "split": "50/25/25",
+  "laplace_alpha": 1.0,
+  "ladder": {
+    "A": {
+      "n": 80,
+      "g1_rate": 1.0,
+      "g2_rate": 0.0,
+      "m1_sufficient_rate": 1.0,
+      "mean_d10": 103.26140253550861,
+      "mean_d21": -2.7808870058845434,
+      "p05_d21": -7.34549342716565,
+      "p95_d21": 1.0736822954150398,
+      "max_d21": 2.7258177912470387,
+      "sign_m2_gt_m1": 0.125,
+      "n_g2": 0
+    },
+    "B": {
+      "n": 80,
+      "g1_rate": 0.0,
+      "g2_rate": 1.0,
+      "m1_sufficient_rate": 0.0,
+      "mean_d10": -0.9800365720530145,
+      "mean_d21": 170.36579072317562,
+      "p05_d21": 144.53925559587282,
+      "p95_d21": 195.54918542650745,
+      "max_d21": 208.3446629030226,
+      "sign_m2_gt_m1": 1.0,
+      "n_g2": 80
+    },
+    "C": {
+      "n": 200,
+      "g1_rate": 0.355,
+      "g2_rate": 0.0,
+      "m1_sufficient_rate": 0.355,
+      "mean_d10": 5.010873623158577,
+      "mean_d21": -2.6963045046396883,
+      "p05_d21": -6.321807262790017,
+      "p95_d21": 0.8576055578605519,
+      "max_d21": 2.1627314869099337,
+      "sign_m2_gt_m1": 0.13,
+      "n_g2": 0
+    }
+  },
+  "collapse_naive": {
+    "A": {
+      "n": 40,
+      "alt_claim_rate": 1.0
+    },
+    "B": {
+      "n": 40,
+      "alt_claim_rate": 1.0
+    },
+    "C": {
+      "n": 40,
+      "alt_claim_rate": 1.0
+    }
+  },
+  "identity_order_search": {
+    "A": {
+      "n": 80,
+      "dev_picks_gt1": 0.1625,
+      "prot_alt_claim": 0.0
+    },
+    "C": {
+      "n": 80,
+      "dev_picks_gt1": 0.2,
+      "prot_alt_claim": 0.0
+    },
+    "B": {
+      "n": 40,
+      "dev_picks_gt1": 1.0,
+      "prot_alt_claim": 1.0
+    }
+  },
+  "F1_A_invents": false,
+  "F2_B_misses": false,
+  "F3_C_false_g2": false,
+  "naive_recoding": "REFUSE",
+  "hou1": "REFUSE",
+  "wave1": "NOT_OPENED",
+  "evidence_record": "NOT_PERMITTED",
+  "decision": "HOLD",
+  "label": "HOLD",
+  "note": "Sidecar lab. Does not amend BR-0001. Cells are not I_t."
+}

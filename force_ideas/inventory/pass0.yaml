@@ -1,0 +1,45 @@
+id: PASS-0
+kind: synthetic_discrimination
+protocol_id: FORCE_PROTOCOL_v1.0
+status: HOLD
+promotion: NOT_PERMITTED
+capital: 0
+force_language: OFF
+amends_br_0001: false
+opens_wave1: false
+opens_hou1: false
+gate_nats: 6.0
+gate_moved: false
+master_seed: 20260915
+alphabet: [0, 1, 2]
+split: [0.50, 0.25, 0.25]
+laplace_alpha: 1.0
+ll_is: total_protected_nats
+worlds:
+  A:
+    dgp: first_order_stay_0_70_off_0_15
+    T: 1500
+    R: 80
+    expect: M1_sufficient
+  B:
+    dgp: modular_second_order_p_0_80
+    T: 1500
+    R: 80
+    expect: G2
+  C:
+    dgp: first_order_stay_0_50_off_0_25
+    T: 400
+    R: 200
+    expect: G2_rate_low
+falsify:
+  F1: A_G2_gt_0.10
+  F2: B_G2_lt_0.80
+  F3: C_G2_gt_0.10
+refuse:
+  - naive_recoding_raw_ll
+  - hou1
+  - historical_motif
+  - evidence_record
+  - retune_six_nats
+  - xor_replacement_world_b
+  - ar1_replacement_world_c
