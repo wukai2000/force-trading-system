@@ -31,6 +31,9 @@ Find and **define** a Force that can later be:
 
 A 2026 live book is **off the table**. That deadline is not a research clock.
 
+Path-C freeze (2026-09-15, one sentence): mechanism + `I_t=f(F_t)` + vintage
+reconstruct + next-state vs persist; `U` is legal; tickers/IR last.
+
 ## What I_t is
 
 `I_t` is a state available to an observer at decision time `t` from information
