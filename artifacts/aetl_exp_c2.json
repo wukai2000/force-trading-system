@@ -1,0 +1,10 @@
+{
+  "id": "AETL-EXP-C2",
+  "process": "iid_ternary_tokens",
+  "n_worlds": 80,
+  "search": "top-t prefix motif lifts, k in {2,3}",
+  "naive_fpr_any_holdout_enrichment": {"1": 0.0125, "3": 0.05, "8": 0.125, "20": 0.3},
+  "certified_fpr_kappa_log_t": {"1": 0.0125, "3": 0.0125, "8": 0.0125, "20": 0.0875},
+  "delta_is": "t = motifs inspected",
+  "label": "LAB_ONLY"
+}
