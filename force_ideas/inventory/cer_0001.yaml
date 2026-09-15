@@ -1,0 +1,21 @@
+id: CER-0001
+kind: candidate_register
+architecture: UNCHANGED
+status: WAVE0_ONLY
+promotion: NOT_PERMITTED
+capital: 0
+force_language: OFF
+wave1: NOT_OPENED
+portfolio:
+  - SYN-G1
+  - SYN-N1
+  - SYN-A1
+  - HOU-1
+  - COM-1
+  - ENE-1
+  - CTL-1
+reserve:
+  - SYN-B1
+  - SYN-M1
+  - LAB-1
+  - HUR-1

@@ -1,0 +1,12 @@
+{
+  "id": "CER-0001-WAVE0",
+  "architecture": "UNCHANGED",
+  "pass_G1_recover": true,
+  "pass_N1_refuse": true,
+  "pass_A1_protected": true,
+  "G1": {"STATISTICALLY_SUPPORTED": 15, "MARKOV1_ONLY": 5},
+  "N1": {"MARKOV1_ONLY": 20},
+  "A1": {"REFUTED": 20},
+  "wave1_historical": "NOT_OPENED_YET",
+  "label": "WAVE0_ONLY"
+}
