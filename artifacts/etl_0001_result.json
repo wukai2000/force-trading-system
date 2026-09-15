@@ -1,0 +1,13 @@
+{
+  "id": "ETL-0001",
+  "vintage_label": "LEAKY_FRED_AS_REVISED",
+  "not_confirmatory": true,
+  "synthetic_iid_order2_improves": false,
+  "any_order2_improves_holdout": false,
+  "label": "NO_HIGHER_ORDER_STRUCTURE",
+  "pairs": {
+    "INDPRO_UNRATE": {"dnll_o2_minus_m1": 775.35},
+    "INDPRO_CPI": {"dnll_o2_minus_m1": 559.505},
+    "UNRATE_CPI": {"dnll_o2_minus_m1": 1073.818}
+  }
+}

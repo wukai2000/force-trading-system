@@ -1,0 +1,31 @@
+# ETL-0001 Encoding Record. Hashed before motif search.
+id: ETL-0001
+protocol_id: FORCE_PROTOCOL_v1.0
+status: FROZEN_ENCODING
+parent_tape: none
+amends_br_0001: false
+amends_fs0001: false
+capital: 0
+promotion: NOT_PERMITTED
+returns_target: forbidden
+force_id: forbidden
+vintage: FRED_CURRENT_AS_REVISED
+vintage_label: LEAKY
+not_confirmatory: true
+observables:
+  - {id: INDPRO, source: FRED, freq: M}
+  - {id: UNRATE, source: FRED, freq: M}
+  - {id: CPIAUCSL, source: FRED, freq: M}
+alphabet: [D, F, R, U]
+c: 0.75
+window: 60
+rare_floor: 8
+max_occupied: 20
+k_max: 3
+pairwise_first: true
+prefix: [1985-01, 2009-12]
+holdout: [2010-01, 2019-12]
+stress_report_only: [2020-01, 2023-12]
+success_metric: holdout_delta_nll_vs_markov1
+synthetic_must_fail: true
+current_label: NO_HIGHER_ORDER_STRUCTURE
