@@ -1,4 +1,4 @@
-"""TSG-0001 v0.1. Spec loadable. Mining and fitting refused."""
+"""TSG-0001. Spec loadable. Mining and fitting refused."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -23,8 +23,8 @@ def assert_tsg() -> Dict[str, Any]:
     spec = load()
     if spec.get("id") != "TSG-0001":
         raise TsgError("id is TSG-0001")
-    if spec.get("version") != "v0.1":
-        raise TsgError("v0.1 only")
+    if spec.get("version") not in {"v0.1", "v0.2"}:
+        raise TsgError("v0.1 or v0.2")
     if spec.get("status") != "FROZEN_SPEC_PREMATURE":
         raise TsgError("premature freeze")
     if spec.get("mining_permitted") is not False:
@@ -41,6 +41,8 @@ def assert_tsg() -> Dict[str, Any]:
         raise TsgError("U breaks the word")
     if spec.get("current_label") != "PREMATURE":
         raise TsgError("label is PREMATURE")
+    if spec.get("empirical_force_effect_is_force_id") is not False:
+        raise TsgError("EFE is not a Force ID")
     if "M5" not in (spec.get("models_locked") or []):
         raise TsgError("M5 stays locked")
     refused = spec.get("next_refused") or []
@@ -62,6 +64,7 @@ def report() -> Dict[str, Any]:
         "mining_permitted": False,
         "fitting_permitted": False,
         "h2_authorized": False,
+        "efe_is_force_id": False,
         "models_authorized": spec["models_authorized"],
         "models_locked": spec["models_locked"],
         "alphabet": spec["alphabet_default"],
