@@ -75,5 +75,6 @@ path_c_increment: frozen_2026-09-15
 note: >
   FS-0001.v1 immutable. Gate 1 UNRESOLVED. 2014-2016 WPSR cell tape
   sealed (cells ≠ I_t; e1i_vintages.ok refused). One I_t bind on
-  2014-07-02 = U, unscored. 2011 NC grid still missing. Q4 / Force 4
-  / n_seeds=0 held. Wave 1 closed. Capital $0.
+  2014-07-02 = U, unscored. 2011 NC grid still missing. CER Wave 0 is
+  nested NLL, not adaptive search; A1-v1 development; HOU-1 Test-0
+  not authorized. Q4 / Force 4 / n_seeds=0 held. Capital $0.

@@ -6,6 +6,11 @@ promotion: NOT_PERMITTED
 capital: 0
 force_language: OFF
 wave1: NOT_OPENED
+wave0_is: nested_nll_not_adaptive_search
+a1_v1: contaminated_development
+a1_v2: current_spec_m2_beats_m1_and_m0
+g1_misses: m1_absorbs_abc_plant
+do_not_retune_six_nats: true
 portfolio:
   - SYN-G1
   - SYN-N1
