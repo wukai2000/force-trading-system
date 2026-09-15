@@ -1,7 +1,7 @@
-# TSG-0001 v0.1 — Temporal State Grammar. Not a Force. Mining locked.
+# TSG v0.2 — Empirical Force-effect ontology. Mining locked. Not a Force ID.
 protocol_id: FORCE_PROTOCOL_v1.0
 id: TSG-0001
-version: v0.1
+version: v0.2
 kind: temporal_state_grammar_prosecutor
 status: FROZEN_SPEC_PREMATURE
 purpose: methodological_test_only
@@ -18,14 +18,19 @@ fitting_permitted: false
 parent_tape: BR-0001
 br_0001_amendment: false
 depends_on: br_0001_gate1_first_print
-gate0: blocking_absent_tape
+gate0: blocking_absent_complete_tape
 
 h1: higher_order_structure_beyond_markov1
-h2: force_ontology
+h2: mechanism_identifiability
 h2_authorized: false
+axes: [effect, mechanism]
+empirical_force_effect_is_force_id: false
+empirical_force_effect_requires: [H1_pass, incremental_information, replication]
+unidentifiable_is_on: mechanism_axis
+u_is_on: level1_state_token
 
 alphabet_default: [A, B, U]
-alphabet_expansion: refused_in_v0.1
+alphabet_expansion: refused_in_v0.2
 new_letters_C_D: refused
 u_breaks_word: true
 u_is_wildcard: false
@@ -47,11 +52,12 @@ variable_duration: locked
 null_load_bearing: C_markov1_simulate
 complexity_penalty: required_before_any_fit
 penalty_method: not_chosen_after_count
+incremental_information_gate: hard
 
 current_label: PREMATURE
-why: br_0001_gate1_unresolved
+why: br_0001_gate1_partial_one_wednesday_not_a_tape
 
-next_authorized: wait_for_br_0001_tape_then_M0_M2_only
+next_authorized: remaining_wpsr_issues_then_M0_M2_only
 next_refused:
   - mine_motifs
   - prefixspan
@@ -64,3 +70,5 @@ next_refused:
   - promote
   - force_id
   - run_on_as_revised
+  - treat_efe_as_identified_force
+  - write_e1i_ok_from_one_issue

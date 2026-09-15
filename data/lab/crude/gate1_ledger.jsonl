@@ -1,5 +1,6 @@
-{"schema": "GATE1_LEDGER_v1", "note": "rows are required; values not filled from current EIA API", "status": "UNRESOLVED"}
-{"cutoff": "2014-07-02", "last_week_ending": "2014-06-27", "expected_release": "2014-07-02T10:30:00-04:00", "production": null, "stocks_ex_spr": null, "product_supplied": null, "issue_url": null, "issue_hash": null, "first_print_proven": false, "status": "MISSING_ISSUE"}
-{"cutoff": "2014-07-30", "last_week_ending": "2014-07-25", "expected_release": "2014-07-30T10:30:00-04:00", "production": null, "stocks_ex_spr": null, "product_supplied": null, "issue_url": null, "issue_hash": null, "first_print_proven": false, "status": "MISSING_ISSUE"}
-{"cutoff": "2016-06-29", "last_week_ending": "2016-06-24", "expected_release": "2016-06-29T10:30:00-04:00", "production": null, "stocks_ex_spr": null, "product_supplied": null, "issue_url": null, "issue_hash": null, "first_print_proven": false, "status": "MISSING_ISSUE"}
-{"cutoff": "2011-01-05", "last_week_ending": "2010-12-31", "expected_release": "2011-01-05T10:30:00-05:00", "production": null, "stocks_ex_spr": null, "product_supplied": null, "issue_url": null, "issue_hash": null, "first_print_proven": false, "status": "MISSING_ISSUE"}
+{"schema": "GATE1_LEDGER_v1", "status": "PARTIAL", "note": "2014-07-02 issue extracted; tape incomplete; e1i_vintages.ok not written"}
+{"cutoff": "2014-07-02", "last_week_ending": "2014-06-27", "expected_release": "2014-07-02T10:30:00-04:00", "production_kbd": 8442, "stocks_ex_spr_mb": 384.935, "product_supplied_kbd": 19433, "issue_url": "https://www.eia.gov/petroleum/supply/weekly/archive/2014/2014_07_02/csv/table1.csv", "issue_hash_sha256": "24ec54a4af651173a9c82d200d6060cdee8f1dd9b4c23d7f930422b0d2c855be", "first_print_proven": true, "status": "FIRST_PRINT_PROVEN", "warmup_complete": false}
+{"cutoff": "2014-07-02", "warmup_issue": "2014-06-25", "production_kbd": 8446, "stocks_ex_spr_mb": 388.090, "product_supplied_kbd": 18807, "issue_hash_sha256": "92b3846d8acbc39a73701f3d3b0c22340ad45365453400d14460c381f59a031f", "status": "WARMUP_ISSUE_PROVEN"}
+{"cutoff": "2014-07-30", "status": "MISSING_ISSUE"}
+{"cutoff": "2016-06-29", "status": "MISSING_ISSUE"}
+{"cutoff": "2011-01-05", "status": "MISSING_ON_EIA_HTML_ARCHIVE", "note": "EIA weekly HTML/CSV archive for 2011 begins 2011-08-03; Jan-Jul 2011 not on that path. Wayback not searched this run."}
