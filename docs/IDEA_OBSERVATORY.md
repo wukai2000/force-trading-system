@@ -16,7 +16,8 @@ Explorer → Tester → tweak → tester → tweak
 The Explorer is allowed to be wrong. The Prosecutor is not allowed to be helpful.
 Neither allocates capital.
 
-**MTS-0001 2026-09-13:** Spec frozen on the crude pair. As-revised smoke is NOT identification. Information frontier NOT_CONSTRUCTED. Next = I_t for the same six series. No new episode. No retune. n_seeds=0. $0.
+**2026-09-15 HEAD 857bb68:** WPSR first-print cells 2014 Jun–Dec + 2015 + 2016 in-repo. Gate 1 still UNRESOLVED. I_t not constructed. AETL-E0 / CER Wave 0 lab-only. Wave 1 closed. BR score refused. $0.
+
 
 
 

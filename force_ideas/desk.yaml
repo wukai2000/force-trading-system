@@ -54,9 +54,20 @@ br_contract: docs/BR_0001.md
 tsg_contract: docs/TSG_0001.md
 gate1_doc: docs/GATE1_AUDIT.md
 e1i_vintages: not_run
-next_object: wpsr_issue_2014_07_02_then_BR_0001
+next_object: seal_gate1_tape_from_wpsr_cells_2014_2016
+wpsr_cells:
+  y2014_jun_jul: 9
+  y2014_aug_dec: 22
+  y2015: 52
+  y2016: 52
+aetl_e0: lab_only
+cer_0001: wave0_only
+etl_0001: no_higher_order_structure
+
 
 note: >
-  FS-0001.v1 immutable. BR-0001 Gate 1 unresolved. TSG-0001 is a
-  prosecutor spec sitting idle: no mining, no fit, no new Force id.
-  Next act is still one WPSR first-print issue. Capital $0.
+  FS-0001.v1 immutable. BR-0001 Gate 1 unresolved. WPSR first-print
+  cells for 2014 Jun–Dec, 2015, 2016 are in-repo; tape not sealed.
+  TSG-0001 premature. AETL-E0 / CER Wave 0 lab-only. Wave 1 closed.
+  Capital $0.
+
