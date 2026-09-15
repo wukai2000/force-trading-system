@@ -2,3 +2,4 @@
 from .laboratory import assert_lab, report
 from .replay import assert_replay, run as run_replay
 from .br import assert_br, report as br_report
+from .tsg import assert_tsg, report as tsg_report

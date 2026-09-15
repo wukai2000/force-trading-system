@@ -37,7 +37,6 @@ year_end_contribution: silence
 census_50_200: refused
 joint_cost_tkm_coverage: empty
 
-# 2026-09-14 human ACK
 trade_2026: off_the_table
 live_goal: define_historically_testable_cap
 ontology: competing_adjustment_process
@@ -47,19 +46,17 @@ path_c: narrow_classification_only
 path_d: deferred_until_br0001_seal
 mts_0001: frozen
 mts_0002: killed
-br_0001: frozen_spec_score_refused
+br_0001: refused_pending_provenance
+tsg_0001: premature_mining_locked
 i_t_status: not_constructed
 i_t_contract: docs/I_T_CONTRACT.md
 br_contract: docs/BR_0001.md
-memo_consolidation: docs/MEMO_CONSOLIDATION_20260914.md
-paths_doc: docs/PATHS_AND_I_T.md
-e1i_authorized: contract_only
+tsg_contract: docs/TSG_0001.md
+gate1_doc: docs/GATE1_AUDIT.md
 e1i_vintages: not_run
-next_object: e1i_vintages_then_BR_0001
+next_object: wpsr_issue_2014_07_02_then_BR_0001
 
 note: >
-  T5 NO_RESULT is terminal for FS-0001 v1 in 2026-Q3. Frozen YAML is
-  immutable. 2026 live trading is off the table. Reconstructible object
-  is a competing adjustment process, not a latent Force. BR-0001 is
-  frozen and cannot score until E1.I vintages exist. Do not retune 2014.
-  MTS-0002/E2.I is killed.
+  FS-0001.v1 immutable. BR-0001 Gate 1 unresolved. TSG-0001 is a
+  prosecutor spec sitting idle: no mining, no fit, no new Force id.
+  Next act is still one WPSR first-print issue. Capital $0.
