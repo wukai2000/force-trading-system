@@ -1,8 +1,7 @@
-# force-trading-system-20260915-3aa09f5
+# force-trading-system-20260915-gate1-tape
 
-- HEAD 3aa09f5 — desk: sync to 2016 WPSR grid; Gate 1 still unresolved
-- Gate 1 UNRESOLVED. I_t not constructed. BR-0001 score refused
-- WPSR cells: 2014 Jun–Jul 9, Aug–Dec 22, 2015 52, 2016 52 (135 issues)
-- AETL-E0 lab-only (order-2 recover, iid refuse). CER Wave 0 only
-- ETL-0001 leaky FRED: NO_HIGHER_ORDER_STRUCTURE
-- Capital $0. n_seeds=0. Promotion NOT_PERMITTED
+- HEAD parent cf7d3b8 — 2014-2016 WPSR cell tape sealed; Gate 1 still UNRESOLVED
+- e1i_vintages.ok not written (2011 NC grid missing)
+- E1.I single bind: 2014-07-02 I_t=U, unscored
+- Path-C increment frozen (U legal; tickers/IR last)
+- Q4 / FS-0001 / Force 4 frozen. n_seeds=0. Capital $0

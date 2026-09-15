@@ -1,0 +1,55 @@
+{
+  "id": "E1I_SINGLE_2014-07-02",
+  "contract": "docs/I_T_CONTRACT.md",
+  "not": [
+    "score",
+    "BR-0001",
+    "Wave 1",
+    "e1i_vintages.ok"
+  ],
+  "cutoff": "2014-07-02",
+  "cutoff_stamp": "2014-07-02T10:30:00-04:00",
+  "F_t": {
+    "end_issue": "2014-07-02",
+    "warmup_issues": [
+      "2014-06-04",
+      "2014-06-11",
+      "2014-06-18",
+      "2014-06-25"
+    ],
+    "rule_window": "4 weeks ending Friday before cutoff (2014-05-30 .. 2014-06-27)",
+    "source": "in-repo WPSR cell rows + 2014-07-02/table1.csv extract",
+    "live_PET_used": false,
+    "alfred_used": false
+  },
+  "cells": {
+    "t_minus_4w": {
+      "release": "2014-06-04",
+      "week_ending": "2014-05-30",
+      "production_kbd": 8383,
+      "stocks_ex_spr_mb": 389.523,
+      "product_supplied_kbd": 18586,
+      "sha256": "265a66bdc417e4bc8de410ec2578db2efbcce6a07b2651d0ee9d01d947796ad7"
+    },
+    "t": {
+      "release": "2014-07-02",
+      "week_ending": "2014-06-27",
+      "production_kbd": 8442,
+      "stocks_ex_spr_mb": 384.935,
+      "product_supplied_kbd": 19433,
+      "sha256": "24ec54a4af651173a9c82d200d6060cdee8f1dd9b4c23d7f930422b0d2c855be"
+    }
+  },
+  "d_prod_kbd": 59,
+  "d_demand_kbd": 847,
+  "d_stocks_mb": -4.588,
+  "I_t": "U",
+  "rule": "B if prod up and supplied down; A if both down; U otherwise",
+  "as_revised_replay_label": "unidentified",
+  "as_revised_d_prod": 92.0,
+  "as_revised_d_demand": 881.0,
+  "revision_gap_flips_label": false,
+  "scored": false,
+  "Y_t_plus_8w": null,
+  "note": "One observer-time label from first-print cells. Not a series. Not a Gate 1 PASS."
+}
