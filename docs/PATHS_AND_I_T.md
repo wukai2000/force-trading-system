@@ -58,6 +58,11 @@ memos. If “change definition” is used to reopen F2/F4, it is a rescue.
 **Contributes to the live goal?** Yes, as the definition layer. A Force that
 cannot be stated without tickers cannot be historically tested.
 
+**Frozen increment (2026-09-15):** a Force / CAP is a mechanism plus
+`I_t = f(F_t)` that reconstructs on vintages and is scored on next physical
+state versus persist; `U` is a legal emission; tickers and residual IR stay
+last. No other edit.
+
 ### D — Explicit refuse
 
 Conclude that a unique leftover Force vs SPY may not exist at this scale with
