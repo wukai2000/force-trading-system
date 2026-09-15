@@ -1,0 +1,14 @@
+{
+  "id": "AETL-E0",
+  "phase": "synthetic_integrity",
+  "capital": 0,
+  "force_language": "OFF",
+  "pass_recover_order2": true,
+  "pass_refuse_iid": true,
+  "pass_no_extra_on_markov1": true,
+  "historical_experiment_open": false,
+  "P2_supported": 17,
+  "P1_markov1_only": 20,
+  "IID_refuted": 20,
+  "label": "LAB_ONLY"
+}

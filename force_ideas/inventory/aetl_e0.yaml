@@ -1,0 +1,20 @@
+id: AETL-E0
+kind: architecture_lab
+status: LAB_ONLY
+promotion: NOT_PERMITTED
+capital: 0
+force_language: OFF
+historical_experiment: CLOSED
+authorized:
+  - planted_order2_recovery
+  - iid_refusal
+  - markov1_no_extra_grammar
+  - lesson_type_check
+  - search_ledger
+forbidden:
+  - FORCE_CANDIDATE
+  - ticker_discovery
+  - return_target
+  - EvidenceRecord
+  - e1i_vintages.ok
+  - reopen_ETL_0001
