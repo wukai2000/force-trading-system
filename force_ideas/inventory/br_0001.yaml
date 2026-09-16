@@ -101,6 +101,9 @@ next_refused:
   - indpro
   - utilization_as_U
   - current_eia_api_as_first_print
+  - north_carolina_as_ep_nc_2011
+  - padd_1c_for_us_legs
+  - missing_file_coded_as_U
 
 terminal_labels:
   - PASS_NARROW

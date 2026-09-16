@@ -1,7 +1,7 @@
-# force-trading-system-20260915-pass0-hold
+# force-trading-system-20260915-ep-nc-2011-not-nc
 
-- PASS-0 HOLD in-repo: A G2=0/80 · B G2=80/80 · C G2=0/200
-- 6 nats frozen. Naive recoding REFUSE. HOU-1 REFUSE
-- Gate 1 UNRESOLVED. 2014-2016 cell tape sealed; cells ≠ I_t
-- next_object: 2011_nc_first_print_or_stop
-- n_seeds=0. Capital $0. Promotion NOT_PERMITTED
+- EP-NC-2011 is the 2011 US crude window, not North Carolina
+- North Carolina WPSR search dismissed. Gate 1 still UNRESOLVED
+- Jan–Jul 2011 HTML missing. Product-supplied Aug 2011 method change material
+- e1i_vintages.ok refused. I_t not a series. next_object: 2011_ep_nc_us_wpsr_or_fail
+- PASS-0 HOLD. HOU-1 REFUSE. n_seeds=0. Capital $0. Promotion NOT_PERMITTED

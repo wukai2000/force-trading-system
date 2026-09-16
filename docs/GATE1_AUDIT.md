@@ -109,3 +109,22 @@ never   INDPRO, utilization-as-U, PPI WPS, current PET history as F_t
 ```
 
 The smallest next act is a single Wednesday, not a dashboard.
+
+## Addendum 2026-09-15 — EP-NC-2011 is not North Carolina
+
+Three search notes were compared (`docs/MEMO_2011_NC_CONSOLIDATION.md`).
+Two of them hunted a weekly North Carolina WPSR supply row. That row does
+not exist. It was never the frozen object.
+
+`NC` = `EP-NC-2011` = US crude identity, window `2011-01-05 … 2012-06-27`.
+Same three legs. Official HTML archive still starts **2011-08-03**.
+August 2011 WPSR gasoline-export methodology change is a material vintage
+attack on current PET as 2011 `F_t`.
+
+This addendum does **not** flip Gate 1 to FAIL. FAIL still requires the
+required US issue files to be unrecoverable, including Wayback. That path
+was not exhausted. Missing file → `INCOMPLETE`, not `U`.
+
+`e1i_vintages.ok` remains unwritten. Next object:
+`2011_ep_nc_us_wpsr_or_fail`.
+
