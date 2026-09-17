@@ -57,7 +57,7 @@ e1i_vintages: not_run
 e1i_vintages_ok: false
 gate1: UNRESOLVED
 gate1_tape_2014_2016: sealed_cells_only
-next_object: 2011_ep_nc_us_wpsr_or_fail
+next_object: 2011_ep_nc_fill_remaining_or_fail
 n_seeds: 0
 wpsr_cells:
   y2014_jun_jul: 9
@@ -73,6 +73,7 @@ pass0: hold
 pass0_hou1: refuse
 ep_nc_2011: not_north_carolina
 ep_nc_2011_html_starts: 2011-08-03
+ep_nc_2011_wayback: bounded_existence_calendar_enumerated
 north_carolina_wpsr_search: dismissed
 path_c_increment: frozen_2026-09-15
 
@@ -81,6 +82,9 @@ note: >
   FS-0001.v1 immutable. Gate 1 UNRESOLVED. 2014-2016 WPSR cell tape
   sealed (cells ≠ I_t; e1i_vintages.ok refused). One I_t bind on
   2014-07-02 = U, unscored. EP-NC-2011 is the 2011 US crude window,
-  not North Carolina. Jan–Jul 2011 HTML missing. Product-supplied
-  Aug 2011 export-method change is material. PASS-0 HOLD. HOU-1
-  REFUSE. Q4 / Force 4 / n_seeds=0 held. Capital $0.
+  not North Carolina. Jan–Jul 2011 HTML missing except unlisted
+  2011-07-27 (HTML lastmod 2012; CSV lastmod 2011-07-27, not first-print).
+  Wayback year calendar of named rolling URLs enumerated: near-release
+  hits include 2011-01-19 wpsrall, 2011-05-11 table1.pdf, 2011-05-18
+  Table 1 CSV. June 301s collapsed to August — not June files.
+  Product-supplied Aug 2011 export-method change is material.

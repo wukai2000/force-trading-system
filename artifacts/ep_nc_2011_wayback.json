@@ -1,0 +1,130 @@
+{
+  "id": "EP-NC-2011-WAYBACK-EXISTENCE",
+  "as_of": "2026-09-17",
+  "bound": "jan_jul_2011_us_wpsr_existence",
+  "n_wednesdays_in_hole": 30,
+  "window": ["2011-01-05", "2011-07-27"],
+  "cdx_exhausted": false,
+  "cdx_note": "Internet Archive CDX search returned 503 Temporarily Offline this pass and the prior pass. available/closest snapshot is not week-level evidence.",
+  "calendar_year_2011_enumerated_for_named_urls": true,
+  "calendar_api": "https://web.archive.org/__wb/calendarcaptures/2",
+  "month_calendars": "rate_limited_connection_refused_after_year_query",
+  "i_t_constructed": false,
+  "e1i_vintages_ok": false,
+  "gate1": "UNRESOLVED",
+  "gate1_fail_this_pass": false,
+  "north_carolina": "dismissed",
+  "twip": "refused",
+  "live_html_index_get_this_pass": "403",
+  "live_html_index_starts_prior": "2011-08-03",
+  "closest_snapshot_as_week": "refused",
+  "named_rolling_urls_2011_calendar": {
+    "http://ir.eia.gov/wpsr/table1.csv": {
+      "jan_jul_200": ["20110520195604"],
+      "later_2011_200": ["20111012103712", "20111015064129", "20111104004950"]
+    },
+    "http://www.eia.gov/pub/oil_gas/petroleum/data_publications/weekly_petroleum_status_report/current/pdf/table1.pdf": {
+      "jan_jul_200": [],
+      "later_2011_200": ["20110813075813"]
+    },
+    "http://www.eia.gov/pub/oil_gas/petroleum/data_publications/weekly_petroleum_status_report/current/pdf/wpsrall.pdf": {
+      "jan_jul_200": ["20110124132229"],
+      "later_2011_200": ["20110813075831"]
+    },
+    "http://www.eia.doe.gov/pub/oil_gas/petroleum/data_publications/weekly_petroleum_status_report/current/pdf/table1.pdf": {
+      "jan_jul_200": ["20110514002347"],
+      "jan_jul_301_not_week_evidence": ["20110604103301", "20110622114658"]
+    },
+    "http://www.eia.doe.gov/pub/oil_gas/petroleum/data_publications/weekly_petroleum_status_report/current/pdf/wpsrall.pdf": {
+      "jan_jul_200": ["20110514002316"]
+    },
+    "http://www.eia.gov/pub/oil_gas/petroleum/data_publications/weekly_petroleum_status_report/current/pdf/table4.pdf": {
+      "jan_jul_200": ["20110220221240"]
+    }
+  },
+  "june_301_collapse": {
+    "requested": ["20110604103301", "20110622114658"],
+    "followed_id_to": "20110813075813",
+    "followed_host": "www.eia.gov table1.pdf",
+    "memento": "2011-08-13T07:58:13Z",
+    "orig_last_modified": "2011-08-10T17:00:12Z",
+    "class": "NOT_JUNE_EXISTENCE"
+  },
+  "live_dated_html_sample": [
+    {"issue": "2011-01-05", "http": 404},
+    {"issue": "2011-01-19", "http": 404},
+    {"issue": "2011-02-16", "http": 404},
+    {"issue": "2011-03-16", "http": 404},
+    {"issue": "2011-04-13", "http": 404},
+    {"issue": "2011-05-18", "http": 404},
+    {"issue": "2011-06-15", "http": 404},
+    {"issue": "2011-07-13", "http": 404},
+    {"issue": "2011-07-20", "http": 404},
+    {"issue": "2011-07-27", "http": 200, "html_last_modified": "2012-02-09T16:37:19Z", "csv_last_modified": "2011-07-27T17:00:51Z"},
+    {"issue": "2011-08-03", "http": 200, "html_last_modified": "2011-11-21T20:41:49Z", "note": "outside_jan_jul_hole"}
+  ],
+  "hits": [
+    {
+      "issue": "2011-01-19",
+      "class": "WAYBACK_NEAR_RELEASE",
+      "object": "wpsrall.pdf",
+      "capture": "20110124132229",
+      "pdf_created": "2011-01-20T08:24:33-05:00",
+      "orig_last_modified": "2011-01-20T18:00:45Z",
+      "sha256": "56eabad5b1bdcaec9b94fd49f34c725ee15bc566bb105a1027198c948a14492c",
+      "in_repo": false,
+      "three_legs_extracted": false
+    },
+    {
+      "issue": "2011-02-16",
+      "class": "WAYBACK_NEAR_RELEASE_PARTIAL",
+      "object": "table4.pdf_stocks_only",
+      "capture": "20110220221240",
+      "sha256": "7a84d7a14b428eb0d9406644fdb1aab6b7932c88315b5359472528e5827477ea",
+      "in_repo": false,
+      "three_legs_extracted": false
+    },
+    {
+      "issue": "2011-05-11",
+      "class": "WAYBACK_NEAR_RELEASE",
+      "object": "table1.pdf",
+      "capture": "20110514002347",
+      "pdf_created": "2011-05-11T08:18:46-04:00",
+      "pdf_moddate": "2011-05-11T11:03:27-04:00",
+      "orig_last_modified": "2011-05-11T17:00:51Z",
+      "sha256": "a4f89f897d5d3569177e32b6aff6d7481d690446d22da8983a55ed41721d3942",
+      "bytes": 83995,
+      "in_repo": false,
+      "three_legs_extracted": false,
+      "note": "compressed PDF; XMP Wednesday of release; cells not scraped this pass"
+    },
+    {
+      "issue": "2011-05-18",
+      "class": "WAYBACK_NEAR_RELEASE",
+      "object": "table1.csv",
+      "capture": "20110520195604",
+      "orig_last_modified": "2011-05-18T11:46:38Z",
+      "week_ending": "2011-05-13",
+      "production_kbd": 5618,
+      "stocks_ex_spr_mb": 370.312,
+      "product_supplied_kbd": 18515,
+      "sha256": "616f0308ae94d5c267420c1777f4a2bbdc94aafa64a17cf6a5214264081b2998",
+      "in_repo": "data/lab/crude/wpsr/2011-05-18/table1.csv",
+      "three_legs_extracted": true
+    },
+    {
+      "issue": "2011-07-27",
+      "class": "LIVE_UNLISTED_NOT_FIRST_PRINT",
+      "object": "table1.csv",
+      "html_last_modified": "2012-02-09T16:37:19Z",
+      "csv_last_modified": "2011-07-27T17:00:51Z",
+      "week_ending": "2011-07-22",
+      "production_kbd": 5377,
+      "stocks_ex_spr_mb": 354.025,
+      "product_supplied_kbd": 18426,
+      "sha256": "21dbed1132f1101589e246206f74e8240993001980153374fbabd804a5f9b4a6",
+      "in_repo": "data/lab/crude/wpsr/2011-07-27/table1.csv",
+      "three_legs_extracted": true
+    }
+  ]
+}

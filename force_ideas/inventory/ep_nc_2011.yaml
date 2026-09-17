@@ -27,9 +27,15 @@ as_revised:
   valid_for_identification: false
 
 html_archive_2011_starts: 2011-08-03
-jan_jul_2011_html: missing
+jan_jul_2011_html: missing_except_unlisted_2011-07-27
 wayback_exhausted: false
+wayback_probe: bounded_2026-09-17
+calendar_year_2011_enumerated: true
+cdx_search_api: "503"
+wayback_near_release_hits: 4
+live_unlisted_hits: 1
 first_print_issues_in_repo: 0
+existence_csvs_in_repo: 2
 i_t_constructed: false
 e1i_vintages_ok: false
 
@@ -45,8 +51,8 @@ product_supplied_aug2011_method_change:
 
 gate1: UNRESOLVED
 gate1_fail_this_pass: false
-why_not_fail: wrong_object_notes_did_not_exhaust_US_WPSR_wayback
-why_not_pass: 2011_US_first_print_grid_missing
+why_not_fail: jan_jul_us_wpsr_files_exist_on_wayback_and_one_live_unlisted
+why_not_pass: hole_not_a_complete_first_print_grid
 
 refuse:
   - north_carolina_as_object
@@ -58,12 +64,15 @@ refuse:
   - alfred_without_cell_match
   - splice_jan_jul_from_current
   - missing_file_coded_as_U
+  - wayback_closest_snapshot_as_week
+  - june_301_as_june_issue
   - score_br_0001
   - open_wave1
   - open_hou1
   - retune
   - new_episode
 
-next_object: 2011_ep_nc_us_wpsr_or_fail
+next_object: 2011_ep_nc_fill_remaining_or_fail
 consolidation: docs/MEMO_2011_NC_CONSOLIDATION.md
 receipt: docs/EP_NC_2011.md
+wayback_receipt: docs/EP_NC_2011_WAYBACK.md

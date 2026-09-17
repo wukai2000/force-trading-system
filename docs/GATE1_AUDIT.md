@@ -125,6 +125,24 @@ This addendum does **not** flip Gate 1 to FAIL. FAIL still requires the
 required US issue files to be unrecoverable, including Wayback. That path
 was not exhausted. Missing file → `INCOMPLETE`, not `U`.
 
-`e1i_vintages.ok` remains unwritten. Next object:
+`e1i_vintages.ok` remains unwritten. Next object (then):
 `2011_ep_nc_us_wpsr_or_fail`.
+
+
+## Addendum 2026-09-17 — bounded Wayback existence (Jan–Jul 2011)
+
+Authorized: existence of US WPSR issue files for the 30 Wednesdays
+`2011-01-05 … 2011-07-27`. Same three Table-1 legs. Not `I_t`. Not a
+score. Not North Carolina.
+
+CDX search stayed **503**. Year calendar of the named rolling-current
+URLs was enumerated. Live dated HTML sampled 404 except unlisted
+**2011-07-27**. Near-release Wayback hits include 2011-01-19 `wpsrall`,
+2011-05-11 `table1.pdf`, 2011-05-18 `table1.csv` (three legs in-repo).
+June calendar 301s followed to **2011-08-13** — closest-snapshot is not
+a week. Receipt: `docs/EP_NC_2011_WAYBACK.md`.
+
+This addendum does **not** flip Gate 1 to FAIL or PASS.
+`e1i_vintages.ok` remains unwritten. Next object:
+`2011_ep_nc_fill_remaining_or_fail`.
 
