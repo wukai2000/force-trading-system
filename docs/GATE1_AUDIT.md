@@ -160,3 +160,20 @@ NC cutoffs every 4 weeks: **12/20** have a listed-archive cell. **8/20**
 incomplete. Gate 1 stays **UNRESOLVED**. `e1i_vintages.ok` unwritten.
 `I_t` not a series. Next: `2011_jan_jul_hole_or_fail`.
 
+
+## Addendum 2026-09-18 — eight incomplete NC cutoffs
+
+Authorized bound: those 8 cutoffs only. Healthy CDX + old
+`eia.doe.gov` + GovInfo if the file is the issue.
+
+Recovered **3/8** as Table 9 of the same Wednesday issue (not Table 1
+CSV): 2011-03-30, 2011-04-27 (xls current-week row only), 2011-07-20.
+Orig Last-Modified on the release Wednesday. `id_` only.
+
+Still **INCOMPLETE**: 2011-01-05, 02-02, 03-02, 05-25, 06-22.
+GovInfo is not a WPSR issue file. `psw09.xls` history is not first-print
+for earlier cutoffs. Dated `archive/2011/` Wayback starts at 2011-08-03.
+
+NC cutoffs **15/20** have an issue. Gate 1 stays **UNRESOLVED**.
+`e1i_vintages.ok` unwritten. Next: `2011_five_cutoffs_or_fail`.
+

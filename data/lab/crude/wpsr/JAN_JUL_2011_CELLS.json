@@ -22,6 +22,36 @@
     "three_legs": false
   },
   {
+    "release": "2011-03-30",
+    "week_ending": "2011-03-25",
+    "production_kbd": 5568,
+    "stocks_ex_spr_mb": 355.712,
+    "product_supplied_kbd": 18605,
+    "class": "WAYBACK_NEAR_RELEASE_TABLE9",
+    "object": "table9.csv",
+    "capture": "20110401141251",
+    "sha256": "6da408f9f643551f1a388bb3c1500a2897f85d1439e4f327dddde5a07140553a",
+    "orig_last_modified": "Wed, 30 Mar 2011 14:21:22 GMT",
+    "in_repo": "data/lab/crude/wpsr/2011-03-30/table9.csv",
+    "nc_cutoff": true,
+    "three_legs": true
+  },
+  {
+    "release": "2011-04-27",
+    "week_ending": "2011-04-22",
+    "production_kbd": 5610,
+    "stocks_ex_spr_mb": 363.125,
+    "product_supplied_kbd": 19588,
+    "class": "WAYBACK_NEAR_RELEASE_TABLE9_XLS_CURRENT_WEEK",
+    "object": "psw09.xls current-week row",
+    "capture": "20110428002906",
+    "sha256": "0474805ecd4116f1e1053286594718ba7f276ffc3427adcd288d8ba274c173a5",
+    "orig_last_modified": "Wed, 27 Apr 2011 13:12:53 GMT",
+    "in_repo": false,
+    "nc_cutoff": true,
+    "three_legs": true
+  },
+  {
     "release": "2011-05-11",
     "week_ending": "2011-05-06",
     "production_kbd": 5609,
@@ -50,12 +80,18 @@
   {
     "release": "2011-07-20",
     "week_ending": "2011-07-15",
-    "stocks_ex_spr_mb": 351.7,
-    "class": "WAYBACK_NEAR_RELEASE_PARTIAL",
-    "object": "wpsrsummary.pdf",
-    "capture": "20110726010659",
-    "note": "rolling summary still showing week ending Jul 15 on Jul 26 01:06 UTC; no weekly production or weekly product supplied",
-    "three_legs": false
+    "production_kbd": 5591,
+    "stocks_ex_spr_mb": 351.729,
+    "product_supplied_kbd": 18853,
+    "class": "WAYBACK_NEAR_RELEASE_TABLE9",
+    "object": "table9.pdf",
+    "capture": "20110725085908",
+    "sha256": "969aa09a714c2d2ffac73bf8239f05e5734a5a81eb5541ac41f42093596a131f",
+    "orig_last_modified": "Wed, 20 Jul 2011 17:01:12 GMT",
+    "pdf_stocks_print": 351.7,
+    "in_repo": "data/lab/crude/wpsr/2011-07-20/table9.pdf",
+    "nc_cutoff": true,
+    "three_legs": true
   },
   {
     "release": "2011-07-27",

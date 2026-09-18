@@ -32,15 +32,19 @@ wayback_exhausted: false
 wayback_probe: bounded_2026-09-17
 calendar_year_2011_enumerated: true
 cdx_search_api: ir_table1_csv_jan_jul_exhausted_1_capture
-wayback_near_release_hits: 4
+wayback_near_release_hits: 7
 live_unlisted_hits: 1
 listed_archive_2011_08_03_to_2012_06_27: 48
 listed_archive_ok: 48
-jan_jul_three_leg: 4
+jan_jul_three_leg: 7
 nc_cutoffs_n: 20
-nc_cutoffs_have_issue: 12
+nc_cutoffs_have_issue: 15
+nc_cutoffs_incomplete: 5
+eight_cutoff_retry: bounded_2026-09-18
+eight_recovered: 3
 first_print_issues_in_repo: 0
-existence_csvs_in_repo: 2
+existence_csvs_in_repo: 3
+existence_pdfs_in_repo: 1
 listed_cells_file: data/lab/crude/wpsr/AUG2011_JUN2012_CELLS.json
 jan_jul_cells_file: data/lab/crude/wpsr/JAN_JUL_2011_CELLS.json
 i_t_constructed: false
@@ -60,7 +64,7 @@ product_supplied_aug2011_method_change:
 gate1: UNRESOLVED
 gate1_fail_this_pass: false
 why_not_fail: jan_jul_us_wpsr_files_exist_on_wayback_and_one_live_unlisted
-why_not_pass: jan_jul_hole_eight_nc_cutoffs_incomplete
+why_not_pass: five_nc_cutoffs_still_incomplete
 
 refuse:
   - north_carolina_as_object
@@ -74,14 +78,17 @@ refuse:
   - missing_file_coded_as_U
   - wayback_closest_snapshot_as_week
   - june_301_as_june_issue
+  - psw09_history_as_earlier_cutoff
+  - govinfo_hearing_as_issue
   - score_br_0001
   - open_wave1
   - open_hou1
   - retune
   - new_episode
 
-next_object: 2011_jan_jul_hole_or_fail
+next_object: 2011_five_cutoffs_or_fail
 consolidation: docs/MEMO_2011_NC_CONSOLIDATION.md
 receipt: docs/EP_NC_2011.md
 wayback_receipt: docs/EP_NC_2011_WAYBACK.md
 first_print_receipt: docs/EP_NC_2011_FIRST_PRINT.md
+eight_receipt: docs/EP_NC_2011_EIGHT.md

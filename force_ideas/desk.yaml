@@ -57,7 +57,7 @@ e1i_vintages: not_run
 e1i_vintages_ok: false
 gate1: UNRESOLVED
 gate1_tape_2014_2016: sealed_cells_only
-next_object: 2011_jan_jul_hole_or_fail
+next_object: 2011_five_cutoffs_or_fail
 n_seeds: 0
 wpsr_cells:
   y2014_jun_jul: 9
@@ -75,7 +75,7 @@ ep_nc_2011: not_north_carolina
 ep_nc_2011_html_starts: 2011-08-03
 ep_nc_2011_wayback: bounded_existence_calendar_enumerated
 ep_nc_2011_listed_cells: 48
-ep_nc_2011_jan_jul_three_leg: 4
+ep_nc_2011_jan_jul_three_leg: 7
 north_carolina_wpsr_search: dismissed
 path_c_increment: frozen_2026-09-15
 
@@ -85,6 +85,7 @@ note: >
   sealed (cells ≠ I_t; e1i_vintages.ok refused). One I_t bind on
   2014-07-02 = U, unscored. EP-NC-2011 is the 2011 US crude window,
   not North Carolina. Listed archive 2011-08-03 … 2012-06-27 is 48/48
-  cells (release-day lastmod). Jan–Jul hole: 4 three-leg extracts;
-  8/20 NC cutoffs still INCOMPLETE. Do not score. Capital $0.
+  cells (release-day lastmod). Eight-cutoff retry recovered 3 Table-9
+  three-leg files (Mar 30, Apr 27, Jul 20). 5/20 NC cutoffs still
+  INCOMPLETE. Do not score. Capital $0.
 
