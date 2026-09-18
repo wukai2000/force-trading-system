@@ -177,3 +177,17 @@ for earlier cutoffs. Dated `archive/2011/` Wayback starts at 2011-08-03.
 NC cutoffs **15/20** have an issue. Gate 1 stays **UNRESOLVED**.
 `e1i_vintages.ok` unwritten. Next: `2011_five_cutoffs_or_fail`.
 
+
+## Addendum 2026-09-18 — five remaining cutoffs exhausted → FAIL
+
+Authorized: those five only (`2011-01-05`, `02-02`, `03-02`, `05-25`,
+`06-22`). Live dated archive 404. Wayback `id_` of rolling Table 1
+collapses to **2011-08-13**. Jan 5 `tabled1.pdf` orig-lm is **30 Dec
+2010** (prior week, Appendix D1). Mar 8 landing orig-lm is **24 Feb**.
+HathiTrust WPSR fiche ends 2000. IA collections for 2011 WPSR = 0.
+GovInfo is not an issue file. ALFRED without cell match refused.
+
+**Gate 1 FAIL.** Reconstruction `NO_RESULT` because `F_t` cannot be
+built for 5/20 frozen NC cutoffs. `e1i_vintages.ok` unwritten. `I_t`
+not a series. Do not score BR-0001. Next: `stay_frozen`.
+

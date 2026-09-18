@@ -15,8 +15,8 @@ scoring_permitted: false
 
 e1i_status: not_run
 e1i_vintages: missing
-gate: 1_unresolved
-gate1_verdict: UNRESOLVED
+gate: 1_fail
+gate1_verdict: FAIL
 
 ontology: competing_adjustment_process
 force_means: cap_candidate
@@ -82,7 +82,7 @@ negative_controls_optional:
 hypothesis_freezable: provisionally_yes_identity_not_ending
 episode_selection_contamination: window_chosen_because_2014_glut_story
 
-next_authorized: wpsr_issue_files_then_e1i_ok
+next_authorized: stay_frozen
 next_refused:
   - score_without_vintages
   - score_as_revised_as_if_I_t
@@ -117,5 +117,5 @@ terminal_labels:
   - REFUSED_PENDING_PROVENANCE
 
 current_label: REFUSED_PENDING_PROVENANCE
-why_refused: e1i_vintages_missing
+why_refused: five_nc_cutoffs_unrecoverable_e1i_vintages_missing
 gate1_doc: docs/GATE1_AUDIT.md

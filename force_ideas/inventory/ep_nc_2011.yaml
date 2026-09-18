@@ -28,7 +28,7 @@ as_revised:
 
 html_archive_2011_starts: 2011-08-03
 jan_jul_2011_html: missing_except_unlisted_2011-07-27
-wayback_exhausted: false
+wayback_exhausted: true
 wayback_probe: bounded_2026-09-17
 calendar_year_2011_enumerated: true
 cdx_search_api: ir_table1_csv_jan_jul_exhausted_1_capture
@@ -42,6 +42,8 @@ nc_cutoffs_have_issue: 15
 nc_cutoffs_incomplete: 5
 eight_cutoff_retry: bounded_2026-09-18
 eight_recovered: 3
+five_cutoff_retry: exhausted_2026-09-18
+five_recovered: 0
 first_print_issues_in_repo: 0
 existence_csvs_in_repo: 3
 existence_pdfs_in_repo: 1
@@ -61,10 +63,11 @@ product_supplied_aug2011_method_change:
   effect: understated_exports_overstate_product_supplied
   implication: current_PET_is_not_2011_F_t
 
-gate1: UNRESOLVED
-gate1_fail_this_pass: false
-why_not_fail: jan_jul_us_wpsr_files_exist_on_wayback_and_one_live_unlisted
+gate1: FAIL
+gate1_fail_this_pass: true
+why_fail: five_nc_cutoffs_unrecoverable_after_exhaustion
 why_not_pass: five_nc_cutoffs_still_incomplete
+reconstruction: NO_RESULT
 
 refuse:
   - north_carolina_as_object
@@ -86,9 +89,10 @@ refuse:
   - retune
   - new_episode
 
-next_object: 2011_five_cutoffs_or_fail
+next_object: stay_frozen
 consolidation: docs/MEMO_2011_NC_CONSOLIDATION.md
 receipt: docs/EP_NC_2011.md
 wayback_receipt: docs/EP_NC_2011_WAYBACK.md
 first_print_receipt: docs/EP_NC_2011_FIRST_PRINT.md
 eight_receipt: docs/EP_NC_2011_EIGHT.md
+five_receipt: docs/EP_NC_2011_FIVE.md

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EP-NC-2011 is the 2011 US window, not North Carolina. Gate 1 stays unresolved."""
+"""EP-NC-2011 is the 2011 US window, not North Carolina. Gate 1 FAIL."""
 from __future__ import annotations
 import hashlib
 import json
@@ -15,6 +15,7 @@ DESK = yaml.safe_load((ROOT / "force_ideas" / "desk.yaml").read_text())
 WB = json.loads((ROOT / "artifacts" / "ep_nc_2011_wayback.json").read_text())
 FP = json.loads((ROOT / "artifacts" / "ep_nc_2011_first_print.json").read_text())
 EIGHT = json.loads((ROOT / "artifacts" / "ep_nc_2011_eight.json").read_text())
+FIVE = json.loads((ROOT / "artifacts" / "ep_nc_2011_five.json").read_text())
 LISTED = json.loads((ROOT / "data" / "lab" / "crude" / "wpsr" / "AUG2011_JUN2012_CELLS.json").read_text())
 HOLE = json.loads((ROOT / "data" / "lab" / "crude" / "wpsr" / "JAN_JUL_2011_CELLS.json").read_text())
 
@@ -30,28 +31,31 @@ def main() -> None:
     assert SPEC["geography"] == "US"
     assert SPEC["i_t_constructed"] is False
     assert SPEC["e1i_vintages_ok"] is False
-    assert SPEC["gate1"] == "UNRESOLVED"
-    assert SPEC["gate1_fail_this_pass"] is False
+    assert SPEC["gate1"] == "FAIL"
+    assert SPEC["gate1_fail_this_pass"] is True
+    assert SPEC["reconstruction"] == "NO_RESULT"
     assert SPEC["listed_archive_ok"] == 48
     assert SPEC["jan_jul_three_leg"] == 7
     assert SPEC["nc_cutoffs_have_issue"] == 15
     assert SPEC["nc_cutoffs_incomplete"] == 5
+    assert SPEC["five_recovered"] == 0
     assert "psw09_history_as_earlier_cutoff" in SPEC["refuse"]
     assert DESK["e1i_vintages_ok"] is False
-    assert DESK["gate1"] == "UNRESOLVED"
-    assert DESK["next_object"] == "2011_five_cutoffs_or_fail"
-    assert SPEC["next_object"] == "2011_five_cutoffs_or_fail"
+    assert DESK["gate1"] == "FAIL"
+    assert DESK["next_object"] == "stay_frozen"
+    assert SPEC["next_object"] == "stay_frozen"
     assert (ROOT / "data" / "lab" / "crude" / "e1i_vintages.ok").exists() is False
 
     assert FP["i_t_constructed"] is False
     assert FP["e1i_vintages_ok"] is False
-    assert FP["gate1"] == "UNRESOLVED"
-    assert FP["listed_archive"]["n_ok"] == 48
-    assert FP["nc_cutoffs_every_4w"]["incomplete"] == 8
+    assert FIVE["gate1"] == "FAIL"
+    assert FIVE["gate1_fail_this_pass"] is True
+    assert FIVE["recovered_this_pass"] == 0
+    assert FIVE["still_incomplete"] == 5
+    assert FIVE["i_t_constructed"] is False
+    assert FIVE["govinfo_issue_file"] is False
+    assert FIVE["jan5_tabled1"]["three_legs"] is False
     assert EIGHT["recovered_three_leg"] == 3
-    assert EIGHT["still_incomplete"] == 5
-    assert EIGHT["i_t_constructed"] is False
-    assert EIGHT["govinfo_issue_file"] is False
     assert len(LISTED) == 48
     assert LISTED[0]["release"] == "2011-08-03"
     assert LISTED[0]["production_kbd"] == 5523

@@ -1,0 +1,33 @@
+{
+  "id": "EP-NC-2011-FIVE-CUTOFFS-OR-FAIL",
+  "as_of": "2026-09-18",
+  "bound": "five_remaining_nc_cutoffs_or_fail",
+  "cutoffs": ["2011-01-05", "2011-02-02", "2011-03-02", "2011-05-25", "2011-06-22"],
+  "i_t_constructed": false,
+  "e1i_vintages_ok": false,
+  "gate1": "FAIL",
+  "gate1_fail_this_pass": true,
+  "reconstruction": "NO_RESULT",
+  "why_fail": "five_of_twenty_nc_cutoffs_unrecoverable_after_exhaustion",
+  "recovered_this_pass": 0,
+  "still_incomplete": 5,
+  "closest_snapshot_as_week": "refused",
+  "jan5_tabled1": {
+    "capture": "20110105104329",
+    "orig_last_modified": "Thu, 30 Dec 2010 18:00:05 GMT",
+    "class": "PRIOR_WEEK_APPENDIX_D1",
+    "three_legs": false
+  },
+  "mar8_landing": {
+    "capture": "20110308125052",
+    "orig_last_modified": "Thu, 24 Feb 2011 18:01:39 GMT",
+    "class": "PRIOR_WEEK_LANDING_HTML",
+    "three_legs": false
+  },
+  "ia_collections_2011_wpsr": 0,
+  "hathitrust_wpsr": "fiche_ends_2000_latest_consulted_1991",
+  "govinfo_issue_file": false,
+  "alfred_without_cell_match": "refused",
+  "live_dated_404": true,
+  "table1_id_collapses_to": "20110813075813"
+}
