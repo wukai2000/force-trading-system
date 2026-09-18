@@ -1,0 +1,74 @@
+[
+  {
+    "release": "2011-01-19",
+    "week_ending": "2011-01-14",
+    "production_kbd": 5205,
+    "stocks_ex_spr_mb": 335.7,
+    "product_supplied_kbd": 19189,
+    "class": "WAYBACK_NEAR_RELEASE_PDF",
+    "object": "wpsrall.pdf",
+    "capture": "20110124132229",
+    "sha256": "56eabad5b1bdcaec9b94fd49f34c725ee15bc566bb105a1027198c948a14492c",
+    "precision": "pdf_one_decimal_stocks",
+    "three_legs": true
+  },
+  {
+    "release": "2011-02-16",
+    "week_ending": null,
+    "class": "WAYBACK_NEAR_RELEASE_PARTIAL",
+    "object": "table4.pdf_stocks_only",
+    "capture": "20110220221240",
+    "sha256": "7a84d7a14b428eb0d9406644fdb1aab6b7932c88315b5359472528e5827477ea",
+    "three_legs": false
+  },
+  {
+    "release": "2011-05-11",
+    "week_ending": "2011-05-06",
+    "production_kbd": 5609,
+    "stocks_ex_spr_mb": 370.3,
+    "product_supplied_kbd": 18164,
+    "class": "WAYBACK_NEAR_RELEASE_PDF",
+    "object": "table1.pdf",
+    "capture": "20110514002347",
+    "sha256": "a4f89f897d5d3569177e32b6aff6d7481d690446d22da8983a55ed41721d3942",
+    "precision": "pdf_one_decimal_stocks",
+    "three_legs": true
+  },
+  {
+    "release": "2011-05-18",
+    "week_ending": "2011-05-13",
+    "production_kbd": 5618,
+    "stocks_ex_spr_mb": 370.312,
+    "product_supplied_kbd": 18515,
+    "class": "WAYBACK_NEAR_RELEASE_CSV",
+    "object": "table1.csv",
+    "capture": "20110520195604",
+    "sha256": "616f0308ae94d5c267420c1777f4a2bbdc94aafa64a17cf6a5214264081b2998",
+    "in_repo": "data/lab/crude/wpsr/2011-05-18/table1.csv",
+    "three_legs": true
+  },
+  {
+    "release": "2011-07-20",
+    "week_ending": "2011-07-15",
+    "stocks_ex_spr_mb": 351.7,
+    "class": "WAYBACK_NEAR_RELEASE_PARTIAL",
+    "object": "wpsrsummary.pdf",
+    "capture": "20110726010659",
+    "note": "rolling summary still showing week ending Jul 15 on Jul 26 01:06 UTC; no weekly production or weekly product supplied",
+    "three_legs": false
+  },
+  {
+    "release": "2011-07-27",
+    "week_ending": "2011-07-22",
+    "production_kbd": 5377,
+    "stocks_ex_spr_mb": 354.025,
+    "product_supplied_kbd": 18426,
+    "class": "LIVE_UNLISTED_NOT_FIRST_PRINT",
+    "object": "table1.csv",
+    "csv_last_modified": "2011-07-27T17:00:51Z",
+    "html_last_modified": "2012-02-09T16:37:19Z",
+    "sha256": "21dbed1132f1101589e246206f74e8240993001980153374fbabd804a5f9b4a6",
+    "in_repo": "data/lab/crude/wpsr/2011-07-27/table1.csv",
+    "three_legs": true
+  }
+]

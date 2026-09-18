@@ -143,6 +143,20 @@ June calendar 301s followed to **2011-08-13** — closest-snapshot is not
 a week. Receipt: `docs/EP_NC_2011_WAYBACK.md`.
 
 This addendum does **not** flip Gate 1 to FAIL or PASS.
-`e1i_vintages.ok` remains unwritten. Next object:
+`e1i_vintages.ok` remains unwritten. Next object (then):
 `2011_ep_nc_fill_remaining_or_fail`.
+
+
+## Addendum 2026-09-18 — try reach 2011 first-print
+
+Listed EIA dated archive **2011-08-03 … 2012-06-27** pulled 48/48
+`table1.csv` with Last-Modified on the release day. Same method as the
+2014–2016 cell tape. Jan–Jul 2011 still a hole: 4 three-leg extracts
+(3 Wayback near-release + 1 live unlisted). CDX for `ir.eia.gov`
+`table1.csv` Jan–Jul is one capture (2011-05-20). Closest-snapshot
+redirects refused.
+
+NC cutoffs every 4 weeks: **12/20** have a listed-archive cell. **8/20**
+incomplete. Gate 1 stays **UNRESOLVED**. `e1i_vintages.ok` unwritten.
+`I_t` not a series. Next: `2011_jan_jul_hole_or_fail`.
 

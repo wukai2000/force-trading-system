@@ -1,0 +1,31 @@
+{
+  "id": "EP-NC-2011-FIRST-PRINT-ATTEMPT",
+  "as_of": "2026-09-18",
+  "i_t_constructed": false,
+  "e1i_vintages_ok": false,
+  "gate1": "UNRESOLVED",
+  "gate1_fail_this_pass": false,
+  "window": ["2011-01-05", "2012-06-27"],
+  "n_weekly_in_window": 78,
+  "listed_archive": {
+    "span": ["2011-08-03", "2012-06-27"],
+    "n": 48,
+    "n_ok": 48,
+    "class": "LIVE_DATED_ARCHIVE_RELEASE_DAY_LASTMOD",
+    "holiday_slips": 7,
+    "file": "data/lab/crude/wpsr/AUG2011_JUN2012_CELLS.json"
+  },
+  "jan_jul_hole": {
+    "n_wednesdays": 30,
+    "three_leg": 4,
+    "partial": 2,
+    "file": "data/lab/crude/wpsr/JAN_JUL_2011_CELLS.json",
+    "ir_table1_csv_cdx_jan_jul": "exhausted_1_capture_20110520195604"
+  },
+  "nc_cutoffs_every_4w": {
+    "n": 20,
+    "have_three_leg_issue": 12,
+    "incomplete": 8
+  },
+  "closest_snapshot_as_week": "refused"
+}

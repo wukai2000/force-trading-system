@@ -1,0 +1,482 @@
+[
+  {
+    "release": "2011-08-03",
+    "week_ending": "2011-07-29",
+    "production_kbd": 5523,
+    "stocks_ex_spr_mb": 354.975,
+    "product_supplied_kbd": 19641,
+    "sha256": "1f191f63c587ba4eda6ea84ebd58a9b5845f04aaa0595a57925bfe79a46a0b6d",
+    "last_modified": "Wed, 03 Aug 2011 17:00:40 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-08-10",
+    "week_ending": "2011-08-05",
+    "production_kbd": 5529,
+    "stocks_ex_spr_mb": 349.75,
+    "product_supplied_kbd": 20293,
+    "sha256": "817c97b4f86356c419c5dc9aa0d758987837e5b08294559e3eef8051217aacf4",
+    "last_modified": "Wed, 10 Aug 2011 17:01:10 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-08-17",
+    "week_ending": "2011-08-12",
+    "production_kbd": 5561,
+    "stocks_ex_spr_mb": 353.983,
+    "product_supplied_kbd": 19414,
+    "sha256": "fe3defae42a203f2118101c9984ce0566bfd97f81cdfb062e39edc874665105b",
+    "last_modified": "Wed, 17 Aug 2011 17:00:44 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-08-24",
+    "week_ending": "2011-08-19",
+    "production_kbd": 5591,
+    "stocks_ex_spr_mb": 351.77,
+    "product_supplied_kbd": 19243,
+    "sha256": "823a7d2597712c1b873058a7ddb76d3439b8396557c0191565a49280fc866310",
+    "last_modified": "Wed, 24 Aug 2011 17:01:04 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-08-31",
+    "week_ending": "2011-08-26",
+    "production_kbd": 5598,
+    "stocks_ex_spr_mb": 357.051,
+    "product_supplied_kbd": 19562,
+    "sha256": "9a13eca98ce0ee89aa91845c85706c6a4f5ba25806cd00569fe08c7265c68c2a",
+    "last_modified": "Wed, 31 Aug 2011 17:01:20 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-09-08",
+    "week_ending": "2011-09-02",
+    "production_kbd": 5642,
+    "stocks_ex_spr_mb": 353.088,
+    "product_supplied_kbd": 19386,
+    "sha256": "edc664b6f0a9b7486631548a6e1457f3cdf940ba79dd16b6f55a2f6239891f5f",
+    "last_modified": "Thu, 08 Sep 2011 17:00:26 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2011-09-14",
+    "week_ending": "2011-09-09",
+    "production_kbd": 5083,
+    "stocks_ex_spr_mb": 346.384,
+    "product_supplied_kbd": 18654,
+    "sha256": "7f351117a1ab1dc331e3013b967b1167a9f168b96a5dc907b80acd8598f10989",
+    "last_modified": "Wed, 14 Sep 2011 17:01:43 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-09-21",
+    "week_ending": "2011-09-16",
+    "production_kbd": 5747,
+    "stocks_ex_spr_mb": 339.048,
+    "product_supplied_kbd": 19024,
+    "sha256": "36f9847447c4de9000f70113be829fcaa6ec077d25d1f6379785e8d59a0d2d3b",
+    "last_modified": "Wed, 21 Sep 2011 17:01:05 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-09-28",
+    "week_ending": "2011-09-23",
+    "production_kbd": 5756,
+    "stocks_ex_spr_mb": 340.963,
+    "product_supplied_kbd": 19083,
+    "sha256": "783ae2d3b0a4dd60ad6e26fa37e528e0623beccaf0d5fd51ad296eb38fd375c4",
+    "last_modified": "Wed, 28 Sep 2011 17:02:00 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-10-05",
+    "week_ending": "2011-09-30",
+    "production_kbd": 5800,
+    "stocks_ex_spr_mb": 336.284,
+    "product_supplied_kbd": 19101,
+    "sha256": "90f85964b297f57d87d59eb75fd83d5f61030e7f49618e9f99ca0e38e3560c9b",
+    "last_modified": "Wed, 05 Oct 2011 16:59:42 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-10-13",
+    "week_ending": "2011-10-07",
+    "production_kbd": 5878,
+    "stocks_ex_spr_mb": 337.628,
+    "product_supplied_kbd": 18737,
+    "sha256": "37407430dc8f04918a2c3821beb5028dc3ac9f210c65158d99941cfa084e331a",
+    "last_modified": "Thu, 13 Oct 2011 17:00:35 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2011-10-19",
+    "week_ending": "2011-10-14",
+    "production_kbd": 5891,
+    "stocks_ex_spr_mb": 332.899,
+    "product_supplied_kbd": 18329,
+    "sha256": "e2aad50121bb00d1c7d150fae2809674c157f19f0696403c59afe958fd39d7b2",
+    "last_modified": "Wed, 19 Oct 2011 17:00:20 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-10-26",
+    "week_ending": "2011-10-21",
+    "production_kbd": 5876,
+    "stocks_ex_spr_mb": 337.634,
+    "product_supplied_kbd": 18884,
+    "sha256": "1503aa3ee2916f860fd6f3d52019ff1e866531364a5a5281d8076e51f0373d69",
+    "last_modified": "Wed, 26 Oct 2011 17:01:59 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-11-02",
+    "week_ending": "2011-10-28",
+    "production_kbd": 5818,
+    "stocks_ex_spr_mb": 339.46,
+    "product_supplied_kbd": 18641,
+    "sha256": "35318bb337a43b6cbff113dbbe9cc98a1628960025ecd211c20fce4849f0da9e",
+    "last_modified": "Wed, 02 Nov 2011 17:03:04 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-11-09",
+    "week_ending": "2011-11-04",
+    "production_kbd": 5846,
+    "stocks_ex_spr_mb": 338.09,
+    "product_supplied_kbd": 20037,
+    "sha256": "fa65536e74a4862df047952dacc51c923af5147eded92a27cf796430a0eb9b58",
+    "last_modified": "Wed, 09 Nov 2011 18:00:26 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-11-16",
+    "week_ending": "2011-11-11",
+    "production_kbd": 5894,
+    "stocks_ex_spr_mb": 337.034,
+    "product_supplied_kbd": 19311,
+    "sha256": "e54e86a63f3bb87b3f6732ca9281d7dca6336fa4a9b659634c278643f037f44d",
+    "last_modified": "Wed, 16 Nov 2011 18:00:02 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-11-23",
+    "week_ending": "2011-11-18",
+    "production_kbd": 5887,
+    "stocks_ex_spr_mb": 330.815,
+    "product_supplied_kbd": 18585,
+    "sha256": "f93175604c1f6124ad73eab7854fb8c1cec95d4b7ca8f7b467c4c298f9d854c2",
+    "last_modified": "Wed, 23 Nov 2011 18:00:30 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-11-30",
+    "week_ending": "2011-11-25",
+    "production_kbd": 5864,
+    "stocks_ex_spr_mb": 334.747,
+    "product_supplied_kbd": 17946,
+    "sha256": "dc812c6ea5e70c77e04cb25d0696f3df564e232ef242d76fc58da16f556bbf79",
+    "last_modified": "Wed, 30 Nov 2011 18:00:32 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-12-07",
+    "week_ending": "2011-12-02",
+    "production_kbd": 5861,
+    "stocks_ex_spr_mb": 336.083,
+    "product_supplied_kbd": 18308,
+    "sha256": "8b2689a84540dfa7037b31dc93932d669e1fb26a653a898ea8487b942a5ab5b8",
+    "last_modified": "Wed, 07 Dec 2011 18:00:39 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-12-14",
+    "week_ending": "2011-12-09",
+    "production_kbd": 5862,
+    "stocks_ex_spr_mb": 334.151,
+    "product_supplied_kbd": 18409,
+    "sha256": "17018abe2d31d3de7725a42f8526ac45f68b0fbb99881d97768399704728c0e6",
+    "last_modified": "Wed, 14 Dec 2011 18:01:04 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-12-21",
+    "week_ending": "2011-12-16",
+    "production_kbd": 5862,
+    "stocks_ex_spr_mb": 323.581,
+    "product_supplied_kbd": 19324,
+    "sha256": "a647e72b9aca7501344cdfb8c66a62789420bc4322eafa31067a77bc71c03658",
+    "last_modified": "Wed, 21 Dec 2011 18:00:53 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2011-12-29",
+    "week_ending": "2011-12-23",
+    "production_kbd": 5846,
+    "stocks_ex_spr_mb": 327.48,
+    "product_supplied_kbd": 18499,
+    "sha256": "ca7d343a4f57e73487fc79a8e03ac64dc14c504b5e9432bfd9e1d908e7e8a3b2",
+    "last_modified": "Thu, 29 Dec 2011 18:00:03 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2012-01-05",
+    "week_ending": "2011-12-30",
+    "production_kbd": 5851,
+    "stocks_ex_spr_mb": 329.689,
+    "product_supplied_kbd": 18023,
+    "sha256": "f1a528e7f5ac09bd2116eb4c9ebc7da29ae1497e59f01ad9b1733c2b03e7e9ed",
+    "last_modified": "Thu, 05 Jan 2012 18:01:01 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2012-01-11",
+    "week_ending": "2012-01-06",
+    "production_kbd": 5844,
+    "stocks_ex_spr_mb": 334.647,
+    "product_supplied_kbd": 17811,
+    "sha256": "0cb840a05af816deca640d6a3224d734806e9c5647f9e891d3b31d9c36747230",
+    "last_modified": "Wed, 11 Jan 2012 18:00:05 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-01-19",
+    "week_ending": "2012-01-13",
+    "production_kbd": 5726,
+    "stocks_ex_spr_mb": 331.209,
+    "product_supplied_kbd": 17902,
+    "sha256": "be00e92dd19d7b117825aa3dd755de4cb158ec2e93233a48cc60f265fce0be93",
+    "last_modified": "Thu, 19 Jan 2012 18:00:58 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2012-01-25",
+    "week_ending": "2012-01-20",
+    "production_kbd": 5722,
+    "stocks_ex_spr_mb": 334.767,
+    "product_supplied_kbd": 19241,
+    "sha256": "2ce83ddcadb9eef7177f240bbfe1c61d35e63ae0ff1085a7f4633d5c8d792e29",
+    "last_modified": "Wed, 25 Jan 2012 18:00:17 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-02-01",
+    "week_ending": "2012-01-27",
+    "production_kbd": 5720,
+    "stocks_ex_spr_mb": 338.942,
+    "product_supplied_kbd": 17653,
+    "sha256": "eff538c3447521419037f7d42bd261a30a7169cbb06e9b1fa86f057ad003d6df",
+    "last_modified": "Wed, 01 Feb 2012 18:01:13 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-02-08",
+    "week_ending": "2012-02-03",
+    "production_kbd": 5763,
+    "stocks_ex_spr_mb": 339.246,
+    "product_supplied_kbd": 17618,
+    "sha256": "c28e7a3016d5cf4b3f419160e13bd1d3b434883e54c8efc59f478ad1208e5b13",
+    "last_modified": "Wed, 08 Feb 2012 18:00:40 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-02-15",
+    "week_ending": "2012-02-10",
+    "production_kbd": 5819,
+    "stocks_ex_spr_mb": 339.075,
+    "product_supplied_kbd": 18655,
+    "sha256": "030841b4ba101d09f97d4661ee867c4ee0497ca54841717d8fa667dfd186a15d",
+    "last_modified": "Wed, 15 Feb 2012 18:00:53 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-02-23",
+    "week_ending": "2012-02-17",
+    "production_kbd": 5817,
+    "stocks_ex_spr_mb": 340.708,
+    "product_supplied_kbd": 18237,
+    "sha256": "658b3a1db7179fcda07c0e018538c0c1443440132f99db84fc635e695940d6b7",
+    "last_modified": "Thu, 23 Feb 2012 18:05:11 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2012-02-29",
+    "week_ending": "2012-02-24",
+    "production_kbd": 5814,
+    "stocks_ex_spr_mb": 344.868,
+    "product_supplied_kbd": 18256,
+    "sha256": "6cde0428753f586468a7186a2842f330308838cc7be3d1e2e41e599fb36762a6",
+    "last_modified": "Wed, 29 Feb 2012 18:00:51 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-03-07",
+    "week_ending": "2012-03-02",
+    "production_kbd": 5806,
+    "stocks_ex_spr_mb": 345.7,
+    "product_supplied_kbd": 18178,
+    "sha256": "11842c55186dbfc0c8e0a7671ff2227b023a98c1059929dbfb98e6b9c7a85c8e",
+    "last_modified": "Wed, 07 Mar 2012 18:01:27 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-03-14",
+    "week_ending": "2012-03-09",
+    "production_kbd": 5830,
+    "stocks_ex_spr_mb": 347.45,
+    "product_supplied_kbd": 18571,
+    "sha256": "c5841f2ef961b4f9db416b02f2369680e11f41a3b269e4a8aed0e948962aa29a",
+    "last_modified": "Wed, 14 Mar 2012 17:01:20 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-03-21",
+    "week_ending": "2012-03-16",
+    "production_kbd": 5826,
+    "stocks_ex_spr_mb": 346.288,
+    "product_supplied_kbd": 17674,
+    "sha256": "bbfd978f544ec4918c111fa59d02899a77538ee1516f06219bc3cb824b6ae4b5",
+    "last_modified": "Wed, 21 Mar 2012 17:00:51 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-03-28",
+    "week_ending": "2012-03-23",
+    "production_kbd": 5821,
+    "stocks_ex_spr_mb": 353.39,
+    "product_supplied_kbd": 18204,
+    "sha256": "03f5198da2bffa1295965aec4e1c4dd0cc56b6ebaf5151a1b8e98c31ce2beb6c",
+    "last_modified": "Wed, 28 Mar 2012 17:01:09 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-04-04",
+    "week_ending": "2012-03-30",
+    "production_kbd": 6049,
+    "stocks_ex_spr_mb": 362.399,
+    "product_supplied_kbd": 18186,
+    "sha256": "df150e26856e991c331c040378a59ffd244df290864cae415255edbe65dae14e",
+    "last_modified": "Wed, 04 Apr 2012 17:01:28 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-04-11",
+    "week_ending": "2012-04-06",
+    "production_kbd": 6040,
+    "stocks_ex_spr_mb": 365.19,
+    "product_supplied_kbd": 19005,
+    "sha256": "386a1aefbb7c2c0ebf6453452ecef1549fdb816ae2d92ad1ae49cc979e526cca",
+    "last_modified": "Wed, 11 Apr 2012 17:01:29 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-04-18",
+    "week_ending": "2012-04-13",
+    "production_kbd": 6043,
+    "stocks_ex_spr_mb": 369.046,
+    "product_supplied_kbd": 18863,
+    "sha256": "b7fbafaf401da02f067e818244919baed7223aac28db24ca438b01ae67f100af",
+    "last_modified": "Wed, 18 Apr 2012 17:00:32 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-04-25",
+    "week_ending": "2012-04-20",
+    "production_kbd": 6113,
+    "stocks_ex_spr_mb": 373.024,
+    "product_supplied_kbd": 18756,
+    "sha256": "f47c236cb0844f23c8abbcbce83b147461e3dd535c9d5e2b287cb09946ad66f5",
+    "last_modified": "Wed, 25 Apr 2012 17:00:45 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-05-02",
+    "week_ending": "2012-04-27",
+    "production_kbd": 6121,
+    "stocks_ex_spr_mb": 375.864,
+    "product_supplied_kbd": 18544,
+    "sha256": "58bcfa5a51fde889fd8a218b1731d5d496e4b505eecdfa2aff56a397f356e08e",
+    "last_modified": "Wed, 02 May 2012 17:01:24 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-05-09",
+    "week_ending": "2012-05-04",
+    "production_kbd": 6136,
+    "stocks_ex_spr_mb": 379.516,
+    "product_supplied_kbd": 18603,
+    "sha256": "717a59f2856e3b19c41e79a27c364792fdfc3c9189941f4df370462166333616",
+    "last_modified": "Wed, 09 May 2012 17:00:36 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-05-16",
+    "week_ending": "2012-05-11",
+    "production_kbd": 6149,
+    "stocks_ex_spr_mb": 381.644,
+    "product_supplied_kbd": 19013,
+    "sha256": "c5d84691c25ef01720b89b39d40006ee2f034b5ebf2aef873292dcf0b09e75b4",
+    "last_modified": "Wed, 16 May 2012 17:00:57 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-05-23",
+    "week_ending": "2012-05-18",
+    "production_kbd": 6239,
+    "stocks_ex_spr_mb": 382.527,
+    "product_supplied_kbd": 18683,
+    "sha256": "0fd904012062724c299ee48f4ae9e58b734621dad4a46f34a205879fe346b8c0",
+    "last_modified": "Wed, 23 May 2012 17:00:56 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-05-31",
+    "week_ending": "2012-05-25",
+    "production_kbd": 6227,
+    "stocks_ex_spr_mb": 384.74,
+    "product_supplied_kbd": 18320,
+    "sha256": "45bd822fa8d28f25a68bbf298fb27dffd06b74ed302c57f950a242708fa92e52",
+    "last_modified": "Thu, 31 May 2012 17:00:38 GMT",
+    "slip_days": 1
+  },
+  {
+    "release": "2012-06-06",
+    "week_ending": "2012-06-01",
+    "production_kbd": 6245,
+    "stocks_ex_spr_mb": 384.629,
+    "product_supplied_kbd": 18226,
+    "sha256": "37eb9085b69c73a7a5ad3caf2a0c7a02ce8b33e669871d3cde682b63a4da78af",
+    "last_modified": "Wed, 06 Jun 2012 17:00:49 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-06-13",
+    "week_ending": "2012-06-08",
+    "production_kbd": 6236,
+    "stocks_ex_spr_mb": 384.438,
+    "product_supplied_kbd": 19405,
+    "sha256": "5015f72b9575374b2aa9687fb18c94a02b97cd3dcfc087b8e045d039c39ca5fa",
+    "last_modified": "Wed, 13 Jun 2012 17:00:27 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-06-20",
+    "week_ending": "2012-06-15",
+    "production_kbd": 6353,
+    "stocks_ex_spr_mb": 387.299,
+    "product_supplied_kbd": 18599,
+    "sha256": "4826cc414b6e7cb6d19892988e42827636528afcaa530241c45533108cae723a",
+    "last_modified": "Wed, 20 Jun 2012 17:00:48 GMT",
+    "slip_days": 0
+  },
+  {
+    "release": "2012-06-27",
+    "week_ending": "2012-06-22",
+    "production_kbd": 6257,
+    "stocks_ex_spr_mb": 387.166,
+    "product_supplied_kbd": 19064,
+    "sha256": "77b49f35333b63fc74a69df894c9de515c3c779662ae502decbd1d2544849562",
+    "last_modified": "Wed, 27 Jun 2012 17:02:18 GMT",
+    "slip_days": 0
+  }
+]
