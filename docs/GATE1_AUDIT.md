@@ -191,3 +191,17 @@ GovInfo is not an issue file. ALFRED without cell match refused.
 built for 5/20 frozen NC cutoffs. `e1i_vintages.ok` unwritten. `I_t`
 not a series. Do not score BR-0001. Next: `stay_frozen`.
 
+
+## Addendum 2026-09-19 — fail scope is E1.I-local
+
+Authorized: accept Gate 1 FAIL, reconstruction `NO_RESULT`, leave
+`e1i_vintages.ok` unwritten, and decide whether that is local to E1.I
+or an architecture kill.
+
+**Local to E1.I.** First-print measurement exists (2014–2016 cells;
+listed 2011-08-03…2012-06-27). The identifying experiment cannot
+complete because the locked NC window has 5 unrecoverable cutoffs.
+That is not “the architecture has no observable implementation.”
+Do not score 2014-only. Do not pick a new episode. Do not Path D
+from this FAIL. Next: `stay_frozen`. Receipt: `docs/E1I_FAIL_SCOPE.md`.
+

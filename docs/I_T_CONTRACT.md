@@ -96,6 +96,16 @@ Pass shape (still cannot promote, still not a Force):
 
 Fail shape: seal MTS-0001 as `NO_RESULT` and **do not pick a new episode**.
 
+## Addendum 2026-09-19 — fail shape fired; scope is E1.I-local
+
+Gate 1 `FAIL`. Reconstruction `NO_RESULT`. `e1i_vintages.ok` unwritten.
+The fail shape above fired on the locked NC window (5/20 cutoffs
+unrecoverable). Scope is `E1I_LOCAL`. The measurement layer of the
+historical architecture is observed (2014–2016 cells; listed 2011 half).
+The identifying experiment on this frozen object is not constructible.
+That is not an architecture kill. Do not pick a new episode. Receipt:
+`docs/E1I_FAIL_SCOPE.md`.
+
 ## Explicitly refused this cycle
 
 - Retuning cutoffs, horizon, or the A/B predicate on 2014 residuals

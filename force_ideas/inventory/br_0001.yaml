@@ -17,6 +17,8 @@ e1i_status: not_run
 e1i_vintages: missing
 gate: 1_fail
 gate1_verdict: FAIL
+fail_scope: E1I_LOCAL
+architecture_kill: false
 
 ontology: competing_adjustment_process
 force_means: cap_candidate
@@ -105,6 +107,9 @@ next_refused:
   - padd_1c_for_us_legs
   - missing_file_coded_as_U
   - wayback_closest_snapshot_as_week
+  - architecture_kill_from_nc_hole
+  - score_2014_without_nc
+  - path_d_from_gate1
 
 terminal_labels:
   - PASS_NARROW

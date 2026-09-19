@@ -71,9 +71,11 @@ error_types_not_classified: true
 discovery_recognition_mixed: true
 write_once_notes: mechanical_only
 
-next_authorized: reconstruct_I_t_for_these_six_series
+next_authorized: stay_frozen
 reconstruction_experiment: BR-0001
-reconstruction_status: REFUSED_UNTIL_E1I
+reconstruction_status: NO_RESULT_GATE1_FAIL
+fail_scope: E1I_LOCAL
+architecture_kill: false
 
 next_refused:
   - new_episode

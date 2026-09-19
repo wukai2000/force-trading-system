@@ -1,0 +1,33 @@
+{
+  "id": "E1I_FAIL_SCOPE",
+  "as_of": "2026-09-19",
+  "gate1": "FAIL",
+  "reconstruction": "NO_RESULT",
+  "e1i_vintages_ok": false,
+  "i_t_constructed": false,
+  "fail_scope": "E1I_LOCAL",
+  "architecture_kill": false,
+  "architecture_observable_implementation": "MEASUREMENT_LAYER_YES",
+  "identifying_experiment_on_frozen_object": false,
+  "e1_laboratory_step": "PROTOCOL_OPEN",
+  "e1i_instance": "SEALED_NO_RESULT",
+  "why_local": "five_nc_cutoffs_unrecoverable_on_locked_window_not_first_print_as_a_class",
+  "measurement_layer": {
+    "y2014_2016_issues": 135,
+    "primary_cutoffs_bound": 27,
+    "listed_2011_08_03_to_2012_06_27": 48,
+    "nc_cutoffs_have_issue": 15,
+    "nc_cutoffs_unrecoverable": 5,
+    "one_bind": "2014-07-02 I_t=U unscored"
+  },
+  "refused": [
+    "architecture_kill_from_nc_hole",
+    "score_2014_without_nc",
+    "drop_five_and_score",
+    "new_episode",
+    "path_d_from_gate1",
+    "write_e1i_vintages_ok",
+    "missing_file_coded_as_U"
+  ],
+  "next_object": "stay_frozen"
+}

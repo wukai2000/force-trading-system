@@ -57,6 +57,10 @@ e1i_vintages: not_run
 e1i_vintages_ok: false
 gate1: FAIL
 gate1_tape_2014_2016: sealed_cells_only
+fail_scope: E1I_LOCAL
+architecture_kill: false
+architecture_observable_implementation: MEASUREMENT_LAYER_YES
+e1i_instance: SEALED_NO_RESULT
 next_object: stay_frozen
 n_seeds: 0
 wpsr_cells:
@@ -81,10 +85,9 @@ path_c_increment: frozen_2026-09-15
 
 
 note: >
-  FS-0001.v1 immutable. Gate 1 FAIL. Five of twenty NC cutoffs
-  unrecoverable after exhaustion (live dated 404, Wayback id_
-  collapses to Aug 13, D1 is prior week, HathiTrust ends 2000,
-  IA collections 0). Reconstruction NO_RESULT. 2014-2016 cell
-  tape still sealed (cells ≠ I_t). e1i_vintages.ok refused.
-  Do not score. Capital $0. Q4 stay frozen.
+  FS-0001.v1 immutable. Gate 1 FAIL is local to E1.I, not an
+  architecture kill. Measurement layer observed (2014-2016 cells,
+  listed 2011 half). Identifying experiment cannot complete (5/20
+  NC unrecoverable). Reconstruction NO_RESULT. e1i_vintages.ok
+  refused. Do not score. Capital $0. Q4 stay frozen.
 

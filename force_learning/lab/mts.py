@@ -37,8 +37,8 @@ def assert_mts() -> Dict[str, Any]:
         raise MtsError("smoke verdict locked")
     if spec.get("no_new_observables") is not True:
         raise MtsError("no new observables")
-    if spec.get("next_authorized") != "reconstruct_I_t_for_these_six_series":
-        raise MtsError("next is I_t only")
+    if spec.get("next_authorized") != "stay_frozen":
+        raise MtsError("next is stay_frozen")
     for tok in ("new_episode", "retune_rule", "sidecar", "tickers"):
         if tok not in (spec.get("next_refused") or []):
             raise MtsError(f"missing refuse {tok}")

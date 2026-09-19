@@ -68,6 +68,10 @@ gate1_fail_this_pass: true
 why_fail: five_nc_cutoffs_unrecoverable_after_exhaustion
 why_not_pass: five_nc_cutoffs_still_incomplete
 reconstruction: NO_RESULT
+fail_scope: E1I_LOCAL
+architecture_kill: false
+architecture_observable_implementation: MEASUREMENT_LAYER_YES
+e1i_instance: SEALED_NO_RESULT
 
 refuse:
   - north_carolina_as_object
@@ -88,6 +92,9 @@ refuse:
   - open_hou1
   - retune
   - new_episode
+  - architecture_kill_from_nc_hole
+  - score_2014_without_nc
+  - path_d_from_gate1
 
 next_object: stay_frozen
 consolidation: docs/MEMO_2011_NC_CONSOLIDATION.md
@@ -96,3 +103,4 @@ wayback_receipt: docs/EP_NC_2011_WAYBACK.md
 first_print_receipt: docs/EP_NC_2011_FIRST_PRINT.md
 eight_receipt: docs/EP_NC_2011_EIGHT.md
 five_receipt: docs/EP_NC_2011_FIVE.md
+fail_scope_receipt: docs/E1I_FAIL_SCOPE.md

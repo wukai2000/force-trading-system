@@ -13,6 +13,8 @@ experiments:
     status: PROTOCOL_OPEN
     returns_allowed: false
     tickers_allowed: false
+    e1i_instance: SEALED_NO_RESULT
+    fail_scope: E1I_LOCAL
   E2_blind_reconstruction:
     status: LOCKED
     unlock_if: E1_reconstructs_without_hindsight

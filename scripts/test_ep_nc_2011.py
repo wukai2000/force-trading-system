@@ -16,6 +16,7 @@ WB = json.loads((ROOT / "artifacts" / "ep_nc_2011_wayback.json").read_text())
 FP = json.loads((ROOT / "artifacts" / "ep_nc_2011_first_print.json").read_text())
 EIGHT = json.loads((ROOT / "artifacts" / "ep_nc_2011_eight.json").read_text())
 FIVE = json.loads((ROOT / "artifacts" / "ep_nc_2011_five.json").read_text())
+SCOPE = json.loads((ROOT / "artifacts" / "e1i_fail_scope.json").read_text())
 LISTED = json.loads((ROOT / "data" / "lab" / "crude" / "wpsr" / "AUG2011_JUN2012_CELLS.json").read_text())
 HOLE = json.loads((ROOT / "data" / "lab" / "crude" / "wpsr" / "JAN_JUL_2011_CELLS.json").read_text())
 
@@ -34,6 +35,8 @@ def main() -> None:
     assert SPEC["gate1"] == "FAIL"
     assert SPEC["gate1_fail_this_pass"] is True
     assert SPEC["reconstruction"] == "NO_RESULT"
+    assert SPEC["fail_scope"] == "E1I_LOCAL"
+    assert SPEC["architecture_kill"] is False
     assert SPEC["listed_archive_ok"] == 48
     assert SPEC["jan_jul_three_leg"] == 7
     assert SPEC["nc_cutoffs_have_issue"] == 15
@@ -42,6 +45,8 @@ def main() -> None:
     assert "psw09_history_as_earlier_cutoff" in SPEC["refuse"]
     assert DESK["e1i_vintages_ok"] is False
     assert DESK["gate1"] == "FAIL"
+    assert DESK["fail_scope"] == "E1I_LOCAL"
+    assert DESK["architecture_kill"] is False
     assert DESK["next_object"] == "stay_frozen"
     assert SPEC["next_object"] == "stay_frozen"
     assert (ROOT / "data" / "lab" / "crude" / "e1i_vintages.ok").exists() is False
@@ -52,6 +57,12 @@ def main() -> None:
     assert FIVE["gate1_fail_this_pass"] is True
     assert FIVE["recovered_this_pass"] == 0
     assert FIVE["still_incomplete"] == 5
+    assert SCOPE["fail_scope"] == "E1I_LOCAL"
+    assert SCOPE["architecture_kill"] is False
+    assert SCOPE["architecture_observable_implementation"] == "MEASUREMENT_LAYER_YES"
+    assert SCOPE["identifying_experiment_on_frozen_object"] is False
+    assert SCOPE["e1i_vintages_ok"] is False
+    assert SCOPE["next_object"] == "stay_frozen"
     assert FIVE["i_t_constructed"] is False
     assert FIVE["govinfo_issue_file"] is False
     assert FIVE["jan5_tabled1"]["three_legs"] is False

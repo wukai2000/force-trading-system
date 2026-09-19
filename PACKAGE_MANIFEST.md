@@ -1,7 +1,7 @@
-# force-trading-system-20260918-ep-nc-five-fail
+# force-trading-system-20260919-e1i-fail-scope
 
-- 2011_five_cutoffs_or_fail. Five remaining NC cutoffs unrecoverable
-- Gate 1 FAIL. Reconstruction NO_RESULT. e1i_vintages.ok refused. I_t not a series
-- Jan 5 tabled1 orig-lm 30 Dec 2010. Table 1 id_ collapses to 2011-08-13
-- HathiTrust WPSR fiche ends 2000. IA collections 0. GovInfo not an issue file
+- Gate 1 FAIL accepted. Reconstruction NO_RESULT. e1i_vintages.ok unwritten
+- fail_scope: E1I_LOCAL. architecture_kill: false. Measurement layer observed
+- Identifying experiment on frozen object not constructible (5/20 NC)
+- Do not score 2014-only. Do not pick a new episode. Do not Path D from this FAIL
 - next_object: stay_frozen. Q4 stay frozen. n_seeds=0. Capital $0. Promotion NOT_PERMITTED
