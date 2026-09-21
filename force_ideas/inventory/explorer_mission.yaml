@@ -105,6 +105,11 @@ refused:
   - ten_more_domain_probes
   - promising_without_ten_pass
   - crypto_as_hard_gate
+  - candidate_for_freeze_from_unfrozen_polygons
+  - commercial_ais_as_public_tape
+  - dwt_join_as_ais_state
+  - ais_occupancy_as_event
+  - se_ais_01_freeze_this_pass
 
 
 

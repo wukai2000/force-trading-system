@@ -1,7 +1,7 @@
-# force-trading-system-20260919-e1i-fail-scope
+# force-trading-system-20260921-state-event-pair
 
-- Gate 1 FAIL accepted. Reconstruction NO_RESULT. e1i_vintages.ok unwritten
-- fail_scope: E1I_LOCAL. architecture_kill: false. Measurement layer observed
-- Identifying experiment on frozen object not constructible (5/20 NC)
-- Do not score 2014-only. Do not pick a new episode. Do not Path D from this FAIL
-- next_object: stay_frozen. Q4 stay frozen. n_seeds=0. Capital $0. Promotion NOT_PERMITTED
+- Learn/dismiss three Explorer notes on independent S_t → E_{t+h}
+- SE-AIS-01 CANDIDATE_FOR_GATEKEEPER, not freeze. I3 provisional, not I4
+- Note 3 freeze / DWT / Spire dismissed. Hydrology PARTIAL. Highway SCREENING
+- E1.I stays FAIL. e1i_vintages.ok unwritten. n_seeds=0
+- next_object: stay_frozen. Q4 stay frozen. Capital $0. Promotion NOT_PERMITTED

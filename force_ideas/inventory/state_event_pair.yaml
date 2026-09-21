@@ -1,0 +1,100 @@
+# Independent state/event pair screening. Not a freeze. Not a seed. Not E1.I.
+protocol_id: FORCE_PROTOCOL_v1.0
+id: SE-AIS-01
+kind: state_event_pair_screening
+object: ObservableArchitecture
+not: ForceCandidate
+frozen: false
+t0_issued: false
+admitted_as_seeds: false
+seed: false
+capital: 0
+n_seeds: 0
+winner: "none"
+ranking_refused: true
+e1i_reopened: false
+promotion: NOT_PERMITTED
+
+status: CANDIDATE_FOR_GATEKEEPER
+not_status: CANDIDATE_FOR_FREEZE
+independence_class: I3_provisional
+independence_i4: false
+
+a:
+  physical: vessel_kinematics_in_existing_port_water
+  collection: shipborne_AIS_VHF
+  public_tape: NOAA_Marine_Cadastre_NAIS_2009
+  not_tape:
+    - spire
+    - orbcomm
+    - commercial_nmea_t_plus_1h
+  derived_official_statistic_at_t: false
+b:
+  physical: incremental_marine_civil_works_entering_service
+  collection: construction_handover_plus_first_working_call
+  not_event:
+    - ais_first_occupancy
+    - planned_cod
+    - ribbon_cut
+    - investment_announcement
+s_t:
+  rule_frozen: false
+  polygons_frozen: false
+  universe_frozen: false
+  missingness: drop_port_no_imputation
+  dwt_join: refused
+h_frozen: false
+
+families:
+  - id: SE-AIS-01
+    status: CANDIDATE_FOR_GATEKEEPER
+    note: existing wet infrastructure AIS state vs new civil works record
+  - id: SE-HYD-01
+    status: PARTIAL
+    note: USGS/reservoir A is clean; B is three different events across notes; selection risk
+    promote: false
+  - id: SE-HWY-01
+    status: SCREENING
+    note: FHWA continuous counts vs bridge opening; station vintage unsolved
+
+rejected:
+  - C-RIG-01
+  - C-ISO-01
+  - C-ADS-01
+  - C-NUC-01
+  - C-CAN-01
+  - MEP-004
+  - MEP-005
+  - CAND-0002
+  - CAND-0003
+  - CAND-0004
+
+notes:
+  keep: [note_1_gatekeeper, note_2_gates]
+  dismiss_freeze: note_3_candidate_for_freeze
+  newt_graham_1970_as_ais_example: dismissed_pre_cadastre
+
+refuse:
+  - candidate_for_freeze
+  - independence_i4_as_settled
+  - commercial_ais_as_public_tape
+  - dwt_join_as_ais_state
+  - ais_occupancy_as_event
+  - impute_ais_holes
+  - outcome_driven_port_list
+  - draw_polygons_this_pass
+  - ingest_ais_this_pass
+  - rank_ais_vs_hydrology
+  - reopen_e1i
+  - score_br_0001
+  - new_episode
+  - open_wave1
+  - open_hou1
+  - force4_scan
+  - fs0002
+  - capital
+
+next_object: stay_frozen
+optional_ack: ais_gatekeeper_docs_only_or_no_result
+q4_default: stay_frozen
+consolidation: docs/MEMO_STATE_EVENT_CONSOLIDATION.md

@@ -62,6 +62,8 @@ architecture_kill: false
 architecture_observable_implementation: MEASUREMENT_LAYER_YES
 e1i_instance: SEALED_NO_RESULT
 next_object: stay_frozen
+se_ais_01: candidate_for_gatekeeper_not_freeze
+state_event_pair: screening_not_freeze
 n_seeds: 0
 wpsr_cells:
   y2014_jun_jul: 9
@@ -86,8 +88,8 @@ path_c_increment: frozen_2026-09-15
 
 note: >
   FS-0001.v1 immutable. Gate 1 FAIL is local to E1.I, not an
-  architecture kill. Measurement layer observed (2014-2016 cells,
-  listed 2011 half). Identifying experiment cannot complete (5/20
-  NC unrecoverable). Reconstruction NO_RESULT. e1i_vintages.ok
-  refused. Do not score. Capital $0. Q4 stay frozen.
+  architecture kill. Three Explorer notes compared: AIS→new berth
+  is CANDIDATE_FOR_GATEKEEPER, not a freeze. Note 3 freeze/I4/DWT
+  dismissed. Hydrology PARTIAL. n_seeds=0. e1i_vintages.ok refused.
+  Do not score. Capital $0. Q4 stay frozen.
 
