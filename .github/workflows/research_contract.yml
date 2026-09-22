@@ -39,6 +39,7 @@ jobs:
           python scripts/test_t5_contract.py
           python scripts/test_t5_freight_contract.py
           python scripts/test_no_result_lock.py
+          python scripts/test_stay_frozen.py
           python scripts/test_one_frozen.py
           python scripts/test_vault.py
           python scripts/run_idea_registry.py
