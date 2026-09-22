@@ -60,8 +60,10 @@ gate1_tape_2014_2016: sealed_cells_only
 fail_scope: E1I_LOCAL
 architecture_kill: false
 architecture_observable_implementation: MEASUREMENT_LAYER_YES
+architecture_status: idle_not_unimplemented
 e1i_instance: SEALED_NO_RESULT
 next_object: stay_frozen
+idle_threshold: measurement_layer_yes_and_identifying_experiment_unconstructible_on_frozen_object
 se_ais_01: candidate_for_gatekeeper_not_freeze
 state_event_pair: screening_not_freeze
 n_seeds: 0
@@ -85,11 +87,37 @@ ep_nc_2011_jan_jul_three_leg: 7
 north_carolina_wpsr_search: dismissed
 path_c_increment: frozen_2026-09-15
 
+stay_frozen_permits:
+  - hold_log
+  - label_tape
+  - count_days_to_spym
+  - confirm_github_and_desk
+  - refresh_notion_snapshot
+  - keep_f1_f2_f3_negative_control
+  - keep_force4_wait
+  - keep_cells_not_i_t
+  - keep_missing_issue_incomplete_not_u
+stay_frozen_forbids:
+  - reopen_five_nc_cutoffs
+  - drop_five_and_score_15_of_20
+  - score_2014_only
+  - write_e1i_vintages_ok
+  - new_episode_or_later_nc
+  - path_d_from_this_fail
+  - wave1_hou1
+  - fs0001_cousins
+  - force4_scan
+  - capital_deploy
+  - closest_snapshot_as_week
+  - pet_twip_splice
+  - code_missing_as_u
 
 note: >
   FS-0001.v1 immutable. Gate 1 FAIL is local to E1.I, not an
-  architecture kill. Three Explorer notes compared: AIS→new berth
-  is CANDIDATE_FOR_GATEKEEPER, not a freeze. Note 3 freeze/I4/DWT
+  architecture kill. Architecture is idle, not unimplemented:
+  measurement layer observed; identifying experiment on this
+  frozen object is not constructible; second instance refused.
+  Three Explorer notes compared: AIS→new berth is
+  CANDIDATE_FOR_GATEKEEPER, not a freeze. Note 3 freeze/I4/DWT
   dismissed. Hydrology PARTIAL. n_seeds=0. e1i_vintages.ok refused.
   Do not score. Capital $0. Q4 stay frozen.
-
