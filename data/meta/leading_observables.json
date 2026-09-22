@@ -31,31 +31,31 @@
     },
     {
       "id": "baa10y",
-      "z": -2.6136,
-      "opposition": 2.6136,
+      "z": -3.0076,
+      "opposition": 3.0076,
       "veto_flag": false,
-      "last_date": "2026-09-17",
-      "n": 10178,
+      "last_date": "2026-09-18",
+      "n": 10179,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 2.4462,
-      "opposition": 2.4462,
+      "z": 2.6915,
+      "opposition": 2.6915,
       "veto_flag": false,
-      "last_date": "2026-09-17",
-      "n": 5932,
+      "last_date": "2026-09-18",
+      "n": 5933,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -2.4425,
+      "z": -2.8395,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-18",
-      "n": 12572,
+      "last_date": "2026-09-21",
+      "n": 12573,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -261,31 +261,31 @@
     },
     {
       "id": "sofr",
-      "z": 0.4786,
+      "z": 0.4982,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-18",
-      "n": 2114,
+      "last_date": "2026-09-21",
+      "n": 2115,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": 14.4233,
+      "z": 10.6345,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-17",
-      "n": 26377,
+      "last_date": "2026-09-18",
+      "n": 26378,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.4442,
+      "z": -0.4379,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-18",
-      "n": 3329,
+      "last_date": "2026-09-21",
+      "n": 3330,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -315,32 +315,32 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9277,
-      "last": "2026-09-18"
+      "rows": 9278,
+      "last": "2026-09-21"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4727,
-      "last": "2026-09-18"
+      "rows": 4728,
+      "last": "2026-09-21"
     },
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12572,
-      "last": "2026-09-18"
+      "rows": 12573,
+      "last": "2026-09-21"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5932,
-      "last": "2026-09-17"
+      "rows": 5933,
+      "last": "2026-09-18"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10178,
-      "last": "2026-09-17"
+      "rows": 10179,
+      "last": "2026-09-18"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
@@ -399,20 +399,20 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2114,
-      "last": "2026-09-18"
+      "rows": 2115,
+      "last": "2026-09-21"
     },
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26377,
-      "last": "2026-09-17"
+      "rows": 26378,
+      "last": "2026-09-18"
     },
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3329,
-      "last": "2026-09-18"
+      "rows": 3330,
+      "last": "2026-09-21"
     }
   }
 }
