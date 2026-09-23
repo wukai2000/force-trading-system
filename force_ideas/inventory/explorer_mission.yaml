@@ -110,6 +110,13 @@ refused:
   - dwt_join_as_ais_state
   - ais_occupancy_as_event
   - se_ais_01_freeze_this_pass
+  - qualifies_for_deeper_audit_as_live_status
+  - lees_ferry_2011_as_episode
+  - insar_as_i4_proven
+  - spillway_master_log_as_vintage_pass
+  - sdr_ntsb_as_experiment
+  - crop_rma_as_seed
+  - economic_bridge_as_reason_to_keep
 
 
 

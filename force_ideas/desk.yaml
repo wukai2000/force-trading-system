@@ -66,6 +66,8 @@ next_object: stay_frozen
 idle_threshold: measurement_layer_yes_and_identifying_experiment_unconstructible_on_frozen_object
 se_ais_01: candidate_for_gatekeeper_not_freeze
 state_event_pair: screening_not_freeze
+ma_census_20260923: screening_not_audit
+qualifies_labels_live: false
 n_seeds: 0
 wpsr_cells:
   y2014_jun_jul: 9
@@ -119,5 +121,7 @@ note: >
   frozen object is not constructible; second instance refused.
   Three Explorer notes compared: AIS→new berth is
   CANDIDATE_FOR_GATEKEEPER, not a freeze. Note 3 freeze/I4/DWT
-  dismissed. Hydrology PARTIAL. n_seeds=0. e1i_vintages.ok refused.
+  dismissed. Hydrology PARTIAL. 2026-09-23 census is
+  PARTIAL_PROVENANCE_OPEN. Qualifies labels are not live.
+  No pair reconstructed. n_seeds=0. e1i_vintages.ok refused.
   Do not score. Capital $0. Q4 stay frozen.

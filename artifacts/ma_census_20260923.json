@@ -1,0 +1,16 @@
+{
+  "id": "MA-CENSUS-20260923",
+  "as_of": "2026-09-23",
+  "verdict": "PARTIAL_PROVENANCE_OPEN",
+  "qualifies_live": false,
+  "deeper_audit_authorized": false,
+  "pair_reconstructed": false,
+  "n_seeds": 0,
+  "winner": "none",
+  "e1i_reopened": false,
+  "independence_i4_claimed_as_proven": false,
+  "new_modes": ["F11_impact_informed_index", "administrative_event_is_not_physical_event"],
+  "note3_pass_stamps": "dismissed",
+  "next_object": "stay_frozen",
+  "scientific_lock": "c7f21fa"
+}

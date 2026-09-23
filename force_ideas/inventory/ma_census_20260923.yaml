@@ -1,0 +1,90 @@
+# Measurement-architecture census 2026-09-23. Screening. Not an audit. Not a seed.
+protocol_id: FORCE_PROTOCOL_v1.0
+id: MA-CENSUS-20260923
+kind: measurement_architecture_census
+object: ObservableArchitecture
+not: ForceCandidate
+frozen: false
+t0_issued: false
+admitted_as_seeds: false
+seed: false
+capital: 0
+n_seeds: 0
+winner: "none"
+ranking_refused: true
+e1i_reopened: false
+deeper_audit_authorized: false
+qualifies_live: false
+pair_reconstructed: false
+promotion: NOT_PERMITTED
+
+verdict: PARTIAL_PROVENANCE_OPEN
+not_verdict:
+  - YES
+  - architecture_class_dead
+  - clean_NO_RESULT_on_the_class
+  - QUALIFIES_FOR_DEEPER_AUDIT
+
+independence_floor: I3_with_written_proof
+independence_i4_claimed_as_proven: false
+
+new_modes:
+  - id: F11
+    name: impact_informed_index
+    example: USDM_using_fire_or_ag_impacts
+  - id: ADMIN_NEQ_PHYSICAL
+    name: administrative_event_is_not_physical_event
+    example: authorization_deregistration_halt_order
+
+rows:
+  - id: MA-CROP-RMA
+    status: SCREENING
+    note: Monday Crop Progress PDF vs RMA month-of-loss. Not Quick Stats. Not a seed.
+    qualifies: false
+  - id: MA-SAT-CROP
+    status: SCREENING
+    note: Then-issued satellite product only. Collection-N reprocess dies.
+    qualifies: false
+  - id: MA-COF-SLAUGHTER
+    status: PARTIAL
+    note: Inventory not marketings. 16-state feedlots vs FI slaughter unclosed.
+    qualifies: false
+  - id: MA-SDR-NTSB
+    status: SCREENING
+    note: Prior OA-AIRCRAFT-SDR stays PARTIAL. Difficulty report, not NDT. Pre-accident vintage absent.
+    qualifies: false
+    prior: OA-AIRCRAFT-SDR
+  - id: MA-HYD-SPILL
+    status: DISMISSED_AS_NEXT
+    note: Family already PARTIAL. streamflow_dam_as_next refused. Lees Ferry 2011 is an episode.
+    qualifies: false
+  - id: MA-INSAR-MSHA
+    status: DISMISSED
+    note: Derived InSAR, future scenes, polygons, administrative halt. I4 not proven.
+    qualifies: false
+  - id: MA-NBI-AUTH
+    status: DISMISSED_REOPEN
+    note: Authorization is not completion. nbi_as_qualifies stays refused.
+    qualifies: false
+  - id: MA-AIS
+    status: UNCHANGED
+    note: SE-AIS-01 remains Gatekeeper. Throughput and PSC detention are not a new freeze.
+    qualifies: false
+
+refuse:
+  - qualifies_for_deeper_audit_as_live_status
+  - lees_ferry_2011_as_episode
+  - insar_as_i4_proven
+  - spillway_master_log_as_vintage_pass
+  - sdr_ntsb_as_experiment
+  - crop_rma_as_seed
+  - economic_bridge_as_reason_to_keep
+  - reopen_e1i
+  - download_vintage_this_pass
+  - new_episode
+  - force4_scan
+  - capital
+
+next_object: stay_frozen
+scientific_lock: c7f21fa
+consolidation: docs/MEMO_ARCHITECTURE_CENSUS_20260923.md
