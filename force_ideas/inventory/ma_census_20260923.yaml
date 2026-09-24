@@ -24,6 +24,7 @@ not_verdict:
   - architecture_class_dead
   - clean_NO_RESULT_on_the_class
   - QUALIFIES_FOR_DEEPER_AUDIT
+  - QUALIFIES_FOR_VINTAGE_AUDIT
 
 independence_floor: I3_with_written_proof
 independence_i4_claimed_as_proven: false
@@ -70,6 +71,20 @@ rows:
     status: UNCHANGED
     note: SE-AIS-01 remains Gatekeeper. Throughput and PSC detention are not a new freeze.
     qualifies: false
+  - id: MA-FIA-MTBS
+    status: SCREENING
+    note: Prior OA-FIA-MTBS-FIRE stays SHAPE_INTERESTING. Living FIADB is not a sealed I_t. Coordinates fuzzed. 2010 cutoff not authorized. PROMISING is not a seed.
+    qualifies: false
+    prior: OA-FIA-MTBS-FIRE
+  - id: MA-CEMS-EIA860
+    status: DISMISSED
+    note: Claimed N=1248 / 382 execution is not in the repo. RE is administrative, not dismantling. Electricity domain frozen. Researcher slope is not the raw state. CEMS is revised.
+    qualifies: false
+    prior: C-EIA-860
+  - id: MA-NBI-COMPLETION
+    status: DISMISSED_AS_NEXT
+    note: Construction completion is a better B than Year Reconstructed. Uniform historical B archive not shown. another_bridge_hunt refused. One bridge from the 2014 NBI is not authorized.
+    qualifies: false
 
 refuse:
   - qualifies_for_deeper_audit_as_live_status
@@ -79,6 +94,10 @@ refuse:
   - sdr_ntsb_as_experiment
   - crop_rma_as_seed
   - economic_bridge_as_reason_to_keep
+  - fia_mtbs_2010_cutoff_this_pass
+  - cems_eia860_as_executed_audit
+  - qualifies_for_vintage_audit_as_live
+  - one_bridge_from_2014_nbi_this_pass
   - reopen_e1i
   - download_vintage_this_pass
   - new_episode

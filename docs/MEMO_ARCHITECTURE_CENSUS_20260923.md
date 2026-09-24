@@ -74,3 +74,43 @@ No pair was reconstructed. No seed was admitted. `census_size_this_quarter` stay
 `stay_frozen`
 
 The only later test, if ever authorized, is one contemporaneous object under a hostile reading. Silent default = later. If that object cannot be produced, the output is `NO_RESULT`, not a repaired proxy.
+
+## Addendum — 2026-09-23 pass 2
+
+Three more Explorer notes. Same screening lock. No new qualifies. No experiment executed. `QUALIFIES_FOR_VINTAGE_AUDIT` is not a live status.
+
+| Source | Pair | Status it wanted | Status here |
+|---|---|---|---|
+| Note 1 | FIA plot visit → MTBS fire | `PROMISING_BUT_PROVENANCE_UNRESOLVED`; cutoff `t = 2010-12-31` | **Keep the prior shape.** Do not run the cutoff. |
+| Note 2 | EPA CEMS heat-rate slope → EIA-860 status `RE` | `QUALIFIES_FOR_VINTAGE_AUDIT`; claimed executed `N = 1248`, 382 matched | **Dismiss.** The execution is not in the repo. |
+| Note 3 | NBI condition → construction completion | `PROMISING_BUT_PROVENANCE_UNRESOLVED`; pick one 2014 bridge then search a DOT | **Dismiss as next.** Better B is not an authorization. |
+
+### Learn
+
+- FIA field visit vs MTBS perimeter is already `OA-FIA-MTBS-FIRE`: `SHAPE_INTERESTING`, `qualifies: false`, `independence_proven: false`, `collapse_if: fia_own_fire_indicator_used_as_event`. Public coordinates are fuzzed. A living FIADB is not the file that was public on 31 Dec 2010. Descriptive Gate A–D language is not a sealed pass. `PROMISING` is not `promising_without_ten_pass` lifted.
+- Construction completion, if it were a uniform as-issued project record, would be a better B than NBI Year Reconstructed or stock disappearance. That sentence does not show the archive.
+
+### Dismiss
+
+| Item | Why |
+|---|---|
+| `t = 2010-12-31` FIA universe this pass | Not authorized. No FIADB or MTBS download. |
+| Claimed CEMS → EIA-860 execution | Not in the repo. Do not treat `N = 1248` or a hash as a result. |
+| `QUALIFIES_FOR_VINTAGE_AUDIT` | Same overclaim class as qualifies-for-deeper-audit. Not live. |
+| Identity risk NONE / hindsight NONE | False. A 5-year researcher slope is not the raw stack reading. CEMS is revised. A 2005 crosswalk-as-published was not shown. |
+| Status `RE` as physical dismantling | Administrative ≠ physical. `ADMIN_NEQ_PHYSICAL` already covers this. |
+| Electricity domain | `C-EIA-860` is already `NO_RESULT` / `electricity_domain_frozen`. |
+| One bridge from the frozen 2014 NBI | `another_bridge_hunt` and `nbi_as_qualifies` stay refused. Famous CDOT examples stay out. B coverage is not a uniform historical vintage. |
+| Gate A–D “pass” as sealed | Gate I (vintage) is the mandatory unresolved gate on both FIA and the bridge pair. |
+
+```
+pass2: no_new_qualifies
+pair_reconstructed: false
+n_seeds: 0
+winner: none
+next_object: stay_frozen
+scientific_lock: c7f21fa
+```
+
+No download. No new Drive package. `e1i_vintages.ok` stays unwritten. Census size this quarter stays 0.
+

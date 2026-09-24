@@ -11,6 +11,10 @@
   "independence_i4_claimed_as_proven": false,
   "new_modes": ["F11_impact_informed_index", "administrative_event_is_not_physical_event"],
   "note3_pass_stamps": "dismissed",
+  "pass2": "no_new_qualifies",
+  "claimed_cems_execution": "not_in_repo",
+  "fia_2010_cutoff": "not_authorized",
+  "one_bridge_2014": "not_authorized",
   "next_object": "stay_frozen",
   "scientific_lock": "c7f21fa"
 }

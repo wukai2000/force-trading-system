@@ -117,6 +117,10 @@ refused:
   - sdr_ntsb_as_experiment
   - crop_rma_as_seed
   - economic_bridge_as_reason_to_keep
+  - fia_mtbs_2010_cutoff_this_pass
+  - cems_eia860_as_executed_audit
+  - qualifies_for_vintage_audit_as_live
+  - one_bridge_from_2014_nbi_this_pass
 
 
 
