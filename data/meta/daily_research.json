@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-26T14:56:41Z",
+  "as_of": "2026-09-27T15:35:05Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-20        NaN       NaN  ...                0      unknown\n2024-12-27  -0.022786  1.053791  ...                0      unknown\n2025-01-03   0.057208  1.151633  ...                0      unknown\n2025-01-10   0.042753  1.166739  ...                0      unknown\n2025-01-17  -0.036857  1.052811  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-28  -0.036784  0.544876  ...                0      unknown\n2026-09-04   0.038364  0.505123  ...                0      unknown\n2026-09-11   0.039818  0.552912  ...                0      unknown\n2026-09-18  -0.018912  0.630850  ...                0      unknown\n2026-09-25  -0.012253  0.534339  ...                0      unknown\n\n[93 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag  phase_label\n2024-12-20        NaN       NaN  ...                0      unknown\n2024-12-27  -0.022787  1.053793  ...                0      unknown\n2025-01-03   0.057208  1.151633  ...                0      unknown\n2025-01-10   0.042753  1.166738  ...                0      unknown\n2025-01-17  -0.036857  1.052808  ...                0      unknown\n...               ...       ...  ...              ...          ...\n2026-08-28  -0.036784  0.544876  ...                0      unknown\n2026-09-04   0.038364  0.505123  ...                0      unknown\n2026-09-11   0.039818  0.552912  ...                0      unknown\n2026-09-18  -0.018912  0.630850  ...                0      unknown\n2026-09-25  -0.012253  0.534339  ...                0      unknown\n\n[93 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -319,7 +319,7 @@
       "step": "fs0001_vault",
       "ok": true,
       "result": {
-        "as_of": "2026-09-26T14:56:40Z",
+        "as_of": "2026-09-27T15:35:04Z",
         "force_id": "FS-0001",
         "role": "historical_evidence_vault",
         "t5_ready": false,
