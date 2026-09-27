@@ -121,6 +121,13 @@ refused:
   - cems_eia860_as_executed_audit
   - qualifies_for_vintage_audit_as_live
   - one_bridge_from_2014_nbi_this_pass
+  - qualifies_for_e2_vintage_test_as_live
+  - nass_rma_2005_july_freeze_this_pass
+  - rma_universe_intersection_as_A
+  - msha_accident_cohort_this_pass
+  - cems_gads_as_executed_lock
+  - placeholder_hash_as_freeze
+  - protocol_e2_unlock_from_census
 
 
 

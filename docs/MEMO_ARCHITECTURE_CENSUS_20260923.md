@@ -114,3 +114,49 @@ scientific_lock: c7f21fa
 
 No download. No new Drive package. `e1i_vintages.ok` stays unwritten. Census size this quarter stays 0.
 
+## Addendum — 2026-09-26 pass 3
+
+Three notes used the word E2 for a measurement-architecture question. That word does not unlock protocol E2. `E2_blind_reconstruction` stays `LOCKED`. No FS-0002. `QUALIFIES_FOR_E2_VINTAGE_TEST` is not a live status.
+
+| Source | Pair | Status it wanted | Status here |
+|---|---|---|---|
+| Note 1 | NASS weekly condition → RMA cause-of-loss, corn, July 2005 | `QUALIFIES_FOR_E2_VINTAGE_TEST`; download and hash the issues | **Keep the hostile design as text.** Do not run it. Same row as `MA-CROP-RMA`, still screening. |
+| Note 2 | MSHA quarterly production/hours → later Part 50 accident | `PROMISING_BUT_PROVENANCE_UNRESOLVED`; next move is one mine vintage | **Screening.** Vintage unproven. Not STRONG. Cohort not authorized. |
+| Note 3 | EPA CEMS hourly stack → PJM/MISO GADS forced outage | `QUALIFIES_FOR_E2_VINTAGE_TEST`; “locked and approved”; printed SHA-256 | **Dismiss.** The lock is not in the repo. The hash is a placeholder. |
+
+### Learn
+
+- Condition → RMA is not the already-killed condition → harvest pair. Harvest is another question in the same Crop Progress survey. A claim file is a different trigger. That distinction was already why `MA-CROP-RMA` is screening rather than an independence fail.
+- Keep, as unexecuted rules: Monday issue bytes, not Quick Stats; Tuesday WWCB and next-week revisions are post-t if they post-date the cutoff; do not pick 2012 after seeing losses; USDM and WASDE are not A (F11); no county join when A is a state table; insured acres ≠ all acres is a failure condition, not a weight; if the July 2005 files cannot be produced, the output is `PROVENANCE_FAIL`, not a substitute A or B.
+- MSHA states the E1.I lesson correctly: a current raw file and a cleaned Master Index are not what an investigator could have written at t. Accident-chosen mines, survivor-only cohorts, and later ID repairs are leaks. “Historical record exists” is not a vintage.
+- Crop condition → harvest, storage → withdrawal, and simulated snowpack are correctly not rescued. EIA generator → outage is not the fallback. Electricity stays frozen.
+
+### Dismiss
+
+| Item | Why |
+|---|---|
+| `QUALIFIES_FOR_E2_VINTAGE_TEST` | Same overclaim class as vintage-audit and deeper-audit. The experiment was not frozen. |
+| July 2005 corn download this pass | `download_vintage_this_pass`. One example Cornell URL is not a sealed season. |
+| Intersection with “states present in the RMA corn universe” | Contradicts “A’s printed list only.” Opening B’s universe to drop states is selection. |
+| MSHA as the next authorized move | Not authorized. `promising_without_ten_pass`. Same agency is not STRONG and not I4. |
+| CEMS → GADS “locked and approved” | No frozen file, no public ledger. Electricity domain already frozen. CEMS is revised. |
+| Printed SHA-256 `c7f8a91b34e2…abcdef` | Placeholder, not a checksum of a file in this repo. Do not treat it as a freeze. |
+| “CLEARED” via the 2017 EIA-860 crosswalk | Reopens `C-EIA-860`. Not cleared. |
+| GADS as an immutable public vintage | Not shown. The same batch notes that GADS is often proprietary. |
+| Stack thermal-load ratio, 3-hour flow SD, k = 4 hours | Researcher transforms. Not the raw hour. k is chosen in a note that already describes July trips. |
+| Phase D distribution comparison | An outcome test. Not this pass. |
+| Protocol E2 unlock, FS-0002, a new Force | `E2_blind_reconstruction` stays `LOCKED`. Capital $0. |
+
+```
+pass3: no_new_qualifies
+protocol_e2: LOCKED
+pair_reconstructed: false
+n_seeds: 0
+winner: none
+next_object: stay_frozen
+scientific_lock: c7f21fa
+```
+
+No download. No 2005 lock file. No MSHA cohort. No CEMS freeze. `e1i_vintages.ok` stays unwritten. Census size this quarter stays 0.
+
+

@@ -15,6 +15,13 @@
   "claimed_cems_execution": "not_in_repo",
   "fia_2010_cutoff": "not_authorized",
   "one_bridge_2014": "not_authorized",
+  "pass3": "no_new_qualifies",
+  "protocol_e2": "LOCKED",
+  "qualifies_for_e2_vintage_test": "not_live",
+  "nass_rma_2005_july": "not_authorized",
+  "msha_accident_cohort": "not_authorized",
+  "claimed_cems_gads_lock": "not_in_repo",
+  "placeholder_hash": "not_a_checksum",
   "next_object": "stay_frozen",
   "scientific_lock": "c7f21fa"
 }

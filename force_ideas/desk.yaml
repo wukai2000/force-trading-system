@@ -68,6 +68,7 @@ se_ais_01: candidate_for_gatekeeper_not_freeze
 state_event_pair: screening_not_freeze
 ma_census_20260923: screening_not_audit
 ma_census_pass2: no_new_qualifies
+ma_census_pass3: no_new_qualifies
 qualifies_labels_live: false
 n_seeds: 0
 wpsr_cells:
@@ -127,5 +128,8 @@ note: >
   No pair reconstructed. Pass 2 does not qualify either:
   FIA→MTBS stays the prior shape; the CEMS→EIA-860 execution
   is not in the repo; bridge completion is not a next hunt.
-  n_seeds=0. e1i_vintages.ok refused.
+  Pass 3 does not qualify either, and does not unlock protocol E2:
+  crop condition to RMA stays screening; the 2005 July freeze is not
+  authorized; MSHA accident vintage is unproven; the CEMS to GADS
+  lock is not in the repo. n_seeds=0. e1i_vintages.ok refused.
   Do not score. Capital $0. Q4 stay frozen.

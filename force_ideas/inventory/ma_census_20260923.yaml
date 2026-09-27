@@ -25,6 +25,8 @@ not_verdict:
   - clean_NO_RESULT_on_the_class
   - QUALIFIES_FOR_DEEPER_AUDIT
   - QUALIFIES_FOR_VINTAGE_AUDIT
+  - QUALIFIES_FOR_E2_VINTAGE_TEST
+  - protocol_E2_unlocked
 
 independence_floor: I3_with_written_proof
 independence_i4_claimed_as_proven: false
@@ -40,7 +42,7 @@ new_modes:
 rows:
   - id: MA-CROP-RMA
     status: SCREENING
-    note: Monday Crop Progress PDF vs RMA month-of-loss. Not Quick Stats. Not a seed.
+    note: Monday Crop Progress PDF vs RMA month-of-loss. Not Quick Stats. Not a seed. 2005 July corn freeze not authorized. RMA-universe intersection is a leak. Insured-acres gap stands. QUALIFIES_FOR_E2_VINTAGE_TEST is not live.
     qualifies: false
   - id: MA-SAT-CROP
     status: SCREENING
@@ -85,6 +87,15 @@ rows:
     status: DISMISSED_AS_NEXT
     note: Construction completion is a better B than Year Reconstructed. Uniform historical B archive not shown. another_bridge_hunt refused. One bridge from the 2014 NBI is not authorized.
     qualifies: false
+  - id: MA-MSHA-ACCIDENT
+    status: SCREENING
+    note: Quarterly production or hours vs a later Part 50 accident. Different form, same agency. Not STRONG. Current files and a cleaned Master Index are not as-of-t. Vintage unproven. Cohort not authorized.
+    qualifies: false
+  - id: MA-CEMS-GADS
+    status: DISMISSED
+    note: Claimed E2 lock is not in the repo. Placeholder hash is not a checksum. Electricity domain frozen. CEMS is revised. Public GADS vintage not shown. Researcher ratio and rolling SD are not the raw hour. 2017 EIA-860 crosswalk is not cleared.
+    qualifies: false
+    prior: C-EIA-860
 
 refuse:
   - qualifies_for_deeper_audit_as_live_status
@@ -98,6 +109,13 @@ refuse:
   - cems_eia860_as_executed_audit
   - qualifies_for_vintage_audit_as_live
   - one_bridge_from_2014_nbi_this_pass
+  - qualifies_for_e2_vintage_test_as_live
+  - nass_rma_2005_july_freeze_this_pass
+  - rma_universe_intersection_as_A
+  - msha_accident_cohort_this_pass
+  - cems_gads_as_executed_lock
+  - placeholder_hash_as_freeze
+  - protocol_e2_unlock_from_census
   - reopen_e1i
   - download_vintage_this_pass
   - new_episode
