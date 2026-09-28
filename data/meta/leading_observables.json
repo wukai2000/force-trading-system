@@ -11,11 +11,11 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": -0.3624,
-      "opposition": 0.3624,
+      "z": 0.4022,
+      "opposition": -0.4022,
       "veto_flag": false,
-      "last_date": "2026-09-24",
-      "n": 787,
+      "last_date": "2026-09-25",
+      "n": 785,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -261,11 +261,11 @@
     },
     {
       "id": "sofr",
-      "z": 0.6873,
+      "z": 0.7987,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-24",
-      "n": 2118,
+      "last_date": "2026-09-25",
+      "n": 2119,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -281,11 +281,11 @@
     },
     {
       "id": "rrp",
-      "z": -0.4204,
+      "z": -0.3888,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-25",
-      "n": 3334,
+      "last_date": "2026-09-28",
+      "n": 3335,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -345,8 +345,8 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 787,
-      "last": "2026-09-24"
+      "rows": 785,
+      "last": "2026-09-25"
     },
     "NFCI": {
       "ok": true,
@@ -399,8 +399,8 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2118,
-      "last": "2026-09-24"
+      "rows": 2119,
+      "last": "2026-09-25"
     },
     "DFF": {
       "ok": true,
@@ -411,8 +411,8 @@
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3334,
-      "last": "2026-09-25"
+      "rows": 3335,
+      "last": "2026-09-28"
     }
   }
 }
