@@ -11,10 +11,10 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 0.4022,
-      "opposition": -0.4022,
+      "z": 0.9378,
+      "opposition": -0.9378,
       "veto_flag": false,
-      "last_date": "2026-09-25",
+      "last_date": "2026-09-28",
       "n": 785,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
@@ -31,31 +31,31 @@
     },
     {
       "id": "baa10y",
-      "z": -2.8813,
-      "opposition": 2.8813,
+      "z": -2.1076,
+      "opposition": 2.1076,
       "veto_flag": false,
-      "last_date": "2026-09-24",
-      "n": 10183,
+      "last_date": "2026-09-25",
+      "n": 10184,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 3.1652,
-      "opposition": 3.1652,
+      "z": 3.0215,
+      "opposition": 3.0215,
       "veto_flag": false,
-      "last_date": "2026-09-24",
-      "n": 5937,
+      "last_date": "2026-09-25",
+      "n": 5938,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.3262,
+      "z": -1.6577,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-25",
-      "n": 12577,
+      "last_date": "2026-09-28",
+      "n": 12578,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -261,21 +261,21 @@
     },
     {
       "id": "sofr",
-      "z": 0.7987,
+      "z": 0.808,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-25",
-      "n": 2119,
+      "last_date": "2026-09-28",
+      "n": 2120,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": 5.4435,
+      "z": 5.1286,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-09-24",
-      "n": 26384,
+      "last_date": "2026-09-25",
+      "n": 26385,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
@@ -327,26 +327,26 @@
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12577,
-      "last": "2026-09-25"
+      "rows": 12578,
+      "last": "2026-09-28"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5937,
-      "last": "2026-09-24"
+      "rows": 5938,
+      "last": "2026-09-25"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10183,
-      "last": "2026-09-24"
+      "rows": 10184,
+      "last": "2026-09-25"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
       "rows": 785,
-      "last": "2026-09-25"
+      "last": "2026-09-28"
     },
     "NFCI": {
       "ok": true,
@@ -399,14 +399,14 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2119,
-      "last": "2026-09-25"
+      "rows": 2120,
+      "last": "2026-09-28"
     },
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26384,
-      "last": "2026-09-24"
+      "rows": 26385,
+      "last": "2026-09-25"
     },
     "RRPONTSYD": {
       "ok": true,
