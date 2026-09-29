@@ -128,6 +128,11 @@ refused:
   - cems_gads_as_executed_lock
   - placeholder_hash_as_freeze
   - protocol_e2_unlock_from_census
+  - harden_census_pair_this_pass
+  - nested_system_posture
+  - sync_notion_snapshots_job
+  - drive_repackage_this_pass
+  - experimental_limit_on_desk
 
 
 

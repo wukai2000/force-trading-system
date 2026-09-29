@@ -94,3 +94,13 @@ That is not the same sentence as “no observable implementation.”
 `stay_frozen`
 
 Silent default = later. Q4 stay frozen. n_seeds=0. Capital $0.
+
+## Q4 confirmation — 2026-09-29
+
+Control assertion only. Not a new result.
+
+The five unrecoverable NC cutoffs remain `2011-01-05`, `2011-02-02`, `2011-03-02`, `2011-05-25`, `2011-06-22`. Do not reopen them. A missing issue stays `INCOMPLETE`, not `U`. `e1i_vintages.ok` stays unwritten. Do not score 15 of 20. Do not score 2014-only.
+
+`PARTIAL_PROVENANCE_OPEN` is not a license to harden NASS→RMA, MSHA hours→accident, CEMS→GADS, or FIA→MTBS into one contemporaneous pair. Protocol `E2_blind_reconstruction` stays `LOCKED`. No FS-0002.
+
+Refused this session: Path D, Wave 1, HOU-1, Force 4 scan, capital. No nested `system_posture`. No experimental dollar limit on the desk. No Trump Account field. No snapshot sync job. No new Drive package. Household A/B/C stays open.

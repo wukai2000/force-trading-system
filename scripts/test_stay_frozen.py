@@ -15,6 +15,18 @@ import yaml
 
 DESK = yaml.safe_load((ROOT / "force_ideas" / "desk.yaml").read_text())
 MISSION = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "explorer_mission.yaml").read_text())
+SCOPE = (ROOT / "docs" / "E1I_FAIL_SCOPE.md").read_text()
+FIVE_DOC = (ROOT / "docs" / "EP_NC_2011_FIVE.md").read_text()
+LAB = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "force_lab.yaml").read_text())
+CENSUS = yaml.safe_load((ROOT / "force_ideas" / "inventory" / "ma_census_20260923.yaml").read_text())
+
+FIVE = (
+    "2011-01-05",
+    "2011-02-02",
+    "2011-03-02",
+    "2011-05-25",
+    "2011-06-22",
+)
 
 SCIENTIFIC_LOCK = "c7f21fa"
 
@@ -72,13 +84,41 @@ def main() -> None:
     assert "freeze_policy" not in DESK
     assert "household_default" not in DESK
     assert "option_a" not in DESK
+    assert "system_posture" not in DESK
+    assert "trump_account" not in DESK
+    assert "experimental_limit_usd" not in DESK
+    assert DESK["q4_idle_20260929"] == "assert_freeze_not_harden"
+    assert DESK["ma_census_pass3"] == "no_new_qualifies"
     if "scientific_lock" in DESK:
         assert DESK["scientific_lock"] == SCIENTIFIC_LOCK
+    for day in FIVE:
+        assert day in SCOPE
+        assert day in FIVE_DOC
+    assert "INCOMPLETE" in SCOPE
+    assert "not `U`" in SCOPE
+    assert "e1i_vintages.ok" in SCOPE
+    assert "Path D" in SCOPE
+    assert "stay_frozen" in SCOPE
+    assert "PARTIAL_PROVENANCE_OPEN" in SCOPE
+    assert "E2_blind_reconstruction" in SCOPE
+    assert "MISSING" in FIVE_DOC or "Missing issue remains `INCOMPLETE`" in FIVE_DOC
+    assert LAB["experiments"]["E2_blind_reconstruction"]["status"] == "LOCKED"
+    assert CENSUS["verdict"] == "PARTIAL_PROVENANCE_OPEN"
+    assert CENSUS["qualifies_live"] is False
+    assert CENSUS["pair_reconstructed"] is False
+    assert CENSUS["next_object"] == "stay_frozen"
     assert (ROOT / "docs" / "FREEZE_PERMITS.md").exists() is False
+    assert (ROOT / "scripts" / "sync_notion_snapshots.py").exists() is False
     assert (ROOT / "data" / "lab" / "crude" / "e1i_vintages.ok").exists() is False
     assert MISSION["census_size_this_quarter"] == 0
     assert MISSION["seed_finder_this_quarter"] is False
     assert "se_ais_01_freeze_this_pass" in MISSION["refused"]
+    assert "harden_census_pair_this_pass" in MISSION["refused"]
+    assert "nested_system_posture" in MISSION["refused"]
+    assert "sync_notion_snapshots_job" in MISSION["refused"]
+    assert "drive_repackage_this_pass" in MISSION["refused"]
+    assert "experimental_limit_on_desk" in MISSION["refused"]
+    assert "protocol_e2_unlock_from_census" in MISSION["refused"]
     print("test_stay_frozen PASS")
 
 

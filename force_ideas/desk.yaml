@@ -69,6 +69,7 @@ state_event_pair: screening_not_freeze
 ma_census_20260923: screening_not_audit
 ma_census_pass2: no_new_qualifies
 ma_census_pass3: no_new_qualifies
+q4_idle_20260929: assert_freeze_not_harden
 qualifies_labels_live: false
 n_seeds: 0
 wpsr_cells:
@@ -132,4 +133,7 @@ note: >
   crop condition to RMA stays screening; the 2005 July freeze is not
   authorized; MSHA accident vintage is unproven; the CEMS to GADS
   lock is not in the repo. n_seeds=0. e1i_vintages.ok refused.
+  2026-09-29: assert the freeze, do not harden a pair. The five
+  NC cutoffs stay sealed. Path D, Wave 1, HOU-1, Force 4, and
+  capital stay refused. Protocol E2 stays locked.
   Do not score. Capital $0. Q4 stay frozen.
