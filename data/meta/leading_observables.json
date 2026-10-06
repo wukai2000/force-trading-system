@@ -7,17 +7,15 @@
   "n_wired_cache": 15,
   "n_refused": 10,
   "n_unwired": 5,
-  "veto_ids": [
-    "hy_oas"
-  ],
+  "veto_ids": [],
   "readings": [
     {
       "id": "hy_oas",
-      "z": 2.2012,
-      "opposition": -2.2012,
-      "veto_flag": true,
-      "last_date": "2026-10-01",
-      "n": 786,
+      "z": 1.4904,
+      "opposition": -1.4904,
+      "veto_flag": false,
+      "last_date": "2026-10-05",
+      "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -33,31 +31,31 @@
     },
     {
       "id": "baa10y",
-      "z": -1.7045,
-      "opposition": 1.7045,
+      "z": -1.889,
+      "opposition": 1.889,
       "veto_flag": false,
-      "last_date": "2026-10-01",
-      "n": 10188,
+      "last_date": "2026-10-02",
+      "n": 10189,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 2.9263,
-      "opposition": 2.9263,
+      "z": 3.003,
+      "opposition": 3.003,
       "veto_flag": false,
-      "last_date": "2026-10-01",
-      "n": 5942,
+      "last_date": "2026-10-02",
+      "n": 5943,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -0.5109,
+      "z": -0.3349,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-02",
-      "n": 12582,
+      "last_date": "2026-10-05",
+      "n": 12583,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -263,31 +261,31 @@
     },
     {
       "id": "sofr",
-      "z": 0.6877,
+      "z": 0.8218,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-01",
-      "n": 2123,
+      "last_date": "2026-10-05",
+      "n": 2125,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": 3.9406,
+      "z": 3.809,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-01",
-      "n": 26391,
+      "last_date": "2026-10-02",
+      "n": 26392,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.3072,
+      "z": -0.3586,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-02",
-      "n": 3339,
+      "last_date": "2026-10-05",
+      "n": 3340,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -317,38 +315,38 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9286,
-      "last": "2026-10-01"
+      "rows": 9288,
+      "last": "2026-10-05"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4736,
-      "last": "2026-10-01"
+      "rows": 4738,
+      "last": "2026-10-05"
     },
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12582,
-      "last": "2026-10-02"
+      "rows": 12583,
+      "last": "2026-10-05"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5942,
-      "last": "2026-10-01"
+      "rows": 5943,
+      "last": "2026-10-02"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10188,
-      "last": "2026-10-01"
+      "rows": 10189,
+      "last": "2026-10-02"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 786,
-      "last": "2026-10-01"
+      "rows": 784,
+      "last": "2026-10-05"
     },
     "NFCI": {
       "ok": true,
@@ -401,20 +399,20 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2123,
-      "last": "2026-10-01"
+      "rows": 2125,
+      "last": "2026-10-05"
     },
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26391,
-      "last": "2026-10-01"
+      "rows": 26392,
+      "last": "2026-10-02"
     },
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3339,
-      "last": "2026-10-02"
+      "rows": 3340,
+      "last": "2026-10-05"
     }
   }
 }
