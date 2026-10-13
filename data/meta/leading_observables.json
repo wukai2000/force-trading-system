@@ -7,17 +7,15 @@
   "n_wired_cache": 15,
   "n_refused": 10,
   "n_unwired": 5,
-  "veto_ids": [
-    "hy_oas"
-  ],
+  "veto_ids": [],
   "readings": [
     {
       "id": "hy_oas",
-      "z": 1.6437,
-      "opposition": -1.6437,
-      "veto_flag": true,
-      "last_date": "2026-10-08",
-      "n": 786,
+      "z": 1.3909,
+      "opposition": -1.3909,
+      "veto_flag": false,
+      "last_date": "2026-10-12",
+      "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -63,11 +61,11 @@
     },
     {
       "id": "cass_freight",
-      "z": -0.1551,
-      "opposition": -0.1551,
+      "z": 0.3232,
+      "opposition": 0.3232,
       "veto_flag": false,
-      "last_date": "2026-08-01",
-      "n": 128,
+      "last_date": "2026-09-01",
+      "n": 129,
       "status": "wired",
       "note": "Cass Freight Index shipments. Collapse vetoes; does not promote."
     },
@@ -263,11 +261,11 @@
     },
     {
       "id": "sofr",
-      "z": 0.7593,
+      "z": 0.7728,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-08",
-      "n": 2128,
+      "last_date": "2026-10-09",
+      "n": 2129,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -283,11 +281,11 @@
     },
     {
       "id": "rrp",
-      "z": -0.4204,
+      "z": -0.4212,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-09",
-      "n": 3344,
+      "last_date": "2026-10-13",
+      "n": 3345,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -317,14 +315,14 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9292,
-      "last": "2026-10-09"
+      "rows": 9293,
+      "last": "2026-10-12"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4742,
-      "last": "2026-10-09"
+      "rows": 4743,
+      "last": "2026-10-12"
     },
     "T10Y2Y": {
       "ok": true,
@@ -347,8 +345,8 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 786,
-      "last": "2026-10-08"
+      "rows": 784,
+      "last": "2026-10-12"
     },
     "NFCI": {
       "ok": true,
@@ -359,8 +357,8 @@
     "FRGSHPUSM649NCIS": {
       "ok": true,
       "short": "cass_freight",
-      "rows": 128,
-      "last": "2026-08-01"
+      "rows": 129,
+      "last": "2026-09-01"
     },
     "RAILFRTCARLOADSD11": {
       "ok": true,
@@ -401,8 +399,8 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2128,
-      "last": "2026-10-08"
+      "rows": 2129,
+      "last": "2026-10-09"
     },
     "DFF": {
       "ok": true,
@@ -413,8 +411,8 @@
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3344,
-      "last": "2026-10-09"
+      "rows": 3345,
+      "last": "2026-10-13"
     }
   }
 }
