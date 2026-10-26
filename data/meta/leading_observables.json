@@ -13,11 +13,11 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 2.7865,
-      "opposition": -2.7865,
+      "z": 2.6487,
+      "opposition": -2.6487,
       "veto_flag": true,
-      "last_date": "2026-10-22",
-      "n": 786,
+      "last_date": "2026-10-23",
+      "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -263,11 +263,11 @@
     },
     {
       "id": "sofr",
-      "z": 1.1059,
+      "z": 1.251,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-22",
-      "n": 2137,
+      "last_date": "2026-10-23",
+      "n": 2138,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -317,14 +317,14 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9301,
-      "last": "2026-10-22"
+      "rows": 9302,
+      "last": "2026-10-23"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4751,
-      "last": "2026-10-22"
+      "rows": 4752,
+      "last": "2026-10-23"
     },
     "T10Y2Y": {
       "ok": true,
@@ -347,8 +347,8 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 786,
-      "last": "2026-10-22"
+      "rows": 784,
+      "last": "2026-10-23"
     },
     "NFCI": {
       "ok": true,
@@ -401,8 +401,8 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2137,
-      "last": "2026-10-22"
+      "rows": 2138,
+      "last": "2026-10-23"
     },
     "DFF": {
       "ok": true,

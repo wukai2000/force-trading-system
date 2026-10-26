@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-25T14:55:25Z",
+  "as_of": "2026-10-26T17:11:53Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -15,103 +15,103 @@
         "prices": {
           "VST": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "ETN": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "PWR": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "CEG": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "XLU": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "QQQ": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "XLE": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "SPY": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "VOO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "MAGS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "SMH": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "SPMO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "DRAM": {
             "ok": true,
-            "rows": 142,
-            "last": "2026-10-23"
+            "rows": 143,
+            "last": "2026-10-26"
           },
           "IHF": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "IHI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "XHS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "XLV": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "XBI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "IBB": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           },
           "TLT": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-10-23"
+            "rows": 500,
+            "last": "2026-10-26"
           }
         },
         "macro": {
@@ -144,14 +144,14 @@
           "VIXCLS": {
             "ok": true,
             "short": "vix_cls",
-            "rows": 9301,
-            "last": "2026-10-22"
+            "rows": 9302,
+            "last": "2026-10-23"
           },
           "VXVCLS": {
             "ok": true,
             "short": "vxv_cls",
-            "rows": 4751,
-            "last": "2026-10-22"
+            "rows": 4752,
+            "last": "2026-10-23"
           },
           "T10Y2Y": {
             "ok": true,
@@ -174,8 +174,8 @@
           "BAMLH0A0HYM2": {
             "ok": true,
             "short": "hy_oas",
-            "rows": 786,
-            "last": "2026-10-22"
+            "rows": 784,
+            "last": "2026-10-23"
           },
           "NFCI": {
             "ok": true,
@@ -228,8 +228,8 @@
           "SOFR": {
             "ok": true,
             "short": "sofr",
-            "rows": 2137,
-            "last": "2026-10-22"
+            "rows": 2138,
+            "last": "2026-10-23"
           },
           "DFF": {
             "ok": true,
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-01-24  -0.004195  1.044634  ...                0     unknown\n2025-01-31  -0.076645  1.500971  ...                0     unknown\n2025-02-07  -0.018763  1.564708  ...                0     unknown\n2025-02-14  -0.091437  1.533360  ...                0     unknown\n2025-02-21  -0.056302  1.462936  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-09-25  -0.012253  0.534339  ...                0     unknown\n2026-10-02   0.001984  0.699293  ...                0     unknown\n2026-10-09   0.029264  0.912584  ...                0     unknown\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n\n[92 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-01-31   0.078916  1.500967  ...                0     unknown\n2025-02-07  -0.018763  1.564708  ...                0     unknown\n2025-02-14  -0.091437  1.533359  ...                0     unknown\n2025-02-21  -0.056302  1.462934  ...                0     unknown\n2025-02-28   0.018819  1.419527  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-10-02   0.001984  0.699293  ...                0     unknown\n2026-10-09   0.029264  0.912584  ...                0     unknown\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n2026-10-30   0.009713  0.695438  ...                0     unknown\n\n[92 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -319,7 +319,7 @@
       "step": "fs0001_vault",
       "ok": true,
       "result": {
-        "as_of": "2026-10-25T14:55:24Z",
+        "as_of": "2026-10-26T17:11:52Z",
         "force_id": "FS-0001",
         "role": "historical_evidence_vault",
         "t5_ready": false,
