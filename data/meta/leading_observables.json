@@ -13,10 +13,10 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 2.6487,
-      "opposition": -2.6487,
+      "z": 2.2023,
+      "opposition": -2.2023,
       "veto_flag": true,
-      "last_date": "2026-10-23",
+      "last_date": "2026-10-26",
       "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
@@ -33,31 +33,31 @@
     },
     {
       "id": "baa10y",
-      "z": -1.7097,
-      "opposition": 1.7097,
+      "z": -1.601,
+      "opposition": 1.601,
       "veto_flag": false,
-      "last_date": "2026-10-22",
-      "n": 10202,
+      "last_date": "2026-10-23",
+      "n": 10203,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 1.6127,
-      "opposition": 1.6127,
+      "z": 1.6595,
+      "opposition": 1.6595,
       "veto_flag": false,
-      "last_date": "2026-10-22",
-      "n": 5956,
+      "last_date": "2026-10-23",
+      "n": 5957,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.5943,
+      "z": -1.4972,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-23",
-      "n": 12596,
+      "last_date": "2026-10-26",
+      "n": 12597,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -263,31 +263,31 @@
     },
     {
       "id": "sofr",
-      "z": 1.251,
+      "z": 1.3445,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-23",
-      "n": 2138,
+      "last_date": "2026-10-26",
+      "n": 2139,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": 2.4379,
+      "z": 2.3994,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-22",
-      "n": 26412,
+      "last_date": "2026-10-23",
+      "n": 26413,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.4118,
+      "z": -0.4096,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-23",
-      "n": 3353,
+      "last_date": "2026-10-26",
+      "n": 3354,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -317,38 +317,38 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9302,
-      "last": "2026-10-23"
+      "rows": 9303,
+      "last": "2026-10-26"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4752,
-      "last": "2026-10-23"
+      "rows": 4753,
+      "last": "2026-10-26"
     },
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12596,
-      "last": "2026-10-23"
+      "rows": 12597,
+      "last": "2026-10-26"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5956,
-      "last": "2026-10-22"
+      "rows": 5957,
+      "last": "2026-10-23"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10202,
-      "last": "2026-10-22"
+      "rows": 10203,
+      "last": "2026-10-23"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
       "rows": 784,
-      "last": "2026-10-23"
+      "last": "2026-10-26"
     },
     "NFCI": {
       "ok": true,
@@ -401,20 +401,20 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2138,
-      "last": "2026-10-23"
+      "rows": 2139,
+      "last": "2026-10-26"
     },
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26412,
-      "last": "2026-10-22"
+      "rows": 26413,
+      "last": "2026-10-23"
     },
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3353,
-      "last": "2026-10-23"
+      "rows": 3354,
+      "last": "2026-10-26"
     }
   }
 }
