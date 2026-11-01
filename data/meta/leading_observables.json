@@ -73,11 +73,11 @@
     },
     {
       "id": "rail_carloads",
-      "z": 1.2868,
-      "opposition": 1.2868,
+      "z": 1.1239,
+      "opposition": 1.1239,
       "veto_flag": false,
-      "last_date": "2026-07-01",
-      "n": 319,
+      "last_date": "2026-08-01",
+      "n": 320,
       "status": "wired",
       "note": "Rail freight carloads."
     },
@@ -365,8 +365,8 @@
     "RAILFRTCARLOADSD11": {
       "ok": true,
       "short": "rail_carloads",
-      "rows": 319,
-      "last": "2026-07-01"
+      "rows": 320,
+      "last": "2026-08-01"
     },
     "IPG2211A2N": {
       "ok": true,

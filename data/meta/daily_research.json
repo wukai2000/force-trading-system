@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-31T16:00:00Z",
+  "as_of": "2026-11-01T17:03:54Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -192,8 +192,8 @@
           "RAILFRTCARLOADSD11": {
             "ok": true,
             "short": "rail_carloads",
-            "rows": 319,
-            "last": "2026-07-01"
+            "rows": 320,
+            "last": "2026-08-01"
           },
           "IPG2211A2N": {
             "ok": true,
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-01-31  -0.007157  1.500973  ...                0     unknown\n2025-02-07  -0.018763  1.564713  ...                0     unknown\n2025-02-14  -0.091437  1.533366  ...                0     unknown\n2025-02-21  -0.056302  1.462942  ...                0     unknown\n2025-02-28   0.018820  1.419535  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-10-02   0.001984  0.699293  ...                0     unknown\n2026-10-09   0.029264  0.912584  ...                0     unknown\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n2026-10-30   0.066541  0.760194  ...                0     unknown\n\n[92 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-01-31  -0.007157  1.500973  ...                0     unknown\n2025-02-07  -0.018763  1.564712  ...                0     unknown\n2025-02-14  -0.091438  1.533363  ...                0     unknown\n2025-02-21  -0.056302  1.462939  ...                0     unknown\n2025-02-28   0.018819  1.419533  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-10-02   0.001984  0.699293  ...                0     unknown\n2026-10-09   0.029264  0.912584  ...                0     unknown\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n2026-10-30   0.066541  0.760194  ...                0     unknown\n\n[92 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -319,7 +319,7 @@
       "step": "fs0001_vault",
       "ok": true,
       "result": {
-        "as_of": "2026-10-31T15:59:59Z",
+        "as_of": "2026-11-01T17:03:54Z",
         "force_id": "FS-0001",
         "role": "historical_evidence_vault",
         "t5_ready": false,
