@@ -13,11 +13,11 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 1.9609,
-      "opposition": -1.9609,
+      "z": 2.8408,
+      "opposition": -2.8408,
       "veto_flag": true,
-      "last_date": "2026-10-29",
-      "n": 786,
+      "last_date": "2026-10-30",
+      "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -253,21 +253,21 @@
     },
     {
       "id": "sloos_tighten",
-      "z": -1.0916,
-      "opposition": 1.0916,
+      "z": -0.8789,
+      "opposition": 0.8789,
       "veto_flag": false,
-      "last_date": "2026-07-01",
-      "n": 146,
+      "last_date": "2026-10-01",
+      "n": 147,
       "status": "wired",
       "note": "SLOOS C&I tightening, large firms. Quarterly. High = credit crunch."
     },
     {
       "id": "sofr",
-      "z": 1.5107,
+      "z": 1.6247,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-29",
-      "n": 2142,
+      "last_date": "2026-10-30",
+      "n": 2143,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -283,11 +283,11 @@
     },
     {
       "id": "rrp",
-      "z": 0.0915,
+      "z": 0.1802,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-10-30",
-      "n": 3358,
+      "last_date": "2026-11-02",
+      "n": 3359,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -317,14 +317,14 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9306,
-      "last": "2026-10-29"
+      "rows": 9307,
+      "last": "2026-10-30"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4756,
-      "last": "2026-10-29"
+      "rows": 4757,
+      "last": "2026-10-30"
     },
     "T10Y2Y": {
       "ok": true,
@@ -347,8 +347,8 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 786,
-      "last": "2026-10-29"
+      "rows": 784,
+      "last": "2026-10-30"
     },
     "NFCI": {
       "ok": true,
@@ -395,14 +395,14 @@
     "DRTSCILM": {
       "ok": true,
       "short": "sloos_tighten",
-      "rows": 146,
-      "last": "2026-07-01"
+      "rows": 147,
+      "last": "2026-10-01"
     },
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2142,
-      "last": "2026-10-29"
+      "rows": 2143,
+      "last": "2026-10-30"
     },
     "DFF": {
       "ok": true,
@@ -413,8 +413,8 @@
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3358,
-      "last": "2026-10-30"
+      "rows": 3359,
+      "last": "2026-11-02"
     }
   }
 }
