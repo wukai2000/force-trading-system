@@ -14,11 +14,11 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 2.9092,
-      "opposition": -2.9092,
+      "z": 2.5875,
+      "opposition": -2.5875,
       "veto_flag": true,
-      "last_date": "2026-11-05",
-      "n": 786,
+      "last_date": "2026-11-06",
+      "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
     },
@@ -44,11 +44,11 @@
     },
     {
       "id": "dfii10",
-      "z": 1.3545,
-      "opposition": 1.3545,
+      "z": 1.4334,
+      "opposition": 1.4334,
       "veto_flag": false,
-      "last_date": "2026-11-05",
-      "n": 5966,
+      "last_date": "2026-11-06",
+      "n": 5967,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
@@ -264,11 +264,11 @@
     },
     {
       "id": "sofr",
-      "z": 1.5736,
+      "z": 1.3773,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-05",
-      "n": 2147,
+      "last_date": "2026-11-06",
+      "n": 2148,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
@@ -284,11 +284,11 @@
     },
     {
       "id": "rrp",
-      "z": -0.3875,
+      "z": -0.3678,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-06",
-      "n": 3363,
+      "last_date": "2026-11-09",
+      "n": 3364,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -318,14 +318,14 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9311,
-      "last": "2026-11-05"
+      "rows": 9312,
+      "last": "2026-11-06"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4761,
-      "last": "2026-11-05"
+      "rows": 4762,
+      "last": "2026-11-06"
     },
     "T10Y2Y": {
       "ok": true,
@@ -336,8 +336,8 @@
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5966,
-      "last": "2026-11-05"
+      "rows": 5967,
+      "last": "2026-11-06"
     },
     "BAA10Y": {
       "ok": true,
@@ -348,8 +348,8 @@
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
-      "rows": 786,
-      "last": "2026-11-05"
+      "rows": 784,
+      "last": "2026-11-06"
     },
     "NFCI": {
       "ok": true,
@@ -402,8 +402,8 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2147,
-      "last": "2026-11-05"
+      "rows": 2148,
+      "last": "2026-11-06"
     },
     "DFF": {
       "ok": true,
@@ -414,8 +414,8 @@
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3363,
-      "last": "2026-11-06"
+      "rows": 3364,
+      "last": "2026-11-09"
     }
   }
 }
