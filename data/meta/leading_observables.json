@@ -14,10 +14,10 @@
   "readings": [
     {
       "id": "hy_oas",
-      "z": 2.5875,
-      "opposition": -2.5875,
+      "z": 2.1822,
+      "opposition": -2.1822,
       "veto_flag": true,
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "n": 784,
       "status": "wired",
       "note": "ICE BofA HY OAS. High = credit stress. Already L2 extra-neutralize."
@@ -34,11 +34,11 @@
     },
     {
       "id": "baa10y",
-      "z": -0.6057,
-      "opposition": 0.6057,
+      "z": -0.69,
+      "opposition": 0.69,
       "veto_flag": false,
-      "last_date": "2026-11-05",
-      "n": 10212,
+      "last_date": "2026-11-06",
+      "n": 10213,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
@@ -54,11 +54,11 @@
     },
     {
       "id": "t10y2y",
-      "z": -1.1639,
+      "z": -1.3954,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-06",
-      "n": 12606,
+      "last_date": "2026-11-09",
+      "n": 12607,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -264,21 +264,21 @@
     },
     {
       "id": "sofr",
-      "z": 1.3773,
+      "z": 1.3128,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-06",
-      "n": 2148,
+      "last_date": "2026-11-09",
+      "n": 2149,
       "status": "wired",
       "note": "SOFR level is not a Force. Spread vs EFFR is the friction."
     },
     {
       "id": "fedfunds",
-      "z": 2.0021,
+      "z": 1.9776,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-05",
-      "n": 26426,
+      "last_date": "2026-11-06",
+      "n": 26427,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
@@ -318,20 +318,20 @@
     "VIXCLS": {
       "ok": true,
       "short": "vix_cls",
-      "rows": 9312,
-      "last": "2026-11-06"
+      "rows": 9313,
+      "last": "2026-11-09"
     },
     "VXVCLS": {
       "ok": true,
       "short": "vxv_cls",
-      "rows": 4762,
-      "last": "2026-11-06"
+      "rows": 4763,
+      "last": "2026-11-09"
     },
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12606,
-      "last": "2026-11-06"
+      "rows": 12607,
+      "last": "2026-11-09"
     },
     "DFII10": {
       "ok": true,
@@ -342,14 +342,14 @@
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10212,
-      "last": "2026-11-05"
+      "rows": 10213,
+      "last": "2026-11-06"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
       "short": "hy_oas",
       "rows": 784,
-      "last": "2026-11-06"
+      "last": "2026-11-09"
     },
     "NFCI": {
       "ok": true,
@@ -402,14 +402,14 @@
     "SOFR": {
       "ok": true,
       "short": "sofr",
-      "rows": 2148,
-      "last": "2026-11-06"
+      "rows": 2149,
+      "last": "2026-11-09"
     },
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26426,
-      "last": "2026-11-05"
+      "rows": 26427,
+      "last": "2026-11-06"
     },
     "RRPONTSYD": {
       "ok": true,
