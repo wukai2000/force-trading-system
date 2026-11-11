@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-10T18:32:35Z",
+  "as_of": "2026-11-11T18:29:42Z",
   "protocol_id": "FORCE_PROTOCOL_v1.0",
   "cannot_promote": true,
   "promotion": "NOT_PERMITTED",
@@ -15,103 +15,103 @@
         "prices": {
           "VST": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "ETN": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "PWR": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "CEG": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "XLU": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "QQQ": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "XLE": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "SPY": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "VOO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "MAGS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "SMH": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "SPMO": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "DRAM": {
             "ok": true,
-            "rows": 154,
-            "last": "2026-11-10"
+            "rows": 155,
+            "last": "2026-11-11"
           },
           "IHF": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "IHI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "XHS": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "XLV": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "XBI": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "IBB": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           },
           "TLT": {
             "ok": true,
-            "rows": 501,
-            "last": "2026-11-10"
+            "rows": 502,
+            "last": "2026-11-11"
           }
         },
         "macro": {
@@ -124,14 +124,14 @@
           "DGS10": {
             "ok": true,
             "short": "us_10y",
-            "rows": 16198,
-            "last": "2026-11-06"
+            "rows": 16199,
+            "last": "2026-11-09"
           },
           "DGS2": {
             "ok": true,
             "short": "us_2y",
-            "rows": 12606,
-            "last": "2026-11-06"
+            "rows": 12607,
+            "last": "2026-11-09"
           },
           "FYONET": {
             "ok": true,
@@ -144,32 +144,32 @@
           "VIXCLS": {
             "ok": true,
             "short": "vix_cls",
-            "rows": 9313,
-            "last": "2026-11-09"
+            "rows": 9314,
+            "last": "2026-11-10"
           },
           "VXVCLS": {
             "ok": true,
             "short": "vxv_cls",
-            "rows": 4763,
-            "last": "2026-11-09"
+            "rows": 4764,
+            "last": "2026-11-10"
           },
           "T10Y2Y": {
             "ok": true,
             "short": "t10y2y",
-            "rows": 12607,
-            "last": "2026-11-09"
+            "rows": 12608,
+            "last": "2026-11-10"
           },
           "DFII10": {
             "ok": true,
             "short": "dfii10",
-            "rows": 5967,
-            "last": "2026-11-06"
+            "rows": 5968,
+            "last": "2026-11-09"
           },
           "BAA10Y": {
             "ok": true,
             "short": "baa10y",
-            "rows": 10213,
-            "last": "2026-11-06"
+            "rows": 10214,
+            "last": "2026-11-09"
           },
           "BAMLH0A0HYM2": {
             "ok": true,
@@ -234,14 +234,14 @@
           "DFF": {
             "ok": true,
             "short": "fedfunds",
-            "rows": 26427,
-            "last": "2026-11-06"
+            "rows": 26430,
+            "last": "2026-11-09"
           },
           "RRPONTSYD": {
             "ok": true,
             "short": "rrp",
-            "rows": 3364,
-            "last": "2026-11-09"
+            "rows": 3365,
+            "last": "2026-11-10"
           }
         },
         "cot": {
@@ -263,7 +263,7 @@
             "dealer_positions_long_all"
           ]
         },
-        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-02-14  -0.065874  1.533367  ...                0     unknown\n2025-02-21  -0.056302  1.462942  ...                0     unknown\n2025-02-28   0.018820  1.419535  ...                0     unknown\n2025-03-07   0.001531  1.225340  ...                0     unknown\n2025-03-14   0.074710  1.100888  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n2026-10-30   0.066541  0.760194  ...                0     unknown\n2026-11-06  -0.022601  0.604019  ...                0     unknown\n2026-11-13   0.009738  0.625417  ...                0     unknown\n\n[92 rows x 8 columns]",
+        "panel": "            resid_ols  beta_XLU  ...  flow_proxy_flag phase_label\n2025-02-14  -0.065874  1.533365  ...                0     unknown\n2025-02-21  -0.056302  1.462940  ...                0     unknown\n2025-02-28   0.018820  1.419535  ...                0     unknown\n2025-03-07   0.001531  1.225339  ...                0     unknown\n2025-03-14   0.074711  1.100885  ...                0     unknown\n...               ...       ...  ...              ...         ...\n2026-10-16  -0.035313  1.004905  ...                0     unknown\n2026-10-23  -0.094909  0.666270  ...                0     unknown\n2026-10-30   0.066541  0.760194  ...                0     unknown\n2026-11-06  -0.022601  0.604019  ...                0     unknown\n2026-11-13   0.008115  0.636639  ...                0     unknown\n\n[92 rows x 8 columns]",
         "force4_fetched": false
       }
     },
@@ -272,7 +272,7 @@
       "ok": true,
       "result": {
         "rc": 0,
-        "tail": "s): {'ok': True, 'short': 'fedfunds', 'rows': 26427, 'last': '2026-11-06'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3364, 'last': '2026-11-09'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=['hy_oas', 'nfci']\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
+        "tail": "s): {'ok': True, 'short': 'fedfunds', 'rows': 26430, 'last': '2026-11-09'}\n[fred] RRPONTSYD (rrp): {'ok': True, 'short': 'rrp', 'rows': 3365, 'last': '2026-11-10'}\nwired_cache=15 refused=10 unwired/missing=5\nveto_ids=['hy_oas', 'nfci']\nwrote /home/runner/work/force-trading-system/force-trading-system/data/meta/leading_observables.json\nCANNOT_PROMOTE. Clocks veto; they do not time r_t. Capital $0.\n"
       }
     },
     {
@@ -319,7 +319,7 @@
       "step": "fs0001_vault",
       "ok": true,
       "result": {
-        "as_of": "2026-11-10T18:32:35Z",
+        "as_of": "2026-11-11T18:29:41Z",
         "force_id": "FS-0001",
         "role": "historical_evidence_vault",
         "t5_ready": false,
