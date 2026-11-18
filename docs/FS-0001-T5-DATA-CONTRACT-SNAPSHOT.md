@@ -1,6 +1,6 @@
 # FS-0001 T5 data-contract report
 
-as_of: 2026-11-17T19:42:08Z
+as_of: 2026-11-18T19:18:08Z
 status: **NO_RESULT**
 T5_READY: False
 PROSECUTOR_ALLOWED: False
