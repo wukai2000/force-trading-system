@@ -33,31 +33,31 @@
     },
     {
       "id": "baa10y",
-      "z": -0.9838,
-      "opposition": 0.9838,
+      "z": -0.6215,
+      "opposition": 0.6215,
       "veto_flag": false,
-      "last_date": "2026-11-18",
-      "n": 10220,
+      "last_date": "2026-11-19",
+      "n": 10221,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 2.0216,
-      "opposition": 2.0216,
+      "z": 1.9974,
+      "opposition": 1.9974,
       "veto_flag": false,
-      "last_date": "2026-11-18",
-      "n": 5974,
+      "last_date": "2026-11-19",
+      "n": 5975,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.5951,
+      "z": -1.5033,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-19",
-      "n": 12614,
+      "last_date": "2026-11-20",
+      "n": 12615,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -273,21 +273,21 @@
     },
     {
       "id": "fedfunds",
-      "z": 1.7261,
+      "z": 1.708,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-18",
-      "n": 26439,
+      "last_date": "2026-11-19",
+      "n": 26440,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
     {
       "id": "rrp",
-      "z": -0.3259,
+      "z": -0.3249,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-19",
-      "n": 3371,
+      "last_date": "2026-11-20",
+      "n": 3372,
       "status": "wired",
       "note": "Overnight RRP. Sign is regime-dependent. Diagnostic."
     },
@@ -329,20 +329,20 @@
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12614,
-      "last": "2026-11-19"
+      "rows": 12615,
+      "last": "2026-11-20"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5974,
-      "last": "2026-11-18"
+      "rows": 5975,
+      "last": "2026-11-19"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10220,
-      "last": "2026-11-18"
+      "rows": 10221,
+      "last": "2026-11-19"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
@@ -407,14 +407,14 @@
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26439,
-      "last": "2026-11-18"
+      "rows": 26440,
+      "last": "2026-11-19"
     },
     "RRPONTSYD": {
       "ok": true,
       "short": "rrp",
-      "rows": 3371,
-      "last": "2026-11-19"
+      "rows": 3372,
+      "last": "2026-11-20"
     }
   }
 }
