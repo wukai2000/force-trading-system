@@ -34,31 +34,31 @@
     },
     {
       "id": "baa10y",
-      "z": -0.3433,
-      "opposition": 0.3433,
+      "z": -0.1577,
+      "opposition": 0.1577,
       "veto_flag": false,
-      "last_date": "2026-11-23",
-      "n": 10223,
+      "last_date": "2026-11-24",
+      "n": 10224,
       "status": "wired",
       "note": "Moody's Baa minus 10y. Already L2."
     },
     {
       "id": "dfii10",
-      "z": 1.7023,
-      "opposition": 1.7023,
+      "z": 1.6852,
+      "opposition": 1.6852,
       "veto_flag": false,
-      "last_date": "2026-11-23",
-      "n": 5977,
+      "last_date": "2026-11-24",
+      "n": 5978,
       "status": "wired",
       "note": "10y TIPS. Sharp drop can veto a passing residual. Force-3 slot."
     },
     {
       "id": "t10y2y",
-      "z": -1.5517,
+      "z": -1.838,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-24",
-      "n": 12617,
+      "last_date": "2026-11-25",
+      "n": 12618,
       "status": "wired",
       "note": "Curve is L2 state. Not an auto-veto. Sign is hypothesis-specific."
     },
@@ -274,11 +274,11 @@
     },
     {
       "id": "fedfunds",
-      "z": 1.6395,
+      "z": 1.6232,
       "opposition": null,
       "veto_flag": false,
-      "last_date": "2026-11-23",
-      "n": 26444,
+      "last_date": "2026-11-24",
+      "n": 26445,
       "status": "wired",
       "note": "EFFR. Pair with SOFR for plumbing spread."
     },
@@ -330,20 +330,20 @@
     "T10Y2Y": {
       "ok": true,
       "short": "t10y2y",
-      "rows": 12617,
-      "last": "2026-11-24"
+      "rows": 12618,
+      "last": "2026-11-25"
     },
     "DFII10": {
       "ok": true,
       "short": "dfii10",
-      "rows": 5977,
-      "last": "2026-11-23"
+      "rows": 5978,
+      "last": "2026-11-24"
     },
     "BAA10Y": {
       "ok": true,
       "short": "baa10y",
-      "rows": 10223,
-      "last": "2026-11-23"
+      "rows": 10224,
+      "last": "2026-11-24"
     },
     "BAMLH0A0HYM2": {
       "ok": true,
@@ -408,8 +408,8 @@
     "DFF": {
       "ok": true,
       "short": "fedfunds",
-      "rows": 26444,
-      "last": "2026-11-23"
+      "rows": 26445,
+      "last": "2026-11-24"
     },
     "RRPONTSYD": {
       "ok": true,
